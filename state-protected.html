@@ -1,187 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>State Protected Monuments Page</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>State Protected Monuments Page</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
-        <!-- Top Government Header -->
-    <div class="top-header border-bottom">
-      <div class="container-fluid px-3">
-        <div class="row align-items-center gy-1">
-          <!-- Left -->
-          <div class="col-md-6 col-12 text-center text-md-start top-left">
-            <span class="support">
-              📞 Support:
-              <a href="tel:+914428190020" class="text-decoration-none">
-                (+9144) 28190020
-              </a>
-            </span>
-          </div>
+  <!-- Top Government Header -->
+  <div class="top-header border-bottom">
+    <div class="container-fluid px-3">
+      <div class="row align-items-center gy-1">
+        <!-- Left -->
+        <div class="col-md-6 col-12 text-center text-md-start top-left">
+          <span class="support">
+            📞 Support:
+            <a href="tel:+914428190020" class="text-decoration-none">
+              (+9144) 28190020
+            </a>
+          </span>
+        </div>
 
-          <!-- Right -->
-          <div
-            class="col-md-6 col-12 d-flex justify-content-center justify-content-md-end align-items-center flex-wrap gap-2 top-right"
-          >
-            <a href="#" class="top-link">Policy Note</a>
-            <span class="divider">|</span>
+        <!-- Right -->
+        <div
+          class="col-md-6 col-12 d-flex justify-content-center justify-content-md-end align-items-center flex-wrap gap-2 top-right">
+          <a href="#" class="top-link">Policy Note</a>
+          <span class="divider">|</span>
 
-            <a href="#" class="top-link">Screen Reader Access</a>
-            <span class="divider">|</span>
+          <a href="#" class="top-link">Screen Reader Access</a>
+          <span class="divider">|</span>
 
-            <a href="#navList" class="top-link">Skip Navigation</a>
-            <span class="divider">|</span>
+          <a href="#navList" class="top-link">Skip Navigation</a>
+          <span class="divider">|</span>
 
-            <!-- Font Controls -->
-            <div class="btn-group font-controls" role="group">
-              <button
-                id="font-decrease"
-                class="btn btn-outline-secondary btn-sm"
-              >
-                A-
-              </button>
-              <button id="font-normal" class="btn btn-outline-secondary btn-sm">
-                A
-              </button>
-              <button
-                id="font-increase"
-                class="btn btn-outline-secondary btn-sm"
-              >
-                A+
-              </button>
-            </div>
-
-            <span class="divider">|</span>
-
-            <!-- Language Toggle -->
-            <button
-              id="langToggleBtn"
-              class="btn btn-outline-secondary btn-sm lang-toggle-btn"
-            >
-              ଓଡ଼ିଆ
+          <!-- Font Controls -->
+          <div class="btn-group font-controls" role="group">
+            <button id="font-decrease" class="btn btn-outline-secondary btn-sm">
+              A-
+            </button>
+            <button id="font-normal" class="btn btn-outline-secondary btn-sm">
+              A
+            </button>
+            <button id="font-increase" class="btn btn-outline-secondary btn-sm">
+              A+
             </button>
           </div>
+
+          <span class="divider">|</span>
+
+          <!-- Language Toggle -->
+          <button id="langToggleBtn" class="btn btn-outline-secondary btn-sm lang-toggle-btn">
+            ଓଡ଼ିଆ
+          </button>
         </div>
       </div>
     </div>
-        <!-- midnavbar -->
-     <div class="mid-navbar">
-  <div class="mid-container">
-    <!-- LEFT LOGOS -->
-    <div class="mid-logos">
-      <img src="assets/logo/culturedept.jpg" alt="Archaeology" />
-      <img src="assets/logo/culturedept.jpg" alt="ASI" />
-      <img src="assets/logo/odisha_govt.png" alt="Govt of Odisha" />
-    </div>
+  </div>
+  <!-- midnavbar -->
+  <div class="mid-navbar">
+    <div class="mid-container">
+      <!-- LEFT LOGOS -->
+      <div class="mid-logos">
+        <img src="assets/logo/culturedept.jpg" alt="Archaeology" />
+        <img src="assets/logo/culturedept.jpg" alt="ASI" />
+        <img src="assets/logo/odisha_govt.png" alt="Govt of Odisha" />
+      </div>
 
-    <!-- CENTER TEXT -->
-    <div class="mid-title">
-      <h2>Odisha State <b>Archaeology</b></h2>
-      <h3><b>Odia Language, Literature & Culture Department</b></h2>
-      <h3><b>Government of Odisha</b></h3>
-    </div>
+      <!-- CENTER TEXT -->
+      <div class="mid-title">
+        <h2>Odisha State <b>Archaeology</b></h2>
+        <h3><b>Odia Language, Literature & Culture Department</b></h2>
+          <h3><b>Government of Odisha</b></h3>
+      </div>
 
-    <!-- RIGHT CONTROLS -->
-    <div class="mid-actions">
-      <!-- Virtual Tour -->
-      <button class="virtual-btn" onclick="openVirtualTour()">
-        <img src="assets/player-image.png" alt="Player Image" class="virtual-btn-triangle">Virtual Tour
-      </button>
-      <!-- <button class="virtual-btn" onclick="openVirtualTour()">
+      <!-- RIGHT CONTROLS -->
+      <div class="mid-actions">
+        <!-- Virtual Tour -->
+        <button class="virtual-btn" onclick="openVirtualTour()">
+          <img src="assets/player-image.png" alt="Player Image" class="virtual-btn-triangle">Virtual Tour
+        </button>
+        <!-- <button class="virtual-btn" onclick="openVirtualTour()">
         <span class="virtual-btn-triangle"><i class="fa-solid fa-play-circle"></i></span>Virtual Tour
       </button> -->
-      <!-- Virtual Tour Modal -->
-      <div id="virtualModal" class="virtual-modal">
-        <div class="virtual-content">
-          <button
-            class="close"
-            onclick="closeVirtualTour()"
-            title="Close Virtual Tour"
-          >✕</button>
-          <video controls id="virtualTourVideo">
-            <source
-              src="assets/virtual-tour/Video_Generation_for_Ecosystem.mp4"
-              type="video/mp4"
-            />
-            Your browser does not support video.
-          </video>
+        <!-- Virtual Tour Modal -->
+        <div id="virtualModal" class="virtual-modal">
+          <div class="virtual-content">
+            <button class="close" onclick="closeVirtualTour()" title="Close Virtual Tour">✕</button>
+            <video controls id="virtualTourVideo">
+              <source src="assets/virtual-tour/Video_Generation_for_Ecosystem.mp4" type="video/mp4" />
+              Your browser does not support video.
+            </video>
+          </div>
+        </div>
+
+        <!-- Search -->
+        <!-- Search -->
+        <div class="search-box">
+          <input type="text" placeholder="Search" />
+          <button class="search-btn"><i class="fa fa-search"></i></button>
+        </div>
+
+        <!-- Mobile Icons -->
+        <div class="mobile-icons">
+          <button class="search-icon"><i class="fa fa-search"></i></button>
+          <button class="menu-icon" id="menuToggle" onclick="toggleMenu()">
+            ☰
+          </button>
+          <button class="close-icon" id="closeMenuBtn" onclick="toggleMenu()">
+            ✕
+          </button>
         </div>
       </div>
-
-      <!-- Search -->
-      <!-- Search -->
-      <div class="search-box">
-        <input type="text" placeholder="Search" />
-        <button class="search-btn"><i class="fa fa-search"></i></button>
-      </div>
-
-      <!-- Mobile Icons -->
-      <div class="mobile-icons">
-        <button class="search-icon"><i class="fa fa-search"></i></button>
-        <button class="menu-icon" id="menuToggle" onclick="toggleMenu()">
-          ☰
-        </button>
-        <button class="close-icon" id="closeMenuBtn" onclick="toggleMenu()">
-          ✕
-        </button>
+      <div class="mid-logos">
+        <img src="assets/logo/odisha_govt.png" alt="Govt of Odisha logo" />
       </div>
     </div>
-   <div class="mid-logos"> 
-      <img src="assets/logo/odisha_govt.png" alt="Govt of Odisha logo" />
+  </div>
+  <div class="mid-navbar">
+    <!-- Notification Bar -->
+    <div class="notification-bar">
+      <div class="notification-text">
+        RESULTS FOR THE PG DIPLOMA COURSES (2025–2026 & 2025–2027)
+      </div>
     </div>
   </div>
-</div>
-<div class="mid-navbar">
-  <!-- Notification Bar -->
-  <div class="notification-bar">
-    <div class="notification-text">
-      RESULTS FOR THE PG DIPLOMA COURSES (2025–2026 & 2025–2027)
+
+  <!-- Virtual Tour Modal -->
+  <div id="virtualModal" class="virtual-modal">
+    <div class="virtual-content">
+      <button class="close" onclick="closeVirtualTour()" title="Close Virtual Tour">
+        ✕
+      </button>
+      <video controls autoplay>
+        <source src="assets/virtual-tour/Video_Generation_for_Ecosystem.mp4" type="video/mp4" />
+        Your browser does not support video.
+      </video>
     </div>
   </div>
-</div>
 
-<!-- Virtual Tour Modal -->
-<div id="virtualModal" class="virtual-modal">
-  <div class="virtual-content">
-    <button
-      class="close"
-      onclick="closeVirtualTour()"
-      title="Close Virtual Tour"
-    >
-      ✕
-    </button>
-    <video controls autoplay>
-      <source
-        src="assets/virtual-tour/Video_Generation_for_Ecosystem.mp4"
-        type="video/mp4"
-      />
-      Your browser does not support video.
-    </video>
-  </div>
-</div>
-
-<nav class="main-navbar" id="navbar">
+  <nav class="main-navbar" id="navbar">
     <div class="container">
       <ul class="nav-list" id="navList">
         <li class="home-icon">
-          <a href="index.html" ><i class="fa fa-home"></i></a>
+          <a href="index.html"><i class="fa fa-home"></i></a>
         </li>
 
         <li class="dropdown">
           <a href="#">ABOUT US</a>
-            <ul class="dropdown-menu">
+          <ul class="dropdown-menu">
             <li><a href="AbouSection.html">ABOUT ODISHA STATE ARCHAEOLOGY</a></li>
             <li><a href="staffing-pattern.html">STAFFING PATTERN</a></li>
           </ul>
@@ -211,138 +183,133 @@
         <li><a href="contact-us.html">CONTACT US</a></li>
       </ul>
     </div>
-</nav>
+  </nav>
 
 
-<!-- state-protected -->
- <section id="state-protected" class="state-protected-section">
+  <!-- state-protected -->
+  <section id="state-protected" class="state-protected-section">
 
-  <!-- Breadcrumb -->
-  <div class="breadcrumb-bar">
-    <div class="container">
-      <nav class="breadcrumb">
-        <a href="index.html">Home</a>
-        <span class="breadcrumb-separator">&gt;&gt;</span>
-        <a href="monuments.html">>Monuments
-        </a>
-        <span class="breadcrumb-separator">&gt;&gt;</span>
-        <span class="breadcrumb-item active">State Protected Monuments</span>
-      </nav>
-    </div>
-  </div>
-
-  <!-- Heading -->
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="state-protected-heading">
-          <h2 class="state-protected-section-title">
-            STATE PROTECTED MONUMENTS
-          </h2>
-          <div class="state-protected-section-divider"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Table -->
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-
-        <div class="table-responsive state-protected-table-container">
-          <table class="table table-bordered table-hover monuments-table mb-0">
-            <thead>
-              <tr>
-                <th>Sl. No.</th>
-                <th>District</th>
-                <th>Monument Name</th>
-                <th>Location</th>
-                <th>Period</th>
-                <th>Remarks</th>
-              </tr>
-            </thead>
-
-            <tbody id="monumentsTableBody">
-              <tr>
-                <td>1</td>
-                <td>Jajpur</td>
-                <td>Biraja Khetra</td>
-                <td>Jajpur Town</td>
-                <td>13 century</td>
-                <td>State Protected</td>    
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Anugul</td>
-                <td>Jiminia Hillock</td>
-                <td>Sankarjanga</td>
-                <td>Prehistoric</td>
-                <td>State Protected</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Balesore</td>
-                <td>Brahmani Temple</td>
-                <td>Avana</td>
-                <td>10th-11th C.A.D</td>
-                <td>State Protected</td>
-              </tr>
-
-              <tr>
-                <td colspan="6" class="loading-message">
-                  Loading monuments data...
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-</section>
-
-
-    <!-- footer -->
-<footer class="footer-section">
-  <div class="container">
-    <div class="row text-center flex-column align-items-center gy-3">
-
-
-      <!-- Footer Links -->
-      <div class="col-12 col-md-4">
-        <div class="footer-links d-flex flex-wrap justify-content-center">
-          <a href="#" class="footer-link">Website Policy</a>
-          <span class="link-separator d-none d-md-inline">|</span>
-          <a href="#" class="footer-link">Disclaimer</a>
-          <span class="link-separator d-none d-md-inline">|</span>
-          <a href="#" class="footer-link">Terms & Conditions</a>
-        </div>
-      </div>
-
-      <!-- License Info -->
-      <div class="col-12 col-md-5">
-        <p class="license-text mb-0">
-          The Content of this website is licensed under
-          <a href="#" class="license-link">
-            Creative Commons Attribution 4.0 International License
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-bar">
+      <div class="container">
+        <nav class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-separator">&gt;&gt;</span>
+          <a href="monuments.html">Monuments
           </a>
-        </p>
+          <span class="breadcrumb-separator">&gt;&gt;</span>
+          <span class="breadcrumb-item active">State Protected Monuments</span>
+        </nav>
       </div>
-
-      <!-- Visitor Counter -->
-      <div class="col-12 col-md-3">
-        <p class="visitor-text mb-0">
-          Total Visitors:
-          <span class="visitor-count">825</span>
-        </p>
-      </div>
-
     </div>
-  </div>
-</footer>
+
+    <!-- Heading -->
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="state-protected-heading">
+            <h2 class="state-protected-section-title">
+              STATE PROTECTED MONUMENTS
+            </h2>
+            <div class="state-protected-section-divider"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+
+          <div class="table-responsive state-protected-table-container">
+            <table class="table table-bordered table-hover monuments-table mb-0">
+              <thead>
+                <tr>
+                  <th>Sl. No.</th>
+                  <th>District</th>
+                  <th>Monument Name</th>
+                  <th>Location</th>
+                  <th>Period</th>
+                  <th>Remarks</th>
+                </tr>
+              </thead>
+
+              <tbody id="monumentsTableBody">
+                <tr data-manual="true">
+                  <td>1</td>
+                  <td>Jajpur</td>
+                  <td>Biraja Khetra</td>
+                  <td>Jajpur Town</td>
+                  <td>13 century</td>
+                  <td>State Protected</td>
+                </tr>
+                <tr data-manual="true">
+                  <td>2</td>
+                  <td>Anugul</td>
+                  <td>Jiminia Hillock</td>
+                  <td>Sankarjanga</td>
+                  <td>Prehistoric</td>
+                  <td>State Protected</td>
+                </tr>
+                <tr data-manual="true">
+                  <td>3</td>
+                  <td>Balesore</td>
+                  <td>Brahmani Temple</td>
+                  <td>Avana</td>
+                  <td>10th-11th C.A.D</td>
+                  <td>State Protected</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- footer -->
+  <footer class="footer-section">
+    <div class="container">
+      <div class="row text-center flex-column align-items-center gy-3">
+
+
+        <!-- Footer Links -->
+        <div class="col-12 col-md-4">
+          <div class="footer-links d-flex flex-wrap justify-content-center">
+            <a href="#" class="footer-link">Website Policy</a>
+            <span class="link-separator d-none d-md-inline">|</span>
+            <a href="#" class="footer-link">Disclaimer</a>
+            <span class="link-separator d-none d-md-inline">|</span>
+            <a href="#" class="footer-link">Terms & Conditions</a>
+          </div>
+        </div>
+
+        <!-- License Info -->
+        <div class="col-12 col-md-5">
+          <p class="license-text mb-0">
+            The Content of this website is licensed under
+            <a href="#" class="license-link">
+              Creative Commons Attribution 4.0 International License
+            </a>
+          </p>
+        </div>
+
+        <!-- Visitor Counter -->
+        <div class="col-12 col-md-3">
+          <p class="visitor-text mb-0">
+            Total Visitors:
+            <span class="visitor-count">825</span>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </footer>
 </body>
 <script src="js/main.js"></script>
+
 </html>

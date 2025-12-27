@@ -1,81 +1,4 @@
-// ================= UTILITY FUNCTIONS =================
-
-// // Go to home page
-// function goHome() {
-//   // Hide all sections
-//   hideAllSections();
-
-//   // Show home sections
-//   const heroSection = document.getElementById("hero");
-//   const newsAboutSection = document.getElementById("news-about");
-//   const monumentsContainer = document.getElementById("monuments-container");
-//   const activitiesSection = document.getElementById("activities-notice-links");
-//   const gallerySection = document.getElementById("gallery");
-//   const footerSection = document.getElementById("footer");
-
-//   if (heroSection) heroSection.style.display = "block";
-//   if (newsAboutSection) newsAboutSection.style.display = "block";
-//   if (monumentsContainer) monumentsContainer.style.display = "block";
-//   if (activitiesSection) activitiesSection.style.display = "block";
-//   if (gallerySection) gallerySection.style.display = "block";
-//   if (footerSection) footerSection.style.display = "block";
-
-//   // Scroll to top
-//   window.scrollTo({ top: 0, behavior: "smooth" });
-// }
-
-// Hide all sections
-// function hideAllSections() {
-//   const sections = [
-//     'hero', 'news-about', 'monuments-container', 'monuments-central',
-//     'state-protected', 'unprotected', 'archaeology-library', 'library-detail',
-//     'books-journals', 'activities-notice-links', 'gallery', 'about-detail',
-//     'staffing-pattern', 'news-page', 'contact-us', 'act-rules', 'rti'
-//   ];
-
-//   sections.forEach(id => {
-//     const element = document.getElementById(id);
-//     if (element) {
-//       element.style.display = "none";
-//       element.classList.remove("active");
-//     }
-//   });
-
-//   const monumentSection = document.querySelector(".monuments-section");
-//   if (monumentSection) monumentSection.style.display = "none";
-
-//   const galleryBreadcrumb = document.getElementById("gallery-breadcrumb");
-//   if (galleryBreadcrumb) galleryBreadcrumb.style.display = "none";
-// }
-
-// Get total navbar offset
-// function getTotalNavbarOffset() {
-//   const navbar = document.querySelector(".main-navbar");
-//   const header = document.getElementById("header");
-//   const midNavbar = document.getElementById("mid-navbar");
-
-//   return (navbar?.offsetHeight || 0) +
-//          (header?.offsetHeight || 0) +
-//          (midNavbar?.offsetHeight || 0);
-// }
-
-// Scroll to section with offset
-// function scrollToSection(element, delay = 100) {
-//   setTimeout(() => {
-//     if (element) {
-//       const totalOffset = getTotalNavbarOffset();
-//       const elementPosition = element.getBoundingClientRect().top + window.pageYOffset - totalOffset;
-
-//       window.scrollTo({
-//         top: elementPosition,
-//         behavior: "smooth",
-//       });
-//     }
-//   }, delay);
-// }
-
 // ================= MOBILE MENU =================
-
 // Toggle mobile menu
 function toggleMenu() {
   const navList = document.getElementById("navList");
@@ -134,250 +57,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-
-// ================= PAGE NAVIGATION FUNCTIONS =================
-
-// Show Gallery page
-// window.showGalleryPage = function () {
-//   if (typeof window.closeDetailPage === "function") {
-//     window.closeDetailPage();
-//   }
-
-//   hideAllSections();
-
-//   const gallerySection = document.getElementById("gallery");
-//   const footerSection = document.getElementById("footer");
-//   const galleryBreadcrumb = document.getElementById("gallery-breadcrumb");
-
-//   if (galleryBreadcrumb) galleryBreadcrumb.style.display = "block";
-//   if (gallerySection) gallerySection.style.display = "block";
-//   if (footerSection) footerSection.style.display = "block";
-
-//   scrollToSection(gallerySection);
-// };
-
-// Show About page
-// window.showAboutPage = function () {
-//   if (typeof window.closeDetailPage === "function") {
-//     window.closeDetailPage();
-//   }
-
-//   hideAllSections();
-
-//   const aboutDetailSection = document.getElementById("about-detail");
-//   const footerSection = document.getElementById("footer");
-
-//   if (aboutDetailSection) {
-//     aboutDetailSection.style.display = "block";
-//     aboutDetailSection.classList.add("active");
-//   }
-//   if (footerSection) footerSection.style.display = "block";
-
-//   scrollToSection(aboutDetailSection);
-// };
-
-// Show Staffing Pattern page
-// window.showStaffingPatternPage = function () {
-//   hideAllSections();
-
-//   const staffingPatternSection = document.getElementById("staffing-pattern");
-//   const footerSection = document.getElementById("footer");
-
-//   if (staffingPatternSection) {
-//     staffingPatternSection.style.display = "block";
-//     staffingPatternSection.classList.add("active");
-//   }
-//   if (footerSection) footerSection.style.display = "block";
-
-//   scrollToSection(staffingPatternSection);
-// };
-
-// Show News page
-// window.showNewsPage = function () {
-//   hideAllSections();
-
-//   const newsPageSection = document.getElementById("news-page");
-//   const footerSection = document.getElementById("footer");
-
-//   if (newsPageSection) {
-//     newsPageSection.style.display = "block";
-//     newsPageSection.classList.add("active");
-//   }
-//   if (footerSection) footerSection.style.display = "block";
-
-//   scrollToSection(newsPageSection);
-// };
-
-// Show Contact Us page
-// window.showContactUsPage = function () {
-//   if (typeof window.closeDetailPage === "function") {
-//     window.closeDetailPage();
-//   }
-
-//   hideAllSections();
-
-//   const contactUsSection = document.getElementById("contact-us");
-//   const footerSection = document.getElementById("footer");
-
-//   if (contactUsSection) contactUsSection.style.display = "block";
-//   if (footerSection) footerSection.style.display = "block";
-
-//   scrollToSection(contactUsSection);
-// };
-
-// Show Act & Rules page
-// window.showActRulesPage = function () {
-//   if (typeof window.closeDetailPage === "function") {
-//     window.closeDetailPage();
-//   }
-
-//   hideAllSections();
-
-//   const actRulesSection = document.getElementById("act-rules");
-//   const footerSection = document.getElementById("footer");
-
-//   if (actRulesSection) actRulesSection.style.display = "block";
-//   if (footerSection) footerSection.style.display = "block";
-
-//   scrollToSection(actRulesSection);
-// };
-
-// Show RTI page
-// window.showRTIPage = function () {
-//   if (typeof window.closeDetailPage === "function") {
-//     window.closeDetailPage();
-//   }
-
-//   hideAllSections();
-
-//   const rtiSection = document.getElementById("rti");
-//   const footerSection = document.getElementById("footer");
-
-//   if (rtiSection) rtiSection.style.display = "block";
-//   if (footerSection) footerSection.style.display = "block";
-
-//   scrollToSection(rtiSection);
-// };
-
-// Show Monuments page
-// window.showMonumentsPage = function () {
-//   if (typeof window.closeDetailPage === "function") {
-//     window.closeDetailPage();
-//   }
-
-//   hideAllSections();
-
-//   const monumentSection = document.querySelector(".monuments-section");
-//   const footerSection = document.getElementById("footer");
-
-//   if (monumentSection) monumentSection.style.display = "block";
-//   if (footerSection) footerSection.style.display = "block";
-
-//   scrollToSection(monumentSection);
-// };
-
-// Show Central Protected Monuments page
-// window.showMonumentsCentralPage = function () {
-//   if (typeof window.closeDetailPage === "function") {
-//     window.closeDetailPage();
-//   }
-
-//   hideAllSections();
-
-//   const monumentsCentralSection = document.getElementById("monuments-central");
-//   const footerSection = document.getElementById("footer");
-
-//   if (monumentsCentralSection) monumentsCentralSection.style.display = "block";
-//   if (footerSection) footerSection.style.display = "block";
-
-//   scrollToSection(monumentsCentralSection);
-// };
-
-// Show State Protected Monuments page
-// window.showStateMonumentsPage = function () {
-//   if (typeof window.closeDetailPage === "function") {
-//     window.closeDetailPage();
-//   }
-
-//   hideAllSections();
-
-//   const stateProtectedSection = document.getElementById("state-protected");
-//   const footerSection = document.getElementById("footer");
-
-//   if (stateProtectedSection) stateProtectedSection.style.display = "block";
-//   if (footerSection) footerSection.style.display = "block";
-
-//   scrollToSection(stateProtectedSection);
-// };
-
-// Show Unprotected Monuments page
-// window.showUnprotectedMonumentsPage = function () {
-//   if (typeof window.closeDetailPage === "function") {
-//     window.closeDetailPage();
-//   }
-
-//   hideAllSections();
-
-//   const unprotectedSection = document.getElementById("unprotected");
-//   const footerSection = document.getElementById("footer");
-
-//   if (unprotectedSection) unprotectedSection.style.display = "block";
-//   if (footerSection) footerSection.style.display = "block";
-
-//   scrollToSection(unprotectedSection);
-// };
-
-// Show Archaeology Library page
-// window.showArchaeologyLibraryPage = function () {
-//   if (typeof window.closeDetailPage === "function") {
-//     window.closeDetailPage();
-//   }
-
-//   hideAllSections();
-
-//   const archaeologyLibrarySection = document.getElementById("archaeology-library");
-//   const footerSection = document.getElementById("footer");
-
-//   if (archaeologyLibrarySection) archaeologyLibrarySection.style.display = "block";
-//   if (footerSection) footerSection.style.display = "block";
-
-//   scrollToSection(archaeologyLibrarySection);
-// };
-
-// Show Library Detail page
-// window.showLibraryDetailPage = function () {
-//   if (typeof window.closeDetailPage === "function") {
-//     window.closeDetailPage();
-//   }
-
-//   hideAllSections();
-
-//   const libraryDetailSection = document.getElementById("library-detail");
-//   const footerSection = document.getElementById("footer");
-
-//   if (libraryDetailSection) libraryDetailSection.style.display = "block";
-//   if (footerSection) footerSection.style.display = "block";
-
-//   scrollToSection(libraryDetailSection);
-// };
-
-// Show Books & Journals page
-// window.showBooksJournalsPage = function () {
-//   if (typeof window.closeDetailPage === "function") {
-//     window.closeDetailPage();
-//   }
-
-//   hideAllSections();
-
-//   const booksJournalsSection = document.getElementById("books-journals");
-//   const footerSection = document.getElementById("footer");
-
-//   if (booksJournalsSection) booksJournalsSection.style.display = "block";
-//   if (footerSection) footerSection.style.display = "block";
-
-//   scrollToSection(booksJournalsSection);
-// };
-
 // ================= PDF VIEWER =================
 
 function closePDFViewer() {
@@ -457,8 +136,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// ================= ADD YOUR OTHER JS FILES CONTENT BELOW =================
-// Copy content from:
+// ================= JS FILES CONTENT BELOW =================
+
 // - header.js
 function initTopBarLanguageToggle() {
   const langBtn = document.getElementById("langToggleBtn");
@@ -640,24 +319,6 @@ document.addEventListener("DOMContentLoaded", () => {
 // - news-about.js
 let currentNewsIndex = 0;
 let autoSlideInterval;
-
-// const newsItems = [
-//   {
-//     title: "Preservation of Jagannath Temple Complex - A Living Monument",
-//     text: "The Jagannath Temple in Puri is one of Odisha's most sacred and architecturally significant monuments. The Department of Archaeology continues its dedicated efforts to preserve this 12th-century masterpiece.",
-//     image: "assets/news/Vallam-min_1.jpg",
-//   },
-//   {
-//     title: "Konark Sun Temple - Architectural Marvel of Odisha",
-//     text: "The Sun Temple at Konark is a UNESCO World Heritage Site and represents the pinnacle of Odishan medieval architecture.",
-//     image: "assets/news/Vallam-min_2.jpg",
-//   },
-//   {
-//     title: "Recent Archaeological Excavations Unveil Ancient Odisha",
-//     text: "Recent excavations across Odisha have revealed pottery, coins, and remains highlighting Odisha’s ancient civilization.",
-//     image: "assets/news/Vallam-min_3.jpg",
-//   },
-// ];
 
 // ==============================
 // UPDATE SLIDE (FADE + SLIDE)
@@ -894,18 +555,6 @@ window.showMonumentsPage = function () {
 };
 
 // - monuments-central.js
-/* ===== MONUMENT IMAGE VIEWER ===== */
-
-// const monumentImages = [
-//   "assets/central-monuments/img_1.jpg",
-//   "assets/central-monuments/img_2.jpg",
-//   "assets/central-monuments/img_3.jpg",
-//   "assets/central-monuments/img_4.jpg",
-//   "assets/central-monuments/img_5.jpg",
-//   "assets/central-monuments/img_6.jpg",
-//   "assets/central-monuments/img_7.jpg",
-//   "assets/central-monuments/img_8.jpg",
-// ];
 
 let currentIndex = 0;
 
@@ -946,50 +595,116 @@ window.showMonumentsCentralPage = function () {
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
+
 // - state-protected.js
+// Wait for both DOM and XLSX to be ready
 document.addEventListener("DOMContentLoaded", () => {
+  // Wait a bit to ensure XLSX is loaded
+  setTimeout(initializeMonumentsTable, 100);
+});
+
+function initializeMonumentsTable() {
   const tableBody = document.getElementById("monumentsTableBody");
-  if (!tableBody) return;
+  if (!tableBody) {
+    console.error("Table body not found!");
+    return;
+  }
 
   let allMonuments = [];
   let displayedCount = 20;
   const incrementCount = 20;
 
+  // // First, preserve any existing manual data
+  function extractManualData() {
+    const existingRows = tableBody.querySelectorAll("tr:not(.loading-message)");
+    const manualData = [];
+    
+    existingRows.forEach((row, index) => {
+      const cells = row.querySelectorAll("td");
+      if (cells.length >= 6) {
+        manualData.push({
+          sl: index+4 ,
+          district: cells[1].textContent.trim(),
+          name: cells[2].textContent.trim(),
+          location: cells[3].textContent.trim(),
+          period: cells[4].textContent.trim(),
+          remarks: cells[5].textContent.trim()
+        });
+      }
+    });
+    
+    return manualData;
+  }
+
   async function loadMonumentsData() {
     try {
-      const response = await fetch(
-        "assets/state-monuments/state_protected_monuments.xlsx"
-      );
+      // First, get any existing manual data
+      const manualData = extractManualData();
+      
+      // Try to load Excel data
+      const response = await fetch("assets/state-protected/state_protected_monuments.xlsx");
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
       const buffer = await response.arrayBuffer();
 
+      // Check if XLSX is loaded
+      if (typeof XLSX === 'undefined') {
+        console.error("XLSX library not loaded!");
+        useManualDataOnly(manualData);
+        return;
+      }
+
       const workbook = XLSX.read(buffer, { type: "array" });
-      const sheet = workbook.Sheets[workbook.SheetNames[0]];
+      const sheetName = workbook.SheetNames[0];
+      const sheet = workbook.Sheets[sheetName];
       const data = XLSX.utils.sheet_to_json(sheet);
 
-      allMonuments = data.map((row, index) => ({
-        sl: index + 1,
-        district: row["District"] || "",
-        name: row["Monument Name"] || "",
-        location: row["Location"] || "",
-        period: row["Period"] || "",
-        remarks: row["Remarks"] || "State Protected",
-      }));
+      // Combine manual data with Excel data
+      allMonuments = [
+        ...manualData,
+        ...data.map((row, index) => ({
+          sl: manualData.length + index + 1,
+          district: row["District"] || "",
+          name: row["Monument Name"] || "",
+          location: row["Location"] || "",
+          period: row["Period"] || "",
+          remarks: row["Remarks"] || "State Protected",
+        }))
+      ];
 
       renderMonuments();
     } catch (err) {
-      console.error(err);
-      tableBody.innerHTML = `
-        <tr>
-          <td colspan="6" class="loading-message">
-            Failed to load monuments data.
-          </td>
-        </tr>
-      `;
+      console.error("Error loading monuments:", err);
+      // Fallback to manual data only
+      const manualData = extractManualData();
+      allMonuments = manualData;
+      renderMonuments();
     }
   }
 
+  function useManualDataOnly(manualData) {
+    allMonuments = manualData;
+    renderMonuments();
+  }
+
   function renderMonuments() {
-    tableBody.innerHTML = "";
+    // Clear loading message if exists
+    const loadingRow = tableBody.querySelector(".loading-message");
+    if (loadingRow) {
+      loadingRow.closest("tr").remove();
+    }
+
+    // Clear any existing non-manual rows
+    const existingRows = tableBody.querySelectorAll("tr");
+    if (existingRows.length > 0) {
+      // Keep first 3 manual rows if they exist
+      for (let i = existingRows.length - 1; i >= 3; i--) {
+        existingRows[i].remove();
+      }
+    }
 
     const slice = allMonuments.slice(0, displayedCount);
 
@@ -1007,6 +722,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     if (displayedCount < allMonuments.length) {
+      // Remove existing view more row if exists
+      const existingViewMore = tableBody.querySelector(".view-more-row");
+      if (existingViewMore) {
+        existingViewMore.remove();
+      }
+
       const row = document.createElement("tr");
       row.className = "view-more-row";
       row.innerHTML = `
@@ -1015,7 +736,7 @@ document.addEventListener("DOMContentLoaded", () => {
             View More
           </button>
           <span class="monuments-count">
-            Showing ${displayedCount} of ${allMonuments.length}
+            Showing ${Math.min(displayedCount, allMonuments.length)} of ${allMonuments.length}
           </span>
         </td>
       `;
@@ -1029,14 +750,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   loadMonumentsData();
-});
+}
+
 
 // - unprotected-monuments.js
 document.addEventListener("DOMContentLoaded", () => {
-  // No dynamic content needed for now
-  // This file is ready for future functionality
   console.log("Unprotected Monuments page loaded");
 });
+
+
 // - archaeology-library.js
 document.addEventListener("DOMContentLoaded", () => {
   const sliderTrack = document.getElementById("archSliderTrack");
@@ -1234,242 +956,155 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   // Books & Journals page initialization
   console.log("Books & Journals page loaded");
-
-  // You can add any interactive functionality here if needed in the future
-  // For now, this page is static content only
 });
+
 // - gallery.js
-/* ===============================
-   GALLERY INITIALIZATION
-================================ */
-
-/* ===============================
-   GALLERY INITIALIZATION
-================================ */
-
-window.initGallery = function (isGalleryPage = false) {
-  const photoTab = document.getElementById("photoTab");
-  const videoTab = document.getElementById("videoTab");
-  
-  const photoGallery = document.getElementById("photoGallery");
-  const videoGallery = document.getElementById("videoGallery");
-  
-  const galleryItems = document.getElementById("galleryItems");
-  
-  const photoViewMore = document.getElementById("photoViewMore");
-  const photoViewLess = document.getElementById("photoViewLess");
-  
-  const videoViewMore = document.getElementById("videoViewMore");
-  const videoViewLess = document.getElementById("videoViewLess");
-  
-  const extraVideos = document.querySelectorAll(".extra-video");
-
-  /* ================= PHOTO DATA ================= */
-  const photoData = [
-    { src: "assets/gallery/gallery_1.jpg", cap: "Ancient Temple" },
-    { src: "assets/gallery/gallery_2.jpg", cap: "Architecture" },
-    { src: "assets/gallery/gallery_3.jpg", cap: "Painting" },
-    { src: "assets/gallery/gallery_4.jpg", cap: "Historic Site" },
-    { src: "assets/gallery/gallery_5.jpeg", cap: "Cultural Heritage" },
-    { src: "assets/gallery/gallery_1.jpg", cap: "Monument" },
-    { src: "assets/gallery/gallery_2.jpg", cap: "Sculpture" },
-    { src: "assets/gallery/gallery_3.jpg", cap: "Artifact" },
-  ];
-
-  /* ================= RENDER FUNCTIONS ================= */
-  function renderPhotos(limit) {
-    if (!galleryItems) return;
-    
-    galleryItems.innerHTML = "";
-    photoData.slice(0, limit).forEach((item) => {
-      galleryItems.innerHTML += `
-        <div class="col-12 col-sm-6 col-lg-3">
-          <div class="gallery-item">
-            <img src="${item.src}" class="img-fluid">
-            <div class="gallery-caption">${item.cap}</div>
-          </div>
-        </div>`;
-    });
-  }
-
-  function showPreviewPhotos() {
-    renderPhotos(4);
-    if (photoViewMore) photoViewMore.classList.remove("d-none");
-    if (photoViewLess) photoViewLess.classList.add("d-none");
-  }
-
-  function showAllPhotos() {
-    renderPhotos(photoData.length);
-    if (photoViewMore) photoViewMore.classList.add("d-none");
-    if (photoViewLess) photoViewLess.classList.remove("d-none");
-  }
-
-  /* ================= INITIAL STATE ================= */
-  // If we're on the Gallery page, show all photos by default
-  if (isGalleryPage) {
-    renderPhotos(photoData.length);
-    if (photoViewMore) photoViewMore.classList.add("d-none");
-    if (photoViewLess) photoViewLess.classList.remove("d-none");
-  } else {
-    showPreviewPhotos();
-  }
-
-  if (photoGallery) photoGallery.classList.remove("d-none");
-  if (videoGallery) videoGallery.classList.add("d-none");
-
-  /* ================= TAB SWITCH ================= */
-  if (photoTab) {
-    photoTab.onclick = () => {
-      photoTab.classList.add("active");
-      if (videoTab) videoTab.classList.remove("active");
-
-      if (photoGallery) photoGallery.classList.remove("d-none");
-      if (videoGallery) videoGallery.classList.add("d-none");
-
-      if (isGalleryPage) {
-        showAllPhotos();
-      } else {
-        showPreviewPhotos();
-      }
-    };
-  }
-
-  if (videoTab) {
-    videoTab.onclick = () => {
-      videoTab.classList.add("active");
-      if (photoTab) photoTab.classList.remove("active");
-
-      if (videoGallery) videoGallery.classList.remove("d-none");
-      if (photoGallery) photoGallery.classList.add("d-none");
-
-      if (extraVideos) {
-        extraVideos.forEach((v) => v.classList.add("d-none"));
-      }
-      
-      if (videoViewMore) videoViewMore.classList.remove("d-none");
-      if (videoViewLess) videoViewLess.classList.add("d-none");
-    };
-  }
-
-  /* ================= PHOTO VIEW MORE / LESS ================= */
-  if (photoViewMore) {
-    photoViewMore.onclick = () => {
-      if (isGalleryPage) {
-        // If on Gallery page, just show all photos
-        showAllPhotos();
-        scrollToGallery();
-      } else {
-        // If on Index page, show full gallery page
-        showGalleryFullPage("photo");
-      }
-    };
-  }
-
-  if (photoViewLess) {
-    photoViewLess.onclick = () => {
-      if (isGalleryPage) {
-        // If on Gallery page, go back to preview
-        showPreviewPhotos();
-      } else {
-        // If on Index page, go back to preview
-        showPreviewPhotos();
-        scrollToGallery();
-      }
-    };
-  }
-
-  /* ================= VIDEO VIEW MORE / LESS ================= */
-  if (videoViewMore) {
-    videoViewMore.onclick = () => {
-      if (isGalleryPage) {
-        // If on Gallery page, show all videos
-        if (extraVideos) {
-          extraVideos.forEach((v) => v.classList.remove("d-none"));
-        }
-        if (videoViewMore) videoViewMore.classList.add("d-none");
-        if (videoViewLess) videoViewLess.classList.remove("d-none");
-        scrollToGallery();
-      } else {
-        // If on Index page, show full gallery page
-        showGalleryFullPage("video");
-      }
-    };
-  }
-
-  if (videoViewLess) {
-    videoViewLess.onclick = () => {
-      if (extraVideos) {
-        extraVideos.forEach((v) => v.classList.add("d-none"));
-      }
-      if (videoViewLess) videoViewLess.classList.add("d-none");
-      if (videoViewMore) videoViewMore.classList.remove("d-none");
-      scrollToGallery();
-    };
-  }
-};
-
-/* ===============================
-   FULL GALLERY PAGE HANDLER
-================================ */
-
-window.showGalleryFullPage = function (type) {
-  hideAllSections();
-
-  const gallery = document.getElementById("gallery");
-  const breadcrumb = document.getElementById("gallery-breadcrumb");
-
-  if (gallery) gallery.style.display = "block";
-  if (breadcrumb) breadcrumb.classList.remove("d-none");
-
-  // Reinitialize gallery with isGalleryPage = true
-  initGallery(true);
-
-  const photoTab = document.getElementById("photoTab");
-  const videoTab = document.getElementById("videoTab");
-
-  if (type === "photo") {
-    if (photoTab) photoTab.classList.add("active");
-    if (videoTab) videoTab.classList.remove("active");
-    
-    // Force show all photos
-    const photoViewMore = document.getElementById("photoViewMore");
-    const photoViewLess = document.getElementById("photoViewLess");
-    
-    if (photoViewMore) photoViewMore.classList.add("d-none");
-    if (photoViewLess) photoViewLess.classList.remove("d-none");
-  }
-
-  if (type === "video") {
-    if (videoTab) videoTab.classList.add("active");
-    if (photoTab) photoTab.classList.remove("active");
-
-    const extraVideos = document.querySelectorAll(".extra-video");
-    const videoViewMore = document.getElementById("videoViewMore");
-    const videoViewLess = document.getElementById("videoViewLess");
-
-    if (extraVideos) {
-      extraVideos.forEach((v) => v.classList.remove("d-none"));
-    }
-    if (videoViewMore) videoViewMore.classList.add("d-none");
-    if (videoViewLess) videoViewLess.classList.remove("d-none");
-  }
-
-  scrollToGallery();
-};
-
-/* ===============================
-   SCROLL
-================================ */
-
 function scrollToGallery() {
   document
     .getElementById("gallery")
     .scrollIntoView({ behavior: "smooth", block: "start" });
 }
+document.addEventListener("DOMContentLoaded", function () {
 
-document.addEventListener("DOMContentLoaded", () => {
   initGallery();
 });
+
+let galleryInitialized = false;
+
+function initGallery() {
+  // Prevent multiple initializations
+  if (galleryInitialized) return;
+  galleryInitialized = true;
+
+  const photoTab = document.getElementById("photoTab");
+  const videoTab = document.getElementById("videoTab");
+  const photoGallery = document.getElementById("photoGallery");
+  const videoGallery = document.getElementById("videoGallery");
+  const photoViewMore = document.getElementById("photoViewMore");
+  const photoViewLess = document.getElementById("photoViewLess");
+  const videoViewMore = document.getElementById("videoViewMore");
+  const videoViewLess = document.getElementById("videoViewLess");
+  const extraPhotos = document.querySelectorAll(".extra-photo");
+  const extraVideos = document.querySelectorAll(".extra-video");
+
+  // Check if we're on the gallery page (has breadcrumb)
+  const isGalleryPage = document.getElementById("gallery-breadcrumb") !== null;
+
+  // Function to pause all videos
+  function pauseAllVideos() {
+    const videos = document.querySelectorAll('video');
+    videos.forEach(video => {
+      video.pause();
+      video.currentTime = 0;
+    });
+  }
+  // Tab switching functionality
+  if (photoTab) {
+    photoTab.addEventListener("click", function () {
+      photoTab.classList.add("active");
+      videoTab.classList.remove("active");
+      photoGallery.classList.remove("d-none");
+      videoGallery.classList.add("d-none");
+
+      // Pause any playing videos when switching to photos
+      pauseAllVideos();
+    });
+  }
+
+  if (videoTab) {
+    videoTab.addEventListener("click", function () {
+      videoTab.classList.add("active");
+      photoTab.classList.remove("active");
+      videoGallery.classList.remove("d-none");
+      photoGallery.classList.add("d-none");
+
+      // Pause all videos when switching tab
+      pauseAllVideos();
+    });
+  }
+
+  // Photo View More/Less functionality
+  if (photoViewMore) {
+    photoViewMore.addEventListener("click", function () {
+      // Show all extra photos
+      extraPhotos.forEach(photo => {
+        photo.classList.remove("d-none");
+      });
+
+      // Toggle buttons
+      photoViewMore.classList.add("d-none");
+      photoViewLess.classList.remove("d-none");
+    });
+  }
+
+  if (photoViewLess) {
+    photoViewLess.addEventListener("click", function () {
+      // Hide all extra photos
+      extraPhotos.forEach(photo => {
+        photo.classList.add("d-none");
+      });
+
+      // Toggle buttons
+      photoViewLess.classList.add("d-none");
+      photoViewMore.classList.remove("d-none");
+    });
+  }
+
+  // Video View More/Less functionality
+  if (videoViewMore) {
+    videoViewMore.addEventListener("click", function () {
+      // Show all extra videos
+      extraVideos.forEach(video => {
+        video.classList.remove("d-none");
+      });
+
+      // Toggle buttons
+      videoViewMore.classList.add("d-none");
+      videoViewLess.classList.remove("d-none");
+
+      // Pause videos when showing more
+      pauseAllVideos();
+    });
+  }
+
+  if (videoViewLess) {
+    videoViewLess.addEventListener("click", function () {
+      // Hide all extra videos
+      extraVideos.forEach(video => {
+        video.classList.add("d-none");
+      });
+
+      // Toggle buttons
+      videoViewLess.classList.add("d-none");
+      videoViewMore.classList.remove("d-none");
+
+      // Pause videos when showing more
+      pauseAllVideos();
+    });
+  }
+
+  // On gallery page, show all photos by default
+  if (isGalleryPage) {
+    extraPhotos.forEach(photo => {
+      photo.classList.remove("d-none");
+    });
+    if (photoViewMore) photoViewMore.classList.add("d-none");
+    if (photoViewLess) photoViewLess.classList.remove("d-none");
+  }
+
+  // Initialize all videos to NOT autoplay
+  const allVideos = document.querySelectorAll('video');
+  allVideos.forEach(video => {
+    // Remove autoplay attribute if it exists
+    video.removeAttribute('autoplay');
+    // Ensure controls are visible
+    video.setAttribute('controls', '');
+    // Set to not autoplay
+    video.autoplay = false;
+    // Set preload to metadata instead of auto
+    video.preload = 'metadata';
+  });
+}
 
 // - contact-us.js
 // Handle contact form submission
@@ -1524,8 +1159,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // - act-rules.js
 const pdfFiles = {
   act1: {
-    title:
-      "Odisha Development Authorities (Planning and Building Standards) Act & Rules 2020",
+    title:"Odisha Development Authorities (Planning and Building Standards) Act & Rules 2020",
     file: "assets/act-rules-pdfs/Act&Rules_1.pdf",
   },
   act2: {
@@ -1570,7 +1204,7 @@ document.addEventListener("DOMContentLoaded", () => {
       officer: "Mr. Satyabrata Nayak",
       designation: "Assistant Public Information Officer",
       address: "Odisha State Archaeology, Bhubaneswar",
-      contact: "0674-2390456",
+      contact: "6742390456",
     },
     {
       sl: "5.",
@@ -1578,11 +1212,11 @@ document.addEventListener("DOMContentLoaded", () => {
       officer: "Ms. Anjali Mishra",
       designation: "Public Information Officer",
       address: "Directorate of Archaeology, Odisha",
-      contact: "0674-2390789",
+      contact: "6742390789",
     },
   ];
 
-  const tableBody = document.querySelector(".acts-table tbody");
+  const tableBody = document.querySelector(".acts-table-rti tbody");
   if (!tableBody) return;
 
   newRtiData.forEach((item) => {
