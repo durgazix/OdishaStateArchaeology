@@ -1,191 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Odisha State Archaeology</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-    <!-- <link rel="stylesheet" href="css/header.css" /> -->
-  </head>
-  <body>
-    <!-- Top Government Header -->
-    <div class="top-header border-bottom">
-      <div class="container-fluid px-3">
-        <div class="row align-items-center gy-1">
-          <!-- Left -->
-          <div class="col-md-6 col-12 text-center text-md-start top-left">
-            <span class="support">
-              📞 Support:
-              <a href="tel:+914428190020" class="text-decoration-none">
-                (+9144) 28190020
-              </a>
-            </span>
-          </div>
 
-          <!-- Right -->
-          <div
-            class="col-md-6 col-12 d-flex justify-content-center justify-content-md-end align-items-center flex-wrap gap-2 top-right"
-          >
-            <a href="#" class="top-link">Policy Note</a>
-            <span class="divider">|</span>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Odisha State Archaeology | Home Page</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- <link rel="stylesheet" href="css/header.css" /> -->
+</head>
 
-            <a href="#" class="top-link">Screen Reader Access</a>
-            <span class="divider">|</span>
+<body>
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-content">
+      <div class="spinner"></div>
+      <p class="loader-text">Loading...</p>
+    </div>
+  </div>
+  <!-- Top Government Header -->
+  <div class="top-header border-bottom">
+    <div class="container-fluid px-3">
+      <div class="row align-items-center gy-1">
+        <!-- Left -->
+        <div class="col-md-6 col-12 text-center text-md-start top-left">
+          <span class="support">
+            📞 Support:
+            <a href="tel:+914428190020" class="text-decoration-none">
+              (+9144) 28190020
+            </a>
+          </span>
+        </div>
 
-            <a href="#navList" class="top-link">Skip Navigation</a>
-            <span class="divider">|</span>
+        <!-- Right -->
+        <div
+          class="col-md-6 col-12 d-flex justify-content-center justify-content-md-end align-items-center flex-wrap gap-2 top-right">
+          <a href="#" class="top-link">Policy Note</a>
+          <span class="divider">|</span>
 
-            <!-- Font Controls -->
-            <div class="btn-group font-controls" role="group">
-              <button
-                id="font-decrease"
-                class="btn btn-outline-secondary btn-sm"
-              >
-                A-
-              </button>
-              <button id="font-normal" class="btn btn-outline-secondary btn-sm">
-                A
-              </button>
-              <button
-                id="font-increase"
-                class="btn btn-outline-secondary btn-sm"
-              >
-                A+
-              </button>
-            </div>
+          <a href="#" class="top-link">Screen Reader Access</a>
+          <span class="divider">|</span>
 
-            <span class="divider">|</span>
+          <a href="#navList" class="top-link">Skip Navigation</a>
+          <span class="divider">|</span>
 
-            <!-- Language Toggle -->
-            <button
-              id="langToggleBtn"
-              class="btn btn-outline-secondary btn-sm lang-toggle-btn"
-            >
-              ଓଡ଼ିଆ
+          <!-- Font Controls -->
+          <div class="btn-group font-controls" role="group">
+            <button id="font-decrease" class="btn btn-outline-secondary btn-sm">
+              A-
+            </button>
+            <button id="font-normal" class="btn btn-outline-secondary btn-sm">
+              A
+            </button>
+            <button id="font-increase" class="btn btn-outline-secondary btn-sm">
+              A+
             </button>
           </div>
+
+          <span class="divider">|</span>
+
+          <!-- Language Toggle -->
+          <button id="langToggleBtn" class="btn btn-outline-secondary btn-sm lang-toggle-btn">
+            ଓଡ଼ିଆ
+          </button>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- midnavbar -->
-     <div class="mid-navbar">
-  <div class="mid-container">
-    <!-- LEFT LOGOS -->
-    <div class="mid-logos">
-      <img src="assets/logo/culturedept.jpg" alt="Archaeology" />
-      <img src="assets/logo/culturedept.jpg" alt="ASI" />
-      <img src="assets/logo/odisha_govt.png" alt="Govt of Odisha" />
-    </div>
+  <!-- midnavbar -->
+  <div class="mid-navbar">
+    <div class="mid-container">
+      <!-- LEFT LOGOS -->
+      <div class="mid-logos">
+        <img src="assets/logo/culturedept.jpg" alt="Archaeology" />
+        <img src="assets/logo/culturedept.jpg" alt="ASI" />
+        <img src="assets/logo/odisha_govt.png" alt="Govt of Odisha" />
+      </div>
 
-    <!-- CENTER TEXT -->
-    <div class="mid-title">
-      <h2>Odisha State <b>Archaeology</b></h2>
-      <h3><b>Odia Language, Literature & Culture Department</b></h2>
-      <h3><b>Government of Odisha</b></h3>
-    </div>
+      <!-- CENTER TEXT -->
+      <div class="mid-title">
+        <h2>Odisha State <b>Archaeology</b></h2>
+        <h3><b>Odia Language, Literature & Culture Department</b></h2>
+          <h3><b>Government of Odisha</b></h3>
+      </div>
 
-    <!-- RIGHT CONTROLS -->
-    <div class="mid-actions">
-      <!-- Virtual Tour -->
-      <button class="virtual-btn" onclick="openVirtualTour()">
-        <img src="assets/player-image.png" alt="Player Image" class="virtual-btn-triangle">Virtual Tour
-      </button>
-      <!-- <button class="virtual-btn" onclick="openVirtualTour()">
+      <!-- RIGHT CONTROLS -->
+      <div class="mid-actions">
+        <!-- Virtual Tour -->
+        <button class="virtual-btn" onclick="openVirtualTour()">
+          <img src="assets/player-image.png" alt="Player Image" class="virtual-btn-triangle">Virtual Tour
+        </button>
+        <!-- <button class="virtual-btn" onclick="openVirtualTour()">
         <span class="virtual-btn-triangle"><i class="fa-solid fa-play-circle"></i></span>Virtual Tour
       </button> -->
-      <!-- Virtual Tour Modal -->
-      <div id="virtualModal" class="virtual-modal">
-        <div class="virtual-content">
-          <button
-            class="close"
-            onclick="closeVirtualTour()"
-            title="Close Virtual Tour"
-          >✕</button>
-          <video controls id="virtualTourVideo">
-            <source
-              src="assets/virtual-tour/Video_Generation_for_Ecosystem.mp4"
-              type="video/mp4"
-            />
-            Your browser does not support video.
-          </video>
+        <!-- Virtual Tour Modal -->
+        <div id="virtualModal" class="virtual-modal">
+          <div class="virtual-content">
+            <button class="close" onclick="closeVirtualTour()" title="Close Virtual Tour">✕</button>
+            <video controls id="virtualTourVideo">
+              <source src="assets/virtual-tour/Video_Generation_for_Ecosystem.mp4" type="video/mp4" />
+              Your browser does not support video.
+            </video>
+          </div>
+        </div>
+
+        <!-- Search -->
+        <!-- Search -->
+        <div class="search-box">
+          <input type="text" placeholder="Search" />
+          <button class="search-btn"><i class="fa fa-search"></i></button>
+        </div>
+
+        <!-- Mobile Icons -->
+        <div class="mobile-icons">
+          <button class="search-icon"><i class="fa fa-search"></i></button>
+          <button class="menu-icon" id="menuToggle" onclick="toggleMenu()">
+            ☰
+          </button>
+          <button class="close-icon" id="closeMenuBtn" onclick="toggleMenu()">
+            ✕
+          </button>
         </div>
       </div>
-
-      <!-- Search -->
-      <!-- Search -->
-      <div class="search-box">
-        <input type="text" placeholder="Search" />
-        <button class="search-btn"><i class="fa fa-search"></i></button>
-      </div>
-
-      <!-- Mobile Icons -->
-      <div class="mobile-icons">
-        <button class="search-icon"><i class="fa fa-search"></i></button>
-        <button class="menu-icon" id="menuToggle" onclick="toggleMenu()">
-          ☰
-        </button>
-        <button class="close-icon" id="closeMenuBtn" onclick="toggleMenu()">
-          ✕
-        </button>
+      <div class="mid-logos">
+        <img src="assets/logo/odisha_govt.png" alt="Govt of Odisha logo" />
       </div>
     </div>
-    <div class="mid-logos"> 
-      <img src="assets/logo/odisha_govt.png" alt="Govt of Odisha logo" />
+  </div>
+  <div class="mid-navbar">
+    <!-- Notification Bar -->
+    <div class="notification-bar">
+      <div class="notification-text">
+        RESULTS FOR THE PG DIPLOMA COURSES (2025–2026 & 2025–2027)
+      </div>
     </div>
   </div>
-</div>
-<div class="mid-navbar">
-  <!-- Notification Bar -->
-  <div class="notification-bar">
-    <div class="notification-text">
-      RESULTS FOR THE PG DIPLOMA COURSES (2025–2026 & 2025–2027)
+
+  <!-- Virtual Tour Modal -->
+  <div id="virtualModal" class="virtual-modal">
+    <div class="virtual-content">
+      <button class="close" onclick="closeVirtualTour()" title="Close Virtual Tour">
+        ✕
+      </button>
+      <video controls autoplay>
+        <source src="assets/virtual-tour/Video_Generation_for_Ecosystem.mp4" type="video/mp4" />
+        Your browser does not support video.
+      </video>
     </div>
   </div>
-</div>
 
-<!-- Virtual Tour Modal -->
-<div id="virtualModal" class="virtual-modal">
-  <div class="virtual-content">
-    <button
-      class="close"
-      onclick="closeVirtualTour()"
-      title="Close Virtual Tour"
-    >
-      ✕
-    </button>
-    <video controls autoplay>
-      <source
-        src="assets/virtual-tour/Video_Generation_for_Ecosystem.mp4"
-        type="video/mp4"
-      />
-      Your browser does not support video.
-    </video>
-  </div>
-</div>
+  <!-- navbar -->
 
-<!-- navbar -->
-
-<nav class="main-navbar" id="navbar">
+  <nav class="main-navbar" id="navbar">
     <div class="container">
       <ul class="nav-list" id="navList">
         <li class="home-icon">
-          <a href="index.html" ><i class="fa fa-home"></i></a>
+          <a href="index.html"><i class="fa fa-home"></i></a>
         </li>
 
         <li class="dropdown">
           <a href="#">ABOUT US</a>
-            <ul class="dropdown-menu">
+          <ul class="dropdown-menu">
             <li><a href="AbouSection.html">ABOUT ODISHA STATE ARCHAEOLOGY</a></li>
             <li><a href="staffing-pattern.html">STAFFING PATTERN</a></li>
           </ul>
@@ -215,242 +193,267 @@
         <li><a href="contact-us.html">CONTACT US</a></li>
       </ul>
     </div>
-</nav>
+  </nav>
 
-<!-- hero -->
-<section class="hero">
-  <div class="hero-slide active" style="background-image:url('assets/banners/arc_banner_1.jpg')">
-    <div class="hero-caption">
-      ARCHAEOLOGICAL EXCAVATION AT LALITGIRI, CUTTACK
+  <!-- hero -->
+  <section class="hero">
+    <div class="hero-slide active" style="background-image:url('assets/banners/arc_banner_1.jpg')">
+      <div class="hero-caption">
+        ARCHAEOLOGICAL EXCAVATION AT LALITGIRI, CUTTACK
+      </div>
     </div>
-  </div>
 
-  <div class="hero-slide" style="background-image:url('assets/banners/arc_banner_2.jpg')">
-    <div class="hero-caption">
-      PRESERVING THE HERITAGE OF ODISHA
+    <div class="hero-slide" style="background-image:url('assets/banners/arc_banner_2.jpg')">
+      <div class="hero-caption">
+        PRESERVING THE HERITAGE OF ODISHA
+      </div>
     </div>
-  </div>
 
-  <div class="hero-slide" style="background-image:url('assets/banners/arc_banner_3.jpg')">
-    <div class="hero-caption">
-      UNESCO WORLD HERITAGE CENTREOF ODISHA
+    <div class="hero-slide" style="background-image:url('assets/banners/arc_banner_3.jpg')">
+      <div class="hero-caption">
+        UNESCO WORLD HERITAGE CENTREOF ODISHA
+      </div>
     </div>
-  </div>
 
-  <!-- Arrows -->
-  <button class="hero-arrow prev">‹</button>
-  <button class="hero-arrow next">›</button>
+    <!-- Arrows -->
+    <button class="hero-arrow prev">‹</button>
+    <button class="hero-arrow next">›</button>
 
-  <!-- Dots -->
-  <div class="hero-dots">
-    <span class="dot active"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-</section>
+    <!-- Dots -->
+    <div class="hero-dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </section>
 
-<!-- News-about page -->
+  <!-- News-about page -->
 
-<section class="news-about-section py-5 bg-light" id="news-about">
-  <div class="container">
-    <div class="row g-4">
-      <!-- NEWS SECTION -->
-      <div class="col-lg-6">
-        <div class="card border shadow-sm h-100">
-          <div class="card-body p-4">
-            <h2 class="section-title text-uppercase fw-bold mb-3">NEWS</h2>
-            <hr class="news-divider mb-4" />
-            
-            <!-- News Item -->
-            <div class="news-item">
-              <div class="d-flex justify-content-between align-items-start mb-3 pb-3 border-bottom">
-                <h3 class="news-title fs-6 fw-semibold mb-0 flex-grow-1 me-3">
-                  Preservation of Jagannath Temple Complex - A Living Monument
-                </h3>
-                <div class="news-nav d-flex gap-2 flex-shrink-0">
-                  <button class="btn btn-light btn-sm nav-prev" type="button">&lt;</button>
-                  <button class="btn btn-light btn-sm nav-next" type="button">&gt;</button>
-                </div>
-              </div>
-              
-              <div class="news-content">
-                <div class="row g-3 align-items-start">
-                  <div class="col-12 col-md-8">
-                    <p class="news-text small text-muted lh-base mb-3">
-                      The Jagannath Temple in Puri is one of Odisha's most sacred and architecturally significant monuments. The Department of Archaeology continues its dedicated efforts to preserve this 12th-century masterpiece, ensuring that its intricate stone carvings, magnificent spires, and spiritual significance are maintained for future generations of pilgrims and scholars. This magnificent structure, built in the 12th century, stands as a testament to Odishan architectural brilliance and remains one of the four most important pilgrimage sites in Hinduism.
-                    </p>
-                  </div>
-                  <div class="col-12 col-md-4">
-                    <img src="assets/news/Vallam-min_1.jpg" alt="Jagannath Temple" class="news-image img-fluid rounded w-100" />
-                  </div>
-                  <div class="col-12">
-                    <a href="#" class="news-more text-danger fw-semibold text-decoration-none" onclick="showNewsPage(); return false;">
-                      More..
-                    </a>
+  <section class="news-about-section py-5 bg-light" id="news-about">
+    <div class="container">
+      <div class="row g-4">
+        <!-- NEWS SECTION -->
+        <div class="col-lg-6">
+          <div class="card border shadow-sm h-100">
+            <div class="card-body p-4">
+              <h2 class="section-title text-uppercase fw-bold mb-3">NEWS</h2>
+              <hr class="news-divider mb-4" />
+
+              <!-- News Item -->
+              <div class="news-item">
+                <div class="d-flex justify-content-between align-items-start mb-3 pb-3 border-bottom">
+                  <h3 class="news-title fs-6 fw-semibold mb-0 flex-grow-1 me-3">
+                    Preservation of Jagannath Temple Complex - A Living Monument
+                  </h3>
+                  <div class="news-nav d-flex gap-2 flex-shrink-0">
+                    <button class="btn btn-light btn-sm nav-prev" type="button">&lt;</button>
+                    <button class="btn btn-light btn-sm nav-next" type="button">&gt;</button>
                   </div>
                 </div>
+
+                <div class="news-content">
+                  <div class="row g-3 align-items-start">
+                    <div class="col-12 col-md-8">
+                      <p class="news-text small text-muted lh-base mb-3">
+                        The Jagannath Temple in Puri is one of Odisha's most sacred and architecturally significant
+                        monuments. The Department of Archaeology continues its dedicated efforts to preserve this
+                        12th-century masterpiece, ensuring that its intricate stone carvings, magnificent spires, and
+                        spiritual significance are maintained for future generations of pilgrims and scholars. This
+                        magnificent structure, built in the 12th century, stands as a testament to Odishan architectural
+                        brilliance and remains one of the four most important pilgrimage sites in Hinduism.
+                      </p>
+                    </div>
+                    <div class="col-12 col-md-4">
+                      <img src="assets/news/Vallam-min_1.jpg" alt="Jagannath Temple"
+                        class="news-image img-fluid rounded w-100" />
+                    </div>
+                    <div class="col-12">
+                      <a href="news-page.html" class="news-more text-danger fw-semibold text-decoration-none">
+                        More..
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- ABOUT DEPARTMENT SECTION -->
-      <div class="col-lg-6">
-        <div class="card border shadow-sm h-100">
-          <div class="card-body p-4 d-flex flex-column">
-            <h2 class="section-title text-uppercase fw-bold mb-3">ABOUT DEPARTMENT OF ARCHAEOLOGY</h2>
-            <hr class="about-divider mb-4" />
-            
-            <p class="about-text small text-muted lh-base text-justify mb-4 flex-grow-1">
-              The Department of Archaeology, Government of Odisha, is dedicated to the conservation, preservation, and promotion of Odisha's rich archaeological heritage. Established to protect ancient monuments and conduct scientific excavations at historically significant sites, the department has uncovered invaluable artifacts and structures that reveal the grandeur of Odisha's ancient civilizations. From the Jagannath Temple in Puri to the Konark Sun Temple, Odisha possesses some of India's most spectacular architectural treasures. Our expertise extends to epigraphy, artifact conservation, and the establishment of site museums...
-            </p>
-            
-            <a href="AbouSection.html"><button class="btn btn-outline-danger fw-semibold align-self-start">
-              Read more
-            </button></a>
+        <!-- ABOUT DEPARTMENT SECTION -->
+        <div class="col-lg-6">
+          <div class="card border shadow-sm h-100">
+            <div class="card-body p-4 d-flex flex-column">
+              <h2 class="section-title text-uppercase fw-bold mb-3">ABOUT DEPARTMENT OF ARCHAEOLOGY</h2>
+              <hr class="about-divider mb-4" />
+
+              <p class="about-text small text-muted lh-base text-justify mb-4 flex-grow-1">
+                The Department of Archaeology, Government of Odisha, is dedicated to the conservation, preservation, and
+                promotion of Odisha's rich archaeological heritage. Established to protect ancient monuments and conduct
+                scientific excavations at historically significant sites, the department has uncovered invaluable
+                artifacts and structures that reveal the grandeur of Odisha's ancient civilizations. From the Jagannath
+                Temple in Puri to the Konark Sun Temple, Odisha possesses some of India's most spectacular architectural
+                treasures. Our expertise extends to epigraphy, artifact conservation, and the establishment of site
+                museums...
+              </p>
+
+              <a href="AbouSection.html"><button class="btn btn-outline-danger fw-semibold align-self-start">
+                  Read more
+                </button></a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- activities-notice-links -->
+  <!-- activities-notice-links -->
 
-<section class="activities-notice-links-section">
-  <div class="container">
-    <div class="row g-4">
+  <section class="activities-notice-links-section">
+    <div class="container">
+      <div class="row g-4">
 
-      <!-- ACTIVITIES -->
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="activities-box h-100">
-          <div class="section-header">
-            <h3 class="section-title">Activities</h3>
-          </div>
-          <div class="title-divider"></div>
+        <!-- ACTIVITIES -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="activities-box h-100">
+            <div class="section-header">
+              <h3 class="section-title">Activities</h3>
+            </div>
+            <div class="title-divider"></div>
 
-          <div class="activities-content">
-            <div class="activity-item">
-              <div class="date-box">
-                <span class="day">15</span>
-                <span class="month">Dec</span>
-                <span class="year">2025</span>
+            <div class="activities-content">
+              <div class="activity-item">
+                <div class="date-box">
+                  <span class="day">15</span>
+                  <span class="month">Dec</span>
+                  <span class="year">2025</span>
+                </div>
+                <p class="activity-text">Archaeological Survey Expedition</p>
               </div>
-              <p class="activity-text">Archaeological Survey Expedition</p>
-            </div>
 
-            <div class="activity-item">
-              <div class="date-box">
-                <span class="day">08</span>
-                <span class="month">Dec</span>
-                <span class="year">2025</span>
+              <div class="activity-item">
+                <div class="date-box">
+                  <span class="day">08</span>
+                  <span class="month">Dec</span>
+                  <span class="year">2025</span>
+                </div>
+                <p class="activity-text">Heritage Documentation Workshop</p>
               </div>
-              <p class="activity-text">Heritage Documentation Workshop</p>
             </div>
-          </div>
 
-          <a href="#" class="view-all-btn mt-auto">View All <span class="arrow">→</span></a>
+            <a href="#" class="view-all-btn mt-auto">View All <span class="arrow">→</span></a>
+          </div>
         </div>
-      </div>
 
-      <!-- NOTICE -->
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="notice-box h-100">
-          <div class="section-header">
-            <h3 class="section-title">Notice</h3>
-          </div>
-          <div class="title-divider"></div>
+        <!-- NOTICE -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="notice-box h-100">
+            <div class="section-header">
+              <h3 class="section-title">Notice</h3>
+            </div>
+            <div class="title-divider"></div>
 
-          <div class="notice-content">
-            <div class="notice-item">
-              <div class="date-box">
-                <span class="day">18</span>
-                <span class="month">Dec</span>
-                <span class="year">2025</span>
+            <div class="notice-content">
+              <div class="notice-item">
+                <div class="date-box">
+                  <span class="day">18</span>
+                  <span class="month">Dec</span>
+                  <span class="year">2025</span>
+                </div>
+                <p class="notice-text">Important Announcement</p>
               </div>
-              <p class="notice-text">Important Announcement</p>
             </div>
-          </div>
 
-          <a href="#" class="view-all-btn mt-auto">View All <span class="arrow">→</span></a>
+            <a href="#" class="view-all-btn mt-auto">View All <span class="arrow">→</span></a>
+          </div>
         </div>
-      </div>
 
-      <!-- IMPORTANT LINKS -->
-      <div class="col-12 col-md-12 col-lg-4">
-        <div class="important-links-box h-100">
-          <div class="section-header">
-            <h3 class="section-title">Important Links</h3>
-          </div>
-          <div class="title-divider"></div>
-
-          <div class="links-scroll-container">
-            <div class="links-content">
-              <ul class="links-list">
-                <li><a href="#">Odisha Culture Department</a></li>
-                <li><a href="#">State Archives</a></li>
-                <li><a href="#">Sangeet Natak Academi</a></li>
-                <li><a href="#">Lalit Kala Academi</a></li>
-                <li><a href="#">Urdu Academi</a></li>
-                <li><a href="#">Odissi Research Centre</a></li>
-                <li><a href="#">Art & Crafts College</a></li>
-                <li><a href="#">Maritime Studies Institute</a></li>
-              </ul>
+        <!-- IMPORTANT LINKS -->
+        <div class="col-12 col-md-12 col-lg-4">
+          <div class="important-links-box h-100">
+            <div class="section-header">
+              <h3 class="section-title">Important Links</h3>
             </div>
+            <div class="title-divider"></div>
+
+            <div class="links-scroll-container">
+              <div class="links-content">
+                <ul class="links-list">
+                  <li><a href="#">Odisha Culture Department</a></li>
+                  <li><a href="#">State Archives</a></li>
+                  <li><a href="#">Sangeet Natak Academi</a></li>
+                  <li><a href="#">Lalit Kala Academi</a></li>
+                  <li><a href="#">Urdu Academi</a></li>
+                  <li><a href="#">Odissi Research Centre</a></li>
+                  <li><a href="#">Art & Crafts College</a></li>
+                  <li><a href="#">Maritime Studies Institute</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <a href="#" class="view-all-btn mt-auto">View All <span class="arrow">→</span></a>
           </div>
-
-          <a href="#" class="view-all-btn mt-auto">View All <span class="arrow">→</span></a>
         </div>
-      </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- gallery section -->
-
-<!-- Breadcrumb -->
-<div class="breadcrumb-bar py-2 d-none" id="gallery-breadcrumb">
-  <div class="container">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb mb-0 align-items-center">
-        <li class="breadcrumb-item">
-          <a href="#" onclick="goHome(); return false;">Home</a>
-        </li>
-        <span class="breadcrumb-separator">&gt;&gt;</span>
-        <li class="breadcrumb-item active" aria-current="page">Gallery</li>
-      </ol>
-    </nav>
-  </div>
-</div>
-
-<!-- Gallery Section -->
-<section class="gallery-section py-5" id="gallery">
-  <div class="container">
-    <!-- Header -->
-    <div class="row align-items-center mb-4">
-      <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-        <h2 class="gallery-title mb-4">GALLERY</h2>
-        <div class="gallery-divider mx-auto mx-md-0"></div>
-      </div>
-
-      <div class="col-md-6 d-flex justify-content-center justify-content-md-end gap-2">
-        <button id="photoTab" class="btn gallery-toggle-btn active">
-          PHOTO
-        </button>
-        <button id="videoTab" class="btn gallery-toggle-btn">VIDEO</button>
       </div>
     </div>
+  </section>
 
-    <!-- PHOTO GALLERY -->
-    <div id="photoGallery">
-      <div class="row g-4" id="galleryItems"></div>
+  <!-- Gallery Section -->
+  <section class="gallery-section py-5" id="gallery">
+    <div class="container">
+      <!-- Header -->
+      <div class="row align-items-center mb-4">
+        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+          <h2 class="gallery-title mb-4">GALLERY</h2>
+          <div class="gallery-divider mx-auto mx-md-0"></div>
+        </div>
+
+        <div class="col-md-6 d-flex justify-content-center justify-content-md-end gap-2">
+          <button id="photoTab" class="btn gallery-toggle-btn active">
+            PHOTO
+          </button>
+          <button id="videoTab" class="btn gallery-toggle-btn">VIDEO</button>
+        </div>
+      </div>
+
+      <!-- PHOTO GALLERY -->
+      <div id="photoGallery">
+        <div class="row g-4" id="galleryItems">
+          <!-- Image - 1 -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <div class="gallery-item">
+              <img src="assets/gallery/gallery_5.jpeg" class="img-fluid">
+              <div class="gallery-caption">Sculpture</div>
+            </div>
+          </div>
+          <!-- Image - 2 -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <div class="gallery-item">
+              <img src="assets/gallery/gallery_4.jpg" class="img-fluid">
+              <div class="gallery-caption">Cultural Heritage</div>
+            </div>
+          </div>
+          <!-- Image - 3 -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <div class="gallery-item">
+              <img src="assets/gallery/gallery_3.jpg" class="img-fluid">
+              <div class="gallery-caption">Monument</div>
+            </div>
+          </div>
+          <!-- Image - 4 -->
+          <div class="col-12 col-sm-6 col-lg-3">
+            <div class="gallery-item">
+              <img src="assets/gallery/gallery_2.jpg" class="img-fluid">
+              <div class="gallery-caption">Artifact</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div class="text-center mt-4 photo-footer">
         <a href="gallery.html"><button class="btn view-more-btn" id="photoViewMore">
-          View More
-        </button></a>
+            View More
+          </button></a>
 
         <button class="btn view-less-btn d-none" id="photoViewLess">
           View Less
@@ -532,50 +535,51 @@
         </button>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- footer -->
-<footer class="footer-section">
-  <div class="container">
-    <div class="row text-center flex-column align-items-center gy-3">
-
-
-      <!-- Footer Links -->
-      <div class="col-12 col-md-4">
-        <div class="footer-links d-flex flex-wrap justify-content-center">
-          <a href="#" class="footer-link">Website Policy</a>
-          <span class="link-separator d-none d-md-inline">|</span>
-          <a href="#" class="footer-link">Disclaimer</a>
-          <span class="link-separator d-none d-md-inline">|</span>
-          <a href="#" class="footer-link">Terms & Conditions</a>
-        </div>
-      </div>
-
-      <!-- License Info -->
-      <div class="col-12 col-md-5">
-        <p class="license-text mb-0">
-          The Content of this website is licensed under
-          <a href="#" class="license-link">
-            Creative Commons Attribution 4.0 International License
-          </a>
-        </p>
-      </div>
-
-      <!-- Visitor Counter -->
-      <div class="col-12 col-md-3">
-        <p class="visitor-text mb-0">
-          Total Visitors:
-          <span class="visitor-count">825</span>
-        </p>
-      </div>
-
     </div>
-  </div>
-</footer>
+  </section>
+
+  <!-- footer -->
+  <footer class="footer-section">
+    <div class="container">
+      <div class="row text-center flex-column align-items-center gy-3">
+
+
+        <!-- Footer Links -->
+        <div class="col-12 col-md-4">
+          <div class="footer-links d-flex flex-wrap justify-content-center">
+            <a href="#" class="footer-link">Website Policy</a>
+            <span class="link-separator d-none d-md-inline">|</span>
+            <a href="#" class="footer-link">Disclaimer</a>
+            <span class="link-separator d-none d-md-inline">|</span>
+            <a href="#" class="footer-link">Terms & Conditions</a>
+          </div>
+        </div>
+
+        <!-- License Info -->
+        <div class="col-12 col-md-5">
+          <p class="license-text mb-0">
+            The Content of this website is licensed under
+            <a href="#" class="license-link">
+              Creative Commons Attribution 4.0 International License
+            </a>
+          </p>
+        </div>
+
+        <!-- Visitor Counter -->
+        <div class="col-12 col-md-3">
+          <p class="visitor-text mb-0">
+            Total Visitors:
+            <span class="visitor-count">825</span>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </footer>
 
 
 
-    <script src="js/main.js"></script>
-  </body>
+  <script src="js/main.js"></script>
+</body>
+
 </html>

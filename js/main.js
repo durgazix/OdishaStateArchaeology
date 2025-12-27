@@ -391,51 +391,49 @@ function closePDFViewer() {
 // ================= INITIALIZATION =================
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Handle dropdown clicks on mobile
+
+  /* DROPDOWN TOGGLE (ONLY ICON / LI, NOT LINK) */
   const dropdowns = document.querySelectorAll(".dropdown");
 
   dropdowns.forEach((dropdown) => {
     dropdown.addEventListener("click", function (e) {
       if (window.innerWidth <= 992) {
+
+        // Allow link clicks
+        if (e.target.tagName === "A") return;
+
         e.preventDefault();
         this.classList.toggle("active");
       }
     });
   });
 
-  // Close menu when a link is clicked
-  const navLinks = document.querySelectorAll(".nav-list a");
+  /* CLOSE MENU ON LINK CLICK */
+  const navLinks = document.querySelectorAll(".nav-list li a");
+
   navLinks.forEach((link) => {
     link.addEventListener("click", function () {
       if (window.innerWidth <= 992) {
         const navList = document.getElementById("navList");
-        if (!this.parentElement.classList.contains("dropdown")) {
-          navList.classList.remove("active");
-          document.getElementById("menuToggle").style.display = "block";
-          document.getElementById("closeMenuBtn").style.display = "none";
-        }
+
+        navList.classList.remove("active");
+        document.getElementById("menuToggle").style.display = "block";
+        document.getElementById("closeMenuBtn").style.display = "none";
       }
     });
   });
 
-  // Close menu when clicking outside
+  /* CLICK OUTSIDE TO CLOSE */
   document.addEventListener("click", function (e) {
     const navList = document.getElementById("navList");
     const menuToggle = document.getElementById("menuToggle");
     const closeBtn = document.getElementById("closeMenuBtn");
-    const mobileIcons = document.querySelector(".mobile-icons");
-    const mainNavbar = document.querySelector(".main-navbar");
 
     if (
       navList &&
-      menuToggle &&
-      closeBtn &&
       !navList.contains(e.target) &&
       !menuToggle.contains(e.target) &&
-      !closeBtn.contains(e.target) &&
-      !mobileIcons?.contains(e.target) &&
-      !mainNavbar?.contains(e.target) &&
-      navList.classList.contains("active")
+      !closeBtn.contains(e.target)
     ) {
       navList.classList.remove("active");
       menuToggle.style.display = "block";
@@ -443,10 +441,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Handle window resize
+  /* WINDOW RESIZE FIX */
   window.addEventListener("resize", function () {
-    const navList = document.getElementById("navList");
-    if (window.innerWidth > 992 && navList) {
+    if (window.innerWidth > 992) {
+      const navList = document.getElementById("navList");
       navList.classList.remove("active");
       document.getElementById("menuToggle").style.display = "block";
       document.getElementById("closeMenuBtn").style.display = "none";
@@ -643,23 +641,23 @@ document.addEventListener("DOMContentLoaded", () => {
 let currentNewsIndex = 0;
 let autoSlideInterval;
 
-const newsItems = [
-  {
-    title: "Preservation of Jagannath Temple Complex - A Living Monument",
-    text: "The Jagannath Temple in Puri is one of Odisha's most sacred and architecturally significant monuments. The Department of Archaeology continues its dedicated efforts to preserve this 12th-century masterpiece.",
-    image: "assets/news/Vallam-min_1.jpg",
-  },
-  {
-    title: "Konark Sun Temple - Architectural Marvel of Odisha",
-    text: "The Sun Temple at Konark is a UNESCO World Heritage Site and represents the pinnacle of Odishan medieval architecture.",
-    image: "assets/news/Vallam-min_2.jpg",
-  },
-  {
-    title: "Recent Archaeological Excavations Unveil Ancient Odisha",
-    text: "Recent excavations across Odisha have revealed pottery, coins, and remains highlighting Odisha’s ancient civilization.",
-    image: "assets/news/Vallam-min_3.jpg",
-  },
-];
+// const newsItems = [
+//   {
+//     title: "Preservation of Jagannath Temple Complex - A Living Monument",
+//     text: "The Jagannath Temple in Puri is one of Odisha's most sacred and architecturally significant monuments. The Department of Archaeology continues its dedicated efforts to preserve this 12th-century masterpiece.",
+//     image: "assets/news/Vallam-min_1.jpg",
+//   },
+//   {
+//     title: "Konark Sun Temple - Architectural Marvel of Odisha",
+//     text: "The Sun Temple at Konark is a UNESCO World Heritage Site and represents the pinnacle of Odishan medieval architecture.",
+//     image: "assets/news/Vallam-min_2.jpg",
+//   },
+//   {
+//     title: "Recent Archaeological Excavations Unveil Ancient Odisha",
+//     text: "Recent excavations across Odisha have revealed pottery, coins, and remains highlighting Odisha’s ancient civilization.",
+//     image: "assets/news/Vallam-min_3.jpg",
+//   },
+// ];
 
 // ==============================
 // UPDATE SLIDE (FADE + SLIDE)
@@ -898,16 +896,16 @@ window.showMonumentsPage = function () {
 // - monuments-central.js
 /* ===== MONUMENT IMAGE VIEWER ===== */
 
-const monumentImages = [
-  "assets/central-monuments/img_1.jpg",
-  "assets/central-monuments/img_2.jpg",
-  "assets/central-monuments/img_3.jpg",
-  "assets/central-monuments/img_4.jpg",
-  "assets/central-monuments/img_5.jpg",
-  "assets/central-monuments/img_6.jpg",
-  "assets/central-monuments/img_7.jpg",
-  "assets/central-monuments/img_8.jpg",
-];
+// const monumentImages = [
+//   "assets/central-monuments/img_1.jpg",
+//   "assets/central-monuments/img_2.jpg",
+//   "assets/central-monuments/img_3.jpg",
+//   "assets/central-monuments/img_4.jpg",
+//   "assets/central-monuments/img_5.jpg",
+//   "assets/central-monuments/img_6.jpg",
+//   "assets/central-monuments/img_7.jpg",
+//   "assets/central-monuments/img_8.jpg",
+// ];
 
 let currentIndex = 0;
 
@@ -1245,21 +1243,25 @@ document.addEventListener("DOMContentLoaded", () => {
    GALLERY INITIALIZATION
 ================================ */
 
-window.initGallery = function () {
+/* ===============================
+   GALLERY INITIALIZATION
+================================ */
+
+window.initGallery = function (isGalleryPage = false) {
   const photoTab = document.getElementById("photoTab");
   const videoTab = document.getElementById("videoTab");
-
+  
   const photoGallery = document.getElementById("photoGallery");
   const videoGallery = document.getElementById("videoGallery");
-
+  
   const galleryItems = document.getElementById("galleryItems");
-
+  
   const photoViewMore = document.getElementById("photoViewMore");
   const photoViewLess = document.getElementById("photoViewLess");
-
+  
   const videoViewMore = document.getElementById("videoViewMore");
   const videoViewLess = document.getElementById("videoViewLess");
-
+  
   const extraVideos = document.querySelectorAll(".extra-video");
 
   /* ================= PHOTO DATA ================= */
@@ -1274,9 +1276,10 @@ window.initGallery = function () {
     { src: "assets/gallery/gallery_3.jpg", cap: "Artifact" },
   ];
 
-  /* ================= RENDER ================= */
-
+  /* ================= RENDER FUNCTIONS ================= */
   function renderPhotos(limit) {
+    if (!galleryItems) return;
+    
     galleryItems.innerHTML = "";
     photoData.slice(0, limit).forEach((item) => {
       galleryItems.innerHTML += `
@@ -1291,68 +1294,118 @@ window.initGallery = function () {
 
   function showPreviewPhotos() {
     renderPhotos(4);
-    photoViewMore.classList.remove("d-none");
-    photoViewLess.classList.add("d-none");
+    if (photoViewMore) photoViewMore.classList.remove("d-none");
+    if (photoViewLess) photoViewLess.classList.add("d-none");
   }
 
   function showAllPhotos() {
     renderPhotos(photoData.length);
-    photoViewMore.classList.add("d-none");
-    photoViewLess.classList.remove("d-none");
+    if (photoViewMore) photoViewMore.classList.add("d-none");
+    if (photoViewLess) photoViewLess.classList.remove("d-none");
   }
 
   /* ================= INITIAL STATE ================= */
-  showPreviewPhotos();
-  photoGallery.classList.remove("d-none");
-  videoGallery.classList.add("d-none");
+  // If we're on the Gallery page, show all photos by default
+  if (isGalleryPage) {
+    renderPhotos(photoData.length);
+    if (photoViewMore) photoViewMore.classList.add("d-none");
+    if (photoViewLess) photoViewLess.classList.remove("d-none");
+  } else {
+    showPreviewPhotos();
+  }
+
+  if (photoGallery) photoGallery.classList.remove("d-none");
+  if (videoGallery) videoGallery.classList.add("d-none");
 
   /* ================= TAB SWITCH ================= */
+  if (photoTab) {
+    photoTab.onclick = () => {
+      photoTab.classList.add("active");
+      if (videoTab) videoTab.classList.remove("active");
 
-  photoTab.onclick = () => {
-    photoTab.classList.add("active");
-    videoTab.classList.remove("active");
+      if (photoGallery) photoGallery.classList.remove("d-none");
+      if (videoGallery) videoGallery.classList.add("d-none");
 
-    photoGallery.classList.remove("d-none");
-    videoGallery.classList.add("d-none");
+      if (isGalleryPage) {
+        showAllPhotos();
+      } else {
+        showPreviewPhotos();
+      }
+    };
+  }
 
-    showPreviewPhotos();
-  };
+  if (videoTab) {
+    videoTab.onclick = () => {
+      videoTab.classList.add("active");
+      if (photoTab) photoTab.classList.remove("active");
 
-  videoTab.onclick = () => {
-    videoTab.classList.add("active");
-    photoTab.classList.remove("active");
+      if (videoGallery) videoGallery.classList.remove("d-none");
+      if (photoGallery) photoGallery.classList.add("d-none");
 
-    videoGallery.classList.remove("d-none");
-    photoGallery.classList.add("d-none");
-
-    extraVideos.forEach((v) => v.classList.add("d-none"));
-    videoViewMore.classList.remove("d-none");
-    videoViewLess.classList.add("d-none");
-  };
+      if (extraVideos) {
+        extraVideos.forEach((v) => v.classList.add("d-none"));
+      }
+      
+      if (videoViewMore) videoViewMore.classList.remove("d-none");
+      if (videoViewLess) videoViewLess.classList.add("d-none");
+    };
+  }
 
   /* ================= PHOTO VIEW MORE / LESS ================= */
+  if (photoViewMore) {
+    photoViewMore.onclick = () => {
+      if (isGalleryPage) {
+        // If on Gallery page, just show all photos
+        showAllPhotos();
+        scrollToGallery();
+      } else {
+        // If on Index page, show full gallery page
+        showGalleryFullPage("photo");
+      }
+    };
+  }
 
-  photoViewMore.onclick = () => {
-    showGalleryFullPage("photo");
-  };
-
-  photoViewLess.onclick = () => {
-    showPreviewPhotos();
-    scrollToGallery();
-  };
+  if (photoViewLess) {
+    photoViewLess.onclick = () => {
+      if (isGalleryPage) {
+        // If on Gallery page, go back to preview
+        showPreviewPhotos();
+      } else {
+        // If on Index page, go back to preview
+        showPreviewPhotos();
+        scrollToGallery();
+      }
+    };
+  }
 
   /* ================= VIDEO VIEW MORE / LESS ================= */
+  if (videoViewMore) {
+    videoViewMore.onclick = () => {
+      if (isGalleryPage) {
+        // If on Gallery page, show all videos
+        if (extraVideos) {
+          extraVideos.forEach((v) => v.classList.remove("d-none"));
+        }
+        if (videoViewMore) videoViewMore.classList.add("d-none");
+        if (videoViewLess) videoViewLess.classList.remove("d-none");
+        scrollToGallery();
+      } else {
+        // If on Index page, show full gallery page
+        showGalleryFullPage("video");
+      }
+    };
+  }
 
-  videoViewMore.onclick = () => {
-    showGalleryFullPage("video");
-  };
-
-  videoViewLess.onclick = () => {
-    extraVideos.forEach((v) => v.classList.add("d-none"));
-    videoViewLess.classList.add("d-none");
-    videoViewMore.classList.remove("d-none");
-    scrollToGallery();
-  };
+  if (videoViewLess) {
+    videoViewLess.onclick = () => {
+      if (extraVideos) {
+        extraVideos.forEach((v) => v.classList.add("d-none"));
+      }
+      if (videoViewLess) videoViewLess.classList.add("d-none");
+      if (videoViewMore) videoViewMore.classList.remove("d-none");
+      scrollToGallery();
+    };
+  }
 };
 
 /* ===============================
@@ -1365,59 +1418,40 @@ window.showGalleryFullPage = function (type) {
   const gallery = document.getElementById("gallery");
   const breadcrumb = document.getElementById("gallery-breadcrumb");
 
-  gallery.style.display = "block";
-  breadcrumb.classList.remove("d-none");
+  if (gallery) gallery.style.display = "block";
+  if (breadcrumb) breadcrumb.classList.remove("d-none");
+
+  // Reinitialize gallery with isGalleryPage = true
+  initGallery(true);
 
   const photoTab = document.getElementById("photoTab");
   const videoTab = document.getElementById("videoTab");
 
-  const photoGallery = document.getElementById("photoGallery");
-  const videoGallery = document.getElementById("videoGallery");
-
-  const galleryItems = document.getElementById("galleryItems");
-  const extraVideos = document.querySelectorAll(".extra-video");
-
   if (type === "photo") {
-    photoTab.classList.add("active");
-    videoTab.classList.remove("active");
-
-    photoGallery.classList.remove("d-none");
-    videoGallery.classList.add("d-none");
-
-    galleryItems.innerHTML = "";
-    [
-      "gallery_1.jpg",
-      "gallery_2.jpg",
-      "gallery_3.jpg",
-      "gallery_4.jpg",
-      "gallery_5.jpeg",
-      "gallery_1.jpg",
-      "gallery_2.jpg",
-      "gallery_3.jpg",
-    ].forEach((img) => {
-      galleryItems.innerHTML += `
-        <div class="col-12 col-sm-6 col-lg-3">
-          <div class="gallery-item">
-            <img src="assets/gallery/${img}" class="img-fluid">
-          </div>
-        </div>`;
-    });
-
-    photoViewMore.classList.add("d-none");
-    photoViewLess.classList.remove("d-none");
+    if (photoTab) photoTab.classList.add("active");
+    if (videoTab) videoTab.classList.remove("active");
+    
+    // Force show all photos
+    const photoViewMore = document.getElementById("photoViewMore");
+    const photoViewLess = document.getElementById("photoViewLess");
+    
+    if (photoViewMore) photoViewMore.classList.add("d-none");
+    if (photoViewLess) photoViewLess.classList.remove("d-none");
   }
 
   if (type === "video") {
-    videoTab.classList.add("active");
-    photoTab.classList.remove("active");
+    if (videoTab) videoTab.classList.add("active");
+    if (photoTab) photoTab.classList.remove("active");
 
-    videoGallery.classList.remove("d-none");
-    photoGallery.classList.add("d-none");
+    const extraVideos = document.querySelectorAll(".extra-video");
+    const videoViewMore = document.getElementById("videoViewMore");
+    const videoViewLess = document.getElementById("videoViewLess");
 
-    extraVideos.forEach((v) => v.classList.remove("d-none"));
-
-    videoViewMore.classList.add("d-none");
-    videoViewLess.classList.remove("d-none");
+    if (extraVideos) {
+      extraVideos.forEach((v) => v.classList.remove("d-none"));
+    }
+    if (videoViewMore) videoViewMore.classList.add("d-none");
+    if (videoViewLess) videoViewLess.classList.remove("d-none");
   }
 
   scrollToGallery();
