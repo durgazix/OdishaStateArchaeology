@@ -186,10 +186,8 @@
   </nav>
 
   <!-- monuments central section -->
-
-  <!-- MONUMENTS CENTRAL (GRID VIEW) -->
-  <section id="monuments-central" class="monuments-central-section">
-
+   <section id="central-protected" class="central-protected-section">
+    
     <!-- Breadcrumb -->
     <div class="breadcrumb-bar">
       <div class="container">
@@ -204,114 +202,119 @@
     </div>
 
     <!-- Heading -->
-    <div class="container text-center mb-5">
-      <h2 class="monuments-title">CENTRAL PROTECTED MONUMENTS OF ODISHA</h2>
-      <p class="monuments-subtitle">
-        Discover the architectural marvels and cultural heritage of ancient Odisha.
-      </p>
+    <div class="container">
+      <div class="central-heading">
+        <h1 class="central-title">CENTRAL PROTECTED MONUMENTS</h1>
+        <p class="central-subtitle">
+          List of monuments protected by the Archaeological Survey of India (ASI) in Odisha
+        </p>
+      </div>
     </div>
 
-    <!-- Grid -->
+    <!-- Table Container -->
     <div class="container">
-      <div class="row g-4" id="monumentsGrid">
+      <div class="table-container">
+        <table class="central-table" id="centralMonumentsTable">
+          <thead>
+            <tr>
+              <th width="5%">#</th>
+              <th width="25%">Central Monument</th>
+              <th width="20%">City/Location</th>
+              <th width="15%">State</th>
+              <th width="20%">Built By/Builder</th>
+              <th width="15%">Historical Period</th>
+            </tr>
+          </thead>
+          <tbody id="centralMonumentsTableBody">
+            <!-- Manual Data (will be shown initially) -->
+            <tr>
+              <td>1</td>
+              <td>Konark Sun Temple</td>
+              <td>Konark, Puri District</td>
+              <td>Odisha</td>
+              <td>King Narasimhadeva I</td>
+              <td>13th Century CE</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Lingaraj Temple</td>
+              <td>Bhubaneswar</td>
+              <td>Odisha</td>
+              <td>Somavamsi Dynasty</td>
+              <td>11th Century CE</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Udayagiri and Khandagiri Caves</td>
+              <td>Bhubaneswar</td>
+              <td>Odisha</td>
+              <td>King Kharavela</td>
+              <td>1st Century BCE</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Mukteswara Temple</td>
+              <td>Bhubaneswar</td>
+              <td>Odisha</td>
+              <td>Somavamsi Dynasty</td>
+              <td>10th Century CE</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Jagannath Temple, Puri</td>
+              <td>Puri</td>
+              <td>Odisha</td>
+              <td>King Anantavarman Chodaganga</td>
+              <td>12th Century CE</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Rajarani Temple</td>
+              <td>Bhubaneswar</td>
+              <td>Odisha</td>
+              <td>Somavamsi Dynasty</td>
+              <td>11th Century CE</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Brahmeswara Temple</td>
+              <td>Bhubaneswar</td>
+              <td>Odisha</td>
+              <td>Kolavati Devi (Mother of King Udyota)</td>
+              <td>9th Century CE</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>Chausath Yogini Temple, Hirapur</td>
+              <td>Hirapur, Khurda</td>
+              <td>Odisha</td>
+              <td>Queen Hiradevi</td>
+              <td>9th Century CE</td>
+            </tr>
+            <!-- More manual data can be added here -->
+            <tr id="loadingRow">
+              <td colspan="6" class="loading-row">
+                <div class="loading-message">
+                  Loading more monuments...
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-        <!-- CARD -->
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="monument-card" onclick="openImageViewer(0)">
-            <img src="assets/central-monuments/img_1.jpg" alt="Konark Sun Temple">
-            <div class="monument-info">
-              <h5>Konark Sun Temple</h5>
-              <p>13th-century Sun Temple</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="monument-card" onclick="openImageViewer(1)">
-            <img src="assets/central-monuments/img_2.jpg" alt="Lingaraj Temple">
-            <div class="monument-info">
-              <h5>Lingaraj Temple</h5>
-              <p>Peak Kalinga architecture</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="monument-card" onclick="openImageViewer(2)">
-            <img src="assets/central-monuments/img_3.jpg" alt="Udayagiri Caves">
-            <div class="monument-info">
-              <h5>Udayagiri Caves</h5>
-              <p>Ancient Jain caves</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="monument-card" onclick="openImageViewer(3)">
-            <img src="assets/central-monuments/img_4.jpg" alt="Mukteswar Temple">
-            <div class="monument-info">
-              <h5>Mukteswar Temple</h5>
-              <p>Gem of Odisha architecture</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="monument-card" onclick="openImageViewer(3)">
-            <img src="assets/central-monuments/img_5.jpg" alt="Mukteswar Temple">
-            <div class="monument-info">
-              <h5>Mukteswar Temple</h5>
-              <p>Gem of Odisha architecture</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="monument-card" onclick="openImageViewer(3)">
-            <img src="assets/central-monuments/img_6.jpg" alt="Mukteswar Temple">
-            <div class="monument-info">
-              <h5>Mukteswar Temple</h5>
-              <p>Gem of Odisha architecture</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="monument-card" onclick="openImageViewer(3)">
-            <img src="assets/central-monuments/img_7.jpg" alt="Mukteswar Temple">
-            <div class="monument-info">
-              <h5>Mukteswar Temple</h5>
-              <p>Gem of Odisha architecture</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="monument-card" onclick="openImageViewer(3)">
-            <img src="assets/central-monuments/img_8.jpg" alt="Mukteswar Temple">
-            <div class="monument-info">
-              <h5>Mukteswar Temple</h5>
-              <p>Gem of Odisha architecture</p>
-            </div>
-          </div>
-        </div>
-
+      <!-- View More Container -->
+      <div class="view-more-container" id="viewMoreContainer">
+        <button class="view-more-btn" id="viewMoreBtn">
+          <i class="fas fa-plus-circle"></i> Load More Monuments
+        </button>
+        <span class="count-display" id="countDisplay">
+          Showing <span id="shownCount">10</span> of <span id="totalCount">10</span> monuments
+        </span>
       </div>
     </div>
   </section>
-
-  <!-- IMAGE VIEWER -->
-  <div class="monuments-viewer" id="monumentsViewer">
-    <span class="viewer-close" onclick="closeImageViewer()">&times;</span>
-    <span class="viewer-nav prev" onclick="prevImage()">&#10094;</span>
-
-    <div class="viewer-content">
-      <img id="viewerImage" />
-      <div class="viewer-counter">
-        <span id="viewerCurrent">1</span>/<span id="viewerTotal">4</span>
-      </div>
-    </div>
-
-    <span class="viewer-nav next" onclick="nextImage()">&#10095;</span>
-  </div>
-
-
+ 
   <!-- footer -->
   <footer class="footer-section">
     <div class="container">

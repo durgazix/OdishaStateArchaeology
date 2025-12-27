@@ -555,45 +555,67 @@ window.showMonumentsPage = function () {
 };
 
 // - monuments-central.js
-
-let currentIndex = 0;
-
-function openImageViewer(index) {
-  currentIndex = index;
-  updateViewer();
-  document.getElementById("monumentsViewer").classList.add("active");
-  document.body.style.overflow = "hidden";
-}
-
-function closeImageViewer() {
-  document.getElementById("monumentsViewer").classList.remove("active");
-  document.body.style.overflow = "";
-}
-
-function nextImage() {
-  currentIndex = (currentIndex + 1) % monumentImages.length;
-  updateViewer();
-}
-
-function prevImage() {
-  currentIndex =
-    (currentIndex - 1 + monumentImages.length) % monumentImages.length;
-  updateViewer();
-}
-
-function updateViewer() {
-  document.getElementById("viewerImage").src = monumentImages[currentIndex];
-  document.getElementById("viewerCurrent").textContent = currentIndex + 1;
-  document.getElementById("viewerTotal").textContent = monumentImages.length;
-}
-
-/* ===== NAVIGATION ===== */
-window.showMonumentsCentralPage = function () {
-  hideAllSections();
-  document.getElementById("monuments-central").style.display = "block";
-  document.getElementById("footer").style.display = "block";
-  window.scrollTo({ top: 0, behavior: "smooth" });
-};
+// Simple version with only manual data
+document.addEventListener("DOMContentLoaded", () => {
+  const tableBody = document.getElementById("centralMonumentsTableBody");
+  const viewMoreBtn = document.getElementById("viewMoreBtn");
+  
+  if (!tableBody) return;
+  
+  const allMonuments = [
+    // ... (same manual data array as above)
+    // Add more monuments here as needed
+  ];
+  
+  let displayedCount = 10;
+  const incrementCount = 10;
+  
+  // Initial render
+  renderTable();
+  
+  function renderTable() {
+    // Clear existing rows except the first 10
+    const rowsToRemove = tableBody.querySelectorAll("tr:nth-child(n+11)");
+    rowsToRemove.forEach(row => row.remove());
+    
+    // Add more rows if needed
+    if (displayedCount > 10) {
+      for (let i = 10; i < Math.min(displayedCount, allMonuments.length); i++) {
+        const monument = allMonuments[i];
+        const row = document.createElement("tr");
+        
+        row.innerHTML = `
+          <td>${i + 1}</td>
+          <td><strong>${monument.monument}</strong></td>
+          <td>${monument.location}</td>
+          <td>${monument.state}</td>
+          <td>${monument.builtBy}</td>
+          <td>${monument.period}</td>
+        `;
+        
+        tableBody.appendChild(row);
+      }
+    }
+    
+    // Update count display
+    document.getElementById("shownCount").textContent = 
+      Math.min(displayedCount, allMonuments.length);
+    document.getElementById("totalCount").textContent = allMonuments.length;
+    
+    // Hide button if all loaded
+    if (displayedCount >= allMonuments.length && viewMoreBtn) {
+      viewMoreBtn.style.display = 'none';
+    }
+  }
+  
+  // View More button
+  if (viewMoreBtn) {
+    viewMoreBtn.addEventListener("click", () => {
+      displayedCount += incrementCount;
+      renderTable();
+    });
+  }
+});
 
 
 // - state-protected.js
