@@ -3729,7 +3729,7 @@ h3 {
   position: sticky;
   top: 0;
   z-index: 10;
-  text-align: left;
+  text-align: center;
   font-size: 15px;
   white-space: nowrap;
 }
@@ -3925,7 +3925,7 @@ h3 {
   position: sticky;
   top: 0;
   z-index: 10;
-  text-align: left;
+  text-align: center;
   font-size: 15px;
   white-space: nowrap;
 }
@@ -4423,7 +4423,7 @@ h3 {
   position: sticky;
   top: 0;
   z-index: 10;
-  text-align: left;
+  text-align: center;
   font-size: 15px;
   white-space: nowrap;
 }
