@@ -165,6 +165,20 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+// Sticky Navbar
+document.addEventListener("DOMContentLoaded", function () {
+  const navbar = document.querySelector(".main-navbar");
+
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 50) {
+      navbar.classList.add("sticky");
+    } else {
+      navbar.classList.remove("sticky");
+    }
+  });
+});
+
+
 // ================= JS FILES CONTENT BELOW =================
 
 // - header.js
