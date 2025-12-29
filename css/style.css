@@ -698,7 +698,6 @@ h3 {
   left: 0;
   background: rgba(0, 0, 0, 0.85);
   min-width: 260px;
-  padding: 0;
   z-index: 999;
   list-style: none;
 }
@@ -755,6 +754,15 @@ h3 {
   color: #d24a00;
   transform: translateY(-50%) translateX(3px);
   display: none;
+}
+.nav-list > li.active > a {
+  background-color: #ed7f25e5 !important;
+  color: #fff !important;
+}
+
+.nav-list > li.active > a:hover {
+  background-color: #ed7f25e5 !important;
+  color: #fff !important;
 }
 
 /* Mobile Responsive */
@@ -4308,7 +4316,6 @@ h3 {
 #central-protected {
   background-color: #f8f9fa;
   min-height: calc(100vh - 250px);
-  padding: 20px 0 40px;
 }
 
 /* Breadcrumb */

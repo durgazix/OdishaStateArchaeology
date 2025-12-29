@@ -68,6 +68,34 @@ function closePDFViewer() {
 }
 
 // ================= INITIALIZATION =================
+document.addEventListener("DOMContentLoaded", function () {
+  const navItems = document.querySelectorAll(".nav-list > li");
+  const currentPage = window.location.pathname.split("/").pop();
+
+  navItems.forEach((li) => {
+    const link = li.querySelector("a");
+    if (!link) return;
+
+    const linkPage = link.getAttribute("href");
+
+    // Remove any existing active class
+    li.classList.remove("active");
+
+    // Match page name
+    if (linkPage === currentPage) {
+      li.classList.add("active");
+    }
+
+    // Special case: HOME
+    if (currentPage === "" || currentPage === "index.html") {
+      document
+        .querySelector(".home-icon")
+        ?.classList.add("active");
+    }
+  });
+});
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
 
