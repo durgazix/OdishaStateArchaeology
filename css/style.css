@@ -367,6 +367,7 @@ h3 {
   margin: 5% auto;
   padding: 15px;
   position: relative;
+  z-index: 1000;
 }
 
 .virtual-content video {
@@ -644,7 +645,7 @@ h3 {
 .main-navbar {
   position: sticky;
   top: 0;
-  z-index: 9999;
+  z-index: 99;
   background: #fff;
   transition: box-shadow 0.3s ease;
 }
