@@ -734,7 +734,7 @@ h3 {
 /* Dropdown Arrow Icon */
 .dropdown-menu li a {
   position: relative;
-  padding-left: 40px;
+  padding-left: 40px;   
 }
 
 /* Arrow icon */
@@ -3908,7 +3908,7 @@ h3 {
   margin-bottom: 0;
 }
 
-.acts-rules-table thead  th {
+.acts-rules-table thead th {
   background: linear-gradient(135deg, #ed7f25e9, #ed7f25f7);
   color: white;
   font-weight: 600;
@@ -4534,8 +4534,13 @@ h3 {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* No Data Message */
@@ -4552,24 +4557,24 @@ h3 {
     padding: 10px;
     overflow-x: auto;
   }
-  
+
   .central-table {
     min-width: 700px;
   }
-  
+
   .central-title {
     font-size: 24px;
   }
-  
+
   .central-subtitle {
     font-size: 14px;
   }
-  
+
   .view-more-btn {
     padding: 10px 20px;
     font-size: 14px;
   }
-  
+
   .count-display {
     margin-left: 10px;
     font-size: 12px;
@@ -4581,22 +4586,22 @@ h3 {
   .central-title {
     font-size: 20px;
   }
-  
+
   .central-table thead th {
     padding: 12px 8px;
     font-size: 14px;
   }
-  
+
   .central-table tbody td {
     padding: 10px 8px;
     font-size: 13px;
   }
-  
+
   .view-more-container {
     flex-direction: column;
     gap: 10px;
   }
-  
+
   .view-more-btn {
     width: 100%;
     justify-content: center;
