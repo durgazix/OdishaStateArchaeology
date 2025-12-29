@@ -73,29 +73,30 @@ document.addEventListener("DOMContentLoaded", function () {
   const currentPage = window.location.pathname.split("/").pop();
 
   navItems.forEach((li) => {
-    const link = li.querySelector("a");
-    if (!link) return;
+    const mainLink = li.querySelector(":scope > a");
+    const subLinks = li.querySelectorAll(".dropdown-menu a");
 
-    const linkPage = link.getAttribute("href");
-
-    // Remove any existing active class
+    // RESET ACTIVE
     li.classList.remove("active");
 
-    // Match page name
-    if (linkPage === currentPage) {
+    // ✅ CASE 1: MAIN LINK MATCH
+    if (mainLink && mainLink.getAttribute("href") === currentPage) {
       li.classList.add("active");
     }
 
-    // Special case: HOME
-    if (currentPage === "" || currentPage === "index.html") {
-      document
-        .querySelector(".home-icon")
-        ?.classList.add("active");
-    }
+    // ✅ CASE 2: SUB MENU MATCH → ACTIVATE PARENT
+    subLinks.forEach((subLink) => {
+      if (subLink.getAttribute("href") === currentPage) {
+        li.classList.add("active");
+      }
+    });
   });
+
+  // ✅ HOME DEFAULT
+  if (currentPage === "" || currentPage === "index.html") {
+    document.querySelector(".home-icon")?.classList.add("active");
+  }
 });
-
-
 
 document.addEventListener("DOMContentLoaded", function () {
 
