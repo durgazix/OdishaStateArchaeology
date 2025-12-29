@@ -239,7 +239,7 @@ function closeVirtualTour() {
   }
 }
 
-// Optional: Close modal when clicking outside the video
+// Close modal when clicking outside the video
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("virtualModal");
   if (modal) {
@@ -250,99 +250,85 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
 // - hero.js
 document.addEventListener("DOMContentLoaded", () => {
-  const checkHero = setInterval(() => {
-    const slides = document.querySelectorAll(".hero-slide");
-    const dots = document.querySelectorAll(".dot");
+  const slides = document.querySelectorAll(".hero-slide");
+  const dots = document.querySelectorAll(".dot");
+  const nextBtn = document.querySelector(".hero-arrow.next");
+  const prevBtn = document.querySelector(".hero-arrow.prev");
+  const hero = document.querySelector(".hero");
 
-    if (slides.length > 0) {
-      clearInterval(checkHero);
-      initHero(slides, dots);
-    }
-  }, 100);
-});
-
-function initHero(slides, dots) {
   let current = 0;
-  const total = slides.length;
-  const interval = 5000;
   let timer;
 
   function showSlide(index) {
     slides.forEach((slide, i) => {
-      slide.classList.remove("active");
-      dots[i]?.classList.remove("active");
+      slide.classList.remove("active", "prev");
+
+      if (i === index) {
+        slide.classList.add("active");
+      } else if (i === current) {
+        slide.classList.add("prev");
+      }
     });
 
-    slides[index].classList.add("active");
-    dots[index]?.classList.add("active");
+    dots.forEach(dot => dot.classList.remove("active"));
+    dots[index].classList.add("active");
 
     current = index;
   }
 
   function nextSlide() {
-    showSlide((current + 1) % total);
+    showSlide((current + 1) % slides.length);
   }
 
   function prevSlide() {
-    showSlide((current - 1 + total) % total);
+    showSlide((current - 1 + slides.length) % slides.length);
   }
 
-  // Auto slide
-  function startAuto() {
-    timer = setInterval(nextSlide, interval);
+  function startAutoSlide() {
+    timer = setInterval(nextSlide, 5000);
   }
 
-  function resetAuto() {
+  function stopAutoSlide() {
     clearInterval(timer);
-    startAuto();
   }
 
-  // Arrows
-  document.querySelector(".hero-arrow.next")?.addEventListener("click", () => {
+  // ▶ Buttons
+  nextBtn.addEventListener("click", () => {
     nextSlide();
-    resetAuto();
+    stopAutoSlide();
+    startAutoSlide();
   });
 
-  document.querySelector(".hero-arrow.prev")?.addEventListener("click", () => {
+  prevBtn.addEventListener("click", () => {
     prevSlide();
-    resetAuto();
+    stopAutoSlide();
+    startAutoSlide();
   });
 
-  // Dots
-  dots.forEach((dot, i) => {
+  // ▶ Dots
+  dots.forEach((dot, index) => {
     dot.addEventListener("click", () => {
-      showSlide(i);
-      resetAuto();
+      showSlide(index);
+      stopAutoSlide();
+      startAutoSlide();
     });
   });
 
-  // Pause on hover
-  const hero = document.querySelector(".hero");
-  hero.addEventListener("mouseenter", () => clearInterval(timer));
-  hero.addEventListener("mouseleave", startAuto);
+  // ✅ PAUSE ON HOVER
+  hero.addEventListener("mouseenter", () => {
+    stopAutoSlide();
+  });
 
-  // Start
+  hero.addEventListener("mouseleave", () => {
+    startAutoSlide();
+  });
+
+  // Start slider
   showSlide(0);
-  startAuto();
-}
-
-
-// Wait for hero component to be loaded
-const heroObserver = new MutationObserver(() => {
-  if (document.querySelector(".hero-slide")) {
-    initializeHeroSlider();
-    heroObserver.disconnect();
-  }
-});
-
-// Start observing when document is ready
-document.addEventListener("DOMContentLoaded", () => {
-  const heroContainer = document.getElementById("hero");
-  if (heroContainer) {
-    heroObserver.observe(heroContainer, { childList: true, subtree: true });
-  }
+  startAutoSlide();
 });
 
 // - news-about.js
