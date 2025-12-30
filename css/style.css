@@ -270,7 +270,6 @@ h3 {
   margin: 2px 0 0;
   font-size: 20px;
   color: #0a3abe;
-  /* Archaeology brown */
   font-weight: 600;
 }
 
@@ -449,6 +448,13 @@ h3 {
 .mobile-icons {
   display: none;
   gap: 10px;
+}
+/* laptops */
+@media (max-width: 1300px) {
+  .mid-title {
+    margin-left: 0;
+    text-align: center;
+  }
 }
 
 /* TABLET & MOBILE */
@@ -4124,7 +4130,7 @@ h3 {
 
 .monuments-title {
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
   color: #1f2937;
   margin-bottom: 12px;
   text-transform: uppercase;
@@ -4132,11 +4138,13 @@ h3 {
 }
 
 .monuments-subtitle {
+  height: 3px;
   font-size: 15px;
   color: #6b7280;
   line-height: 1.7;
   max-width: 720px;
   margin: 0 auto;
+  margin-top: 10px;
 }
 
 /* =====================================
@@ -4362,7 +4370,7 @@ h3 {
 .central-title {
   font-size: 32px;
   font-weight: 700;
-  color: #ed7f25f7;
+  color: #000;
   margin-bottom: 10px;
   position: relative;
   display: inline-block;
@@ -4377,8 +4385,14 @@ h3 {
   transform: translateX(-50%);
   width: 80px;
   height: 3px;
-  background: linear-gradient(90deg, #ed7f25e9, #ed7f25f7);
-  border-radius: 2px;
+  background: linear-gradient(to right, #ed7f25e9, transparent);
+  /* background: linear-gradient(90deg, #ed7f25e9, #ed7f25f7); */
+  /* border-radius: 2px; */
+}
+.state-protected-section-divider {
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(to right, #ff9900, transparent);
 }
 
 .central-subtitle {
@@ -4448,6 +4462,10 @@ h3 {
   color: #444;
   font-size: 14px;
   vertical-align: middle;
+  text-align: center;  border: 1px solid #ddd;
+  /* padding: 12px 10px; */
+  vertical-align: top;
+  line-height: 1.5;
 }
 
 .central-table tbody tr:last-child td {
@@ -4633,12 +4651,14 @@ h3 {
   font-weight: 600;
   color: #333;
   margin-bottom: 6px;
+  text-align: center;
 }
 
 .state-protected-section-divider {
   width: 100px;
   height: 3px;
   background: linear-gradient(to right, #ff9900, transparent);
+  margin-left: 45%;
 }
 
 /* ================================
@@ -4703,6 +4723,10 @@ h3 {
 /* ================================
    TABLE BODY
 ================================ */
+
+.monuments-table tbody{
+  text-align: center;
+}
 
 .monuments-table tbody tr:nth-child(even) {
   background-color: #fafafa;
@@ -4818,7 +4842,7 @@ h3 {
    HEADING
    ================================ */
 .unprotected-section-title {
-  font-size: 26px;
+  font-size: 20px;
   font-weight: 600;
   color: #333;
   margin-bottom: 6px;
