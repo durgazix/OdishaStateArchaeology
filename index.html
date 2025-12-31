@@ -239,41 +239,20 @@
               <h2 class="section-title text-uppercase fw-bold mb-3">NEWS</h2>
               <hr class="news-divider mb-4" />
 
-              <!-- News Item -->
-              <div class="news-item">
-                <div class="d-flex justify-content-between align-items-start mb-3 pb-3 border-bottom">
-                  <h3 class="news-title fs-6 fw-semibold mb-0 flex-grow-1 me-3">
-                    Preservation of Jagannath Temple Complex - A Living Monument
-                  </h3>
-                  <div class="news-nav d-flex gap-2 flex-shrink-0">
-                    <button class="btn btn-light btn-sm nav-prev" type="button">&lt;</button>
-                    <button class="btn btn-light btn-sm nav-next" type="button">&gt;</button>
-                  </div>
+              <!-- News Header with Navigation -->
+              <div class="news-header d-flex justify-content-between align-items-center mb-3 pb-3 border-bottom">
+                <h3 class="news-title fs-6 fw-semibold mb-0 flex-grow-1 me-3">
+                  Loading news...
+                </h3>
+                <div class="news-nav d-flex gap-2 flex-shrink-0">
+                  <button class="btn btn-light btn-sm nav-prev" type="button" aria-label="Previous news">&lt;</button>
+                  <button class="btn btn-light btn-sm nav-next" type="button" aria-label="Next news">&gt;</button>
                 </div>
+              </div>
 
-                <div class="news-content">
-                  <div class="row g-3 align-items-start">
-                    <div class="col-12 col-md-8">
-                      <p class="news-text small text-muted lh-base mb-3">
-                        The Jagannath Temple in Puri is one of Odisha's most sacred and architecturally significant
-                        monuments. The Department of Archaeology continues its dedicated efforts to preserve this
-                        12th-century masterpiece, ensuring that its intricate stone carvings, magnificent spires, and
-                        spiritual significance are maintained for future generations of pilgrims and scholars. This
-                        magnificent structure, built in the 12th century, stands as a testament to Odishan architectural
-                        brilliance and remains one of the four most important pilgrimage sites in Hinduism.
-                      </p>
-                    </div>
-                    <div class="col-12 col-md-4">
-                      <img src="assets/news/Vallam-min_1.jpg" alt="Jagannath Temple"
-                        class="news-image img-fluid rounded w-100" />
-                    </div>
-                    <div class="col-12">
-                      <a href="news-page.html" class="news-more text-danger fw-semibold text-decoration-none">
-                        More..
-                      </a>
-                    </div>
-                  </div>
-                </div>
+              <!-- News Content Area -->
+              <div class="news-content">
+                <!-- Content will be loaded dynamically by JavaScript -->
               </div>
             </div>
           </div>
@@ -296,15 +275,63 @@
                 museums...
               </p>
 
-              <a href="AbouSection.html"><button class="btn btn-outline-danger fw-semibold align-self-start">
+              <a href="AbouSection.html" class="align-self-start">
+                <button class="btn-readmore fw-semibold">
                   Read more
-                </button></a>
+                </button>
+              </a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- HIDDEN NEWS DATA (Frontend hardcoded) -->
+  <div id="news-data" style="display: none;">
+    <div class="news-item-data">
+      <h3>Preservation of Jagannath Temple Complex - A Living Monument</h3>
+      <p>
+        The Jagannath Temple in Puri is one of Odisha's most sacred and architecturally significant
+        monuments. The Department of Archaeology continues its dedicated efforts to preserve this
+        12th-century masterpiece, ensuring that its intricate stone carvings, magnificent spires, and
+        spiritual significance are maintained for future generations of pilgrims and scholars.
+      </p>
+      <img src="assets/news/Vallam-min_1.jpg" alt="Jagannath Temple Complex">
+    </div>
+
+    <div class="news-item-data">
+      <h3>Excavations at Sishupalgarh Ancient Fort</h3>
+      <p>
+        Recent archaeological excavations at Sishupalgarh have uncovered significant findings from
+        the 4th century BC. The fortifications and urban planning reveal advanced engineering
+        techniques of ancient Kalinga civilization. Artifacts including pottery, coins, and weapons
+        provide insights into daily life during that period.
+      </p>
+      <img src="assets/news/Vallam-min_4.jpg" alt="Sishupalgarh Excavation Site">
+    </div>
+
+    <div class="news-item-data">
+      <h3>Restoration of Konark Sun Temple</h3>
+      <p>
+        The ongoing restoration project at the UNESCO World Heritage Site, Konark Sun Temple,
+        aims to preserve the intricate stone carvings and structural integrity of this 13th-century
+        architectural marvel. Special techniques are being employed to protect the monument from
+        weathering and environmental damage.
+      </p>
+      <img src="assets/news/Vallam-min_5.jpg" alt="Konark Sun Temple">
+    </div>
+
+    <div class="news-item-data">
+      <h3>New Archaeological Museum in Bhubaneswar</h3>
+      <p>
+        The Department of Archaeology is establishing a new state-of-the-art museum to showcase
+        artifacts from various excavation sites across Odisha. The museum will feature interactive
+        displays and digital exhibits to make archaeological heritage accessible to the public.
+      </p>
+      <img src="assets/news/Vallam-min_6.jpg" alt="Archaeological Museum">
+    </div>
+  </div>
 
   <!-- activities-notice-links -->
 
@@ -527,8 +554,8 @@
         <!-- ✅ VIDEO FOOTER -->
         <div class="text-center mt-4 video-footer">
           <a href="gallery.html"><button class="btn view-more-btn me-2">
-            View More
-          </button></a>
+              View More
+            </button></a>
           <button class="btn view-less-btn d-none">
             View Less
           </button>

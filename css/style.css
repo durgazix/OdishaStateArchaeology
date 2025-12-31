@@ -449,6 +449,7 @@ h3 {
   display: none;
   gap: 10px;
 }
+
 /* laptops */
 @media (max-width: 1300px) {
   .mid-title {
@@ -750,7 +751,7 @@ h3 {
 /* Dropdown Arrow Icon */
 .dropdown-menu li a {
   position: relative;
-  padding-left: 40px;   
+  padding-left: 40px;
 }
 
 /* Arrow icon */
@@ -772,12 +773,13 @@ h3 {
   transform: translateY(-50%) translateX(3px);
   display: none;
 }
-.nav-list > li.active > a {
+
+.nav-list>li.active>a {
   background-color: #ed7f25e5 !important;
   color: #fff !important;
 }
 
-.nav-list > li.active > a:hover {
+.nav-list>li.active>a:hover {
   background-color: #ed7f25e5 !important;
   color: #fff !important;
 }
@@ -959,10 +961,6 @@ h3 {
 
 /* news-about section */
 
-/* ===================================
-   NEWS-ABOUT SECTION STYLES
-   =================================== */
-
 .news-about-section {
   background: #fafafa;
 }
@@ -970,80 +968,28 @@ h3 {
 .news-about-section .card {
   border-color: rgba(78, 68, 68, 0.42) !important;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.news-about-section .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1) !important;
-}
-
-/* ===================================
-   SECTION TITLES
-   =================================== */
-
-.section-title {
-  font-size: 18px;
-  color: #333;
-  letter-spacing: 1px;
-}
-
-/* ===================================
-   DIVIDERS
-   =================================== */
-
-.news-divider,
-.about-divider {
-  height: 3px;
-  background: linear-gradient(to right, #ff9900, transparent);
-  border: none;
-  opacity: 1;
-  margin-top: 0;
-}
-
-/* ===================================
-   NEWS NAVIGATION BUTTONS
-   =================================== */
-
-.news-nav {
-  min-width: 72px;
-}
-
-.news-nav .btn {
-  width: 32px;
-  height: 32px;
-  padding: 0;
+  height: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  border-radius: 3px;
-  border: 1px solid #ddd;
-  transition: all 0.3s ease;
-  background-color: #f0f0f0;
+  flex-direction: column;
 }
 
-.news-nav .btn:hover {
-  background: #333 !important;
-  color: #fff !important;
-  border-color: #333 !important;
-  transform: scale(1.1);
+.news-about-section .card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
-/* ===================================
-   NEWS TITLE
-   =================================== */
-
-.news-title {
-  font-size: 15px;
-  color: #333;
-  transition: opacity 0.5s ease-in-out;
-  line-height: 1.4;
+.news-header {
+  min-height: 60px;
 }
 
 .news-content {
   opacity: 0;
-  transform: translateX(-50px);
+  transform: translateX(30px);
   transition: opacity 0.4s ease, transform 0.4s ease;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .news-content.show {
@@ -1051,154 +997,197 @@ h3 {
   transform: translateX(0);
 }
 
-/* ===================================
-   NEWS TEXT
-   =================================== */
+.news-content .row {
+  flex: 1;
+  align-items: stretch;
+}
+
+.news-text-col {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
 .news-text {
   font-size: 14px;
   color: #666;
-  transition: all 0.5s ease-in-out;
   line-height: 1.7;
   text-align: justify;
+  flex: 1;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  display: -webkit-box;
+  /* -webkit-line-clamp: 8; */
+  -webkit-box-orient: vertical;
+}
+
+.news-image-col {
+  display: flex;
+  flex-direction: column;
 }
 
 .news-image {
-  height: 180px;
   width: 100%;
+  height: 200px;
   object-fit: cover;
-  transition: all 0.5s ease-in-out;
-  animation: zoomIn 0.5s ease-in-out;
+  border-radius: 4px;
+  transition: transform 0.3s ease;
+  animation: slideInFromRight 0.5s ease-out;
 }
 
-@keyframes zoomIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+.news-image:hover {
+  transform: scale(1.02);
 }
-
-/* ===================================
-   NEWS MORE LINK
-   =================================== */
 
 .news-more {
   color: #d24a00;
   font-size: 14px;
-  transition: all 0.3s ease;
+  font-weight: 600;
+  text-decoration: none;
   display: inline-block;
+  padding: 4px 0;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid transparent;
 }
 
 .news-more:hover {
   color: #a03700;
-  text-decoration: underline !important;
+  border-bottom: 1px solid #a03700;
 }
 
-/* ===================================
-   ABOUT TEXT
-   =================================== */
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
 
-.about-text {
-  font-size: 14px;
-  color: #666;
-  text-align: justify;
-  line-height: 1.7;
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-/* ===================================
-   READ MORE BUTTON
-   =================================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
 
-.btn-outline-danger {
-  border-color: #d24a00 !important;
-  color: #d24a00 !important;
-  font-size: 14px;
-  padding: 10px 25px;
+  to {
+    opacity: 1;
+  }
+}
+
+.news-nav .btn {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
   border-radius: 3px;
+  border: 1px solid #ddd;
+  background-color: #f0f0f0;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.btn-outline-danger:hover {
-  background: #d24a00 !important;
-  border-color: #d24a00 !important;
+.news-nav .btn:hover {
+  background-color: #333 !important;
   color: #fff !important;
+  border-color: #333 !important;
+  transform: scale(1.05);
 }
 
-/* ===================================
-   RESPONSIVE STYLES
-   =================================== */
+.btn-readmore {
+  display: inline-block;
+  padding: 8px 18px;
+  font-size: 14px;
+  color: #ed7f25e5;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 4px;
+  border: 1px solid #ed7f25e5;
+  cursor: pointer;
+  background-color: #fff;
+}
 
-@media (max-width: 991px) {
+.btn-readmore:hover {
+  background-color: #ed7f25e5;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 991.98px) {
+  .news-content .row {
+    flex-direction: flex;
+  }
+
+  .news-text {
+    /* -webkit-line-clamp: 6; */
+    margin-bottom: 1.5rem;
+  }
+
   .news-image {
     height: 220px;
+    order: -1;
+    /* Image first on mobile */
+    margin-bottom: 1.5rem;
+  }
+
+  .news-text-col {
+    order: 2;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .news-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
   }
 
   .news-title {
+    width: 100%;
     margin-bottom: 0;
+  }
+
+  .news-nav {
+    align-self: flex-end;
+  }
+
+  .news-text {
+    font-size: 13.5px;
+    /* -webkit-line-clamp: 5; */
+  }
+
+  .news-image {
+    height: 200px;
+  }
+
+  .card-body {
+    padding: 1.5rem !important;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 575.98px) {
+  .news-image {
+    height: 180px;
+  }
+
+  .news-text {
+    font-size: 13px;
+    /* -webkit-line-clamp: 4; */
+  }
+
   .section-title {
     font-size: 16px;
   }
 
   .news-title {
     font-size: 14px;
-    margin-bottom: 10px;
   }
-
-  .news-nav {
-    margin-top: 10px;
-  }
-
-  .news-text,
-  .about-text {
-    font-size: 13px;
-  }
-
-  .news-image {
-    height: 200px;
-    margin-bottom: 15px;
-  }
-
-  .news-about-section .card-body {
-    padding: 1.5rem !important;
-  }
-}
-
-@media (max-width: 576px) {
-  .section-title {
-    font-size: 15px;
-  }
-
-  .news-nav .btn {
-    width: 30px;
-    height: 30px;
-    font-size: 14px;
-  }
-
-  .btn-outline-danger {
-    padding: 8px 20px;
-    font-size: 13px;
-  }
-
-  .news-image {
-    height: 180px;
-  }
-}
-
-/* ===================================
-   TEXT JUSTIFY UTILITY
-   =================================== */
-
-.text-justify {
-  text-align: justify;
 }
 
 /* activities-notice-links.css */
@@ -1364,6 +1353,7 @@ h3 {
   color: #d24a00;
   margin-top: auto;
   align-self: flex-end;
+  text-decoration: none;
 }
 
 /* ANIMATIONS */
@@ -1449,8 +1439,8 @@ h3 {
    =================================== */
 
 .gallery-title {
-  font-size: 26px;
-  font-weight: 700;
+  font-size: 24px;
+  font-weight: 600;
   color: #333;
   letter-spacing: 0.5px;
 }
@@ -1698,6 +1688,110 @@ h3 {
   animation-delay: 0.3s;
 }
 
+/* ===========================
+   IMAGE VIEWER (FULL SCREEN)
+   =========================== */
+
+.image-viewer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.image-viewer img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  animation: zoomIn 0.3s ease-in-out;
+}
+
+.image-viewer-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.image-viewer-close:hover {
+  color: #ff9800;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+/* ===========================
+   VIDEO VIEWER (FULL SCREEN)
+   =========================== */
+
+.video-viewer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.video-viewer video {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 10px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+.video-viewer-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.video-viewer-close:hover {
+  color: #ff9800;
+}
+
+
+
 /* ===================================
    RESPONSIVE DESIGN (Bootstrap Breakpoints)
    =================================== */
@@ -1709,7 +1803,7 @@ h3 {
   }
 
   .gallery-title {
-    font-size: 40px;
+    font-size: 26px;
   }
 
   .gallery-divider {
@@ -1752,7 +1846,7 @@ h3 {
   }
 
   .gallery-title {
-    font-size: 36px;
+    font-size: 24px;
   }
 
   .gallery-divider {
@@ -1793,7 +1887,7 @@ h3 {
   }
 
   .gallery-title {
-    font-size: 32px;
+    font-size: 22px;
   }
 
   .gallery-divider {
@@ -1834,7 +1928,7 @@ h3 {
   }
 
   .gallery-title {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .gallery-divider {
@@ -1882,7 +1976,7 @@ h3 {
   }
 
   .gallery-title {
-    font-size: 26px;
+    font-size: 24px;
   }
 
   .gallery-divider {
@@ -1938,7 +2032,7 @@ h3 {
   }
 
   .gallery-toggle-btn {
-    padding: 7px 18px;
+    padding: 10px 18px;
     font-size: 11px;
   }
 
@@ -1979,7 +2073,7 @@ h3 {
   }
 
   .gallery-title {
-    font-size: 22px;
+    font-size: 24px;
   }
 
   .gallery-divider {
@@ -3684,7 +3778,6 @@ h3 {
    ================================ */
 .rti-table-container {
   background: #fff;
-  padding: 15px;
   border-radius: 6px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   overflow-x: auto;
@@ -3697,8 +3790,6 @@ h3 {
 .acts-table-rti {
   width: 100%;
   min-width: 900px;
-  /* Keeps table readable on small screens */
-  /* border-collapse: collapse; */
   border-radius: 10px;
 }
 
@@ -3710,9 +3801,6 @@ h3 {
   vertical-align: top;
   line-height: 1.5;
   font-size: 16px;
-}
-
-.acts-table-rti th {
   text-align: center;
 }
 
@@ -3746,33 +3834,21 @@ h3 {
    ================================ */
 .acts-table-rti tbody tr {
   transition: background-color 0.3s ease;
+  text-align: center;
 }
 
 .acts-table-rti tbody tr:hover {
   background-color: #f3f3f3;
+  text-align: center;
 }
-
-/* ================================
-   RESPONSIVE BREAKPOINTS
-   ================================ */
 
 /* ---------- Large Desktop (≥1400px) ---------- */
 @media (min-width: 1400px) {
-  .rti-section-title {
-    font-size: 28px;
-  }
 
   .acts-table-rti th,
   .acts-table-rti td {
     font-size: 16px;
     padding: 16px 10px;
-  }
-}
-
-/* ---------- Laptop / Desktop (992px–1399px) ---------- */
-@media (max-width: 1399px) {
-  .rti-section-title {
-    font-size: 24px;
   }
 }
 
@@ -3794,9 +3870,6 @@ h3 {
 
 /* ---------- Mobile Large (576px–767px) ---------- */
 @media (max-width: 767px) {
-  .rti-section {
-    padding: 30px 0;
-  }
 
   .rti-section-title {
     font-size: 20px;
@@ -3815,9 +3888,6 @@ h3 {
 
 /* ---------- Mobile Small (<576px) ---------- */
 @media (max-width: 575px) {
-  .rti-section {
-    padding: 25px 0;
-  }
 
   .rti-section-title {
     font-size: 18px;
@@ -3844,11 +3914,6 @@ h3 {
 .acts-table-rti th {
   white-space: nowrap;
 }
-
-/* 
-.acts-table-rti td {
-  word-break: break-word;
-} */
 
 /* ================================
    PRINT FRIENDLY
@@ -3935,12 +4000,12 @@ h3 {
   padding: 14px 16px;
   font-size: 14px;
   vertical-align: middle;
+  text-align: center;
 }
 
 .acts-rules-table th {
   font-weight: 600;
   text-transform: uppercase;
-  text-align: center;
   letter-spacing: 0.3px;
 }
 
@@ -4129,22 +4194,13 @@ h3 {
 ===================================== */
 
 .monuments-title {
-  font-size: 20px;
+  /* font-size: 20px; */
   font-weight: 600;
   color: #1f2937;
-  margin-bottom: 12px;
+  /* margin-bottom: 12px; */
   text-transform: uppercase;
   letter-spacing: 0.5px;
-}
-
-.monuments-subtitle {
-  height: 3px;
-  font-size: 15px;
-  color: #6b7280;
-  line-height: 1.7;
-  max-width: 720px;
-  margin: 0 auto;
-  margin-top: 10px;
+  text-align: left;
 }
 
 /* =====================================
@@ -4213,6 +4269,67 @@ h3 {
   box-shadow: 0 6px 20px rgba(249, 115, 22, 0.45);
 }
 
+/* PDF MODAL */
+.pdf-viewer-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.pdf-viewer-modal.active {
+  display: flex;
+}
+
+.pdf-viewer-content {
+  width: 90%;
+  max-width: 1000px;
+  height: 85vh;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.pdf-viewer-header {
+  background: #f97316;
+  color: #fff;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pdf-viewer-header h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.pdf-close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.pdf-download-btn {
+  color: white;
+  margin-right: 15px;
+  font-size: 18px;
+}
+
+#pdfViewerFrame {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+
 /* =====================================
    RESPONSIVE — LARGE DESKTOP
    ≥ 1400px
@@ -4220,7 +4337,7 @@ h3 {
 
 @media (min-width: 1400px) {
   .monuments-title {
-    font-size: 38px;
+    font-size: 26px;
   }
 
   .monuments-subtitle {
@@ -4239,7 +4356,7 @@ h3 {
 
 @media (max-width: 1199px) {
   .monuments-title {
-    font-size: 32px;
+    font-size: 24px;
   }
 }
 
@@ -4250,7 +4367,7 @@ h3 {
 
 @media (max-width: 991px) {
   .monuments-title {
-    font-size: 28px;
+    font-size: 24px;
   }
 
   .pdf-icon {
@@ -4269,7 +4386,7 @@ h3 {
   }
 
   .monuments-title {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .monuments-subtitle {
@@ -4293,7 +4410,7 @@ h3 {
 
 @media (max-width: 480px) {
   .monuments-title {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .pdf-document-title {
@@ -4363,33 +4480,20 @@ h3 {
 
 /* Page Heading */
 .central-heading {
-  text-align: center;
+  text-align: left;
   margin-bottom: 40px;
 }
 
 .central-title {
-  font-size: 32px;
-  font-weight: 700;
+  font-size: 26px;
+  font-weight: 600;
   color: #000;
-  margin-bottom: 10px;
   position: relative;
   display: inline-block;
-  padding-bottom: 15px;
+  text-align: left;
 }
 
-.central-title::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
-  background: linear-gradient(to right, #ed7f25e9, transparent);
-  /* background: linear-gradient(90deg, #ed7f25e9, #ed7f25f7); */
-  /* border-radius: 2px; */
-}
-.state-protected-section-divider {
+.central-protected-section-divider {
   width: 100px;
   height: 3px;
   background: linear-gradient(to right, #ff9900, transparent);
@@ -4462,7 +4566,8 @@ h3 {
   color: #444;
   font-size: 14px;
   vertical-align: middle;
-  text-align: center;  border: 1px solid #ddd;
+  text-align: center;
+  border: 1px solid #ddd;
   /* padding: 12px 10px; */
   vertical-align: top;
   line-height: 1.5;
@@ -4565,7 +4670,7 @@ h3 {
 .no-data {
   text-align: center;
   padding: 40px !important;
-  color: #dc3545;
+  color: #ed7f25e9;
   font-style: italic;
 }
 
@@ -4651,14 +4756,14 @@ h3 {
   font-weight: 600;
   color: #333;
   margin-bottom: 6px;
-  text-align: center;
+  text-align: left;
 }
 
 .state-protected-section-divider {
   width: 100px;
   height: 3px;
   background: linear-gradient(to right, #ff9900, transparent);
-  margin-left: 45%;
+  margin-left: 0
 }
 
 /* ================================
@@ -4724,7 +4829,7 @@ h3 {
    TABLE BODY
 ================================ */
 
-.monuments-table tbody{
+.monuments-table tbody {
   text-align: center;
 }
 
@@ -4846,13 +4951,13 @@ h3 {
   font-weight: 600;
   color: #333;
   margin-bottom: 6px;
+  text-align: left;
 }
 
 .unprotected-section-divider {
   width: 100px;
   height: 3px;
   background: linear-gradient(to right, #ff9900, transparent);
-  margin: 0 auto;
 }
 
 /* ================================
@@ -4981,5 +5086,70 @@ h3 {
 
   .coming-soon-text {
     font-size: 14px;
+  }
+}
+
+/* MAIN SECTION */
+.news-page {
+  padding: 30px 0;
+  background: #fff;
+}
+
+.news-main-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  border-bottom: 3px solid #f4b400;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* NEWS BLOCK */
+.news-box {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+/* LEFT TEXT */
+.news-left {
+  flex: 1;
+}
+
+.news-left h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.news-left p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #444;
+}
+
+/* RIGHT IMAGE */
+.news-right {
+  width: 280px;
+  flex-shrink: 0;
+}
+
+.news-right img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .news-box {
+    flex-direction: column;
+  }
+
+  .news-right {
+    width: 100%;
   }
 }

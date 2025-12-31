@@ -99,14 +99,12 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-
   /* DROPDOWN TOGGLE (ONLY ICON / LI, NOT LINK) */
   const dropdowns = document.querySelectorAll(".dropdown");
 
   dropdowns.forEach((dropdown) => {
     dropdown.addEventListener("click", function (e) {
       if (window.innerWidth <= 992) {
-
         // Allow link clicks
         if (e.target.tagName === "A") return;
 
@@ -177,7 +175,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-
 
 // ================= JS FILES CONTENT BELOW =================
 
@@ -287,7 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    dots.forEach(dot => dot.classList.remove("active"));
+    dots.forEach((dot) => dot.classList.remove("active"));
     dots[index].classList.add("active");
 
     current = index;
@@ -348,85 +345,176 @@ document.addEventListener("DOMContentLoaded", () => {
 // - news-about.js
 let currentNewsIndex = 0;
 let autoSlideInterval;
+let newsItems = [];
 
 // ==============================
-// UPDATE SLIDE (FADE + SLIDE)
+// LOAD NEWS FROM HTML (Frontend hardcoding)
+// ==============================
+function loadNewsFromHTML() {
+  const items = document.querySelectorAll("#news-data .news-item-data");
+
+  if (items.length === 0) {
+    console.warn("No news items found in #news-data");
+    return false;
+  }
+
+  newsItems = Array.from(items).map((item) => {
+    return {
+      title: item.querySelector("h3")?.textContent || "Untitled",
+      text: item.querySelector("p")?.textContent || "",
+      image: item.querySelector("img")?.getAttribute("src") || "",
+      alt: item.querySelector("img")?.getAttribute("alt") || "",
+    };
+  });
+
+  console.log(`Loaded ${newsItems.length} news items from HTML`);
+  return true;
+}
+
+// ==============================
+// UPDATE NEWS SLIDE
 // ==============================
 function updateNewsSlide(index) {
   const newsContent = document.querySelector("#news-about .news-content");
   const newsTitle = document.querySelector("#news-about .news-title");
 
-  if (!newsContent || !newsTitle) return;
+  if (!newsContent || !newsTitle || newsItems.length === 0) {
+    console.error("Required elements or news data not available");
+    return;
+  }
 
+  // Ensure index is valid
+  if (index < 0 || index >= newsItems.length) {
+    index = 0;
+  }
+
+  // Clear auto-slide when manually navigating
   clearInterval(autoSlideInterval);
 
-  // 🔴 FADE OUT
-  // newsContent.classList.remove("show");
+  // Fade out current content
+  newsContent.classList.remove("show");
 
   setTimeout(() => {
-    // Update content
-    newsTitle.textContent = newsItems[index].title;
+    const item = newsItems[index];
 
+    // Update title
+    newsTitle.textContent = item.title;
+
+    // Update content with sliding animation
     newsContent.innerHTML = `
-      <div class="row g-3">
+      <div class="row g-3 align-items-start">
         <div class="col-md-8">
           <p class="news-text small text-muted lh-base mb-3">
-            ${newsItems[index].text}
+            ${item.text}
           </p>
-          <a href="#" class="news-more text-danger fw-semibold text-decoration-none"
-             onclick="showNewsPage(); return false;">More..</a>
+          <a href="news-page.html" class="news-more text-danger fw-semibold text-decoration-none">
+            More..
+          </a>
         </div>
         <div class="col-md-4">
-          <img src="${newsItems[index].image}"
-               class="news-image img-fluid rounded"
-               alt="${newsItems[index].title}">
+          <img src="${item.image}" 
+               alt="${item.alt || item.title}"
+               class="news-image img-fluid rounded w-100"
+               loading="lazy">
         </div>
       </div>
     `;
 
-    // 🟢 FADE IN + SLIDE
+    // Fade in new content
     setTimeout(() => {
       newsContent.classList.add("show");
     }, 50);
-  }, 350);
+  }, 350); // Match this with CSS transition duration
 
   currentNewsIndex = index;
+
+  // Restart auto-slide
   startAutoSlide();
 }
 
 // ==============================
-// AUTO SLIDE
+// AUTO SLIDE FUNCTION
 // ==============================
 function startAutoSlide() {
   clearInterval(autoSlideInterval);
+
+  if (newsItems.length <= 1) {
+    return; // Don't auto-slide if only one item
+  }
+
   autoSlideInterval = setInterval(() => {
-    const next = (currentNewsIndex + 1) % newsItems.length;
-    updateNewsSlide(next);
-  }, 5000);
+    const nextIndex = (currentNewsIndex + 1) % newsItems.length;
+    updateNewsSlide(nextIndex);
+  }, 5000); // Change every 5 seconds
 }
 
 // ==============================
-// INIT
+// INITIALIZE NEWS SLIDER
 // ==============================
-document.addEventListener("DOMContentLoaded", () => {
+function initializeNewsSlider() {
+  // Load news from hidden HTML container
+  if (!loadNewsFromHTML()) {
+    // Fallback: if no hidden data, use default
+    newsItems = [
+      {
+        title: "Archaeological Department News",
+        text: "Latest updates from the Department of Archaeology.",
+        image: "assets/news/Vallum_man_1.jpg",
+        alt: "Default news image",
+      },
+    ];
+  }
+
+  // Get navigation buttons
   const prevBtn = document.querySelector("#news-about .nav-prev");
   const nextBtn = document.querySelector("#news-about .nav-next");
 
-  document.querySelector(".news-content")?.classList.add("show");
+  // Initialize with first news item
+  updateNewsSlide(0);
 
+  // Add click event listeners
   prevBtn?.addEventListener("click", (e) => {
     e.preventDefault();
-    const prev = (currentNewsIndex - 1 + newsItems.length) % newsItems.length;
-    updateNewsSlide(prev);
+    const prevIndex =
+      (currentNewsIndex - 1 + newsItems.length) % newsItems.length;
+    updateNewsSlide(prevIndex);
   });
 
   nextBtn?.addEventListener("click", (e) => {
     e.preventDefault();
-    const next = (currentNewsIndex + 1) % newsItems.length;
-    updateNewsSlide(next);
+    const nextIndex = (currentNewsIndex + 1) % newsItems.length;
+    updateNewsSlide(nextIndex);
   });
 
+  // Start auto-sliding
   startAutoSlide();
+}
+
+// ==============================
+// DOM CONTENT LOADED
+// ==============================
+document.addEventListener("DOMContentLoaded", () => {
+  // Small delay to ensure all elements are ready
+  setTimeout(() => {
+    initializeNewsSlider();
+  }, 100);
+});
+
+// ==============================
+// PAUSE ON HOVER (Optional Enhancement)
+// ==============================
+document.addEventListener("DOMContentLoaded", () => {
+  const newsContainer = document.querySelector("#news-about .news-item");
+
+  if (newsContainer) {
+    newsContainer.addEventListener("mouseenter", () => {
+      clearInterval(autoSlideInterval);
+    });
+
+    newsContainer.addEventListener("mouseleave", () => {
+      startAutoSlide();
+    });
+  }
 });
 
 // - loader.js
@@ -505,22 +593,22 @@ document.addEventListener("DOMContentLoaded", function () {
 // - monuments.js
 /* ===== MONUMENTS - PDF VIEWER ===== */
 
-// Open PDF Viewer
 function openPDFViewer(pdfPath, pdfTitle) {
   const modal = document.getElementById("pdfViewerModal");
   const iframe = document.getElementById("pdfViewerFrame");
-  const title = document.getElementById("pdfViewerTitle");
+  const titleEl = document.getElementById("pdfViewerTitle");
   const downloadBtn = document.getElementById("pdfDownloadBtn");
 
-  if (!modal || !iframe || !title || !downloadBtn) return;
+  if (!modal || !iframe || !titleEl || !downloadBtn) {
+    console.error("PDF modal elements not found!");
+    return;
+  }
 
-  // Set PDF source and title
   iframe.src = pdfPath;
-  title.textContent = pdfTitle;
+  titleEl.textContent = pdfTitle;
   downloadBtn.href = pdfPath;
-  downloadBtn.download = pdfTitle + ".pdf";
+  downloadBtn.setAttribute("download", pdfTitle + ".pdf");
 
-  // Show modal
   modal.classList.add("active");
   document.body.style.overflow = "hidden";
 }
@@ -559,7 +647,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* ===== NAVIGATION FUNCTION ===== */
-/* Called from navbar.js */
 window.showMonumentsPage = function () {
   // Hide all sections
   hideAllSections();
@@ -588,31 +675,31 @@ window.showMonumentsPage = function () {
 document.addEventListener("DOMContentLoaded", () => {
   const tableBody = document.getElementById("centralMonumentsTableBody");
   const viewMoreBtn = document.getElementById("viewMoreBtn");
-  
+
   if (!tableBody) return;
-  
+
   const allMonuments = [
     // ... (same manual data array as above)
     // Add more monuments here as needed
   ];
-  
+
   let displayedCount = 10;
   const incrementCount = 10;
-  
+
   // Initial render
   renderTable();
-  
+
   function renderTable() {
     // Clear existing rows except the first 10
     const rowsToRemove = tableBody.querySelectorAll("tr:nth-child(n+11)");
-    rowsToRemove.forEach(row => row.remove());
-    
+    rowsToRemove.forEach((row) => row.remove());
+
     // Add more rows if needed
     if (displayedCount > 10) {
       for (let i = 10; i < Math.min(displayedCount, allMonuments.length); i++) {
         const monument = allMonuments[i];
         const row = document.createElement("tr");
-        
+
         row.innerHTML = `
           <td>${i + 1}</td>
           <td><strong>${monument.monument}</strong></td>
@@ -621,22 +708,12 @@ document.addEventListener("DOMContentLoaded", () => {
           <td>${monument.builtBy}</td>
           <td>${monument.period}</td>
         `;
-        
+
         tableBody.appendChild(row);
       }
     }
-    
-    // Update count display
-    document.getElementById("shownCount").textContent = 
-      Math.min(displayedCount, allMonuments.length);
-    document.getElementById("totalCount").textContent = allMonuments.length;
-    
-    // Hide button if all loaded
-    if (displayedCount >= allMonuments.length && viewMoreBtn) {
-      viewMoreBtn.style.display = 'none';
-    }
   }
-  
+
   // View More button
   if (viewMoreBtn) {
     viewMoreBtn.addEventListener("click", () => {
@@ -645,7 +722,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-
 
 // - state-protected.js
 // Wait for both DOM and XLSX to be ready
@@ -662,28 +738,28 @@ function initializeMonumentsTable() {
   }
 
   let allMonuments = [];
-  let displayedCount = 20;
-  const incrementCount = 20;
+  let displayedCount = 10;
+  const incrementCount = 10;
 
   // // First, preserve any existing manual data
   function extractManualData() {
     const existingRows = tableBody.querySelectorAll("tr:not(.loading-message)");
     const manualData = [];
-    
+
     existingRows.forEach((row, index) => {
       const cells = row.querySelectorAll("td");
       if (cells.length >= 6) {
         manualData.push({
-          sl: index+4 ,
+          sl: index + 4,
           district: cells[1].textContent.trim(),
           name: cells[2].textContent.trim(),
           location: cells[3].textContent.trim(),
           period: cells[4].textContent.trim(),
-          remarks: cells[5].textContent.trim()
+          remarks: cells[5].textContent.trim(),
         });
       }
     });
-    
+
     return manualData;
   }
 
@@ -691,18 +767,20 @@ function initializeMonumentsTable() {
     try {
       // First, get any existing manual data
       const manualData = extractManualData();
-      
+
       // Try to load Excel data
-      const response = await fetch("assets/state-protected/state_protected_monuments.xlsx");
-      
+      const response = await fetch(
+        "assets/state-protected/state_protected_monuments.xlsx"
+      );
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-      
+
       const buffer = await response.arrayBuffer();
 
       // Check if XLSX is loaded
-      if (typeof XLSX === 'undefined') {
+      if (typeof XLSX === "undefined") {
         console.error("XLSX library not loaded!");
         useManualDataOnly(manualData);
         return;
@@ -723,7 +801,7 @@ function initializeMonumentsTable() {
           location: row["Location"] || "",
           period: row["Period"] || "",
           remarks: row["Remarks"] || "State Protected",
-        }))
+        })),
       ];
 
       renderMonuments();
@@ -787,7 +865,8 @@ function initializeMonumentsTable() {
             View More
           </button>
           <span class="monuments-count">
-            Showing ${Math.min(displayedCount, allMonuments.length)} of ${allMonuments.length}
+            Showing ${Math.min(displayedCount, allMonuments.length)} of ${allMonuments.length
+        }
           </span>
         </td>
       `;
@@ -803,12 +882,10 @@ function initializeMonumentsTable() {
   loadMonumentsData();
 }
 
-
 // - unprotected-monuments.js
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Unprotected Monuments page loaded");
 });
-
 
 // - archaeology-library.js
 document.addEventListener("DOMContentLoaded", () => {
@@ -1016,7 +1093,6 @@ function scrollToGallery() {
     .scrollIntoView({ behavior: "smooth", block: "start" });
 }
 document.addEventListener("DOMContentLoaded", function () {
-
   initGallery();
 });
 
@@ -1043,8 +1119,8 @@ function initGallery() {
 
   // Function to pause all videos
   function pauseAllVideos() {
-    const videos = document.querySelectorAll('video');
-    videos.forEach(video => {
+    const videos = document.querySelectorAll("video");
+    videos.forEach((video) => {
       video.pause();
       video.currentTime = 0;
     });
@@ -1078,7 +1154,7 @@ function initGallery() {
   if (photoViewMore) {
     photoViewMore.addEventListener("click", function () {
       // Show all extra photos
-      extraPhotos.forEach(photo => {
+      extraPhotos.forEach((photo) => {
         photo.classList.remove("d-none");
       });
 
@@ -1091,7 +1167,7 @@ function initGallery() {
   if (photoViewLess) {
     photoViewLess.addEventListener("click", function () {
       // Hide all extra photos
-      extraPhotos.forEach(photo => {
+      extraPhotos.forEach((photo) => {
         photo.classList.add("d-none");
       });
 
@@ -1105,7 +1181,7 @@ function initGallery() {
   if (videoViewMore) {
     videoViewMore.addEventListener("click", function () {
       // Show all extra videos
-      extraVideos.forEach(video => {
+      extraVideos.forEach((video) => {
         video.classList.remove("d-none");
       });
 
@@ -1121,7 +1197,7 @@ function initGallery() {
   if (videoViewLess) {
     videoViewLess.addEventListener("click", function () {
       // Hide all extra videos
-      extraVideos.forEach(video => {
+      extraVideos.forEach((video) => {
         video.classList.add("d-none");
       });
 
@@ -1136,7 +1212,7 @@ function initGallery() {
 
   // On gallery page, show all photos by default
   if (isGalleryPage) {
-    extraPhotos.forEach(photo => {
+    extraPhotos.forEach((photo) => {
       photo.classList.remove("d-none");
     });
     if (photoViewMore) photoViewMore.classList.add("d-none");
@@ -1144,18 +1220,84 @@ function initGallery() {
   }
 
   // Initialize all videos to NOT autoplay
-  const allVideos = document.querySelectorAll('video');
-  allVideos.forEach(video => {
-    // Remove autoplay attribute if it exists
-    video.removeAttribute('autoplay');
-    // Ensure controls are visible
-    video.setAttribute('controls', '');
-    // Set to not autoplay
+  const allVideos = document.querySelectorAll("video");
+  allVideos.forEach((video) => {
+    video.removeAttribute("autoplay");
+    video.setAttribute("controls", "");
     video.autoplay = false;
-    // Set preload to metadata instead of auto
-    video.preload = 'metadata';
+    video.preload = "metadata";
   });
 }
+
+// ===============================
+// IMAGE & VIDEO FULL VIEWER
+// ===============================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* ================= IMAGE VIEWER ================= */
+  const imageViewer = document.getElementById("imageViewer");
+  const viewerImage = document.getElementById("viewerImage");
+  const imageCloseBtn = document.querySelector(".image-viewer-close");
+
+  document.querySelectorAll(".gallery-item img").forEach(img => {
+    img.addEventListener("click", () => {
+      viewerImage.src = img.src;
+      imageViewer.classList.remove("d-none");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  imageCloseBtn?.addEventListener("click", closeImageViewer);
+
+  imageViewer?.addEventListener("click", (e) => {
+    if (e.target === imageViewer) closeImageViewer();
+  });
+
+  function closeImageViewer() {
+    imageViewer.classList.add("d-none");
+    viewerImage.src = "";
+    document.body.style.overflow = "auto";
+  }
+
+  /* ================= VIDEO VIEWER ================= */
+  const videoViewer = document.getElementById("videoViewer");
+  const viewerVideo = document.getElementById("viewerVideo");
+  const videoCloseBtn = document.querySelector(".video-viewer-close");
+
+  document.querySelectorAll(".video-card video").forEach(video => {
+    video.addEventListener("click", () => {
+      viewerVideo.src = video.currentSrc;
+      videoViewer.classList.remove("d-none");
+      viewerVideo.play();
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  videoCloseBtn?.addEventListener("click", closeVideoViewer);
+
+  videoViewer?.addEventListener("click", (e) => {
+    if (e.target === videoViewer) closeVideoViewer();
+  });
+
+  function closeVideoViewer() {
+    viewerVideo.pause();
+    viewerVideo.currentTime = 0;
+    viewerVideo.src = "";
+    videoViewer.classList.add("d-none");
+    document.body.style.overflow = "auto";
+  }
+
+  // ESC key close for both
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeImageViewer();
+      closeVideoViewer();
+    }
+  });
+});
+
+
 
 // - contact-us.js
 // Handle contact form submission
@@ -1210,7 +1352,8 @@ document.addEventListener("DOMContentLoaded", function () {
 // - act-rules.js
 const pdfFiles = {
   act1: {
-    title:"Odisha Development Authorities (Planning and Building Standards) Act & Rules 2020",
+    title:
+      "Odisha Development Authorities (Planning and Building Standards) Act & Rules 2020",
     file: "assets/act-rules-pdfs/Act&Rules_1.pdf",
   },
   act2: {
