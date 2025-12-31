@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Staffing Pattner Page</title>
+  <title>RTI Section Page</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
@@ -189,59 +189,86 @@
     </div>
   </nav>
 
-  <!-- staffing pattern -->
-
-  <!-- Breadcrumb -->
-  <div class="breadcrumb-bar">
-    <div class="container">
-      <nav class="breadcrumb">
-        <a href="index.html">Home</a>
-        <span class="breadcrumb-separator">&gt;&gt;</span>
-        <a href="#" class="breadcrumb-item">About Us</a>
-        <span class="breadcrumb-separator">&gt;&gt;</span>
-        <span class="breadcrumb-item active">Staffing Pattern</span>
-      </nav>
-    </div>
+  <!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <div class="container">
+    <nav class="breadcrumb mb-0">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-separator">&gt;&gt;</span>
+      <span class="breadcrumb-item active">Tenders</span>
+      <span class="breadcrumb-separator">&gt;&gt;</span>
+      <span class="breadcrumb-item active">Tender Notice</span>
+    </nav>
   </div>
+</div>
 
-  <!-- Staffing Pattern Section -->
-  <section class="staffing-pattern-section">
-    <div class="container">
+<!-- TENDER NOTE SECTION -->
+<section id="tendernote-section" class="tendernote-section py-4">
+  <div class="container">
 
-      <!-- Chart 1 -->
-      <div class="chart-section">
-        <h2 class="chart-title">
-          DEPARTMENT OF ARCHAEOLOGY ADMINISTRATIVE CHART
-        </h2>
-        <div class="chart-image-container">
-          <img src="assets/abouts/image.png" alt="Department of Archaeology Administrative Chart" class="chart-image" />
-        </div>
-      </div>
-
-      <!-- Chart 2 -->
-      <div class="chart-section">
-        <h2 class="chart-title">
-          GOVERNMENT ORIENTAL MANUSCRIPTS LIBRARY AND RESEARCH CENTRE
-          ADMINISTRATIVE CHART
-        </h2>
-        <div class="chart-image-container">
-          <img src="assets/abouts/goml_admin.jpg"
-            alt="Government Oriental Manuscripts Library and Research Centre Administrative Chart"
-            class="chart-image" />
-        </div>
-      </div>
-
+    <!-- Heading -->
+    <div class="tendernote-heading mb-4">
+      <h2 class="tendernote-title">TENDER NOTICE</h2>
+      <div class="tendernote-divider"></div>
     </div>
-  </section>
 
-  <!-- Close Button
-  <button class="close-detail-btn" onclick="goHome(); return false;">&times;</button>
-  <script>
-    function goHome() {
-      window.location.href = "index.html"; // change if needed
-    }
-  </script> -->
+    <!-- Table -->
+    <div class="table-responsive">
+      <table class="table tendernote-table table-bordered align-middle">
+        <thead>
+          <tr>
+            <th style="width: 10%">Sl. No.</th>
+            <th style="width: 20%">Tender ID</th>
+            <th>Tender Title</th>
+            <th style="width: 15%">Download</th>
+          </tr>
+        </thead>
 
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>OSA/TND/2024/01</td>
+            <td>
+              Tender for Conservation & Restoration Work of Protected Monuments
+            </td>
+            <td>
+              <a href="assets/act-rules-pdfs/Act&Rules_1.pdf" target="_blank" class="tendernote-download-btn">
+                <i class="fa fa-file-pdf-o"></i> View
+              </a>
+            </td>
+          </tr>
+
+          <tr>
+            <td>2</td>
+            <td>OSA/TND/2024/02</td>
+            <td>
+              Tender for Documentation & Digitization of Archaeological Records
+            </td>
+            <td>
+              <a href="assets/act-rules-pdfs/Act&Rules_1.pdf" target="_blank" class="tendernote-download-btn">
+                <i class="fa fa-file-pdf-o"></i> View
+              </a>
+            </td>
+          </tr>
+
+          <tr>
+            <td>3</td>
+            <td>OSA/TND/2024/03</td>
+            <td>
+              Tender for Maintenance of Protected Monuments & Sites
+            </td>
+            <td>
+              <a href="assets/act-rules-pdfs/Act&Rules_1.pdf" target="_blank" class="tendernote-download-btn">
+                <i class="fa fa-file-pdf-o"></i> View
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
 
   <!-- footer -->
   <footer class="footer-section">

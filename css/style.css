@@ -5038,3 +5038,202 @@ h3 {
     width: 100%;
   }
 }
+
+/* GOVERNMENT TABLE DESIGN */
+#notification-section{
+  background-color: #f9f9f9;
+  min-height: calc(100vh - 150px);
+}
+
+.notification-title {
+  font-size: 26px;
+  font-weight: 600;
+  color: #000;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.notification-divider{
+  width: 20%;
+  height: 3px;
+  background: linear-gradient(to right, #ff9900, transparent);
+}
+
+.notification-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* TABLE HEADER */
+.notification-table thead {
+  background: linear-gradient(90deg, #db6104, #f07b19);
+}
+
+.notification-table thead th {
+  background-color: #db6104;
+  padding: 14px 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid #d55b00;
+  text-align: center;
+}
+
+/* TABLE BODY */
+.notification-table td {
+  padding: 12px;
+  font-size: 15px;
+  color: #333;
+  border: 1px solid #ddd;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* ROW STRIPES */
+.notification-table tbody tr:nth-child(even) {
+  background-color: #faf6f2;
+}
+
+.notification-table tbody tr:hover {
+  background-color: #fff3e6;
+  box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.03);
+  transition: background-color 0.3s ease;
+}
+
+
+/* DOWNLOAD BUTTON */
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: linear-gradient(135deg, #e65f0c, #f08c2b);
+  color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.download-btn i {
+  font-size: 14px;
+}
+
+.download-btn:hover {
+  background: linear-gradient(135deg, #b84a05, #d96a10);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .notification-table th,
+  .notification-table td {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* tendernote-section.css */
+
+/* TENDER NOTE SECTION */
+#tendernote-section {
+  background-color: #f9f9f9;
+}
+
+/* TITLE */
+.tendernote-title {
+  font-size: 26px;
+  font-weight: 600;
+  color: #000;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.tendernote-divider {
+  width: 25%;
+  height: 3px;
+  background: linear-gradient(to right, #ff9900, transparent);
+}
+
+/* TABLE */
+.tendernote-table {
+  width: 100%;
+  background: #ffffff;
+  border-collapse: collapse;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* TABLE HEADER */
+.tendernote-table thead {
+  background: linear-gradient(90deg, #db6104, #f07b19);
+}
+
+.tendernote-table thead th {
+  background-color: #db6104;
+  padding: 14px 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid #d55b00;
+  text-align: center;
+}
+
+/* TABLE BODY */
+.tendernote-table td {
+  padding: 12px;
+  font-size: 14.5px;
+  color: #333;
+  border: 1px solid #ddd;
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* ROW STRIPES */
+.tendernote-table tbody tr:nth-child(even) {
+  background-color: #faf6f2;
+}
+
+/* HOVER EFFECT */
+.tendernote-table tbody tr:hover {
+  background-color: #fff3e6;
+  transition: background-color 0.3s ease;
+}
+
+/* DOWNLOAD BUTTON */
+.tendernote-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: linear-gradient(135deg, #e65f0c, #f08c2b);
+  color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.tendernote-download-btn:hover {
+  background: linear-gradient(135deg, #b84a05, #d96a10);
+  color: #fff;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .tendernote-table th,
+  .tendernote-table td {
+    font-size: 13px;
+    padding: 10px;
+  }
+}
