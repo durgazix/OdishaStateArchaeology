@@ -7,6 +7,7 @@
   <title>Library Page</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
@@ -81,21 +82,16 @@
 
       <!-- RIGHT CONTROLS -->
       <div class="mid-actions">
-        <!-- Virtual Tour -->
+   <!-- Virtual Tour -->
         <button class="virtual-btn" onclick="openVirtualTour()">
           <img src="assets/player-image.png" alt="Player Image" class="virtual-btn-triangle">Virtual Tour
         </button>
-        <!-- <button class="virtual-btn" onclick="openVirtualTour()">
-        <span class="virtual-btn-triangle"><i class="fa-solid fa-play-circle"></i></span>Virtual Tour
-      </button> -->
         <!-- Virtual Tour Modal -->
         <div id="virtualModal" class="virtual-modal">
           <div class="virtual-content">
             <button class="close" onclick="closeVirtualTour()" title="Close Virtual Tour">✕</button>
-            <video controls id="virtualTourVideo">
-              <source src="assets/virtual-tour/Video_Generation_for_Ecosystem.mp4" type="video/mp4" />
-              Your browser does not support video.
-            </video>
+            <div id="panoramaViewer" data-panorama="assets/virtual-tour/virtual_tour.jpg">
+            </div>
           </div>
         </div>
 
@@ -144,6 +140,7 @@
     </div>
   </div>
 
+
   <nav class="main-navbar" id="navbar">
     <div class="container">
       <ul class="nav-list" id="navList">
@@ -159,20 +156,27 @@
           </ul>
         </li>
         <li class="dropdown">
-          <a href="archaeology-library.html">ARCHAEOLOGY LIBRARY</a>
+          <a href="#">ARCHAEOLOGY LIBRARY</a>
           <ul class="dropdown-menu">
-            <li><a href="books-journals.html">Books & Journals</a></li>
-            <li><a href="#">E-Books</a></li>
-            <li><a href="library.html">Library</a></li>
+            <li><a href="books-journals.html">BOOKS & JOURNALS</a></li>
+            <li><a href="#">E-BOOKS</a></li>
+            <li><a href="library.html">LIBRARY</a></li>
           </ul>
         </li>
 
         <li class="dropdown">
           <a href="monuments.html">MONUMENTS</a>
           <ul class="dropdown-menu">
-            <li><a href="monuments-central.html">Central Protected Monument</a></li>
-            <li><a href="state-protected.html">State Protected Monument</a></li>
-            <li><a href="unprotected-monuments.html">Unprotected Monument</a></li>
+            <li><a href="monuments-central.html">CENTRAL PROTECTED MONUMENTS</a></li>
+            <li><a href="state-protected.html">STATE PROTECTED MONUMENTS</a></li>
+            <li><a href="unprotected-monuments.html">UNPROTECTED MONUMENTS</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">NOTIFICATIONS</a>
+          <ul class="dropdown-menu">
+            <li><a href="#">ACTIVITIES</a></li>
+            <li><a href="#">TENDER NOTE</a></li>
           </ul>
         </li>
 
@@ -378,6 +382,7 @@
     </div>
   </footer>
 </body>
+  <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
 <script src="js/main.js"></script>
 
 </html>
