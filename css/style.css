@@ -599,6 +599,7 @@ h3 {
   color: #fff;
   font-weight: 500;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .license-link:hover {
