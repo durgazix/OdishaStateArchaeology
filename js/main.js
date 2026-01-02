@@ -347,76 +347,129 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // - news-about.js
-let newsIndex = 0;
-let newsList = [];
-let autoSlide;
 
-// Load data from HTML
-function loadNews() {
+let currentNewsIndex = 0;
+let autoSlideInterval = null;
+let newsItems = [];
+
+function loadNewsFromHTML() {
   const items = document.querySelectorAll("#news-data .news-item-data");
 
-  newsList = Array.from(items).map(item => ({
-    title: item.querySelector("h3").innerText,
-    text: item.querySelector("p").innerText,
-    image: item.querySelector("img").src,
-    alt: item.querySelector("img").alt
+  if (!items.length) {
+    console.warn("No news items found in #news-data");
+    return false;
+  }
+
+  newsItems = Array.from(items).map((item) => ({
+    title: item.querySelector("h3")?.textContent || "Untitled",
+    text: item.querySelector("p")?.textContent || "",
+    image: item.querySelector("img")?.getAttribute("src") || "",
+    alt: item.querySelector("img")?.getAttribute("alt") || "",
   }));
+
+  console.log(`Loaded ${newsItems.length} news items`);
+  return true;
 }
 
-// Show News
-function showNews(index) {
-  const title = document.querySelector("#news-about .news-title");
-  const content = document.querySelector("#news-about .news-content");
+function updateNewsSlide(index) {
+  const newsContent = document.querySelector("#news-about .news-content");
+  const newsTitle = document.querySelector("#news-about .news-title");
 
-  const item = newsList[index];
+  if (!newsContent || !newsTitle || !newsItems.length) return;
 
-  title.innerText = item.title;
+  if (index < 0 || index >= newsItems.length) index = 0;
 
-content.innerHTML = `
-  <div class="row g-3 align-items-stretch">
+  clearInterval(autoSlideInterval);
 
-    <!-- TEXT COLUMN -->
-    <div class="col-md-8 news-text-col">
-      <p class="news-text">
-        ${item.text}
-      </p>
-      <a href="news-page.html" class="news-more">More...</a>
-    </div>
+  // Fade out
+  newsContent.classList.remove("show");
 
-    <!-- IMAGE COLUMN -->
-    <div class="col-md-4 news-image-col">
-      <img src="${item.image}"
-           alt="${item.alt}"
-           class="news-image">
-    </div>
+  setTimeout(() => {
+    const item = newsItems[index];
 
-  </div>
-`;
+    newsTitle.textContent = item.title;
+
+    newsContent.innerHTML = `
+      <div class="row g-3 align-items-start">
+        <div class="col-md-8">
+          <p class="news-text small text-muted lh-base mb-3">
+            ${item.text}
+          </p>
+          <a href="news-page.html" class="news-more fw-semibold text-decoration-none">
+            More..
+          </a>
+        </div>
+        <div class="col-md-4">
+          <img src="${item.image}"
+               alt="${item.alt || item.title}"
+               class="news-image img-fluid rounded w-100"
+               loading="lazy">
+        </div>
+      </div>
+    `;
+
+    newsContent.classList.add("show");
+  }, 300);
+
+  currentNewsIndex = index;
+  startAutoSlide();
 }
 
-// Auto Slide
 function startAutoSlide() {
-  autoSlide = setInterval(() => {
-    newsIndex = (newsIndex + 1) % newsList.length;
-    showNews(newsIndex);
+  clearInterval(autoSlideInterval);
+
+  if (newsItems.length <= 1) return;
+
+  autoSlideInterval = setInterval(() => {
+    const next = (currentNewsIndex + 1) % newsItems.length;
+    updateNewsSlide(next);
   }, 5000);
 }
 
-// Init
-document.addEventListener("DOMContentLoaded", () => {
-  loadNews();
-  showNews(0);
+function initializeNewsSlider() {
+  if (!loadNewsFromHTML()) {
+    newsItems = [
+      {
+        title: "Department of Archaeology",
+        text: "Latest updates from the Department of Archaeology.",
+        image: "assets/news/Vallam-min_6.jpg",
+        alt: "News",
+      },
+    ];
+  }
+
+  const prevBtn = document.querySelector("#news-about .nav-prev");
+  const nextBtn = document.querySelector("#news-about .nav-next");
+
+  updateNewsSlide(0);
+
+  prevBtn?.addEventListener("click", () => {
+    const prev = (currentNewsIndex - 1 + newsItems.length) % newsItems.length;
+    updateNewsSlide(prev);
+  });
+
+  nextBtn?.addEventListener("click", () => {
+    const next = (currentNewsIndex + 1) % newsItems.length;
+    updateNewsSlide(next);
+  });
+
   startAutoSlide();
+}
 
-  document.querySelector(".nav-prev").onclick = () => {
-    newsIndex = (newsIndex - 1 + newsList.length) % newsList.length;
-    showNews(newsIndex);
-  };
+document.addEventListener("DOMContentLoaded", () => {
+  initializeNewsSlider();
 
-  document.querySelector(".nav-next").onclick = () => {
-    newsIndex = (newsIndex + 1) % newsList.length;
-    showNews(newsIndex);
-  };
+  const newsBox = document.querySelector("#news-about");
+
+  if (newsBox) {
+    newsBox.addEventListener("mouseenter", () => {
+      clearInterval(autoSlideInterval);
+    });
+
+    newsBox.addEventListener("mouseleave", () => {
+      startAutoSlide();
+    });
+  }
 });
 
 //news-about.js
@@ -497,6 +550,24 @@ window.closeDetailPage = function () {
   goHome();
 };
 // - activities-notice-links.js
+  document.addEventListener("DOMContentLoaded", () => {
+    const items = document.querySelectorAll(".activity-item");
+
+    items.forEach((item, index) => {
+      if (index >= 4) {
+        item.style.display = "none";
+      }
+    });
+  });
+  document.addEventListener("DOMContentLoaded", () => {
+    const items = document.querySelectorAll(".notice-item");
+
+    items.forEach((item, index) => {
+      if (index >= 4) {
+        item.style.display = "none";
+      }
+    });
+  });
 document.addEventListener("DOMContentLoaded", function () {
   const linksContent = document.querySelector(".links-content");
   if (linksContent) {
@@ -515,7 +586,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // - monuments.js
-
 /* ===== EVENT LISTENERS FOR PDF VIEWER ===== */
 document.addEventListener("DOMContentLoaded", function() {
   console.log("DOM loaded, setting up PDF viewer listeners"); // Debug log
@@ -559,7 +629,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // - monuments-central.js
-// Simple version with only manual data
+
 document.addEventListener("DOMContentLoaded", () => {
   const tableBody = document.getElementById("centralMonumentsTableBody");
   const viewMoreBtn = document.getElementById("viewMoreBtn");
@@ -567,8 +637,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!tableBody) return;
 
   const allMonuments = [
-    // ... (same manual data array as above)
-    // Add more monuments here as needed
   ];
 
   let displayedCount = 10;
@@ -1279,24 +1347,6 @@ window.downloadPDF = function (id) {
 
 // - rti.js
 document.addEventListener("DOMContentLoaded", () => {
-  const newRtiData = [
-    {
-      sl: "4.",
-      rti: "Right to Information Act, 2005",
-      officer: "Mr. Satyabrata Nayak",
-      designation: "Assistant Public Information Officer",
-      address: "Odisha State Archaeology, Bhubaneswar",
-      contact: "6742390456",
-    },
-    {
-      sl: "5.",
-      rti: "Odisha Transparency in Public Service Act, 2012",
-      officer: "Ms. Anjali Mishra",
-      designation: "Public Information Officer",
-      address: "Directorate of Archaeology, Odisha",
-      contact: "6742390789",
-    },
-  ];
 
   const tableBody = document.querySelector(".acts-table-rti tbody");
   if (!tableBody) return;

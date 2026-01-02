@@ -228,44 +228,72 @@
   <section class="news-about-section py-5 bg-light" id="news-about">
     <div class="container">
       <div class="row g-4">
-        <!-- ================= NEWS SECTION ================= -->
-        <div class="col-lg-6" id="news-about">
+        <!-- NEWS SECTION -->
+        <div class="col-lg-6">
           <div class="card border shadow-sm h-100">
             <div class="card-body p-4">
-
               <h2 class="section-title text-uppercase fw-bold mb-3">NEWS</h2>
               <hr class="news-divider mb-4" />
 
-              <!-- Header -->
-              <div class="news-header d-flex justify-content-between align-items-center mb-3">
-                <h3 class="news-title mb-0">Loading...</h3>
-                <div>
-                  <button class="btn btn-light btn-sm nav-prev">&lt;</button>
-                  <button class="btn btn-light btn-sm nav-next">&gt;</button>
+              <!-- News Header with Navigation -->
+              <div class="news-header d-flex justify-content-between align-items-center mb-3 pb-3 border-bottom">
+                <h3 class="news-title fs-6 fw-semibold mb-0 flex-grow-1 me-3">
+                  Loading news...
+                </h3>
+                <div class="news-nav d-flex gap-2 flex-shrink-0">
+                  <button class="btn btn-light btn-sm nav-prev" type="button" aria-label="Previous news">&lt;</button>
+                  <button class="btn btn-light btn-sm nav-next" type="button" aria-label="Next news">&gt;</button>
                 </div>
               </div>
-              <!-- Visible Content -->
-              <div class="news-content fade"></div>
-              <!-- ================= HIDDEN DATA SOURCE ================= -->
-              <div id="news-data" style="display:none;">
-                <div class="news-item-data">
-                  <h3>Jagannath Temple Preservation</h3>
-                  <p>The Archaeology Department is actively conserving the Jagannath Temple complex to preserve its
-                    heritage.</p>
-                  <img src="assets/news/Vallam-min_3.jpg" alt="Jagannath Temple">
-                </div>
 
-                <div class="news-item-data">
-                  <h3>Konark Sun Temple Restoration</h3>
-                  <p>Restoration work is ongoing at Konark Sun Temple to protect its stone carvings.</p>
-                  <img src="assets/news/Vallam-min_1.jpg" alt="Konark Temple">
+              <!-- News Content Area -->
+              <div class="news-content">
+                <!-- HIDDEN NEWS DATA (Frontend hardcoded) -->
+                <div id="news-data" style="display: none;">
+                  <div class="news-item-data">
+                    <h3>Preservation of Jagannath Temple Complex - A Living Monument</h3>
+                    <p>
+                      The Jagannath Temple in Puri is one of Odisha's most sacred and architecturally significant
+                      monuments. The Department of Archaeology continues its dedicated efforts to preserve this
+                      12th-century masterpiece, ensuring that its intricate stone carvings, magnificent spires, and
+                      spiritual significance are maintained for future generations of pilgrims and scholars.
+                    </p>
+                    <img src="assets/news/Vallam-min_1.jpg" alt="Jagannath Temple Complex">
+                  </div>
+        
+                  <div class="news-item-data">
+                    <h3>Excavations at Sishupalgarh Ancient Fort</h3>
+                    <p>
+                      Recent archaeological excavations at Sishupalgarh have uncovered significant findings from
+                      the 4th century BC. The fortifications and urban planning reveal advanced engineering
+                      techniques of ancient Kalinga civilization. Artifacts including pottery, coins, and weapons
+                      provide insights into daily life during that period.
+                    </p>
+                    <img src="assets/news/Vallam-min_4.jpg" alt="Sishupalgarh Excavation Site">
+                  </div>
+        
+                  <div class="news-item-data">
+                    <h3>Restoration of Konark Sun Temple</h3>
+                    <p>
+                      The ongoing restoration project at the UNESCO World Heritage Site, Konark Sun Temple,
+                      aims to preserve the intricate stone carvings and structural integrity of this 13th-century
+                      architectural marvel. Special techniques are being employed to protect the monument from
+                      weathering and environmental damage.
+                    </p>
+                    <img src="assets/news/Vallam-min_5.jpg" alt="Konark Sun Temple">
+                  </div>
+        
+                  <div class="news-item-data">
+                    <h3>New Archaeological Museum in Bhubaneswar</h3>
+                    <p>
+                      The Department of Archaeology is establishing a new state-of-the-art museum to showcase
+                      artifacts from various excavation sites across Odisha. The museum will feature interactive
+                      displays and digital exhibits to make archaeological heritage accessible to the public.
+                    </p>
+                    <img src="assets/news/Vallam-min_6.jpg" alt="Archaeological Museum">
+                  </div>
                 </div>
-
-                <div class="news-item-data">
-                  <h3>Odisha Heritage Awareness Drive</h3>
-                  <p>A state-wide awareness campaign has been launched for monument protection.</p>
-                  <img src="assets/news/Vallam-min_2.jpg" alt="Heritage Drive">
-                </div>
+                <!-- Content will be loaded dynamically by JavaScript -->
               </div>
             </div>
           </div>
@@ -286,7 +314,7 @@
                 Temple in Puri to the Konark Sun Temple, Odisha possesses some of India's most spectacular architectural
                 treasures. Our expertise extends to epigraphy, artifact conservation, and the establishment of site
                 museums.
-             
+
                 The Department of Archaeology, Government of Odisha, is dedicated to the conservation, preservation, and
                 promotion of Odisha's rich archaeological heritage. Established to protect ancient monuments and conduct
                 scientific excavations at historically significant sites, the department has uncovered invaluable
@@ -316,52 +344,6 @@
     </div>
   </section>
 
-  <!-- HIDDEN NEWS DATA (Frontend hardcoded) -->
-  <div id="news-data" style="display: none;">
-    <div class="news-item-data">
-      <h3>Preservation of Jagannath Temple Complex - A Living Monument</h3>
-      <p>
-        The Jagannath Temple in Puri is one of Odisha's most sacred and architecturally significant
-        monuments. The Department of Archaeology continues its dedicated efforts to preserve this
-        12th-century masterpiece, ensuring that its intricate stone carvings, magnificent spires, and
-        spiritual significance are maintained for future generations of pilgrims and scholars.
-      </p>
-      <img src="assets/news/Vallam-min_1.jpg" alt="Jagannath Temple Complex">
-    </div>
-
-    <div class="news-item-data">
-      <h3>Excavations at Sishupalgarh Ancient Fort</h3>
-      <p>
-        Recent archaeological excavations at Sishupalgarh have uncovered significant findings from
-        the 4th century BC. The fortifications and urban planning reveal advanced engineering
-        techniques of ancient Kalinga civilization. Artifacts including pottery, coins, and weapons
-        provide insights into daily life during that period.
-      </p>
-      <img src="assets/news/Vallam-min_4.jpg" alt="Sishupalgarh Excavation Site">
-    </div>
-
-    <div class="news-item-data">
-      <h3>Restoration of Konark Sun Temple</h3>
-      <p>
-        The ongoing restoration project at the UNESCO World Heritage Site, Konark Sun Temple,
-        aims to preserve the intricate stone carvings and structural integrity of this 13th-century
-        architectural marvel. Special techniques are being employed to protect the monument from
-        weathering and environmental damage.
-      </p>
-      <img src="assets/news/Vallam-min_5.jpg" alt="Konark Sun Temple">
-    </div>
-
-    <div class="news-item-data">
-      <h3>New Archaeological Museum in Bhubaneswar</h3>
-      <p>
-        The Department of Archaeology is establishing a new state-of-the-art museum to showcase
-        artifacts from various excavation sites across Odisha. The museum will feature interactive
-        displays and digital exhibits to make archaeological heritage accessible to the public.
-      </p>
-      <img src="assets/news/Vallam-min_6.jpg" alt="Archaeological Museum">
-    </div>
-  </div>
-
   <!-- activities-notice-links -->
 
   <section class="activities-notice-links-section">
@@ -377,6 +359,38 @@
             <div class="title-divider"></div>
 
             <div class="activities-content">
+              <div class="activity-item">
+                <div class="date-box">
+                  <span class="day">15</span>
+                  <span class="month">Dec</span>
+                  <span class="year">2025</span>
+                </div>
+                <p class="activity-text">Archaeological Survey Expedition</p>
+              </div>
+              <div class="activity-item">
+                <div class="date-box">
+                  <span class="day">15</span>
+                  <span class="month">Dec</span>
+                  <span class="year">2025</span>
+                </div>
+                <p class="activity-text">Archaeological Survey Expedition</p>
+              </div>
+              <div class="activity-item">
+                <div class="date-box">
+                  <span class="day">15</span>
+                  <span class="month">Dec</span>
+                  <span class="year">2025</span>
+                </div>
+                <p class="activity-text">Archaeological Survey Expedition</p>
+              </div>
+              <div class="activity-item">
+                <div class="date-box">
+                  <span class="day">15</span>
+                  <span class="month">Dec</span>
+                  <span class="year">2025</span>
+                </div>
+                <p class="activity-text">Archaeological Survey Expedition</p>
+              </div>
               <div class="activity-item">
                 <div class="date-box">
                   <span class="day">15</span>
