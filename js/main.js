@@ -347,185 +347,105 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // - news-about.js
-let currentNewsIndex = 0;
-let autoSlideInterval;
-let newsItems = [];
+let newsIndex = 0;
+let newsList = [];
+let autoSlide;
 
-// ==============================
-// LOAD NEWS FROM HTML (Frontend hardcoding)
-// ==============================
-function loadNewsFromHTML() {
+// Load data from HTML
+function loadNews() {
   const items = document.querySelectorAll("#news-data .news-item-data");
 
-  if (items.length === 0) {
-    console.warn("No news items found in #news-data");
-    return false;
-  }
-
-  newsItems = Array.from(items).map((item) => {
-    return {
-      title: item.querySelector("h3")?.textContent || "Untitled",
-      text: item.querySelector("p")?.textContent || "",
-      image: item.querySelector("img")?.getAttribute("src") || "",
-      alt: item.querySelector("img")?.getAttribute("alt") || "",
-    };
-  });
-
-  console.log(`Loaded ${newsItems.length} news items from HTML`);
-  return true;
+  newsList = Array.from(items).map(item => ({
+    title: item.querySelector("h3").innerText,
+    text: item.querySelector("p").innerText,
+    image: item.querySelector("img").src,
+    alt: item.querySelector("img").alt
+  }));
 }
 
-// ==============================
-// UPDATE NEWS SLIDE
-// ==============================
-function updateNewsSlide(index) {
-  const newsContent = document.querySelector("#news-about .news-content");
-  const newsTitle = document.querySelector("#news-about .news-title");
+// Show News
+function showNews(index) {
+  const title = document.querySelector("#news-about .news-title");
+  const content = document.querySelector("#news-about .news-content");
 
-  if (!newsContent || !newsTitle || newsItems.length === 0) {
-    console.error("Required elements or news data not available");
-    return;
-  }
+  const item = newsList[index];
 
-  // Ensure index is valid
-  if (index < 0 || index >= newsItems.length) {
-    index = 0;
-  }
+  title.innerText = item.title;
 
-  // Clear auto-slide when manually navigating
-  clearInterval(autoSlideInterval);
+content.innerHTML = `
+  <div class="row g-3 align-items-stretch">
 
-  // Fade out current content
-  newsContent.classList.remove("show");
+    <!-- TEXT COLUMN -->
+    <div class="col-md-8 news-text-col">
+      <p class="news-text">
+        ${item.text}
+      </p>
+      <a href="news-page.html" class="news-more">More...</a>
+    </div>
 
-  setTimeout(() => {
-    const item = newsItems[index];
+    <!-- IMAGE COLUMN -->
+    <div class="col-md-4 news-image-col">
+      <img src="${item.image}"
+           alt="${item.alt}"
+           class="news-image">
+    </div>
 
-    // Update title
-    newsTitle.textContent = item.title;
-
-    // Update content with sliding animation
-    newsContent.innerHTML = `
-      <div class="row g-3 align-items-start">
-        <div class="col-md-8">
-          <p class="news-text small text-muted lh-base mb-3">
-            ${item.text}
-          </p>
-          <a href="news-page.html" class="news-more text-danger fw-semibold text-decoration-none">
-            More..
-          </a>
-        </div>
-        <div class="col-md-4">
-          <img src="${item.image}" 
-               alt="${item.alt || item.title}"
-               class="news-image img-fluid rounded w-100"
-               loading="lazy">
-        </div>
-      </div>
-    `;
-
-    // Fade in new content
-    setTimeout(() => {
-      newsContent.classList.add("show");
-    }, 50);
-  }, 350); // Match this with CSS transition duration
-
-  currentNewsIndex = index;
-
-  // Restart auto-slide
-  startAutoSlide();
+  </div>
+`;
 }
 
-// ==============================
-// AUTO SLIDE FUNCTION
-// ==============================
+// Auto Slide
 function startAutoSlide() {
-  clearInterval(autoSlideInterval);
-
-  if (newsItems.length <= 1) {
-    return; // Don't auto-slide if only one item
-  }
-
-  autoSlideInterval = setInterval(() => {
-    const nextIndex = (currentNewsIndex + 1) % newsItems.length;
-    updateNewsSlide(nextIndex);
-  }, 5000); // Change every 5 seconds
+  autoSlide = setInterval(() => {
+    newsIndex = (newsIndex + 1) % newsList.length;
+    showNews(newsIndex);
+  }, 5000);
 }
 
-// ==============================
-// INITIALIZE NEWS SLIDER
-// ==============================
-function initializeNewsSlider() {
-  // Load news from hidden HTML container
-  if (!loadNewsFromHTML()) {
-    // Fallback: if no hidden data, use default
-    newsItems = [
-      {
-        title: "Archaeological Department News",
-        text: "Latest updates from the Department of Archaeology.",
-        image: "assets/news/Vallum_man_1.jpg",
-        alt: "Default news image",
-      },
-    ];
-  }
-
-  // Get navigation buttons
-  const prevBtn = document.querySelector("#news-about .nav-prev");
-  const nextBtn = document.querySelector("#news-about .nav-next");
-
-  // Initialize with first news item
-  updateNewsSlide(0);
-
-  // Add click event listeners
-  prevBtn?.addEventListener("click", (e) => {
-    e.preventDefault();
-    const prevIndex =
-      (currentNewsIndex - 1 + newsItems.length) % newsItems.length;
-    updateNewsSlide(prevIndex);
-  });
-
-  nextBtn?.addEventListener("click", (e) => {
-    e.preventDefault();
-    const nextIndex = (currentNewsIndex + 1) % newsItems.length;
-    updateNewsSlide(nextIndex);
-  });
-
-  // Start auto-sliding
+// Init
+document.addEventListener("DOMContentLoaded", () => {
+  loadNews();
+  showNews(0);
   startAutoSlide();
-}
 
-// ==============================
-// DOM CONTENT LOADED
-// ==============================
-document.addEventListener("DOMContentLoaded", () => {
-  // Small delay to ensure all elements are ready
-  setTimeout(() => {
-    initializeNewsSlider();
-  }, 100);
+  document.querySelector(".nav-prev").onclick = () => {
+    newsIndex = (newsIndex - 1 + newsList.length) % newsList.length;
+    showNews(newsIndex);
+  };
+
+  document.querySelector(".nav-next").onclick = () => {
+    newsIndex = (newsIndex + 1) % newsList.length;
+    showNews(newsIndex);
+  };
 });
 
-// ==============================
-// PAUSE ON HOVER (Optional Enhancement)
-// ==============================
-document.addEventListener("DOMContentLoaded", () => {
-  const newsContainer = document.querySelector("#news-about .news-item");
+//news-about.js
+document.addEventListener("DOMContentLoaded", function () {
+  const aboutText = document.querySelector(".about-text");
 
-  if (newsContainer) {
-    newsContainer.addEventListener("mouseenter", () => {
-      clearInterval(autoSlideInterval);
-    });
+  if (!aboutText) return;
 
-    newsContainer.addEventListener("mouseleave", () => {
-      startAutoSlide();
-    });
+  const maxWords = 72;
+  const maxChars = 625;
+
+  let text = aboutText.innerText.trim();
+
+  // Limit by characters
+  if (text.length > maxChars) {
+    text = text.substring(0, maxChars);
   }
+
+  // Limit by words
+  let words = text.split(/\s+/);
+  if (words.length > maxWords) {
+    text = words.slice(0, maxWords).join(" ");
+  }
+
+  aboutText.innerText = text + "...";
 });
 
-// - loader.js
 // - about-detail.js
 window.showAboutPage = function () {
-  // Hide all sections using the global function
-  hideAllSections();
 
   const aboutDetailSection = document.getElementById("about-detail");
   const footerSection = document.getElementById("footer");

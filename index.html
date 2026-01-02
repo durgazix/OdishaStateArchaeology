@@ -178,7 +178,7 @@
           <a href="#">NOTIFICATIONS</a>
           <ul class="dropdown-menu">
             <li><a href="notification-activities.html">ACTIVITIES</a></li>
-             <li><a href="notification-tendernote.html">TENDER NOTE</a></li>
+            <li><a href="notification-tendernote.html">TENDER NOTE</a></li>
           </ul>
         </li>
 
@@ -228,27 +228,44 @@
   <section class="news-about-section py-5 bg-light" id="news-about">
     <div class="container">
       <div class="row g-4">
-        <!-- NEWS SECTION -->
-        <div class="col-lg-6">
+        <!-- ================= NEWS SECTION ================= -->
+        <div class="col-lg-6" id="news-about">
           <div class="card border shadow-sm h-100">
             <div class="card-body p-4">
+
               <h2 class="section-title text-uppercase fw-bold mb-3">NEWS</h2>
               <hr class="news-divider mb-4" />
 
-              <!-- News Header with Navigation -->
-              <div class="news-header d-flex justify-content-between align-items-center mb-3 pb-3 border-bottom">
-                <h3 class="news-title fs-6 fw-semibold mb-0 flex-grow-1 me-3">
-                  Loading news...
-                </h3>
-                <div class="news-nav d-flex gap-2 flex-shrink-0">
-                  <button class="btn btn-light btn-sm nav-prev" type="button" aria-label="Previous news">&lt;</button>
-                  <button class="btn btn-light btn-sm nav-next" type="button" aria-label="Next news">&gt;</button>
+              <!-- Header -->
+              <div class="news-header d-flex justify-content-between align-items-center mb-3">
+                <h3 class="news-title mb-0">Loading...</h3>
+                <div>
+                  <button class="btn btn-light btn-sm nav-prev">&lt;</button>
+                  <button class="btn btn-light btn-sm nav-next">&gt;</button>
                 </div>
               </div>
+              <!-- Visible Content -->
+              <div class="news-content fade"></div>
+              <!-- ================= HIDDEN DATA SOURCE ================= -->
+              <div id="news-data" style="display:none;">
+                <div class="news-item-data">
+                  <h3>Jagannath Temple Preservation</h3>
+                  <p>The Archaeology Department is actively conserving the Jagannath Temple complex to preserve its
+                    heritage.</p>
+                  <img src="assets/news/Vallam-min_3.jpg" alt="Jagannath Temple">
+                </div>
 
-              <!-- News Content Area -->
-              <div class="news-content">
-                <!-- Content will be loaded dynamically by JavaScript -->
+                <div class="news-item-data">
+                  <h3>Konark Sun Temple Restoration</h3>
+                  <p>Restoration work is ongoing at Konark Sun Temple to protect its stone carvings.</p>
+                  <img src="assets/news/Vallam-min_1.jpg" alt="Konark Temple">
+                </div>
+
+                <div class="news-item-data">
+                  <h3>Odisha Heritage Awareness Drive</h3>
+                  <p>A state-wide awareness campaign has been launched for monument protection.</p>
+                  <img src="assets/news/Vallam-min_2.jpg" alt="Heritage Drive">
+                </div>
               </div>
             </div>
           </div>
@@ -268,7 +285,23 @@
                 artifacts and structures that reveal the grandeur of Odisha's ancient civilizations. From the Jagannath
                 Temple in Puri to the Konark Sun Temple, Odisha possesses some of India's most spectacular architectural
                 treasures. Our expertise extends to epigraphy, artifact conservation, and the establishment of site
-                museums...
+                museums.
+             
+                The Department of Archaeology, Government of Odisha, is dedicated to the conservation, preservation, and
+                promotion of Odisha's rich archaeological heritage. Established to protect ancient monuments and conduct
+                scientific excavations at historically significant sites, the department has uncovered invaluable
+                artifacts and structures that reveal the grandeur of Odisha's ancient civilizations. From the Jagannath
+                Temple in Puri to the Konark Sun Temple, Odisha possesses some of India's most spectacular architectural
+                treasures. Our expertise extends to epigraphy, artifact conservation, and the establishment of site
+                museums.
+
+                The Department of Archaeology, Government of Odisha, is dedicated to the conservation, preservation, and
+                promotion of Odisha's rich archaeological heritage. Established to protect ancient monuments and conduct
+                scientific excavations at historically significant sites, the department has uncovered invaluable
+                artifacts and structures that reveal the grandeur of Odisha's ancient civilizations. From the Jagannath
+                Temple in Puri to the Konark Sun Temple, Odisha possesses some of India's most spectacular architectural
+                treasures. Our expertise extends to epigraphy, artifact conservation, and the establishment of site
+                museums.
               </p>
 
               <a href="AbouSection.html" class="align-self-start">
@@ -363,7 +396,8 @@
               </div>
             </div>
 
-            <a href="notification-activities.html" class="view-all-btn mt-auto">View All <span class="arrow">→</span></a>
+            <a href="notification-activities.html" class="view-all-btn mt-auto">View All <span
+                class="arrow">→</span></a>
           </div>
         </div>
 
