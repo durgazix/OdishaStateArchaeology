@@ -156,10 +156,69 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("closeMenuBtn").style.display = "none";
     }
   });
-
   // Initialize gallery if function exists
   if (window.initGallery) {
     window.initGallery();
+  }
+});
+document.addEventListener("DOMContentLoaded", () => {
+
+  const imageViewer = document.getElementById("imageViewer");
+  const videoViewer = document.getElementById("videoViewer");
+
+  const viewerImage = document.getElementById("viewerImage");
+  const viewerVideo = document.getElementById("viewerVideo");
+
+  const imgCaption = document.getElementById("viewerCaption");
+  const vidCaption = document.getElementById("videoCaption");
+
+  /* IMAGE CLICK */
+  document.querySelectorAll(".gallery-item img").forEach(img => {
+    img.addEventListener("click", () => {
+      viewerImage.src = img.src;
+      imgCaption.textContent =
+        img.nextElementSibling?.innerText || "";
+      imageViewer.classList.remove("d-none");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  /* VIDEO CLICK */
+  document.querySelectorAll(".video-card video").forEach(video => {
+    video.addEventListener("click", () => {
+      viewerVideo.src = video.currentSrc;
+      vidCaption.textContent =
+        video.parentElement.querySelector("p")?.innerText || "";
+      videoViewer.classList.remove("d-none");
+      viewerVideo.play();
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  /* CLOSE BUTTONS */
+  document.querySelectorAll(".close-btn").forEach(btn => {
+    btn.addEventListener("click", closeAll);
+  });
+
+  /* CLICK OUTSIDE */
+  [imageViewer, videoViewer].forEach(viewer => {
+    viewer.addEventListener("click", e => {
+      if (e.target === viewer) closeAll();
+    });
+  });
+
+  /* ESC KEY */
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") closeAll();
+  });
+
+  function closeAll() {
+    imageViewer.classList.add("d-none");
+    videoViewer.classList.add("d-none");
+    viewerImage.src = "";
+    viewerVideo.pause();
+    viewerVideo.src = "";
+    document.body.style.overflow = "auto";
   }
 });
 
@@ -428,14 +487,14 @@ function startAutoSlide() {
 
 function initializeNewsSlider() {
   if (!loadNewsFromHTML()) {
-    newsItems = [
-      {
-        title: "Department of Archaeology",
-        text: "Latest updates from the Department of Archaeology.",
-        image: "assets/news/Vallam-min_6.jpg",
-        alt: "News",
-      },
-    ];
+    // newsItems = [
+    //   {
+    //     title: "Department of Archaeology",
+    //     text: "Latest updates from the Department of Archaeology.",
+    //     image: "assets/news/Vallam-min_6.jpg",
+    //     alt: "News",
+    //   },
+    // ];
   }
 
   const prevBtn = document.querySelector("#news-about .nav-prev");
@@ -462,15 +521,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const newsBox = document.querySelector("#news-about");
 
   if (newsBox) {
-    newsBox.addEventListener("mouseenter", () => {
-      clearInterval(autoSlideInterval);
-    });
+    // newsBox.addEventListener("mouseenter", () => {
+    //   clearInterval(autoSlideInterval);
+    // });
 
     newsBox.addEventListener("mouseleave", () => {
       startAutoSlide();
     });
   }
 });
+
 
 //news-about.js
 document.addEventListener("DOMContentLoaded", function () {
@@ -560,7 +620,7 @@ window.closeDetailPage = function () {
     });
   });
   document.addEventListener("DOMContentLoaded", () => {
-    const items = document.querySelectorAll(".notice-item");
+    const items = document.querySelectorAll(".notice-content");
 
     items.forEach((item, index) => {
       if (index >= 4) {
@@ -636,39 +696,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!tableBody) return;
 
-  const allMonuments = [
-  ];
+  // const allMonuments = [
+  // ];
 
   let displayedCount = 10;
   const incrementCount = 10;
 
   // Initial render
   renderTable();
-
-  function renderTable() {
-    // Clear existing rows except the first 10
-    const rowsToRemove = tableBody.querySelectorAll("tr:nth-child(n+11)");
-    rowsToRemove.forEach((row) => row.remove());
-
-    // Add more rows if needed
-    if (displayedCount > 10) {
-      for (let i = 10; i < Math.min(displayedCount, allMonuments.length); i++) {
-        const monument = allMonuments[i];
-        const row = document.createElement("tr");
-
-        row.innerHTML = `
-          <td>${i + 1}</td>
-          <td><strong>${monument.monument}</strong></td>
-          <td>${monument.location}</td>
-          <td>${monument.state}</td>
-          <td>${monument.builtBy}</td>
-          <td>${monument.period}</td>
-        `;
-
-        tableBody.appendChild(row);
-      }
-    }
-  }
 
   // View More button
   if (viewMoreBtn) {
@@ -1252,7 +1287,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
 
 
 // - contact-us.js

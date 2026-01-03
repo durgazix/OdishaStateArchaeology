@@ -230,6 +230,9 @@ h3 {
   background-color: #ffffff;
   border-bottom: 1px solid #b0afafc2;
 }
+.mid-o-navbar{
+   border-bottom: 1px solid #b0afafc2;
+}
 
 .mid-container {
   margin: auto;
@@ -1235,16 +1238,16 @@ h3 {
   background: #f5f1f1dd;
 }
 
-.activities-content {
+/* .activities-content {
   max-height: 280px;
   overflow-y: auto;
   padding-right: 6px;
 }
 
 /* Scrollbar styling (optional) */
-.activities-content::-webkit-scrollbar {
+/* .activities-content::-webkit-scrollbar {
   width: 5px;
-}
+} */ 
 
 /* BOXES */
 .activities-box,
@@ -1684,6 +1687,63 @@ h3 {
   --bs-gutter-x: 1.5rem;
   --bs-gutter-y: 1.5rem;
 }
+
+.viewer {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.viewer-content {
+  text-align: center;
+}
+
+/* Media wrapper */
+.media-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Image / Video */
+.viewer img,
+.viewer video {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 8px;
+  display: block;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  background: #000;
+  color: #fff;
+  font-size: 22px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* Caption */
+#viewerCaption,
+#videoCaption {
+  margin-top: 12px;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+}
+
 
 /* Bootstrap column responsiveness override for better control */
 @media (min-width: 1400px) {
@@ -3500,7 +3560,9 @@ h3 {
 }
 
 /* contact-us section */
-
+.map-section{
+  background-color: #f9f9f9;
+}
 /* =====================================================
    BREADCRUMB
    ===================================================== */
@@ -4189,7 +4251,7 @@ h3 {
 
 /* monuments section */
 .monuments-section {
-  background: #ffffff;
+  background-color: #f9f9f9;
   padding: 0;
   min-height: 80vh;
 }

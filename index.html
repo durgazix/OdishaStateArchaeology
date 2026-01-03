@@ -119,7 +119,7 @@
       </div>
     </div>
   </div>
-  <div class="mid-navbar">
+  <div class="mid-o-navbar">
     <!-- Notification Bar -->
     <div class="notification-bar">
       <div class="notification-text">
@@ -252,18 +252,19 @@
                 <div id="news-data" style="display: none;">
                   <div class="news-item-data">
                     <h3>Preservation of Jagannath Temple Complex - A Living Monument</h3>
-                    <p>
+                    <p class="news-text">
                       The Jagannath Temple in Puri is one of Odisha's most sacred and architecturally significant
                       monuments. The Department of Archaeology continues its dedicated efforts to preserve this
                       12th-century masterpiece, ensuring that its intricate stone carvings, magnificent spires, and
                       spiritual significance are maintained for future generations of pilgrims and scholars.
+
                     </p>
                     <img src="assets/news/Vallam-min_1.jpg" alt="Jagannath Temple Complex">
                   </div>
-        
+
                   <div class="news-item-data">
                     <h3>Excavations at Sishupalgarh Ancient Fort</h3>
-                    <p>
+                    <p class="news-text">
                       Recent archaeological excavations at Sishupalgarh have uncovered significant findings from
                       the 4th century BC. The fortifications and urban planning reveal advanced engineering
                       techniques of ancient Kalinga civilization. Artifacts including pottery, coins, and weapons
@@ -271,10 +272,10 @@
                     </p>
                     <img src="assets/news/Vallam-min_4.jpg" alt="Sishupalgarh Excavation Site">
                   </div>
-        
+
                   <div class="news-item-data">
                     <h3>Restoration of Konark Sun Temple</h3>
-                    <p>
+                    <p class="news-text">
                       The ongoing restoration project at the UNESCO World Heritage Site, Konark Sun Temple,
                       aims to preserve the intricate stone carvings and structural integrity of this 13th-century
                       architectural marvel. Special techniques are being employed to protect the monument from
@@ -282,10 +283,10 @@
                     </p>
                     <img src="assets/news/Vallam-min_5.jpg" alt="Konark Sun Temple">
                   </div>
-        
+
                   <div class="news-item-data">
                     <h3>New Archaeological Museum in Bhubaneswar</h3>
-                    <p>
+                    <p class="news-text">
                       The Department of Archaeology is establishing a new state-of-the-art museum to showcase
                       artifacts from various excavation sites across Odisha. The museum will feature interactive
                       displays and digital exhibits to make archaeological heritage accessible to the public.
@@ -530,8 +531,6 @@
           </button>
         </div>
       </div>
-
-      <!-- VIDEO GALLERY -->
       <!-- VIDEO GALLERY -->
       <div id="videoGallery" class="d-none">
         <div class="row g-4" id="videoGalleryGrid">
@@ -604,6 +603,31 @@
             View Less
           </button>
         </div>
+      </div>
+    </div>
+    <!-- IMAGE VIEWER -->
+    <div id="imageViewer" class="viewer d-none">
+      <div class="viewer-content">
+
+        <div class="media-wrapper">
+          <span class="close-btn">&times;</span>
+          <img id="viewerImage" />
+        </div>
+
+        <p id="viewerCaption"></p>
+      </div>
+    </div>
+
+    <!-- VIDEO VIEWER -->
+    <div id="videoViewer" class="viewer d-none">
+      <div class="viewer-content">
+
+        <div class="media-wrapper">
+          <span class="close-btn">&times;</span>
+          <video id="viewerVideo" controls></video>
+        </div>
+
+        <p id="videoCaption"></p>
       </div>
     </div>
   </section>
