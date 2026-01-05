@@ -1,235 +1,794 @@
-<!DOCTYPE html>
-<html lang="en">
+css file
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RTI Section Page</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
-</head>
+/* monuments-central section */
+#central-protected { background-color: #f8f9fa; min-height: calc(100vh - 250px); }
+/* Breadcrumb */
+.breadcrumb-bar { background: linear-gradient(135deg, #ed7f25e5 0%, #ed7f25f7 100%); padding: 14px 0; margin-bottom: 30px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); }
+.breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 14px; margin: 0; padding: 0; list-style: none; }
+.breadcrumb a { color: #ffffff; text-decoration: none; transition: color 0.2s ease; font-weight: 500; }
+/* Page Heading */
+.central-heading { text-align: left; margin-bottom: 40px; }
+.central-title { font-size: 26px; font-weight: 600; color: #000; position: relative; display: inline-block; text-align: left; }
+.central-protected-section-divider { width: 20%; height: 3px; background: linear-gradient(to right, #ff9900, transparent); }
+.central-subtitle { font-size: 16px; color: #666; max-width: 700px; margin: 0 auto; line-height: 1.6; }
+/* TABLE CONTAINER (NAVBAR ALIGNED)*/
+.table-container { background: #ffffff; border-radius: 6px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); padding: 20px; margin: 0 auto 30px auto; max-width: 1200px; overflow-x: auto; }
+/* TABLE*/
+.central-table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 0; }
+/* Table Header */
+.central-table thead th { background: linear-gradient(135deg, #ed7f25e9, #ed7f25f7); color: white; font-weight: 600; padding: 16px 12px; border: none; position: sticky; top: 0; z-index: 10; text-align: center; font-size: 15px; white-space: nowrap; }
+.central-table thead th:first-child { border-top-left-radius: 8px; }
+.central-table thead th:last-child { border-top-right-radius: 8px; }
+/* Table Body */
+.central-table tbody tr { transition: all 0.2s ease; border-bottom: 1px solid #eee; }
+.central-table tbody tr:hover { background-color: rgba(44, 90, 160, 0.05); transform: translateY(-1px); box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05); }
+.central-table tbody td { padding: 14px 12px; border: none; border-bottom: 1px solid #eee; color: #444; font-size: 14px; vertical-align: middle; text-align: center; border: 1px solid #ddd; /* padding: 12px 10px; */
+  vertical-align: top; line-height: 1.5; }
+.central-table tbody tr:last-child td { border-bottom: none; }
+/* Striped rows */
+.central-table tbody tr:nth-child(even) { background-color: #f9fafc; }
+.central-table tbody tr:nth-child(even):hover { background-color: rgba(44, 90, 160, 0.08); }
+.table-pagination { display: flex; justify-content: center; align-items: center; gap: 14px; padding: 16px 0 10px; }
+.page-btn { background: #ff9900; border: none; color: #fff; width: 36px; height: 36px; border-radius: 50%; font-size: 18px; cursor: pointer; }
+.page-btn:disabled { background: #ccc; cursor: not-allowed; }
+#pageInfo { font-size: 14px; color: #555; }
+#pageNumbers { display: inline-flex; gap: 6px; }
+.page-number { padding: 6px 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 13px; cursor: pointer; background: #fff; color: #333; }
+.page-number.active { background: #ff9900; color: #fff; border-color: #ff9900; }
+.page-number:hover { background: #f1f1f1; }
+.count-display { display: inline-block; margin-left: 15px; color: #666; font-size: 14px; background: #f0f4ff; padding: 6px 12px; border-radius: 4px; border: 1px solid #e0e6ff; }
+/* Loading State */
+.loading-row { text-align: center; padding: 40px !important; }
+.loading-message { color: #666; font-style: italic; font-size: 15px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+.loading-message::before { content: ""; width: 20px; height: 20px; border: 3px solid #f0f4ff; border-top: 3px solid #ed7f25e9; border-radius: 50%; animation: spin 1s linear infinite; }
+@keyframes spin {
+ 0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+ }
+/* No Data Message */
+.no-data { text-align: center; padding: 40px !important; color: #ed7f25e9; font-style: italic; }
+/* Responsive Design */
+@media (max-width: 768px) {
+ .table-container { padding: 10px; overflow-x: auto; }
+.central-table { min-width: 700px; }
+.central-title { font-size: 24px; }
+.central-subtitle { font-size: 14px; }
+.view-more-btn { padding: 10px 20px; font-size: 14px; }
+.count-display { margin-left: 10px; font-size: 12px; padding: 4px 8px; }
+ }
+@media (max-width: 576px) {
+ .central-title { font-size: 20px; }
+.central-table thead th { padding: 12px 8px; font-size: 14px; }
+.central-table tbody td { padding: 10px 8px; font-size: 13px; }
+.view-more-container { flex-direction: column; gap: 10px; }
+.view-more-btn { width: 100%; justify-content: center; }
+ }
+/* stateprotected file */
+#state-protected { background-color: #f9f9f9; min-height: 60vh; }
+.state-protected-heading { margin-bottom: 25px; }
+.state-protected-section-title { font-size: 26px; font-weight: 600; color: #333; margin-bottom: 6px; text-align: left; }
+.state-protected-section-divider { width: 20%; height: 3px; background: linear-gradient(to right, #ff9900, transparent); margin-left: 0 }
 
-<body>
-  <!-- Top Government Header -->
-  <div class="top-header border-bottom">
-    <div class="container-fluid px-3">
-      <div class="row align-items-center gy-1">
-        <!-- Left -->
-        <div class="col-md-6 col-12 text-center text-md-start top-left">
-          <span class="support">
-            📞 Support:
-            <a href="tel:+914428190020" class="text-decoration-none">
-              (+9144) 28190020
-            </a>
-          </span>
-        </div>
+.state-protected-table-container {margin-bottom: 30px; background: #ffffff; padding: 15px; border-radius: 6px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); overflow-x: auto; }
+.monuments-table {width: 100%; min-width: 1000px; border-collapse: collapse; margin-bottom: 20px;}
+.monuments-table th,
+.monuments-table td { border: 1px solid #ddd; padding: 12px 10px; vertical-align: top; line-height: 1.5; }
+.monuments-table td { font-size: 15px; }
+.monuments-table thead th { background: linear-gradient(135deg, #ed7f25e9, #ed7f25f7); color: white; font-weight: 600; padding: 16px 12px; border: none; position: sticky; top: 0; z-index: 10; text-align: left; font-size: 15px; white-space: nowrap; }
+.monuments-table thead th { font-weight: 600; font-size: 16px; text-align: center; white-space: nowrap; }
+.monuments-table tbody { text-align: center; }
+.monuments-table tbody tr:nth-child(even) { background-color: #fafafa; }
+.monuments-table tbody tr:hover { background-color: #f3f3f3; }
+.table-pagination { display: flex; justify-content: center; align-items: center; gap: 14px; padding: 15px 0 5px; }
+.page-btn { background: #ff9900; border: none; color: #fff; width: 38px; height: 38px; border-radius: 50%; font-size: 18px; cursor: pointer; transition: background 0.2s ease; }
+.page-btn:hover { background: #ff7a00; }
+.page-btn:disabled { background: #ccc; cursor: not-allowed; }
+#pageInfo { font-size: 14px; color: #555; font-weight: 500; }
+.loading-message { text-align: center; padding: 20px; color: #666; font-style: italic; }
+/* Laptop / Desktop */
+@media (max-width: 1399px) {
+ .state-protected-section-title { font-size: 24px; }
+ }
+/* Tablet */
+@media (max-width: 991px) {
+ .state-protected-section-title { font-size: 22px; }
+.monuments-table th,
+  .monuments-table td { font-size: 13px; }
+ }
+/* Mobile */
+@media (max-width: 575px) {
+ .state-protected-section-title { font-size: 18px; }
+.monuments-table { min-width: 850px; }
+.monuments-table th,
+  .monuments-table td { font-size: 12px; padding: 8px; }
+ }
+@media print {
+ #state-protected { background: #ffffff; }
+.state-protected-table-container { box-shadow: none; padding: 0; }
+.monuments-table { min-width: 100%; }
+ }
 
-        <!-- Right -->
-        <div
-          class="col-md-6 col-12 d-flex justify-content-center justify-content-md-end align-items-center flex-wrap gap-2 top-right">
-          <a href="#" class="top-link">Policy Note</a>
-          <span class="divider">|</span>
 
-          <a href="#" class="top-link">Screen Reader Access</a>
-          <span class="divider">|</span>
+js file
+-------
 
-          <a href="#navList" class="top-link">Skip Navigation</a>
-          <span class="divider">|</span>
+// - monuments-central.js
 
-          <!-- Font Controls -->
-          <div class="btn-group font-controls" role="group">
-            <button id="font-decrease" class="btn btn-outline-secondary btn-sm">
-              A-
-            </button>
-            <button id="font-normal" class="btn btn-outline-secondary btn-sm">
-              A
-            </button>
-            <button id="font-increase" class="btn btn-outline-secondary btn-sm">
-              A+
-            </button>
-          </div>
+document.addEventListener("DOMContentLoaded", () => {
+  initNationalTablePagination();
+});
 
-          <span class="divider">|</span>
+let nationalTableData = [];
+let nationalCurrentPage = 1;
+const nationalRowsPerPage = 10; // change to 10 later
 
-          <!-- Language Toggle -->
-          <button id="langToggleBtn" class="btn btn-outline-secondary btn-sm lang-toggle-btn">
-            ଓଡ଼ିଆ
-          </button>
-        </div>
+function initNationalTablePagination() {
+  const tbody = document.getElementById("centralMonumentsTableBody");
+  const prevBtn = document.getElementById("prevPage");
+  const nextBtn = document.getElementById("nextPage");
+  const pageInfo = document.getElementById("pageInfo");
+
+  if (!tbody || !prevBtn || !nextBtn || !pageInfo) {
+    console.error("National monuments pagination elements not found");
+    return;
+  }
+
+  const manualRows = tbody.querySelectorAll("tr[data-manual='true']");
+
+  manualRows.forEach((row, index) => {
+    const cells = row.querySelectorAll("td");
+    nationalTableData.push({
+      sl: index + 1,
+      name: cells[1].textContent.trim(),
+      period: cells[2].textContent.trim(),
+      locality: cells[3].textContent.trim(),
+      district: cells[4].textContent.trim(),
+    });
+  });
+
+  // Clear table after storing data
+  tbody.innerHTML = "";
+
+  renderNationalPage();
+
+  prevBtn.addEventListener("click", () => {
+    if (nationalCurrentPage > 1) {
+      nationalCurrentPage--;
+      renderNationalPage();
+    }
+  });
+
+  nextBtn.addEventListener("click", () => {
+    if (
+      nationalCurrentPage <
+      Math.ceil(nationalTableData.length / nationalRowsPerPage)
+    ) {
+      nationalCurrentPage++;
+      renderNationalPage();
+    }
+  });
+}
+
+function renderNationalPage() {
+  const tbody = document.getElementById("centralMonumentsTableBody");
+  const pageInfo = document.getElementById("pageInfo");
+  const prevBtn = document.getElementById("prevPage");
+  const nextBtn = document.getElementById("nextPage");
+
+  tbody.innerHTML = "";
+
+  const startIndex = (nationalCurrentPage - 1) * nationalRowsPerPage;
+  const endIndex = startIndex + nationalRowsPerPage;
+
+  nationalTableData.slice(startIndex, endIndex).forEach((item) => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${item.sl}</td>
+      <td>${item.name}</td>
+      <td>${item.period}</td>
+      <td>${item.locality}</td>
+      <td>${item.district}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  const totalPages = Math.ceil(
+    nationalTableData.length / nationalRowsPerPage
+  );
+
+  pageInfo.textContent = `Page ${nationalCurrentPage} of ${totalPages}`;
+
+  prevBtn.disabled = nationalCurrentPage === 1;
+  nextBtn.disabled = nationalCurrentPage === totalPages;
+
+  renderNationalPageNumbers(); // ✅ NEW
+}
+function renderNationalPageNumbers() {
+  const container = document.getElementById("pageNumbers");
+  container.innerHTML = "";
+
+  const totalPages = Math.ceil(
+    nationalTableData.length / nationalRowsPerPage
+  );
+
+  const maxVisiblePages = 5;
+
+  let startPage = Math.max(
+    1,
+    nationalCurrentPage - Math.floor(maxVisiblePages / 2)
+  );
+
+  let endPage = startPage + maxVisiblePages - 1;
+
+  if (endPage > totalPages) {
+    endPage = totalPages;
+    startPage = Math.max(1, endPage - maxVisiblePages + 1);
+  }
+
+  /* ---- LEFT ELLIPSIS ---- */
+  if (startPage > 1) {
+    const dots = document.createElement("span");
+    dots.textContent = "...";
+    dots.className = "page-number";
+    dots.onclick = () => {
+      nationalCurrentPage = startPage - 1;
+      renderNationalPage();
+    };
+    container.appendChild(dots);
+  }
+
+  /* ---- PAGE NUMBERS ---- */
+  for (let i = startPage; i <= endPage; i++) {
+    const btn = document.createElement("span");
+    btn.textContent = i;
+    btn.className = "page-number";
+
+    if (i === nationalCurrentPage) {
+      btn.classList.add("active");
+    }
+
+    btn.onclick = () => {
+      nationalCurrentPage = i;
+      renderNationalPage();
+    };
+
+    container.appendChild(btn);
+  }
+
+  /* ---- RIGHT ELLIPSIS ---- */
+  if (endPage < totalPages) {
+    const dots = document.createElement("span");
+    dots.textContent = "...";
+    dots.className = "page-number";
+    dots.onclick = () => {
+      nationalCurrentPage = endPage + 1;
+      renderNationalPage();
+    };
+    container.appendChild(dots);
+  }
+}
+
+function renderCentralTable() {
+  const tbody = document.getElementById("centralMonumentsTableBody");
+  tbody.innerHTML = "";
+
+  const start = (centralCurrentPage - 1) * centralRowsPerPage;
+  const end = start + centralRowsPerPage;
+
+  centralMonuments.slice(start, end).forEach((m) => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${m.sl}</td>
+      <td>${m.name}</td>
+      <td>${m.period}</td>
+      <td>${m.locality}</td>
+      <td>${m.district}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  const totalPages = Math.ceil(
+    centralMonuments.length / centralRowsPerPage
+  );
+
+  document.getElementById("pageInfo").innerText =
+    `Page ${centralCurrentPage} of ${totalPages}`;
+
+  document.getElementById("prevPage").disabled =
+    centralCurrentPage === 1;
+
+  document.getElementById("nextPage").disabled =
+    centralCurrentPage === totalPages;
+}
+
+function setupCentralPagination() {
+  document.getElementById("prevPage").onclick = () => {
+    if (centralCurrentPage > 1) {
+      centralCurrentPage--;
+      renderCentralTable();
+    }
+  };
+
+  document.getElementById("nextPage").onclick = () => {
+    if (
+      centralCurrentPage <
+      Math.ceil(centralMonuments.length / centralRowsPerPage)
+    ) {
+      centralCurrentPage++;
+      renderCentralTable();
+    }
+  };
+}
+
+// - state-protected.js
+
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(initializeTable, 100);
+});
+
+let allMonuments = [];
+let currentPage = 1;
+const rowsPerPage = 10;
+
+function initializeTable() {
+  const tbody = document.getElementById("monumentsTableBody");
+
+  // ✅ 1. READ MANUAL DATA FIRST
+  const manualRows = tbody.querySelectorAll("tr[data-manual='true']");
+  const manualData = [];
+
+  manualRows.forEach((row, index) => {
+    const cells = row.querySelectorAll("td");
+    manualData.push({
+      sl: index + 1,
+      name: cells[1].innerText.trim(),
+      period: cells[2].innerText.trim(),
+      locality: cells[3].innerText.trim(),
+      district: cells[4].innerText.trim(),
+    });
+  });
+
+  // Clear tbody AFTER reading manual data
+  tbody.innerHTML = "";
+
+  // Load Excel and merge
+  loadExcelData(manualData);
+}
+
+async function loadExcelData(manualData) {
+  try {
+    const response = await fetch(
+      "assets/state-protected/state_protected_monuments.xlsx"
+    );
+    const buffer = await response.arrayBuffer();
+    const workbook = XLSX.read(buffer, { type: "array" });
+    const sheet = workbook.Sheets[workbook.SheetNames[0]];
+    const excelData = XLSX.utils.sheet_to_json(sheet);
+
+    const excelFormatted = excelData.map((row, index) => ({
+      sl: manualData.length + index + 1,
+      name: row["Name of the Monuments"] || row["Monument Name"] || "",
+      period: row["Period"] || "",
+      locality: row["Locality"] || row["Location"] || "",
+      district: row["District"] || "",
+    }));
+
+    allMonuments = [...manualData, ...excelFormatted];
+    renderTable();
+    setupPagination();
+  } catch (err) {
+    console.error("Excel load failed, showing manual data only", err);
+    allMonuments = manualData;
+    renderTable();
+    setupPagination();
+  }
+}
+
+function renderTable() {
+  const tbody = document.getElementById("monumentsTableBody");
+  tbody.innerHTML = "";
+
+  const start = (currentPage - 1) * rowsPerPage;
+  const end = start + rowsPerPage;
+
+  allMonuments.slice(start, end).forEach((m) => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${m.sl}</td>
+      <td>${m.name}</td>
+      <td>${m.period}</td>
+      <td>${m.locality}</td>
+      <td>${m.district}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  const totalPages = Math.ceil(allMonuments.length / rowsPerPage);
+
+  document.getElementById("pageInfo").innerText =
+    `Page ${currentPage} of ${totalPages}`;
+
+  document.getElementById("prevPage").disabled = currentPage === 1;
+  document.getElementById("nextPage").disabled = currentPage === totalPages;
+
+  renderPageNumbers(); // ✅ NEW
+}
+
+function renderPageNumbers() {
+  const container = document.getElementById("pageNumbers");
+  container.innerHTML = "";
+
+  const totalPages = Math.ceil(allMonuments.length / rowsPerPage);
+  const maxVisiblePages = 5;
+
+  let startPage = Math.max(
+    1,
+    currentPage - Math.floor(maxVisiblePages / 2)
+  );
+
+  let endPage = startPage + maxVisiblePages - 1;
+
+  if (endPage > totalPages) {
+    endPage = totalPages;
+    startPage = Math.max(1, endPage - maxVisiblePages + 1);
+  }
+
+  /* ---------- LEFT ELLIPSIS ---------- */
+  if (startPage > 1) {
+    const dots = document.createElement("span");
+    dots.textContent = "...";
+    dots.className = "page-number";
+    dots.onclick = () => {
+      currentPage = startPage - 1;
+      renderTable();
+    };
+    container.appendChild(dots);
+  }
+
+  /* ---------- PAGE NUMBERS ---------- */
+  for (let i = startPage; i <= endPage; i++) {
+    const btn = document.createElement("span");
+    btn.textContent = i;
+    btn.className = "page-number";
+
+    if (i === currentPage) {
+      btn.classList.add("active");
+    }
+
+    btn.onclick = () => {
+      currentPage = i;
+      renderTable();
+    };
+
+    container.appendChild(btn);
+  }
+
+  /* ---------- RIGHT ELLIPSIS ---------- */
+  if (endPage < totalPages) {
+    const dots = document.createElement("span");
+    dots.textContent = "...";
+    dots.className = "page-number";
+    dots.onclick = () => {
+      currentPage = endPage + 1;
+      renderTable();
+    };
+    container.appendChild(dots);
+  }
+}
+
+function setupPagination() {
+  document.getElementById("prevPage").onclick = () => {
+    if (currentPage > 1) {
+      currentPage--;
+      renderTable();
+    }
+  };
+
+  document.getElementById("nextPage").onclick = () => {
+    if (currentPage < Math.ceil(allMonuments.length / rowsPerPage)) {
+      currentPage++;
+      renderTable();
+    }
+  };
+}
+
+
+html file
+----------
+
+  <!-- monuments central section -->
+  <section id="central-protected" class="central-protected-section">
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-bar">
+      <div class="container">
+        <nav class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-separator">&gt;&gt;</span>
+          <a href="monuments.html">Monuments</a>
+          <span class="breadcrumb-separator">&gt;&gt;</span>
+          <span class="breadcrumb-item active">Central Protected Monuments</span>
+        </nav>
       </div>
     </div>
-  </div>
-  <!-- midnavbar -->
-  <div class="mid-navbar">
-    <div class="mid-container">
-      <!-- LEFT LOGOS -->
-      <div class="mid-logos">
-        <img src="assets/logo/culturedept.jpg" alt="Archaeology" />
-        <img src="assets/logo/culturedept.jpg" alt="ASI" />
-        <img src="assets/logo/odisha_govt.png" alt="Govt of Odisha" />
-      </div>
 
-      <!-- CENTER TEXT -->
-      <div class="mid-title">
-        <h2>Odisha State <b>Archaeology</b></h2>
-        <h3><b>Odia Language, Literature & Culture Department</b></h2>
-          <h3><b>Government of Odisha</b></h3>
+    <!-- Heading -->
+    <div class="container">
+      <div class="central-heading">
+        <h1 class="central-title">CENTRAL PROTECTED MONUMENTS</h1>
+        <div class="central-protected-section-divider"></div>
       </div>
+    </div>
 
-      <!-- RIGHT CONTROLS -->
-      <div class="mid-actions">
-   <!-- Virtual Tour -->
-        <button class="virtual-btn" onclick="openVirtualTour()">
-          <img src="assets/player-image.png" alt="Player Image" class="virtual-btn-triangle">Virtual Tour
+    <!-- Table Container -->
+    <div class="table-container">
+      <table class="central-table">
+        <thead>
+          <tr>
+            <th>Sl. No.</th>
+            <th>Name of the Monuments</th>
+            <th>Period</th>
+            <th>Locality</th>
+            <th>District</th>
+          </tr>
+        </thead>
+
+        <tbody id="centralMonumentsTableBody">
+          <!-- Manual rows (kept) -->
+          <tr data-manual="true">
+            <td>1</td>
+            <td>Konark Sun Temple</td>
+            <td>13th Century CE</td>
+            <td>Konark, Puri</td>
+            <td>Odisha</td>
+          </tr>
+          <tr data-manual="true">
+            <td>2</td>
+            <td>Lingaraj Temple</td>
+            <td>11th Century CE</td>
+            <td>Bhubaneswar</td>
+            <td>Odisha</td>
+          </tr>
+          <tr data-manual="true">
+            <td>3</td>
+            <td>Udayagiri & Khandagiri Caves</td>
+            <td>1st Century BCE</td>
+            <td>Bhubaneswar</td>
+            <td>Odisha</td>
+          </tr>
+          <tr data-manual="true">
+            <td>3</td>
+            <td>Udayagiri & Khandagiri Caves</td>
+            <td>1st Century BCE</td>
+            <td>Bhubaneswar</td>
+            <td>Odisha</td>
+          </tr>
+          <tr data-manual="true">
+            <td>3</td>
+            <td>Udayagiri & Khandagiri Caves</td>
+            <td>1st Century BCE</td>
+            <td>Bhubaneswar</td>
+            <td>Odisha</td>
+          </tr>
+          <tr data-manual="true">
+            <td>3</td>
+            <td>Udayagiri & Khandagiri Caves</td>
+            <td>1st Century BCE</td>
+            <td>Bhubaneswar</td>
+            <td>Odisha</td>
+          </tr>
+          <tr data-manual="true">
+            <td>3</td>
+            <td>Udayagiri & Khandagiri Caves</td>
+            <td>1st Century BCE</td>
+            <td>Bhubaneswar</td>
+            <td>Odisha</td>
+          </tr>
+          <tr data-manual="true">
+            <td>3</td>
+            <td>Udayagiri & Khandagiri Caves</td>
+            <td>1st Century BCE</td>
+            <td>Bhubaneswar</td>
+            <td>Odisha</td>
+          </tr>
+          <tr data-manual="true">
+            <td>3</td>
+            <td>Udayagiri & Khandagiri Caves</td>
+            <td>1st Century BCE</td>
+            <td>Bhubaneswar</td>
+            <td>Odisha</td>
+          </tr>
+          <tr data-manual="true">
+            <td>3</td>
+            <td>Udayagiri & Khandagiri Caves</td>
+            <td>1st Century BCE</td>
+            <td>Bhubaneswar</td>
+            <td>Odisha</td>
+          </tr>
+          <tr data-manual="true">
+            <td>3</td>
+            <td>Udayagiri & Khandagiri Caves</td>
+            <td>1st Century BCE</td>
+            <td>Bhubaneswar</td>
+            <td>Odisha</td>
+          </tr>
+          <tr data-manual="true">
+            <td>3</td>
+            <td>Udayagiri & Khandagiri Caves</td>
+            <td>1st Century BCE</td>
+            <td>Bhubaneswar</td>
+            <td>Odisha</td>
+          </tr>
+          <tr data-manual="true">
+            <td>3</td>
+            <td>Udayagiri & Khandagiri Caves</td>
+            <td>1st Century BCE</td>
+            <td>Bhubaneswar</td>
+            <td>Odisha</td>
+          </tr>
+          <tr data-manual="true">
+            <td>3</td>
+            <td>Udayagiri & Khandagiri Caves</td>
+            <td>1st Century BCE</td>
+            <td>Bhubaneswar</td>
+            <td>Odisha</td>
+          </tr>
+          <tr data-manual="true">
+            <td>3</td>
+            <td>Udayagiri & Khandagiri Caves</td>
+            <td>1st Century BCE</td>
+            <td>Bhubaneswar</td>
+            <td>Odisha</td>
+          </tr>
+          <tr data-manual="true">
+            <td>3</td>
+            <td>Udayagiri & Khandagiri Caves</td>
+            <td>1st Century BCE</td>
+            <td>Bhubaneswar</td>
+            <td>Odisha</td>
+          </tr>
+          <tr data-manual="true">
+            <td>3</td>
+            <td>Udayagiri & Khandagiri Caves</td>
+            <td>1st Century BCE</td>
+            <td>Bhubaneswar</td>
+            <td>Odisha</td>
+          </tr>
+          <tr data-manual="true">
+            <td>3</td>
+            <td>Udayagiri & Khandagiri Caves</td>
+            <td>1st Century BCE</td>
+            <td>Bhubaneswar</td>
+            <td>Odisha</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Pagination -->
+      <div class="table-pagination">
+        <!-- Previous -->
+        <button id="prevPage" class="page-btn" aria-label="Previous Page">
+          <i class="fa fa-angle-left"></i>
         </button>
-        <!-- Virtual Tour Modal -->
-        <div id="virtualModal" class="virtual-modal">
-          <div class="virtual-content">
-            <button class="close" onclick="closeVirtualTour()" title="Close Virtual Tour">✕</button>
-            <div id="panoramaViewer" data-panorama="assets/virtual-tour/virtual_tour.jpg">
+        <!-- Page Numbers (JS injects 1 2 3 … here) -->
+        <span id="pageNumbers" aria-label="Page Numbers"></span>
+        <!-- Page Info -->
+        <span id="pageInfo">Page 1</span>
+        <!-- Next -->
+        <button id="nextPage" class="page-btn" aria-label="Next Page">
+          <i class="fa fa-angle-right"></i>
+        </button>
+      </div>
+
+  </section>
+
+
+  <!-- state-protected -->
+  <section id="state-protected" class="state-protected-section">
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-bar">
+      <div class="container">
+        <nav class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-separator">&gt;&gt;</span>
+          <a href="monuments.html">Monuments
+          </a>
+          <span class="breadcrumb-separator">&gt;&gt;</span>
+          <span class="breadcrumb-item active">State Protected Monuments</span>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Heading -->
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="state-protected-heading">
+            <h2 class="state-protected-section-title">
+              STATE PROTECTED MONUMENTS
+            </h2>
+            <div class="state-protected-section-divider"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+
+          <div class="table-responsive state-protected-table-container">
+            <table class="table table-bordered table-hover monuments-table mb-0">
+              <thead>
+                <tr>
+                  <th>Sl. No.</th>
+                  <th>Name of the Monuments</th>
+                  <th>Period</th>
+                  <th>Locality</th>
+                  <th>District</th>
+                </tr>
+              </thead>
+
+              <tbody id="monumentsTableBody">
+                <!-- Data injected via JS -->
+                <tr data-manual="true">
+                  <td>1</td>
+                  <td>Jiminia Hillock</td>
+                  <td>Prehistoric </td>
+                  <td>Sankarjanga</td>
+                  <td>Anugul</td>
+                </tr>
+                <tr data-manual="true">
+                  <td>2</td>
+                  <td>Jiminia Hillock</td>
+                  <td>Prehistoric </td>
+                  <td>Sankarjanga</td>
+                  <td>Anugul</td>
+                </tr>
+                <tr data-manual="true">
+                  <td>3</td>
+                  <td>Jiminia Hillock</td>
+                  <td>Prehistoric </td>
+                  <td>Sankarjanga</td>
+                  <td>Anugul</td>
+                </tr>
+                <tr data-manual="true">
+                  <td>4</td>
+                  <td>Jiminia Hillock</td>
+                  <td>Prehistoric </td>
+                  <td>Sankarjanga</td>
+                  <td>Anugul</td>
+                </tr>
+                <tr data-manual="true">
+                  <td>5</td>
+                  <td>Jiminia Hillock</td>
+                  <td>Prehistoric </td>
+                  <td>Sankarjanga</td>
+                  <td>Anugul</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- Pagination -->
+            <div class="table-pagination">
+              <button id="prevPage" class="page-btn">
+                <i class="fa fa-angle-left"></i>
+              </button>
+
+              <span id="pageNumbers"></span>
+
+              <span id="pageInfo">Page 1</span>
+
+              <button id="nextPage" class="page-btn">
+                <i class="fa fa-angle-right"></i>
+              </button>
             </div>
+
           </div>
         </div>
-
-        <!-- Search -->
-        <!-- Search -->
-        <div class="search-box">
-          <input type="text" placeholder="Search" />
-          <button class="search-btn"><i class="fa fa-search"></i></button>
-        </div>
-
-        <!-- Mobile Icons -->
-        <div class="mobile-icons">
-          <button class="search-icon"><i class="fa fa-search"></i></button>
-          <button class="menu-icon" id="menuToggle" onclick="toggleMenu()">
-            ☰
-          </button>
-          <button class="close-icon" id="closeMenuBtn" onclick="toggleMenu()">
-            ✕
-          </button>
-        </div>
-      </div>
-      <div class="mid-logos">
-        <img src="assets/logo/odisha_govt.png" alt="Govt of Odisha logo" />
       </div>
     </div>
-  </div>
-  <div class="mid-navbar">
-    <!-- Notification Bar -->
-    <div class="notification-bar">
-      <div class="notification-text">
-        RESULTS FOR THE PG DIPLOMA COURSES (2025–2026 & 2025–2027)
-      </div>
-    </div>
-  </div>
 
-  <!-- Virtual Tour Modal -->
-  <div id="virtualModal" class="virtual-modal">
-    <div class="virtual-content">
-      <button class="close" onclick="closeVirtualTour()" title="Close Virtual Tour">
-        ✕
-      </button>
-      <video controls autoplay>
-        <source src="assets/virtual-tour/Video_Generation_for_Ecosystem.mp4" type="video/mp4" />
-        Your browser does not support video.
-      </video>
-    </div>
-  </div>
-
-
-  <nav class="main-navbar" id="navbar">
-    <div class="container">
-      <ul class="nav-list" id="navList">
-        <li class="home-icon">
-          <a href="index.html"><i class="fa fa-home"></i></a>
-        </li>
-
-        <li class="dropdown">
-          <a href="#">ABOUT US</a>
-          <ul class="dropdown-menu">
-            <li><a href="AbouSection.html">ABOUT ODISHA STATE ARCHAEOLOGY</a></li>
-            <li><a href="staffing-pattern.html">STAFFING PATTERN</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#">ARCHAEOLOGY LIBRARY</a>
-          <ul class="dropdown-menu">
-            <li><a href="books-journals.html">BOOKS & JOURNALS</a></li>
-            <li><a href="#">E-BOOKS</a></li>
-            <li><a href="library.html">LIBRARY</a></li>
-          </ul>
-        </li>
-
-        <li class="dropdown">
-          <a href="monuments.html">MONUMENTS</a>
-          <ul class="dropdown-menu">
-            <li><a href="monuments-central.html">CENTRAL PROTECTED MONUMENTS</a></li>
-            <li><a href="state-protected.html">STATE PROTECTED MONUMENTS</a></li>
-            <li><a href="unprotected-monuments.html">UNPROTECTED MONUMENTS</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#">NOTIFICATIONS</a>
-          <ul class="dropdown-menu">
-            <li><a href="notification-activities.html">ACTIVITIES</a></li>
-            <li><a href="notification-tendernote.html">TENDER NOTE</a></li>
-          </ul>
-        </li>
-
-        <li><a href="act-rules.html">ACT & RULES</a></li>
-        <li><a href="rti.html">RTI</a></li>
-        <li><a href="gallery.html">GALLERY</a></li>
-        <li><a href="news-page.html">NEWS</a></li>
-        <li><a href="contact-us.html">CONTACT US</a></li>
-      </ul>
-    </div>
-  </nav>
-
-
-  <!-- footer -->
-  <footer class="footer-section">
-    <div class="container">
-      <div class="row text-center flex-column align-items-center gy-3">
-
-
-        <!-- Footer Links -->
-        <div class="col-12 col-md-4">
-          <div class="footer-links d-flex flex-wrap justify-content-center">
-            <a href="#" class="footer-link">Website Policy</a>
-            <span class="link-separator d-none d-md-inline">|</span>
-            <a href="#" class="footer-link">Disclaimer</a>
-            <span class="link-separator d-none d-md-inline">|</span>
-            <a href="#" class="footer-link">Terms & Conditions</a>
-          </div>
-        </div>
-
-        <!-- License Info -->
-        <div class="col-12 col-md-5">
-          <p class="license-text mb-0">
-            The Content of this website is licensed under
-            <a href="#" class="license-link">
-              Creative Commons Attribution 4.0 International License
-            </a>
-          </p>
-        </div>
-
-        <!-- Visitor Counter -->
-        <div class="col-12 col-md-3">
-          <p class="visitor-text mb-0">
-            Total Visitors:
-            <span class="visitor-count">825</span>
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </footer>
-</body>
-  <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
-<script src="js/main.js"></script>
-
-</html>
+  </section>

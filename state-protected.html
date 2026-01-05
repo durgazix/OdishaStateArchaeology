@@ -276,20 +276,25 @@
                 </tr>
               </tbody>
             </table>
-
             <!-- Pagination -->
 <div class="table-pagination">
-  <button id="prevPage" class="page-btn">
+
+  <!-- Previous -->
+  <button id="statePrevPage" class="page-btn" aria-label="Previous Page">
     <i class="fa fa-angle-left"></i>
   </button>
 
-  <span id="pageNumbers"></span>
+  <!-- Page Numbers -->
+  <span id="statePageNumbers"></span>
 
-  <span id="pageInfo">Page 1</span>
+  <!-- Page Info -->
+  <span id="statePageInfo">Page 1</span>
 
-  <button id="nextPage" class="page-btn">
+  <!-- Next -->
+  <button id="stateNextPage" class="page-btn" aria-label="Next Page">
     <i class="fa fa-angle-right"></i>
   </button>
+
 </div>
 
           </div>
@@ -298,7 +303,6 @@
     </div>
 
   </section>
-
 
   <!-- footer -->
   <footer class="footer-section">

@@ -686,400 +686,322 @@ document.addEventListener("DOMContentLoaded", function () {
 // - monuments-central.js
 
 document.addEventListener("DOMContentLoaded", () => {
-  initNationalTablePagination();
+  initCentralPagination();
 });
 
 /* ===============================
-   UNIQUE VARIABLES (NO CONFLICT)
+   CONFIG
 ================================ */
-let nationalTableData = [];
-let nationalCurrentPage = 1;
-const nationalRowsPerPage = 10; // change to 10 later
+const ROWS_PER_PAGE = 10;
+let allRows = [];
+let currentPage = 1;
+let totalPages = 1;
 
 /* ===============================
-   INITIALIZE
+   INIT
 ================================ */
-function initNationalTablePagination() {
+function initCentralPagination() {
   const tbody = document.getElementById("centralMonumentsTableBody");
-  const prevBtn = document.getElementById("prevPage");
-  const nextBtn = document.getElementById("nextPage");
-  const pageInfo = document.getElementById("pageInfo");
+  if (!tbody) return;
 
-  if (!tbody || !prevBtn || !nextBtn || !pageInfo) {
-    console.error("National monuments pagination elements not found");
-    return;
-  }
+  allRows = Array.from(tbody.querySelectorAll("tr"));
+  totalPages = Math.ceil(allRows.length / ROWS_PER_PAGE);
 
-  /* ===============================
-     READ MANUAL ROWS
-  =============================== */
-  const manualRows = tbody.querySelectorAll("tr[data-manual='true']");
-
-  manualRows.forEach((row, index) => {
-    const cells = row.querySelectorAll("td");
-    nationalTableData.push({
-      sl: index + 1,
-      name: cells[1].textContent.trim(),
-      period: cells[2].textContent.trim(),
-      locality: cells[3].textContent.trim(),
-      district: cells[4].textContent.trim(),
-    });
-  });
-
-  // Clear table after storing data
-  tbody.innerHTML = "";
-
-  /* ===============================
-     FIRST RENDER
-  =============================== */
-  renderNationalPage();
-
-  /* ===============================
-     BUTTON EVENTS
-  =============================== */
-  prevBtn.addEventListener("click", () => {
-    if (nationalCurrentPage > 1) {
-      nationalCurrentPage--;
-      renderNationalPage();
-    }
-  });
-
-  nextBtn.addEventListener("click", () => {
-    if (
-      nationalCurrentPage <
-      Math.ceil(nationalTableData.length / nationalRowsPerPage)
-    ) {
-      nationalCurrentPage++;
-      renderNationalPage();
-    }
-  });
+  renderPage(currentPage);
+  renderPageNumbers();
+  setupButtons();
 }
 
 /* ===============================
-   RENDER FUNCTION
+   RENDER PAGE
 ================================ */
-function renderNationalPage() {
+function renderPage(page) {
   const tbody = document.getElementById("centralMonumentsTableBody");
-  const pageInfo = document.getElementById("pageInfo");
-  const prevBtn = document.getElementById("prevPage");
-  const nextBtn = document.getElementById("nextPage");
-
   tbody.innerHTML = "";
 
-  const startIndex = (nationalCurrentPage - 1) * nationalRowsPerPage;
-  const endIndex = startIndex + nationalRowsPerPage;
+  const start = (page - 1) * ROWS_PER_PAGE;
+  const end = start + ROWS_PER_PAGE;
 
-  nationalTableData.slice(startIndex, endIndex).forEach((item) => {
-    const tr = document.createElement("tr");
-    tr.innerHTML = `
-      <td>${item.sl}</td>
-      <td>${item.name}</td>
-      <td>${item.period}</td>
-      <td>${item.locality}</td>
-      <td>${item.district}</td>
-    `;
-    tbody.appendChild(tr);
+  allRows.slice(start, end).forEach(row => {
+    tbody.appendChild(row);
   });
 
-  const totalPages = Math.ceil(
-    nationalTableData.length / nationalRowsPerPage
-  );
-
-  pageInfo.textContent = `Page ${nationalCurrentPage} of ${totalPages}`;
-
-  prevBtn.disabled = nationalCurrentPage === 1;
-  nextBtn.disabled = nationalCurrentPage === totalPages;
-
-  renderNationalPageNumbers(); // ✅ NEW
+  updatePageInfo();
+  highlightActivePage();
+  toggleButtons();
 }
-function renderNationalPageNumbers() {
-  const container = document.getElementById("pageNumbers");
-  container.innerHTML = "";
 
-  const totalPages = Math.ceil(
-    nationalTableData.length / nationalRowsPerPage
-  );
+/* ===============================
+   PAGE NUMBERS
+================================ */
+function renderPageNumbers() {
+  const pageNumbers = document.getElementById("pageNumbers");
+  pageNumbers.innerHTML = "";
 
-  const maxVisiblePages = 5;
-
-  let startPage = Math.max(
-    1,
-    nationalCurrentPage - Math.floor(maxVisiblePages / 2)
-  );
-
-  let endPage = startPage + maxVisiblePages - 1;
-
-  if (endPage > totalPages) {
-    endPage = totalPages;
-    startPage = Math.max(1, endPage - maxVisiblePages + 1);
-  }
-
-  /* ---- LEFT ELLIPSIS ---- */
-  if (startPage > 1) {
-    const dots = document.createElement("span");
-    dots.textContent = "...";
-    dots.className = "page-number";
-    dots.onclick = () => {
-      nationalCurrentPage = startPage - 1;
-      renderNationalPage();
-    };
-    container.appendChild(dots);
-  }
-
-  /* ---- PAGE NUMBERS ---- */
-  for (let i = startPage; i <= endPage; i++) {
-    const btn = document.createElement("span");
-    btn.textContent = i;
+  for (let i = 1; i <= totalPages; i++) {
+    const btn = document.createElement("button");
     btn.className = "page-number";
+    btn.textContent = i;
 
-    if (i === nationalCurrentPage) {
-      btn.classList.add("active");
-    }
+    btn.addEventListener("click", () => {
+      currentPage = i;
+      renderPage(currentPage);
+    });
 
-    btn.onclick = () => {
-      nationalCurrentPage = i;
-      renderNationalPage();
-    };
-
-    container.appendChild(btn);
-  }
-
-  /* ---- RIGHT ELLIPSIS ---- */
-  if (endPage < totalPages) {
-    const dots = document.createElement("span");
-    dots.textContent = "...";
-    dots.className = "page-number";
-    dots.onclick = () => {
-      nationalCurrentPage = endPage + 1;
-      renderNationalPage();
-    };
-    container.appendChild(dots);
+    pageNumbers.appendChild(btn);
   }
 }
 
-function renderCentralTable() {
-  const tbody = document.getElementById("centralMonumentsTableBody");
-  tbody.innerHTML = "";
-
-  const start = (centralCurrentPage - 1) * centralRowsPerPage;
-  const end = start + centralRowsPerPage;
-
-  centralMonuments.slice(start, end).forEach((m) => {
-    const tr = document.createElement("tr");
-    tr.innerHTML = `
-      <td>${m.sl}</td>
-      <td>${m.name}</td>
-      <td>${m.period}</td>
-      <td>${m.locality}</td>
-      <td>${m.district}</td>
-    `;
-    tbody.appendChild(tr);
+/* ===============================
+   BUTTONS
+================================ */
+function setupButtons() {
+  document.getElementById("prevPage").addEventListener("click", () => {
+    if (currentPage > 1) {
+      currentPage--;
+      renderPage(currentPage);
+    }
   });
 
-  const totalPages = Math.ceil(
-    centralMonuments.length / centralRowsPerPage
-  );
-
-  document.getElementById("pageInfo").innerText =
-    `Page ${centralCurrentPage} of ${totalPages}`;
-
-  document.getElementById("prevPage").disabled =
-    centralCurrentPage === 1;
-
-  document.getElementById("nextPage").disabled =
-    centralCurrentPage === totalPages;
+  document.getElementById("nextPage").addEventListener("click", () => {
+    if (currentPage < totalPages) {
+      currentPage++;
+      renderPage(currentPage);
+    }
+  });
 }
 
-function setupCentralPagination() {
-  document.getElementById("prevPage").onclick = () => {
-    if (centralCurrentPage > 1) {
-      centralCurrentPage--;
-      renderCentralTable();
-    }
-  };
-
-  document.getElementById("nextPage").onclick = () => {
-    if (
-      centralCurrentPage <
-      Math.ceil(centralMonuments.length / centralRowsPerPage)
-    ) {
-      centralCurrentPage++;
-      renderCentralTable();
-    }
-  };
+/* ===============================
+   HELPERS
+================================ */
+function updatePageInfo() {
+  document.getElementById("pageInfo").textContent =
+    `Page ${currentPage} of ${totalPages}`;
 }
+
+function highlightActivePage() {
+  document.querySelectorAll(".page-number").forEach((btn, index) => {
+    btn.classList.toggle("active", index + 1 === currentPage);
+  });
+}
+
+function toggleButtons() {
+  document.getElementById("prevPage").disabled = currentPage === 1;
+  document.getElementById("nextPage").disabled = currentPage === totalPages;
+}
+
 
 // - state-protected.js
 
+// document.addEventListener("DOMContentLoaded", () => {
+//   initMonumentsPagination();
+// });
+// const ROWS_PER_PAGE = 10;
+// let allRows = [];
+// let currentPage = 1;
+// let totalPages = 1;
+// function initMonumentsPagination() {
+//   const tbody = document.getElementById("monumentsTableBody");
+//   if (!tbody) return;
+//   // Read ALL manual rows once
+//   allRows = Array.from(tbody.querySelectorAll("tr"));
+//   totalPages = Math.ceil(allRows.length / ROWS_PER_PAGE);
+//   renderTable();
+//   setupControls();
+//   renderPageNumbers();
+// }
+// function renderTable() {
+//   const tbody = document.getElementById("monumentsTableBody");
+//   tbody.innerHTML = "";
+//   const start = (currentPage - 1) * ROWS_PER_PAGE;
+//   const end = start + ROWS_PER_PAGE;
+//   allRows.slice(start, end).forEach((row) => {
+//     tbody.appendChild(row);
+//   });
+//   updatePageInfo();
+//   updateButtons();
+//   highlightActivePage();
+// }
+// function updatePageInfo() {
+//   document.getElementById("pageInfo").innerText =
+//     `Page ${currentPage} of ${totalPages}`;
+// }
+// function setupControls() {
+//   document.getElementById("prevPage").onclick = () => {
+//     if (currentPage > 1) {
+//       currentPage--;
+//       renderTable();
+//       renderPageNumbers();
+//     }
+//   };
+//   document.getElementById("nextPage").onclick = () => {
+//     if (currentPage < totalPages) {
+//       currentPage++;
+//       renderTable();
+//       renderPageNumbers();
+//     }
+//   };
+// }
+// function updateButtons() {
+//   document.getElementById("prevPage").disabled = currentPage === 1;
+//   document.getElementById("nextPage").disabled = currentPage === totalPages;
+// }
+// function renderPageNumbers() {
+//   const container = document.getElementById("pageNumbers");
+//   container.innerHTML = "";
+//   const maxVisible = 5;
+//   let start = Math.max(1, currentPage - Math.floor(maxVisible / 2));
+//   let end = start + maxVisible - 1;
+//   if (end > totalPages) {
+//     end = totalPages;
+//     start = Math.max(1, end - maxVisible + 1);
+//   }
+//   if (start > 1) {
+//     container.appendChild(createPageBtn(1));
+//     container.appendChild(createDots());
+//   }
+//   for (let i = start; i <= end; i++) {
+//     container.appendChild(createPageBtn(i));
+//   }
+//   if (end < totalPages) {
+//     container.appendChild(createDots());
+//     container.appendChild(createPageBtn(totalPages));
+//   }
+// }
+// function createPageBtn(page) {
+//   const span = document.createElement("span");
+//   span.textContent = page;
+//   span.className = "page-number";
+//   span.onclick = () => {
+//     currentPage = page;
+//     renderTable();
+//     renderPageNumbers();
+//   };
+//   return span;
+// }
+// function createDots() {
+//   const dots = document.createElement("span");
+//   dots.textContent = "...";
+//   dots.className = "page-number";
+//   dots.style.cursor = "default";
+//   return dots;
+// }
+// function highlightActivePage() {
+//   document.querySelectorAll(".page-number").forEach((el) => {
+//     el.classList.remove("active");
+//     if (Number(el.textContent) === currentPage) {
+//       el.classList.add("active");
+//     }
+//   });
+// }
+
+
 document.addEventListener("DOMContentLoaded", () => {
-  setTimeout(initializeTable, 100);
+  initStatePagination();
 });
 
-let allMonuments = [];
-let currentPage = 1;
-const rowsPerPage = 10;
+/* ===============================
+   CONFIG
+================================ */
+const STATE_ROWS_PER_PAGE = 10;
+let stateRows = [];
+let stateCurrentPage = 1;
+let stateTotalPages = 1;
 
-function initializeTable() {
+/* ===============================
+   INIT
+================================ */
+function initStatePagination() {
   const tbody = document.getElementById("monumentsTableBody");
+  if (!tbody) return;
 
-  // ✅ 1. READ MANUAL DATA FIRST
-  const manualRows = tbody.querySelectorAll("tr[data-manual='true']");
-  const manualData = [];
+  stateRows = Array.from(tbody.querySelectorAll("tr"));
+  stateTotalPages = Math.ceil(stateRows.length / STATE_ROWS_PER_PAGE);
 
-  manualRows.forEach((row, index) => {
-    const cells = row.querySelectorAll("td");
-    manualData.push({
-      sl: index + 1,
-      name: cells[1].innerText.trim(),
-      period: cells[2].innerText.trim(),
-      locality: cells[3].innerText.trim(),
-      district: cells[4].innerText.trim(),
-    });
-  });
-
-  // Clear tbody AFTER reading manual data
-  tbody.innerHTML = "";
-
-  // Load Excel and merge
-  loadExcelData(manualData);
+  renderStatePage(stateCurrentPage);
+  renderStatePageNumbers();
+  setupStateButtons();
 }
 
-async function loadExcelData(manualData) {
-  try {
-    const response = await fetch(
-      "assets/state-protected/state_protected_monuments.xlsx"
-    );
-    const buffer = await response.arrayBuffer();
-    const workbook = XLSX.read(buffer, { type: "array" });
-    const sheet = workbook.Sheets[workbook.SheetNames[0]];
-    const excelData = XLSX.utils.sheet_to_json(sheet);
-
-    const excelFormatted = excelData.map((row, index) => ({
-      sl: manualData.length + index + 1,
-      name: row["Name of the Monuments"] || row["Monument Name"] || "",
-      period: row["Period"] || "",
-      locality: row["Locality"] || row["Location"] || "",
-      district: row["District"] || "",
-    }));
-
-    allMonuments = [...manualData, ...excelFormatted];
-    renderTable();
-    setupPagination();
-  } catch (err) {
-    console.error("Excel load failed, showing manual data only", err);
-    allMonuments = manualData;
-    renderTable();
-    setupPagination();
-  }
-}
-
-function renderTable() {
+/* ===============================
+   RENDER PAGE
+================================ */
+function renderStatePage(page) {
   const tbody = document.getElementById("monumentsTableBody");
   tbody.innerHTML = "";
 
-  const start = (currentPage - 1) * rowsPerPage;
-  const end = start + rowsPerPage;
+  const start = (page - 1) * STATE_ROWS_PER_PAGE;
+  const end = start + STATE_ROWS_PER_PAGE;
 
-  allMonuments.slice(start, end).forEach((m) => {
-    const tr = document.createElement("tr");
-    tr.innerHTML = `
-      <td>${m.sl}</td>
-      <td>${m.name}</td>
-      <td>${m.period}</td>
-      <td>${m.locality}</td>
-      <td>${m.district}</td>
-    `;
-    tbody.appendChild(tr);
+  stateRows.slice(start, end).forEach(row => {
+    tbody.appendChild(row);
   });
 
-  const totalPages = Math.ceil(allMonuments.length / rowsPerPage);
-
-  document.getElementById("pageInfo").innerText =
-    `Page ${currentPage} of ${totalPages}`;
-
-  document.getElementById("prevPage").disabled = currentPage === 1;
-  document.getElementById("nextPage").disabled = currentPage === totalPages;
-
-  renderPageNumbers(); // ✅ NEW
+  updateStatePageInfo();
+  highlightStateActivePage();
+  toggleStateButtons();
 }
 
-function renderPageNumbers() {
-  const container = document.getElementById("pageNumbers");
+/* ===============================
+   PAGE NUMBERS
+================================ */
+function renderStatePageNumbers() {
+  const container = document.getElementById("statePageNumbers");
   container.innerHTML = "";
 
-  const totalPages = Math.ceil(allMonuments.length / rowsPerPage);
-  const maxVisiblePages = 5;
-
-  let startPage = Math.max(
-    1,
-    currentPage - Math.floor(maxVisiblePages / 2)
-  );
-
-  let endPage = startPage + maxVisiblePages - 1;
-
-  if (endPage > totalPages) {
-    endPage = totalPages;
-    startPage = Math.max(1, endPage - maxVisiblePages + 1);
-  }
-
-  /* ---------- LEFT ELLIPSIS ---------- */
-  if (startPage > 1) {
-    const dots = document.createElement("span");
-    dots.textContent = "...";
-    dots.className = "page-number";
-    dots.onclick = () => {
-      currentPage = startPage - 1;
-      renderTable();
-    };
-    container.appendChild(dots);
-  }
-
-  /* ---------- PAGE NUMBERS ---------- */
-  for (let i = startPage; i <= endPage; i++) {
-    const btn = document.createElement("span");
-    btn.textContent = i;
+  for (let i = 1; i <= stateTotalPages; i++) {
+    const btn = document.createElement("button");
     btn.className = "page-number";
+    btn.textContent = i;
 
-    if (i === currentPage) {
-      btn.classList.add("active");
-    }
-
-    btn.onclick = () => {
-      currentPage = i;
-      renderTable();
-    };
+    btn.addEventListener("click", () => {
+      stateCurrentPage = i;
+      renderStatePage(stateCurrentPage);
+    });
 
     container.appendChild(btn);
   }
-
-  /* ---------- RIGHT ELLIPSIS ---------- */
-  if (endPage < totalPages) {
-    const dots = document.createElement("span");
-    dots.textContent = "...";
-    dots.className = "page-number";
-    dots.onclick = () => {
-      currentPage = endPage + 1;
-      renderTable();
-    };
-    container.appendChild(dots);
-  }
 }
 
-function setupPagination() {
-  document.getElementById("prevPage").onclick = () => {
-    if (currentPage > 1) {
-      currentPage--;
-      renderTable();
+/* ===============================
+   BUTTONS
+================================ */
+function setupStateButtons() {
+  document.getElementById("statePrevPage").addEventListener("click", () => {
+    if (stateCurrentPage > 1) {
+      stateCurrentPage--;
+      renderStatePage(stateCurrentPage);
     }
-  };
+  });
 
-  document.getElementById("nextPage").onclick = () => {
-    if (currentPage < Math.ceil(allMonuments.length / rowsPerPage)) {
-      currentPage++;
-      renderTable();
+  document.getElementById("stateNextPage").addEventListener("click", () => {
+    if (stateCurrentPage < stateTotalPages) {
+      stateCurrentPage++;
+      renderStatePage(stateCurrentPage);
     }
-  };
+  });
 }
+
+/* ===============================
+   HELPERS
+================================ */
+function updateStatePageInfo() {
+  document.getElementById("statePageInfo").textContent =
+    `Page ${stateCurrentPage} of ${stateTotalPages}`;
+}
+
+function highlightStateActivePage() {
+  document.querySelectorAll("#statePageNumbers .page-number").forEach((btn, index) => {
+    btn.classList.toggle("active", index + 1 === stateCurrentPage);
+  });
+}
+
+function toggleStateButtons() {
+  document.getElementById("statePrevPage").disabled = stateCurrentPage === 1;
+  document.getElementById("stateNextPage").disabled = stateCurrentPage === stateTotalPages;
+}
+
+
 
 // - unprotected-monuments.js
 document.addEventListener("DOMContentLoaded", () => {
