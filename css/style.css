@@ -1,13 +1,8 @@
-/* ===================================
-   FONT FACE DECLARATIONS
-   =================================== */
 @font-face { font-family: "robotoregular"; src: url("../fonts/robotoregular.woff2") format("woff2"),
     url("../fonts/robotoregular.woff") format("woff"),
     url("../fonts/robotoregular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
 @font-face { font-family: "robotoregular"; src: url("../fonts/roboto-bold.woff2") format("woff2"); font-weight: 900; }
-/* ===================================
-   GLOBAL STYLES & RESET
-   =================================== */
+/* GLOBAL STYLES & RESET */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html,
 body { min-height: 60vh; font-family: "robotoregular", Arial, sans-serif; line-height: 1.6; color: #000; background-color: #f4f4f4; }
@@ -114,9 +109,6 @@ h3 { font-weight: 900; }
 50% { transform: translateX(-50%); }
 100% { transform: translateX(-100%); }
  }
-/* ============================= */
-/* RESPONSIVE MID NAVBAR */
-/* ============================= */
 .mobile-icons { display: none; gap: 10px; }
 /* laptops */
 @media (max-width: 1300px) {
@@ -350,45 +342,33 @@ to { opacity: 1; }
  }
 /* gallery section */
 .gallery-section { background: #fef7f7dd; /* min-height: calc(100vh - 200px); */ }
-/* ===================================
-   BREADCRUMB
-   =================================== */
+
 .breadcrumb-bar { background: #ed7f25e5; padding: 14px 0; border-bottom: 1px solid #e5e7eb; margin-bottom: 40px; }
 .breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 14px; }
 .breadcrumb-bar a,
 .breadcrumb-bar .breadcrumb-item,
 .breadcrumb-bar .breadcrumb-item.active { color: #fff; }
 .breadcrumb-separator { color: #fff; margin: 0 6px; }
-/* ===================================
-   TITLE & DIVIDER
-   =================================== */
+
 .gallery-title { font-size: 24px; font-weight: 600; color: #333; letter-spacing: 0.5px; }
 .gallery-divider { height: 3px; width: 100px; background: linear-gradient(to right, #ff9900, transparent); border-radius: 2px; }
-/* ===================================
-   TOGGLE BUTTONS (Bootstrap Enhanced)
-   =================================== */
+
 .gallery-toggle-btn { padding: 8px 24px; border-radius: 10px; border: 1px solid #ccc; background: #fff; color: #333; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 0.5px; }
 .gallery-toggle-btn:hover { background: #f8f9fa; border-color: #ed7f25e5; color: #333; transform: translateY(-2px); }
 .gallery-toggle-btn.active { background: #ed7f25e5 !important; border-color: #ed7f25e5 !important; color: #fff !important; box-shadow: 0 4px 8px rgba(237, 127, 37, 0.3); }
 .gallery-toggle-btn:focus { box-shadow: 0 0 0 0.25rem rgba(237, 127, 37, 0.25); }
-/* ===================================
-   PHOTO GALLERY ITEMS (Bootstrap Grid)
-   =================================== */
+
 .gallery-item { background: #ebdfdf; border-radius: 10px; padding: 12px; box-shadow: 0 6px 18px rgba(77, 77, 77, 0.08); height: 100%; transition: all 0.3s ease; overflow: hidden; display: flex; flex-direction: column; }
 .gallery-item:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(77, 77, 77, 0.15); }
 .gallery-item img { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; transition: transform 0.3s ease; flex-shrink: 0; }
 .gallery-item:hover img { transform: scale(1.05); }
 .gallery-caption { margin-top: 10px; font-weight: 600; font-size: 14px; color: #333; text-align: center; flex-grow: 1; display: flex; align-items: center; justify-content: center; }
-/* ===================================
-   VIDEO GALLERY (Bootstrap Grid)
-   =================================== */
+
 .video-card { background: #ebdfdf; padding: 12px; border-radius: 10px; box-shadow: 0 6px 18px rgba(77, 77, 77, 0.08); height: 100%; transition: all 0.3s ease; display: flex; flex-direction: column; }
 .video-card:hover { transform: translateY(-8px); box-shadow: 0 12px 24px rgba(77, 77, 77, 0.15); }
 .video-card video { width: 100%; height: 220px; object-fit: cover; border-radius: 8px; background: #000; flex-shrink: 0; }
 .video-caption { margin-top: 8px; font-weight: 600; font-size: 14px; color: #333; text-align: center; flex-grow: 1; display: flex; align-items: center; justify-content: center; }
-/* ===================================
-   VIEW MORE/LESS BUTTONS (Bootstrap)
-   =================================== */
+
 .view-more-btn,
 .view-less-btn { padding: 10px 36px; border-radius: 10px; font-weight: 600; font-size: 14px; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 0.5px; border: none; }
 .view-more-btn { background: #ed7f25e5; color: #fff; }
@@ -397,9 +377,6 @@ to { opacity: 1; }
 .view-less-btn { background: #fff; border: 2px solid #ed7f25e5 !important; color: #ed7f25e5; }
 .view-less-btn:hover { background: #ed7f25e5; color: #fff; transform: translateY(-2px); box-shadow: 0 6px 12px rgba(237, 127, 37, 0.3); }
 .view-less-btn:focus { box-shadow: 0 0 0 0.25rem rgba(237, 127, 37, 0.25); }
-/* ===================================
-   BOOTSTRAP GRID ENHANCEMENTS
-   =================================== */
 /* Ensure consistent spacing using Bootstrap's gutter system */
 #galleryItems.row,
 #videoGalleryGrid.row { --bs-gutter-x: 1.5rem; --bs-gutter-y: 1.5rem; }
@@ -420,9 +397,6 @@ to { opacity: 1; }
  #galleryItems .col-lg-3,
   #videoGalleryGrid .col-lg-3 { flex: 0 0 auto; width: 25%; }
  }
-/* ===================================
-   ANIMATIONS
-   =================================== */
 @keyframes fadeInUp {
  from { opacity: 0; transform: translateY(30px); }
 to { opacity: 1; transform: translateY(0); }
@@ -438,9 +412,6 @@ to { opacity: 1; transform: translateY(0); }
 .video-card:nth-child(3) { animation-delay: 0.2s; }
 .gallery-item:nth-child(4),
 .video-card:nth-child(4) { animation-delay: 0.3s; }
-/* ===========================
-   IMAGE VIEWER (FULL SCREEN)
-   =========================== */
 .image-viewer { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); display: flex; align-items: center; justify-content: center; z-index: 9999; animation: fadeIn 0.3s ease-in-out; }
 .image-viewer img { max-width: 90%; max-height: 90%; border-radius: 10px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6); animation: zoomIn 0.3s ease-in-out; }
 .image-viewer-close { position: absolute; top: 20px; right: 30px; font-size: 40px; color: white; cursor: pointer; font-weight: bold; transition: 0.3s; }
@@ -454,16 +425,10 @@ to { opacity: 1; }
  from { transform: scale(0.8); }
 to { transform: scale(1); }
  }
-/* ===========================
-   VIDEO VIEWER (FULL SCREEN)
-   =========================== */
 .video-viewer { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); display: flex; align-items: center; justify-content: center; z-index: 9999; animation: fadeIn 0.3s ease-in-out; }
 .video-viewer video { max-width: 90%; max-height: 85%; border-radius: 10px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6); }
 .video-viewer-close { position: absolute; top: 20px; right: 30px; font-size: 40px; color: white; cursor: pointer; font-weight: bold; transition: 0.3s; }
 .video-viewer-close:hover { color: #ff9800; }
-/* ===================================
-   RESPONSIVE DESIGN (Bootstrap Breakpoints)
-   =================================== */
 /* Extra Large Desktop (≥1400px) - Bootstrap XXL */
 @media (min-width: 1400px) {
  .gallery-section { padding: 80px 0; }
@@ -578,17 +543,11 @@ to { transform: scale(1); }
 .gallery-item,
   .video-card { padding: 10px; }
  }
-/* ===================================
-   BOOTSTRAP UTILITY OVERRIDES
-   =================================== */
 /* Ensure g-4 gutter works properly */
 .gallery-section .g-4 { --bs-gutter-x: 1.5rem; --bs-gutter-y: 1.5rem; }
 @media (max-width: 767px) {
  .gallery-section .g-4 { --bs-gutter-x: 1rem; --bs-gutter-y: 1rem; }
  }
-/* ===================================
-   TOUCH DEVICE OPTIMIZATIONS
-   =================================== */
 /* Hover effects disabled on touch devices */
 @media (hover: none) and (pointer: coarse) {
  .gallery-item:hover,
@@ -599,15 +558,9 @@ to { transform: scale(1); }
 .view-more-btn:hover,
   .view-less-btn:hover { transform: none; }
  }
-/* ===================================
-   ACCESSIBILITY
-   =================================== */
 .gallery-toggle-btn:focus-visible,
 .view-more-btn:focus-visible,
 .view-less-btn:focus-visible { outline: 2px solid #ed7f25e5; outline-offset: 2px; }
-/* ===================================
-   PRINT STYLES
-   =================================== */
 @media print {
  .gallery-toggle-btn,
   .view-more-btn,
@@ -679,11 +632,7 @@ to { transform: scale(1); }
 @media (min-width: 1400px) {
  .container { max-width: 1350px; }
  }
-
-
-
 /* staffing-pattern page */
-
 /* ---------- Breadcrumb ---------- */
 .breadcrumb-bar { background: #dd6d05; padding: 12px 0; }
 .breadcrumb { display: flex; align-items: center; gap: 8px; }
@@ -698,8 +647,9 @@ to { transform: scale(1); }
 .staffing-pattern-section-title { font-size: 18px; font-weight: 700; color: #333; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 1px; }
 .staffing-pattern-section-divider { height: 3px; background: linear-gradient(to right, #ff9900, transparent); margin-bottom: 25px; }
 /* Staff Card */
-.staff-card { background: #fffefe; margin-top: 50px; margin-bottom: 20px; padding: 60px 20px 30px; border-radius: 10px; text-align: center; position: relative; box-shadow: 0 6px 15px rgba(60, 59, 59, 0.12); transition: transform 0.3s, box-shadow 0.3s;}
-/* .staff-card:hover { transform: translateY(-6px); box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18); } */
+.staff-card { background: #fffefe; margin-top: 50px; margin-bottom: 20px; padding: 60px 20px 30px; border-radius: 10px; text-align: center; position: relative; box-shadow: 0 6px 15px rgba(60, 59, 59, 0.12); transition: transform 0.3s, box-shadow 0.3s; }
+/* .staff-card:hover { transform: translateY(-6px); box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18); }
+*/
 /* Profile Image */
 .staff-avatar { width: 120px; height: 120px; border-radius: 50%; background: #f5f5f5; position: absolute; top: -60px; left: 50%; transform: translateX(-50%); border: 4px solid #ff7a00; overflow: hidden; }
 .staff-avatar img { width: 100%; height: 100%; object-fit: cover; }
@@ -716,8 +666,6 @@ to { transform: scale(1); }
  .staff-card { padding-top: 20px; margin-top: 10px; }
 .staff-avatar { width: 100px; height: 100px; top: -50px; }
  }
-
-
 /* archaeology-library */
 /* Breadcrumb */
 .breadcrumb-bar { background: #ed7f25e5; padding: 12px 0; }
@@ -802,66 +750,39 @@ to { transform: scale(1); }
 .publications-content-box { background: #fff; padding: 30px; border-radius: 8px; border-left: 4px solid #ff9900; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); }
 .publications-content-box p { font-size: 16px; line-height: 1.9; color: #444; text-align: justify; margin-bottom: 18px; }
 .publications-content-box p:last-child { margin-bottom: 0; }
-/* =====================================================
-   LINK
-===================================================== */
 .website-link { color: #ff9900; font-weight: 600; text-decoration: none; border-bottom: 2px solid transparent; }
 .website-link:hover { color: #dd6d05; border-bottom-color: #dd6d05; }
-/* =====================================================
-   📱 MOBILE (≤576px)
-===================================================== */
 @media (max-width: 576px) {
  .books-journals-title { font-size: 20px; }
 .books-journals-divider { width: 110px; }
 .publications-content-box { padding: 22px; border-left-width: 3px; }
 .publications-content-box p { font-size: 14px; line-height: 1.7; text-align: left; }
  }
-/* =====================================================
-   💻 LAPTOP (≥992px)
-===================================================== */
 @media (min-width: 992px) {
  .books-journals-title { font-size: 26px; }
 .publications-content-box p { font-size: 15.5px; }
  }
-/* =====================================================
-   🖥 DESKTOP (≥1200px)
-===================================================== */
 @media (min-width: 1200px) {
  .publications-content-box { padding: 35px; }
  }
-/* =====================================================
-   🖥 LARGE DESKTOP (≥1400px)
-===================================================== */
 @media (min-width: 1400px) {
  .container { max-width: 1350px; }
 .books-journals-title { font-size: 30px; }
 .publications-content-box p { font-size: 16px; }
  }
-
- 
 /* library  */
-/* =====================================================
-   BREADCRUMB (GLOBAL CONSISTENCY)
-===================================================== */
 .breadcrumb-bar { background: #ed7f25e5; padding: 12px 0; }
 .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #ffffff; }
 .breadcrumb-item { color: #ffffff; text-decoration: none; cursor: pointer; }
 .breadcrumb-item:hover { text-decoration: underline; }
 .breadcrumb-item.active { font-weight: 700; }
 .breadcrumb-separator { color: #ffffff; }
-/* =====================================================
-   SECTION WRAPPER
-===================================================== */
 .library-detail-section { background: #f9f9f9; min-height: 80vh; }
-/* =====================================================
-   PAGE HEADING (ALIGNED WITH NAVBAR)
-===================================================== */
+/* PAGE HEADING (ALIGNED WITH NAVBAR) */
 .library-detail-heading { margin-bottom: 30px; }
 .library-detail-title { font-size: 20px; font-weight: 700; color: #333; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
 .library-detail-divider { width: 150px; height: 3px; background: linear-gradient(to right, #ff9900, transparent); }
-/* =====================================================
-   MAIN CONTENT AREA
-===================================================== */
+/* MAIN CONTENT AREA= */
 /* Text Content */
 .library-text-content p { font-size: 15px; line-height: 1.8; color: #444; text-align: justify; margin-bottom: 18px; }
 .library-text-content p:last-child { margin-bottom: 0; }
@@ -880,37 +801,27 @@ to { transform: scale(1); }
 .arrow-btn { width: 40px; height: 40px; border-radius: 50%; border: none; background: rgba(0, 0, 0, 0.6); color: #ffffff; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; }
 */ .arrow-btn:hover { background: rgba(255, 153, 0, 0.9); transform: scale(1.1); }
 .arrow-btn i { font-size: 16px; }
-/* =====================================================
-   COMMON CARD SECTIONS
-===================================================== */
+/* COMMON CARD SECTIONS */
 .book-categories-section,
 .beneficiaries-section,
 .library-info-section { background: #ffffff; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); }
-/* =====================================================
-   SECTION SUBTITLE
-===================================================== */
+/* SECTION SUBTITLE */
 .section-subtitle { font-size: 20px; font-weight: 700; color: #2d5016; margin-bottom: 20px; padding-left: 10px; border-left: 4px solid #ff9900; }
-/* =====================================================
-   LIST STYLES
-===================================================== */
+/* LIST STYLES */
 .categories-list,
 .beneficiaries-list { list-style: none; padding: 0; margin: 0; }
 .categories-list li,
 .beneficiaries-list li { font-size: 15px; color: #444; display: flex; gap: 12px; padding: 8px 0; align-items: flex-start; }
 .categories-list li i,
 .beneficiaries-list li i { font-size: 8px; color: #2d5016; margin-top: 8px; }
-/* =====================================================
-   LIBRARY INFO TABLE
-===================================================== */
+/* LIBRARY INFO TABLE */
 .library-info-table { width: 100%; border-collapse: collapse; }
 .library-info-table tbody tr { border-bottom: 1px solid #e0e0e0; }
 .library-info-table tbody tr:last-child { border-bottom: none; }
 .library-info-table td { padding: 14px 10px; font-size: 15px; color: #444; }
 .info-label { width: 30%; font-weight: 600; background: #f5f5f5; color: #333; }
 .info-value { width: 70%; color: #555; }
-/* =====================================================
-   📱 MOBILE PHONES (≤576px)
-===================================================== */
+/* MOBILE PHONES (≤576px) */
 @media (max-width: 576px) {
  .library-detail-title { font-size: 18px; }
 .library-text-content p { font-size: 13px; text-align: left; }
@@ -945,23 +856,17 @@ to { transform: scale(1); }
  }
 /* contact-us section */
 .map-section { background-color: #f9f9f9; }
-/* =====================================================
-   BREADCRUMB
-   ===================================================== */
+/* BREADCRUMB */
 .breadcrumb-bar { background: #dd6d05; padding: 12px 0; }
 .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 14px; }
 .breadcrumb-item { color: #fff; cursor: pointer; text-decoration: none; }
 .breadcrumb-item:hover { text-decoration: underline; }
 .breadcrumb-item.active { color: #000; font-weight: 600; }
 .breadcrumb-separator { color: #fff; }
-/* =====================================================
-   SECTION TITLES
-   ===================================================== */
+/* SECTION TITLES */
 .section-title { font-size: 26px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
 .section-divider { height: 3px; width: 100px; background: linear-gradient(to right, #ff9900, transparent); margin-bottom: 24px; }
-/* =====================================================
-   MAP SECTION
-   ===================================================== */
+/* MAP SECTION */
 .map-section { padding: 30px 0; }
 .map-wrapper { position: relative; width: 100%; height: 450px; border-radius: 6px; overflow: hidden; }
 .google-map { width: 100%; height: 100%; border: none; display: block; }
@@ -970,55 +875,41 @@ to { transform: scale(1); }
 .map-location-badge i { color: #d93025; }
 .map-link { font-size: 13px; color: #0066cc; text-decoration: none; }
 .map-link:hover { text-decoration: underline; }
-/* =====================================================
-   CONTACT + ADDRESS SECTION
-   ===================================================== */
+/* CONTACT + ADDRESS SECTION */
 .contact-us-section { padding: 40px 0; background: #fafafa; }
 /* Card base */
 .contact-form-section,
 .address-section { background: #fff; padding: 25px; border-radius: 8px; height: 100%; box-shadow: 0 2px 8px #0000001a; display: flex; flex-direction: column; }
-/* =====================================================
-   FORM
-   ===================================================== */
+/* FORM */
 .contact-form label { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
 .contact-form .form-control { font-size: 14px; padding: 8px 10px; border-radius: 4px; }
 .submit-btn { background: #ff9900; color: #fff; padding: 10px 30px; border-radius: 6px; border: none; font-size: 14px; font-weight: 600; transition: all 0.3s ease; }
 .submit-btn:hover { background: #e68900; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(255, 153, 0, 0.3); }
-/* =====================================================
-   ADDRESS
-   ===================================================== */
+/* ADDRESS */
 .address-box { background: #f5f5f5; padding: 18px; border-radius: 6px; margin-top: auto; }
 .department-name { font-size: 16px; font-weight: 700; margin-bottom: 14px; }
 .address-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
 .address-icon { width: 34px; height: 34px; background: #ff9900; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .address-icon i { color: #fff; font-size: 15px; }
 .address-item p { font-size: 14px; margin: 0; line-height: 1.6; }
-/* =====================================================
-   RESPONSIVE — LARGE DESKTOP (≥1400px)
-   ===================================================== */
+/* RESPONSIVE — LARGE DESKTOP (≥1400px) */
 @media (min-width: 1400px) {
  .section-title { font-size: 30px; }
 .map-wrapper { height: 520px; }
 .contact-form-section,
   .address-section { padding: 30px; }
  }
-/* =====================================================
-   RESPONSIVE — DESKTOP / LAPTOP (≥992px)
-   ===================================================== */
+/* RESPONSIVE — DESKTOP / LAPTOP (≥992px) */
 @media (max-width: 1199px) {
  .section-title { font-size: 24px; }
 .map-wrapper { height: 420px; }
  }
-/* =====================================================
-   RESPONSIVE — TABLET (≥768px)
-   ===================================================== */
+/* RESPONSIVE — TABLET (≥768px) */
 @media (max-width: 991px) {
  .contact-us-section { padding: 35px 0; }
 .map-wrapper { height: 360px; }
  }
-/* =====================================================
-   RESPONSIVE — MOBILE LARGE (≥576px)
-   ===================================================== */
+/* RESPONSIVE — MOBILE LARGE (≥576px) */
 @media (max-width: 767px) {
  .section-title { font-size: 20px; }
 .map-wrapper { height: 320px; }
@@ -1036,30 +927,20 @@ to { transform: scale(1); }
  }
 /* rti section */
 .rti-section { background-color: #f9f9f9; min-height: 60vh }
-/* ================================
-   HEADING
-   ================================ */
+/* HEADING */
 .rti-heading { margin-bottom: 30px; }
 .rti-section-title { font-size: 26px; font-weight: 600; color: #333; margin-bottom: 6px; }
 .rti-section-divider { width: 100px; height: 3px; background: linear-gradient(to right, #ff9900, transparent); text-align: left; }
-/* ================================
-   TABLE CONTAINER
-   ================================ */
+/* TABLE CONTAINER */
 .rti-table-container { background: #fff; border-radius: 6px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); overflow-x: auto; /* Mobile horizontal scroll */ }
-/* ================================
-   TABLE
-   ================================ */
+/* TABLE */
 .acts-table-rti { width: 100%; min-width: 900px; border-radius: 10px; }
 .acts-table-rti th,
 .acts-table-rti td { border: 1px solid #ddd; padding: 12px 10px; text-align: left; vertical-align: top; line-height: 1.5; font-size: 16px; text-align: center; }
-/* ================================
-   TABLE HEADER
-   ================================ */
+/* TABLE HEADER */
 .acts-table-rti thead th { background: linear-gradient(135deg, #ed7f25e9, #ed7f25f7); color: white; font-weight: 600; padding: 16px 12px; border: none; position: sticky; top: 0; z-index: 10; text-align: center; font-size: 15px; white-space: nowrap; }
 .acts-table-rti thead th { color: #000; font-weight: 500; font-size: 18px; text-transform: capitalize; }
-/* ================================
-   TABLE BODY
-   ================================ */
+
 .acts-table-rti tbody tr { transition: background-color 0.3s ease; text-align: center; }
 .acts-table-rti tbody tr:hover { background-color: #f3f3f3; text-align: center; }
 /* ---------- Large Desktop (≥1400px) ---------- */
@@ -1089,13 +970,9 @@ to { transform: scale(1); }
 .acts-table-rti th,
   .acts-table-rti td { font-size: 12px; padding: 8px; }
  }
-/* ================================
-   ACCESSIBILITY & UX
-   ================================ */
+/* ACCESSIBILITY & UX*/
 .acts-table-rti th { white-space: nowrap; }
-/* ================================
-   PRINT FRIENDLY
-   ================================ */
+/* PRINT FRIENDLY */
 @media print {
  .rti-section { background: #fff; padding: 0; }
 .rti-table-container { box-shadow: none; padding: 0; }
@@ -1162,9 +1039,7 @@ to { transform: scale(1); }
 .pdf-desc { font-size: 14px; color: #4a5568; line-height: 1.6; margin-bottom: 0; }
 .pdf-btn { background: #f97316; color: #ffffff; border: none; padding: 10px 25px; border-radius: 4px; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.3s ease; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
 .pdf-btn:hover { background: #ea580c; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(249, 115, 22, 0.3); }
-/* =====================================
-   RESPONSIVE
-===================================== */
+/* RESPONSIVE */
 @media (max-width: 768px) {
  .page-title { font-size: 24px; }
 .pdf-card { padding: 25px 20px; }
@@ -1177,8 +1052,6 @@ to { transform: scale(1); }
  .pdf-modal { padding: 10px; }
 .pdf-modal-content { width: 100%; height: 90vh; }
  }
-
-
 /* monuments-central section */
 #central-protected { background-color: #f8f9fa; min-height: calc(100vh - 250px); }
 /* Breadcrumb */
@@ -1187,36 +1060,17 @@ to { transform: scale(1); }
 .breadcrumb a { color: #ffffff; text-decoration: none; transition: color 0.2s ease; font-weight: 500; }
 /* .breadcrumb a:hover { color: #ffc107; text-decoration: underline; }
 .breadcrumb-separator { color: rgba(255, 255, 255, 0.7); font-size: 12px; margin: 0 5px; }
-.breadcrumb-item.active { color: #ffc107; font-weight: 600; } */
-
+.breadcrumb-item.active { color: #ffc107; font-weight: 600; }
+*/
 /* Page Heading */
 .central-heading { text-align: left; margin-bottom: 40px; }
 .central-title { font-size: 26px; font-weight: 600; color: #000; position: relative; display: inline-block; text-align: left; }
 .central-protected-section-divider { width: 20%; height: 3px; background: linear-gradient(to right, #ff9900, transparent); }
 .central-subtitle { font-size: 16px; color: #666; max-width: 700px; margin: 0 auto; line-height: 1.6; }
-/* ================================
-   TABLE CONTAINER (NAVBAR ALIGNED)
-================================ */
-.table-container {
-  background: #ffffff;
-  border-radius: 6px;                /* Govt-style (less rounded) */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-  padding: 20px;
-  margin: 0 auto 30px auto;          /* Centered like navbar */
-  max-width: 1200px;                 /* SAME as navbar container */
-  overflow-x: auto;
-}
-
-/* ================================
-   TABLE
-================================ */
-.central-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  margin: 0;
-}
-
+/* TABLE CONTAINER (NAVBAR ALIGNED)*/
+.table-container { background: #ffffff; border-radius: 6px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); padding: 20px; margin: 0 auto 30px auto; max-width: 1200px; overflow-x: auto; }
+/* TABLE*/
+.central-table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 0; }
 /* Table Header */
 .central-table thead th { background: linear-gradient(135deg, #ed7f25e9, #ed7f25f7); color: white; font-weight: 600; padding: 16px 12px; border: none; position: sticky; top: 0; z-index: 10; text-align: center; font-size: 15px; white-space: nowrap; }
 .central-table thead th:first-child { border-top-left-radius: 8px; }
@@ -1230,65 +1084,14 @@ to { transform: scale(1); }
 /* Striped rows */
 .central-table tbody tr:nth-child(even) { background-color: #f9fafc; }
 .central-table tbody tr:nth-child(even):hover { background-color: rgba(44, 90, 160, 0.08); }
-
-.table-pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 14px;
-  padding: 16px 0 10px;
-}
-
-.page-btn {
-  background: #ff9900;
-  border: none;
-  color: #fff;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-.page-btn:disabled {
-  background: #ccc;
-  cursor: not-allowed;
-}
-
-#pageInfo {
-  font-size: 14px;
-  color: #555;
-}
-#pageNumbers {
-  display: inline-flex;
-  gap: 6px;
-}
-
-.page-number {
-  padding: 6px 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 13px;
-  cursor: pointer;
-  background: #fff;
-  color: #333;
-}
-
-.page-number.active {
-  background: #ff9900;
-  color: #fff;
-  border-color: #ff9900;
-}
-
-.page-number:hover {
-  background: #f1f1f1;
-}
-
-/* View More Button */
-/* .view-more-container { text-align: center; margin-top: 25px; padding: 20px 0; }
-.view-more-btn { background: linear-gradient(135deg, #ed7f25e9, #ed7f25e9); color: white; border: none; padding: 12px 30px; border-radius: 6px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-size: 15px; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(44, 90, 160, 0.2); }
-.view-more-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px #b66e20f5; background: linear-gradient(135deg, #ed7f25e9, #ed7f25e9); }
-.view-more-btn:active { transform: translateY(0); } */
+.table-pagination { display: flex; justify-content: center; align-items: center; gap: 14px; padding: 16px 0 10px; }
+.page-btn { background: #ff9900; border: none; color: #fff; width: 36px; height: 36px; border-radius: 50%; font-size: 18px; cursor: pointer; }
+.page-btn:disabled { background: #ccc; cursor: not-allowed; }
+#pageInfo { font-size: 14px; color: #555; }
+#pageNumbers { display: inline-flex; gap: 6px; }
+.page-number { padding: 6px 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 13px; cursor: pointer; background: #fff; color: #333; }
+.page-number.active { background: #ff9900; color: #fff; border-color: #ff9900; }
+.page-number:hover { background: #f1f1f1; }
 .count-display { display: inline-block; margin-left: 15px; color: #666; font-size: 14px; background: #f0f4ff; padding: 6px 12px; border-radius: 4px; border: 1px solid #e0e6ff; }
 /* Loading State */
 .loading-row { text-align: center; padding: 40px !important; }
@@ -1316,91 +1119,33 @@ to { transform: scale(1); }
 .view-more-container { flex-direction: column; gap: 10px; }
 .view-more-btn { width: 100%; justify-content: center; }
  }
-
- 
 /* stateprotected file */
-/* ================================
-   SECTION
-================================ */
 #state-protected { background-color: #f9f9f9; min-height: calc(100vh - 250px); }
-/* ================================
-   HEADING
-================================ */
 .state-protected-heading { margin-bottom: 25px; }
 .state-protected-section-title { font-size: 26px; font-weight: 600; color: #333; margin-bottom: 6px; text-align: left; }
 .state-protected-section-divider { width: 20%; height: 3px; background: linear-gradient(to right, #ff9900, transparent); margin-left: 0 }
-/* ================================
-   TABLE CONTAINER
-================================ */
+
 .state-protected-table-container { background: #ffffff; padding: 15px; border-radius: 6px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); overflow-x: auto; }
-/* ================================
-   TABLE
-================================ */
 .monuments-table { width: 100%; min-width: 1000px; border-collapse: collapse; }
 .monuments-table th,
 .monuments-table td { border: 1px solid #ddd; padding: 12px 10px; vertical-align: top; line-height: 1.5; }
 .monuments-table td { font-size: 15px; }
-/* ================================
-   TABLE HEADER
-================================ */
 .monuments-table thead th { background: linear-gradient(135deg, #ed7f25e9, #ed7f25f7); color: white; font-weight: 600; padding: 16px 12px; border: none; position: sticky; top: 0; z-index: 10; text-align: left; font-size: 15px; white-space: nowrap; }
 .monuments-table thead th { font-weight: 600; font-size: 16px; text-align: center; white-space: nowrap; }
-/* ================================
-   TABLE BODY
-================================ */
 .monuments-table tbody { text-align: center; }
 .monuments-table tbody tr:nth-child(even) { background-color: #fafafa; }
 .monuments-table tbody tr:hover { background-color: #f3f3f3; }
-
-/* ================================
-   PAGINATION
-================================ */
-.table-pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 14px;
-  padding: 15px 0 5px;
-}
-
-.page-btn {
-  background: #ff9900;
-  border: none;
-  color: #fff;
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  font-size: 18px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.page-btn:hover {
-  background: #ff7a00;
-}
-
-.page-btn:disabled {
-  background: #ccc;
-  cursor: not-allowed;
-}
-
-#pageInfo {
-  font-size: 14px;
-  color: #555;
-  font-weight: 500;
-}
-
-/* ================================
-   LOADING MESSAGE
-================================ */
+.table-pagination { display: flex; justify-content: center; align-items: center; gap: 14px; padding: 15px 0 5px; }
+.page-btn { background: #ff9900; border: none; color: #fff; width: 38px; height: 38px; border-radius: 50%; font-size: 18px; cursor: pointer; transition: background 0.2s ease; }
+.page-btn:hover { background: #ff7a00; }
+.page-btn:disabled { background: #ccc; cursor: not-allowed; }
+#pageInfo { font-size: 14px; color: #555; font-weight: 500; }
 .loading-message { text-align: center; padding: 20px; color: #666; font-style: italic; }
 /* .view-more-cell { text-align: center; padding: 20px; border-top: 2px solid #ddd; }
 .view-more-btn { background-color: #ff9900; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; margin-right: 10px; }
-.view-more-btn:hover { background-color: #ff7700f6; } */
+.view-more-btn:hover { background-color: #ff7700f6; }
+*/
 .monuments-count { color: #666; font-size: 14px; }
-/* ================================
-   RESPONSIVE
-================================ */
 /* Laptop / Desktop */
 @media (max-width: 1399px) {
  .state-protected-section-title { font-size: 24px; }
@@ -1418,34 +1163,24 @@ to { transform: scale(1); }
 .monuments-table th,
   .monuments-table td { font-size: 12px; padding: 8px; }
  }
-/* ================================
-   PRINT
-================================ */
 @media print {
  #state-protected { background: #ffffff; }
 .state-protected-table-container { box-shadow: none; padding: 0; }
 .monuments-table { min-width: 100%; }
  }
-
 /* unprotected monuments section */
 #unprotected-monuments { background-color: #f9f9f9; /* min-height: calc(100vh - 250px); */ }
-/* ================================
-   HEADING
-   ================================ */
+
 .unprotected-section-title { font-size: 20px; font-weight: 600; color: #333; margin-bottom: 6px; text-align: left; }
 .unprotected-section-divider { width: 20%; height: 3px; background: linear-gradient(to right, #ff9900, transparent); }
-/* ================================
-   COMING SOON CARD
-   ================================ */
+
 .coming-soon-container { background: #ffffff; padding: 60px 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); text-align: center; margin: 40px auto; }
 .coming-soon-icon { margin-bottom: 20px; }
 .coming-soon-icon i { font-size: 80px; color: #ff9900; opacity: 0.85; }
 .coming-soon-title { font-size: 32px; font-weight: 600; color: #333; margin-bottom: 15px; }
 .coming-soon-text { font-size: 16px; color: #666; line-height: 1.6; margin-bottom: 10px; }
 .coming-soon-subtext { font-size: 14px; color: #999; font-style: italic; }
-/* ================================
-   RESPONSIVE BREAKPOINTS
-   ================================ */
+
 /* ---------- Large Desktop (≥1400px) ---------- */
 @media (min-width: 1400px) {
  .unprotected-section-title { font-size: 28px; }
