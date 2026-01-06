@@ -189,17 +189,14 @@
     </div>
   </nav>
 
-  <!-- state-protected -->
   <section id="state-protected" class="state-protected-section">
-
     <!-- Breadcrumb -->
     <div class="breadcrumb-bar">
       <div class="container">
         <nav class="breadcrumb">
           <a href="index.html">Home</a>
           <span class="breadcrumb-separator">&gt;&gt;</span>
-          <a href="monuments.html">Monuments
-          </a>
+          <a href="monuments.html">Monuments</a>
           <span class="breadcrumb-separator">&gt;&gt;</span>
           <span class="breadcrumb-item active">State Protected Monuments</span>
         </nav>
@@ -220,96 +217,84 @@
       </div>
     </div>
 
-    <!-- Table -->
+    <!-- Table aligned with navbar -->
     <div class="container">
-      <div class="row">
-        <div class="col-12">
-
-          <div class="table-responsive state-protected-table-container">
-            <table class="table table-bordered table-hover monuments-table mb-0">
-              <thead>
-                <tr>
-                  <th>Sl. No.</th>
-                  <th>Name of the Monuments</th>
-                  <th>Period</th>
-                  <th>Locality</th>
-                  <th>District</th>
-                </tr>
-              </thead>
-
-              <tbody id="monumentsTableBody">
-                <!-- Data injected via JS -->
-                <tr data-manual="true">
-                  <td>1</td>
-                  <td>Jiminia Hillock</td>
-                  <td>Prehistoric </td>
-                  <td>Sankarjanga</td>
-                  <td>Anugul</td>
-                </tr>
-                <tr data-manual="true">
-                  <td>2</td>
-                  <td>Jiminia Hillock</td>
-                  <td>Prehistoric </td>
-                  <td>Sankarjanga</td>
-                  <td>Anugul</td>
-                </tr>
-                <tr data-manual="true">
-                  <td>3</td>
-                  <td>Jiminia Hillock</td>
-                  <td>Prehistoric </td>
-                  <td>Sankarjanga</td>
-                  <td>Anugul</td>
-                </tr>
-                <tr data-manual="true">
-                  <td>4</td>
-                  <td>Jiminia Hillock</td>
-                  <td>Prehistoric </td>
-                  <td>Sankarjanga</td>
-                  <td>Anugul</td>
-                </tr>
-                <tr data-manual="true">
-                  <td>5</td>
-                  <td>Jiminia Hillock</td>
-                  <td>Prehistoric </td>
-                  <td>Sankarjanga</td>
-                  <td>Anugul</td>
-                </tr>
-              </tbody>
-            </table>
-            <!-- Pagination -->
-<div class="table-pagination">
-
-  <!-- Previous -->
-  <button id="statePrevPage" class="page-btn" aria-label="Previous Page">
-    <i class="fa fa-angle-left"></i>
-  </button>
-
-  <!-- Page Numbers -->
-  <span id="statePageNumbers"></span>
-
-  <!-- Page Info -->
-  <span id="statePageInfo">Page 1</span>
-
-  <!-- Next -->
-  <button id="stateNextPage" class="page-btn" aria-label="Next Page">
-    <i class="fa fa-angle-right"></i>
-  </button>
-
-</div>
-
+      <div class="state-table-outer">
+        <div class="state-table-row">
+          <div class="state-table-col">
+            <!-- scrollable container only wraps the table -->
+            <div class="table-responsive state-protected-table-container">
+              <table class="table table-bordered table-hover monuments-table mb-0">
+                <thead>
+                  <tr>
+                    <th>Sl. No.</th>
+                    <th>Name of the Monuments</th>
+                    <th>Period</th>
+                    <th>Locality</th>
+                    <th>District</th>
+                  </tr>
+                </thead>
+                <tbody id="monumentsTableBody">
+                  <tr data-manual="true">
+                    <td>1</td>
+                    <td>Jiminia Hillock</td>
+                    <td>Prehistoric</td>
+                    <td>Sankarjanga</td>
+                    <td>Anugul</td>
+                  </tr>
+                  <tr data-manual="true">
+                    <td>2</td>
+                    <td>Jiminia Hillock</td>
+                    <td>Prehistoric</td>
+                    <td>Sankarjanga</td>
+                    <td>Anugul</td>
+                  </tr>
+                  <tr data-manual="true">
+                    <td>3</td>
+                    <td>Jiminia Hillock</td>
+                    <td>Prehistoric</td>
+                    <td>Sankarjanga</td>
+                    <td>Anugul</td>
+                  </tr>
+                  <tr data-manual="true">
+                    <td>4</td>
+                    <td>Jiminia Hillock</td>
+                    <td>Prehistoric</td>
+                    <td>Sankarjanga</td>
+                    <td>Anugul</td>
+                  </tr>
+                  <tr data-manual="true">
+                    <td>5</td>
+                    <td>Jiminia Hillock</td>
+                    <td>Prehistoric</td>
+                    <td>Sankarjanga</td>
+                    <td>Anugul</td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- Pagination OUTSIDE the scroll container but still inside the .container -->
+              <div class="table-pagination">
+                <button id="statePrevPage" class="page-btn" aria-label="Previous Page">
+                  <i class="fa fa-angle-left"></i>
+                </button>
+                <span id="statePageNumbers"></span>
+                <span id="statePageInfo">Page 1</span>
+                <button id="stateNextPage" class="page-btn" aria-label="Next Page">
+                  <i class="fa fa-angle-right"></i>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
   </section>
+
 
   <!-- footer -->
   <footer class="footer-section">
     <div class="container">
       <div class="row text-center flex-column align-items-center gy-3">
-
-
         <!-- Footer Links -->
         <div class="col-12 col-md-4">
           <div class="footer-links d-flex flex-wrap justify-content-center">
