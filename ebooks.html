@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RTI Section Page</title>
+    <title>E-Library Page | Publications Page</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
@@ -83,17 +83,10 @@
             <!-- RIGHT CONTROLS -->
             <div class="mid-actions">
                 <!-- Virtual Tour -->
-                <button class="virtual-btn" onclick="openVirtualTour()">
-                    <img src="assets/player-image.png" alt="Player Image" class="virtual-btn-triangle">Virtual Tour
-                </button>
-                <!-- Virtual Tour Modal -->
-                <div id="virtualModal" class="virtual-modal">
-                    <div class="virtual-content">
-                        <button class="close" onclick="closeVirtualTour()" title="Close Virtual Tour">✕</button>
-                        <div id="panoramaViewer" data-panorama="assets/virtual-tour/virtual_tour.jpg">
-                        </div>
-                    </div>
-                </div>
+                <a href="virtualtour-section.html" class="virtual-btn">
+                    <img src="assets/player-image.png" alt="Player Image" class="virtual-btn-triangle">
+                    Virtual Tour
+                </a>
 
                 <!-- Search -->
                 <!-- Search -->
@@ -127,18 +120,19 @@
         </div>
     </div>
 
-    <!-- Virtual Tour Modal
-    <div id="virtualModal" class="virtual-modal">
-        <div class="virtual-content">
-            <button class="close" onclick="closeVirtualTour()" title="Close Virtual Tour">
-                ✕
-            </button>
-            <video controls autoplay>
-                <source src="assets/virtual-tour/Video_Generation_for_Ecosystem.mp4" type="video/mp4" />
-                Your browser does not support video.
-            </video>
-        </div>
-    </div> -->
+    <!-- Virtual Tour Modal -->
+    <!-- Virtual Tour Modal -->
+    <!-- <div id="virtualModal" class="virtual-modal">
+    <div class="virtual-content">
+      <button class="close" onclick="closeVirtualTour()" title="Close Virtual Tour">
+        ✕
+      </button>
+      <video controls autoplay>
+        <source src="assets/virtual-tour/Video_Generation_for_Ecosystem.mp4" type="video/mp4" />
+        Your browser does not support video.
+      </video>
+    </div>
+  </div> -->
 
 
     <nav class="main-navbar" id="navbar">
@@ -173,6 +167,7 @@
                     </ul>
                 </li>
                 <li><a href="notification-activities.html">NOTIFICATIONS</a></li>
+
                 <li><a href="act-rules.html">ACT & RULES</a></li>
                 <li><a href="rti.html">RTI</a></li>
                 <li><a href="gallery.html">GALLERY</a></li>
@@ -191,79 +186,128 @@
         </div>
     </nav>
 
-    <div class="breadcrumb-bar">
-        <div class="container">
-            <nav class="breadcrumb mb-0">
-                <a href="index.html">Home</a>
-                <span class="breadcrumb-separator">&gt;&gt;</span>
-                <span class="breadcrumb-item active">Notification</span>
-            </nav>
+    <!-- E-Books section -->
+    <section id="central-protected" class="central-protected-section">
+
+        <!-- Breadcrumb -->
+        <div class="breadcrumb-bar">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">&gt;&gt;</span>
+                    <a href="library.html">E-Library</a>
+                    <span class="breadcrumb-separator">&gt;&gt;</span>
+                    <span class="breadcrumb-item active">E-Books</span>
+                </nav>
+            </div>
         </div>
-    </div>
 
-    <!-- NOTIFICATION SECTION -->
-    <section id="notification-section" class="notification-section py-4">
+        <!-- Heading -->
         <div class="container">
-
-            <!-- Heading -->
-            <div class="notification-heading mb-4 text-center">
-                <h2 class="notification-title">Notices</h2>
-                <div class="notification-divider"></div>
+            <div class="central-heading">
+                <h1 class="central-title">E-BOOKS</h1>
+                <div class="central-protected-section-divider"></div>
             </div>
+        </div>
 
-            <!-- Table -->
-            <div class="table-responsive">
-                <table class="table notification-table table-bordered align-middle">
-                    <thead>
-                        <tr>
-                            <th style="width: 10%">Sl. No.</th>
-                            <th>Activities No.</th>
-                            <th style="width: 20%">Download</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Odisha Development Authorities Act, 2020</td>
-                            <td>
-                                <a href="assets/pdf/odisha-development-act.pdf" target="_blank" class="download-btn">
-                                    <i class="fa fa-download"></i>
-                                </a>
-                            </td>
-                        </tr>
+        <div class="container">
+            <div class="ebooks-grid">
 
-                        <tr>
-                            <td>2</td>
-                            <td>Orissa Ancient Monuments Preservation Rule, 1958</td>
-                            <td>
-                                <a href="assets/act-rules-pdfs/Act&Rules_1.pdf" target="_blank" class="download-btn">
-                                    <i class="fa fa-download"></i>
-                                </a>
-                            </td>
-                        </tr>
+                <!-- E-Book Card 1 -->
+                <a href="assets/publications/Odisha State Achaeology.pdf" target="_blank" class="ebook-card">
+                    <div class="ebook-image">
+                        <img src="assets/ebooks/img_9.jpg" alt="Artifact E-Book">
+                    </div>
+                    <div class="ebook-title">Artifact</div>
+                </a>
 
-                        <tr>
-                            <td>3</td>
-                            <td>Orissa Ancient Monuments Preservation Act, 1956</td>
-                            <td>
-                                <a href="assets/act-rules-pdfs/Act&Rules_1.pdf" target="_blank" class="download-btn">
-                                    <i class="fa fa-download"></i>
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <!-- E-Book Card 2 -->
+                <a href="assets/publications/Odisha State Achaeology.pdf" target="_blank" class="ebook-card">
+                    <div class="ebook-image">
+                        <img src="assets/ebooks/img_8.jpg" alt="Sculpture E-Book">
+                    </div>
+                    <div class="ebook-title">Sculpture</div>
+                </a>
+
+                <!-- E-Book Card 3 -->
+                <a href="assets/publications/Odisha State Achaeology.pdf" target="_blank" class="ebook-card">
+                    <div class="ebook-image">
+                        <img src="assets/ebooks/img_7.jpg" alt="Painting E-Book">
+                    </div>
+                    <div class="ebook-title">Painting</div>
+                </a>
+
+                <!-- E-Book Card 4 -->
+                <a href="assets/publications/Odisha State Achaeology.pdf" target="_blank" class="ebook-card">
+                    <div class="ebook-image">
+                        <img src="assets/ebooks/img_6.jpg" alt="Historic Site E-Book">
+                    </div>
+                    <div class="ebook-title">Historic Site</div>
+                </a>
+                <!-- E-Book Card 4 -->
+                <a href="assets/publications/Odisha State Achaeology.pdf" target="_blank" class="ebook-card">
+                    <div class="ebook-image">
+                        <img src="assets/ebooks/img_6.jpg" alt="Historic Site E-Book">
+                    </div>
+                    <div class="ebook-title">Historic Site</div>
+                </a>
+                <!-- E-Book Card 4 -->
+                <a href="assets/publications/Odisha State Achaeology.pdf" target="_blank" class="ebook-card">
+                    <div class="ebook-image">
+                        <img src="assets/ebooks/img_6.jpg" alt="Historic Site E-Book">
+                    </div>
+                    <div class="ebook-title">Historic Site</div>
+                </a>
+                <!-- E-Book Card 4 -->
+                <a href="assets/publications/Odisha State Achaeology.pdf" target="_blank" class="ebook-card">
+                    <div class="ebook-image">
+                        <img src="assets/ebooks/img_6.jpg" alt="Historic Site E-Book">
+                    </div>
+                    <div class="ebook-title">Historic Site</div>
+                </a>
+                <!-- E-Book Card 4 -->
+                <a href="assets/publications/Odisha State Achaeology.pdf" target="_blank" class="ebook-card">
+                    <div class="ebook-image">
+                        <img src="assets/ebooks/img_6.jpg" alt="Historic Site E-Book">
+                    </div>
+                    <div class="ebook-title">Historic Site</div>
+                </a>
+                <!-- E-Book Card 4 -->
+                <a href="assets/publications/Odisha State Achaeology.pdf" target="_blank" class="ebook-card">
+                    <div class="ebook-image">
+                        <img src="assets/ebooks/img_6.jpg" alt="Historic Site E-Book">
+                    </div>
+                    <div class="ebook-title">Historic Site</div>
+                </a>
+                <!-- E-Book Card 4 -->
+                <a href="assets/publications/Odisha State Achaeology.pdf" target="_blank" class="ebook-card">
+                    <div class="ebook-image">
+                        <img src="assets/ebooks/img_6.jpg" alt="Historic Site E-Book">
+                    </div>
+                    <div class="ebook-title">Historic Site</div>
+                </a>
+                <!-- E-Book Card 4 -->
+                <a href="assets/publications/Odisha State Achaeology.pdf" target="_blank" class="ebook-card">
+                    <div class="ebook-image">
+                        <img src="assets/ebooks/img_6.jpg" alt="Historic Site E-Book">
+                    </div>
+                    <div class="ebook-title">Historic Site</div>
+                </a>
             </div>
-
+            <div class="text-center mt-4 photo-footer">
+                <button class="btn ebooks-view-more-btn" id="ebooksViewMore">
+                    View More
+                </button>
+                <button class="btn ebooks-view-less-btn d-none" id="ebooksViewLess">
+                    View Less
+                </button>
+            </div>
         </div>
     </section>
-
     <!-- footer -->
     <footer class="footer-section">
         <div class="container">
             <div class="row text-center flex-column align-items-center gy-3">
-
-
                 <!-- Footer Links -->
                 <div class="col-12 col-md-4">
                     <div class="footer-links d-flex flex-wrap justify-content-center">

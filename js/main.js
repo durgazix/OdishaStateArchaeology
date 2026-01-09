@@ -233,6 +233,86 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+function openVirtualTour() {
+  window.location.href = "virtualtour-section.html";
+}
+
+function toggleTourOverlay() {
+  const overlay = document.getElementById("tourOverlay");
+  overlay.classList.toggle("active");
+}
+
+document.addEventListener("click", function (event) {
+  const overlay = document.getElementById("tourOverlay");
+  const wrapper = document.querySelector(".virtual-tour-wrapper");
+
+  if (!overlay || !wrapper) return;
+  if (
+    overlay.classList.contains("active") &&
+    !wrapper.contains(event.target)
+  ) {
+    overlay.classList.remove("active");
+  }
+});
+
+/* Filter table rows by district */
+function filterTable() {
+  const selectedDistrict = document
+    .getElementById("districtFilter")
+    .value.toLowerCase();
+
+  const rows = document.querySelectorAll(
+    "#centralMonumentsTableBody tr"
+  );
+
+  rows.forEach((row) => {
+    const rowDistrict = row
+      .getAttribute("data-district")
+      .toLowerCase();
+
+    if (
+      selectedDistrict === "all" ||
+      rowDistrict === selectedDistrict
+    ) {
+      row.style.display = "";
+    } else {
+      row.style.display = "none";
+    }
+  });
+}
+// /* Filter table rows by district */ function filterMonuments() { const selectedDistrict = document.getElementById("districtFilter").value; const rows = document.querySelectorAll("#tourTableBody tr"); rows.forEach((row) => { const rowDistrict = row.getAttribute("data-district"); if ( selectedDistrict === "All" || rowDistrict === selectedDistrict ) { row.style.display = ""; } else { row.style.display = "none"; } }); }
+  document.addEventListener("DOMContentLoaded", function () {
+    const ebooks = document.querySelectorAll(".ebook-card");
+    const viewMoreBtn = document.getElementById("ebooksViewMore");
+    const viewLessBtn = document.getElementById("ebooksViewLess");
+
+    const INITIAL_COUNT = 4;
+
+    // Hide all except first 4
+    function showInitial() {
+      ebooks.forEach((card, index) => {
+        card.style.display = index < INITIAL_COUNT ? "block" : "none";
+      });
+      viewMoreBtn.classList.remove("d-none");
+      viewLessBtn.classList.add("d-none");
+    }
+
+    // Show all
+    function showAll() {
+      ebooks.forEach(card => (card.style.display = "block"));
+      viewMoreBtn.classList.add("d-none");
+      viewLessBtn.classList.remove("d-none");
+    }
+
+    // Event listeners
+    viewMoreBtn.addEventListener("click", showAll);
+    viewLessBtn.addEventListener("click", showInitial);
+
+    // Initial load
+    showInitial();
+  });
+
+
 // ================= JS FILES CONTENT BELOW =================
 
 // - header.js
@@ -764,7 +844,6 @@ function toggleButtons() {
   document.getElementById("nextPage").disabled = currentPage === totalPages;
 }
 
-
 // - state-protected.js
 document.addEventListener("DOMContentLoaded", () => {
   initStatePagination();
@@ -847,134 +926,6 @@ function toggleStateButtons() {
   document.getElementById("statePrevPage").disabled = stateCurrentPage === 1;
   document.getElementById("stateNextPage").disabled = stateCurrentPage === stateTotalPages;
 }
-
-// pagination-core.js
-
-// function createTablePagination(config) {
-//   const {
-//     tableBodyId,
-//     rowsPerPage,
-//     pageNumbersId,
-//     prevBtnId,
-//     nextBtnId,
-//     pageInfoId
-//   } = config;
-
-//   let allRows = [];
-//   let currentPage = 1;
-//   let totalPages = 1;
-
-//   function init() {
-//     const tbody = document.getElementById(tableBodyId);
-//     if (!tbody) return;
-
-//     allRows = Array.from(tbody.querySelectorAll("tr"));
-//     totalPages = Math.ceil(allRows.length / rowsPerPage);
-
-//     renderPage(currentPage);
-//     renderPageNumbers();
-//     setupButtons();
-//   }
-
-//   function renderPage(page) {
-//     const tbody = document.getElementById(tableBodyId);
-//     tbody.innerHTML = "";
-
-//     const start = (page - 1) * rowsPerPage;
-//     const end = start + rowsPerPage;
-
-//     allRows.slice(start, end).forEach(row => tbody.appendChild(row));
-
-//     updatePageInfo();
-//     highlightActivePage();
-//     toggleButtons();
-//   }
-
-//   function renderPageNumbers() {
-//     const container = document.getElementById(pageNumbersId);
-//     container.innerHTML = "";
-
-//     for (let i = 1; i <= totalPages; i++) {
-//       const btn = document.createElement("button");
-//       btn.className = "page-number";
-//       btn.textContent = i;
-
-//       btn.addEventListener("click", () => {
-//         currentPage = i;
-//         renderPage(currentPage);
-//       });
-
-//       container.appendChild(btn);
-//     }
-//   }
-
-//   function setupButtons() {
-//     document.getElementById(prevBtnId).addEventListener("click", () => {
-//       if (currentPage > 1) {
-//         currentPage--;
-//         renderPage(currentPage);
-//       }
-//     });
-
-//     document.getElementById(nextBtnId).addEventListener("click", () => {
-//       if (currentPage < totalPages) {
-//         currentPage++;
-//         renderPage(currentPage);
-//       }
-//     });
-//   }
-
-//   function updatePageInfo() {
-//     document.getElementById(pageInfoId).textContent =
-//       `Page ${currentPage} of ${totalPages}`;
-//   }
-
-//   function highlightActivePage() {
-//     document
-//       .querySelectorAll(`#${pageNumbersId} .page-number`)
-//       .forEach((btn, index) => {
-//         btn.classList.toggle("active", index + 1 === currentPage);
-//       });
-//   }
-
-//   function toggleButtons() {
-//     document.getElementById(prevBtnId).disabled = currentPage === 1;
-//     document.getElementById(nextBtnId).disabled = currentPage === totalPages;
-//   }
-
-//   return { init };
-// }
-
-// // state-protected.js
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   const statePagination = createTablePagination({
-//     tableBodyId: "monumentsTableBody",
-//     rowsPerPage: 10,
-//     pageNumbersId: "statePageNumbers",
-//     prevBtnId: "statePrevPage",
-//     nextBtnId: "stateNextPage",
-//     pageInfoId: "statePageInfo"
-//   });
-
-//   statePagination.init();
-// });
-
-// // monuments-central.js
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   const centralPagination = createTablePagination({
-//     tableBodyId: "centralMonumentsTableBody",
-//     rowsPerPage: 10,
-//     pageNumbersId: "pageNumbers",
-//     prevBtnId: "prevPage",
-//     nextBtnId: "nextPage",
-//     pageInfoId: "pageInfo"
-//   });
-
-//   centralPagination.init();
-// });
-
 
 // - unprotected-monuments.js
 document.addEventListener("DOMContentLoaded", () => {

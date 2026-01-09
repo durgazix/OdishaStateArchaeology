@@ -70,32 +70,46 @@
     <div class="mid-container">
       <!-- LEFT LOGOS -->
       <div class="mid-logos">
-        <img src="assets/logo/culturedept.jpg" alt="Archaeology" />
-        <img src="assets/logo/culturedept.jpg" alt="ASI" />
         <img src="assets/logo/odisha_govt.png" alt="Govt of Odisha" />
+        <img src="assets/logo/culturedept.jpg" alt="ASI" />
+        <img src="assets/logo/culturedept.jpg" alt="Archaeology" />
       </div>
 
       <!-- CENTER TEXT -->
       <div class="mid-title">
-        <h2>Odisha State <b>Archaeology</b></h2>
+        <h2><b></b>Odisha State Archaeology</b></h2>
         <h3><b>Odia Language, Literature & Culture Department</b></h2>
           <h3><b>Government of Odisha</b></h3>
       </div>
 
       <!-- RIGHT CONTROLS -->
       <div class="mid-actions">
+
         <!-- Virtual Tour -->
-        <button class="virtual-btn" onclick="openVirtualTour()">
+        <!-- <button class="virtual-btn" onclick="openVirtualTour()">
+          <a href="virtualtour-section.html"></a>
           <img src="assets/player-image.png" alt="Player Image" class="virtual-btn-triangle">Virtual Tour
-        </button>
+        </button> -->
         <!-- Virtual Tour Modal -->
-        <div id="virtualModal" class="virtual-modal">
+        <!-- <div id="virtualModal" class="virtual-modal">
           <div class="virtual-content">
             <button class="close" onclick="closeVirtualTour()" title="Close Virtual Tour">✕</button>
             <div id="panoramaViewer" data-panorama="assets/virtual-tour/virtual_tour.jpg">
             </div>
           </div>
-        </div>
+        </div> -->
+
+        <!-- Dorp Down Option -->
+        <!-- <button class="virtual-btn" onclick="toggleTourOverlay()">
+          <img src="assets/player-image.png" alt="Player Image" class="virtual-btn-triangle">
+          <span>Virtual Tour</span>
+        </button> -->
+
+        <!-- Page Section -->
+        <a href="virtualtour-section.html" class="virtual-btn">
+          <img src="assets/player-image.png" alt="Player Image" class="virtual-btn-triangle">
+          Virtual Tour
+        </a>
 
         <!-- Search -->
         <div class="search-box">
@@ -115,7 +129,7 @@
         </div>
       </div>
       <div class="mid-logos">
-        <img src="assets/logo/odisha_govt.png" alt="Govt of Odisha logo" />
+        <img src="assets/logo/culturedept.jpg" alt="Archaeology logo" />
       </div>
     </div>
   </div>
@@ -123,24 +137,10 @@
     <!-- Notification Bar -->
     <div class="notification-bar">
       <div class="notification-text">
-        RESULTS FOR THE PG DIPLOMA COURSES (2025–2026 & 2025–2027)
+        RESULTS FOR THE PG DIPLOMA COURSES (2025–2026 & 2026–2027)
       </div>
     </div>
   </div>
-
-  <!-- Virtual Tour Modal -->
-  <div id="virtualModal" class="virtual-modal">
-    <div class="virtual-content">
-      <button class="close" onclick="closeVirtualTour()" title="Close Virtual Tour">
-        ✕
-      </button>
-      <video controls autoplay>
-        <source src="assets/virtual-tour/Video_Generation_for_Ecosystem.mp4" type="video/mp4" />
-        Your browser does not support video.
-      </video>
-    </div>
-  </div>
-
   <!-- navbar -->
 
   <nav class="main-navbar" id="navbar">
@@ -158,11 +158,11 @@
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#">ARCHAEOLOGY LIBRARY</a>
+          <a href="library.html">E-LIBRARY</a>
           <ul class="dropdown-menu">
-            <li><a href="books-journals.html">BOOKS & JOURNALS</a></li>
-            <li><a href="#">E-BOOKS</a></li>
-            <li><a href="library.html">LIBRARY</a></li>
+            <li><a href="ebooks.html">E-BOOKS</a></li>
+            <li><a href="books-journals.html">JOURNALS</a></li>
+            <li><a href="publication.html">PUBLICATION</a></li>
           </ul>
         </li>
 
@@ -174,18 +174,23 @@
             <li><a href="unprotected-monuments.html">UNPROTECTED MONUMENTS</a></li>
           </ul>
         </li>
-        <li class="dropdown">
-          <a href="#">NOTIFICATIONS</a>
-          <ul class="dropdown-menu">
-            <li><a href="notification-activities.html">ACTIVITIES</a></li>
-            <li><a href="notification-tendernote.html">TENDER NOTE</a></li>
-          </ul>
-        </li>
+        <li><a href="notification-activities.html">NOTIFICATIONS</a></li>
 
         <li><a href="act-rules.html">ACT & RULES</a></li>
         <li><a href="rti.html">RTI</a></li>
         <li><a href="gallery.html">GALLERY</a></li>
-        <li><a href="news-page.html">NEWS</a></li>
+        <li class="dropdown">
+          <a href="#">ACTIVITIES</a>
+          <ul class="dropdown-menu">
+            <li><a href="activity-soac.html">STAGES OF ARCHAEOLOGICAL CONSERVATION</a></li>
+            <li><a href="#">ARCHAEOLOGICAL SITE & REMAINS</a></li>
+            <li><a href="#">CONSERVATION AND PRESERVATION</a></li>
+            <li><a href="#">EXCAVATION</a></li>
+            <li><a href="#">ANTIQUTY</a></li>
+          </ul>
+        </li>
+
+        </li>
         <li><a href="contact-us.html">CONTACT US</a></li>
       </ul>
     </div>
@@ -232,7 +237,7 @@
         <div class="col-lg-6">
           <div class="card border shadow-sm h-100">
             <div class="card-body p-4">
-              <h2 class="section-title text-uppercase fw-bold mb-3">NEWS</h2>
+              <h2 class="section-title text-uppercase fw-bold mb-3">ACTIVITIES</h2>
               <hr class="news-divider mb-4" />
 
               <!-- News Header with Navigation -->
@@ -304,7 +309,7 @@
         <div class="col-lg-6">
           <div class="card border shadow-sm h-100">
             <div class="card-body p-4 d-flex flex-column">
-              <h2 class="section-title text-uppercase fw-bold mb-3">ABOUT DEPARTMENT OF ARCHAEOLOGY</h2>
+              <h2 class="section-title text-uppercase fw-bold mb-3">ODISHA STATE ARCHAEOLOGY</h2>
               <hr class="about-divider mb-4" />
 
               <p class="about-text small text-muted lh-base text-justify mb-4 flex-grow-1">
@@ -355,7 +360,7 @@
         <div class="col-12 col-md-6 col-lg-4">
           <div class="activities-box h-100">
             <div class="section-header">
-              <h3 class="section-title">Activities</h3>
+              <h3 class="section-title"> ANNUAL CALENDAR</h3>
             </div>
             <div class="title-divider"></div>
 
@@ -670,6 +675,55 @@
       </div>
     </div>
   </footer>
+  <!-- ================= Virtual Tour Overlay ================= -->
+  <div class="tour-overlay" id="tourOverlay">
+    <div class="tour-overlay-content container-fluid">
+
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="fw-bold mb-0">Virtual Tour of Monuments</h3>
+
+        <select class="form-select w-auto" id="districtFilter" onchange="filterMonuments()">
+          <option value="All">All</option>
+          <option value="Khordha">Khordha</option>
+          <option value="Puri">Puri</option>
+        </select>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-striped table-hover align-middle">
+          <thead class="tour-table-head">
+            <tr>
+              <th>Sl. No.</th>
+              <th>Name of the Monuments</th>
+              <th>District</th>
+              <th>Virtual Tour</th>
+            </tr>
+          </thead>
+          <tbody id="tourTableBody">
+            <tr data-district="Puri">
+              <td>1</td>
+              <td>Konark Sun Temple</td>
+              <td>Puri</td>
+              <td><a href="#" class="tour-view-link">View</a></td>
+            </tr>
+            <tr data-district="Khordha">
+              <td>2</td>
+              <td>Lingaraj Temple</td>
+              <td>Khordha</td>
+              <td><a href="#" class="tour-view-link">View</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="text-end mt-3">
+        <button class="btn btn-secondary btn-sm" onclick="toggleTourOverlay()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- ======================================================== -->
 
 
   <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>

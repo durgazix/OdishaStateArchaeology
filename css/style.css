@@ -25,6 +25,537 @@ h3 { font-weight: 900; }
   100% { opacity: 0.6; }
 50% { opacity: 1; }
  }
+
+/* View Details */
+.view-details {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+}
+
+/* Icon container */
+.icon-wrapper {
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+
+/* Document icon */
+.icon-wrapper .fa-file-text-o {
+  font-size: 26px;
+  color: #ff9900;
+}
+
+/* Magnifying glass (overlay) */
+.icon-wrapper .fa-search {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  font-size: 13px;
+  background: #fff;
+  border-radius: 50%;
+  padding: 2px;
+  color: #ff9900;
+}
+
+/* Hover effect */
+.view-details:hover {
+  color: #007bff;
+}
+
+.view-details:hover .fa-file-text-o,
+.view-details:hover .fa-search {
+  color: #007bff;
+}
+
+/* Virtual Button Tour CSS For All */
+.icon-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Main card */
+    .content-card {
+      background: #fff;
+      /* margin: 30px auto; */
+      margin:30px 7% auto;
+      padding: 25px;
+      border: 1px solid #ddd;
+      max-width: 1100px;
+    }
+
+    /* Left details */
+    .monument-info h4 {
+      border-bottom: 2px solid #ff9900;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+      color: #ff9900;
+    }
+
+    .info-row {
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+
+    .info-row span {
+      font-weight: 600;
+      color: #333;
+    }
+
+    /* Image box */
+    .image-box {
+      border: 1px solid #ccc;
+      padding: 10px;
+      background: #fafafa;
+      text-align: center;
+    }
+
+    .image-box img {
+      width: 100%;
+      height: 320px;
+    }
+
+    .image-caption {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* Details section */
+    .details-section {
+      margin-top: 30px;
+    }
+
+    .details-section h5 {
+      background: #e9ecef;
+      padding: 10px;
+      border-left: 4px solid #ff9900;
+      font-weight: 600;
+    }
+
+    .details-section p {
+      padding: 15px;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    /* Back To list */
+    .back-wrapper {
+      margin: auto ;
+    }
+
+  .back-link {
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 16px;
+    color: #ff9900;
+    font-weight: 500;
+    padding: 6px;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  .back-link:hover {
+    text-decoration: none;
+    color: #ff8000df;
+  }
+
+  /* govt button */
+.header {
+  display: flex;
+  justify-content: space-between;   /* moves content to right */
+  align-items: center;
+  gap: 16px;
+  padding: 8px 10px;
+  border-bottom: 2px solid #ff9800;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+}
+
+/* Govt PDF button */
+.govt-download-btn {
+  background-color: #ff8f00;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.govt-download-btn:hover {
+  background-color: #ef6c00;
+}
+
+/* Virtual Tour Section */
+.page-container {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Header */
+.monuments-page-header{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.virtual-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background-color: #ff9900;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.virtual-btn:hover {
+  background-color: #dc6d13e5;
+}
+
+.virtual-tour-monuments-divider { width: 20%; height: 3px; background: linear-gradient(to right, #ff9900, transparent); }
+.district-select {
+  position: relative;
+  width: 220px;
+}
+
+/* Select styling */
+#districtFilter {
+  width: 100%;
+  padding: 10px 40px 10px 14px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Custom arrow */
+.district-select::after {
+  content: "▼";
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: #555;
+  pointer-events: none;
+}
+
+/* Focus state */
+#districtFilter:focus {
+  outline: none;
+  border-color: #ed7f25e5;
+  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.2);
+}
+
+
+/* ===== Overlay Container ===== */
+.tour-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  top: calc(100% - 1050px);
+}
+
+/* Active State */
+.tour-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Overlay Content Box */
+.tour-overlay-content {
+  background: #ffffff;
+  width: 100%;
+  max-width: 1600px;
+  border-radius: 6px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* ===== Custom Table Header ===== */
+.tour-table-head {
+  background-color: #1e293b;
+  color: #ffffff;
+}
+
+.tour-table-head th {
+  font-weight: 600;
+  border-bottom: none;
+}
+
+/* ===== View Link ===== */
+.tour-view-link {
+  font-weight: 600;
+  color: #ed7f25e5;
+  text-decoration: none;
+}
+
+.tour-view-link:hover {
+  text-decoration: underline;
+}
+/* Publication Section */
+.publications-section {
+  padding: 20px 0;
+}
+
+.publications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.publication-card {
+  display: flex;
+  gap: 16px;
+  padding: 18px;
+  border: 1px solid #e0e0e0;
+  border-left: 5px solid #ff9900;
+  border-radius: 6px;
+  background: #fff;
+  text-decoration: none;
+  color: #000;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.publication-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.pub-icon {
+  font-size: 40px;
+  color: #d32f2f; /* PDF red */
+  flex-shrink: 0;
+}
+
+.pub-content h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+
+.pub-content p {
+  font-size: 14px;
+  margin: 0 0 6px;
+  color: #555;
+}
+
+.pub-meta {
+  font-size: 12px;
+  color: #777;
+}
+
+/* E-Bookssection */
+.ebooks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* Card */
+.ebook-card {
+  background: #f4eaea;
+  /* border-radius: 14px; */
+  padding: 16px;
+  text-decoration: none;
+  color: #000;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover */
+.ebook-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Container */
+.ebook-image {
+  background: #ffffff;
+  /* border-radius: 10px; */
+  padding: 8px;
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Image */
+.ebook-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* border-radius: 8px; */
+}
+
+/* Title */
+.ebook-title {
+  margin-top: 14px;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  color: #222;
+}
+
+/* View More / View Less Buttons */
+.ebooks-view-more-btn,
+.ebooks-view-less-btn {
+  padding: 10px 28px;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 6px;
+  border: 1px solid #ed7f25e5;
+  background-color: #ed7f25e5;
+  color: #fff;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ebooks-view-more-btn:hover,
+.ebooks-view-less-btn:hover {
+  background-color: #dc6d13e5;
+  border-color: #dc6d13e5;
+}
+/* Utility */
+.d-none {
+  display: none !important;
+}
+
+/* Activity -> Stages of Archaeological Odisha */
+.conservation-intro {
+  font-size: 18px;
+  color: #333;
+  max-width: max-content;
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+/* Grid */
+.conservation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+/* Card */
+.conservation-card {
+  background: #ffffff;
+  border-left: 5px solid #ff9900;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.stage-number {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ff9900;
+  margin-bottom: 8px;
+}
+
+.conservation-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.conservation-card p {
+  font-size: 14.5px;
+  color: #555;
+}
+
+.principles-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.govt-section {
+  margin-bottom: 30px;
+}
+
+/* Headings */
+.govt-heading {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: #222;
+}
+
+/* Row layout */
+.govt-list-row {
+  display: flex;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Last row without border */
+.govt-list-row:last-child {
+  border-bottom: none;
+}
+
+/* Label column */
+.govt-label {
+  min-width: 140px;
+  font-weight: 600;
+  color: #000;
+}
+
+/* Text column */
+.govt-text {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* Single-row content */
+.govt-list-row.single {
+  border-bottom: none;
+  padding-top: 6px;
+}
+
+
+
+
 /* header */
 /* TOP HEADER – BASE (ALL DEVICES) */
 .top-header { background-color: #f4f4f4; font-size: 14px; }
@@ -67,11 +598,10 @@ h3 { font-weight: 900; }
 .mid-container { margin: auto; padding: 12px 15px; display: flex; align-items: center; justify-content: space-evenly; margin-left: 20px; }
 /* LEFT LOGOS */
 .mid-logos img { height: 80px; margin-right: 10px; padding: 6px; }
-.mid-logos img[alt="Govt of Odisha"] { display: none; }
+.mid-logos img[alt="Archaeology"] { display: none; }
 /* CENTER TITLE */
 .mid-title { text-align: center; margin-left: 200px; flex: 1; }
-.mid-title h2 { margin: 0; font-size: 20px; color: #ff9900fb; /* Govt green */
-  font-weight: 700; }
+.mid-title h2 { margin: 0; font-size: 22px; color:#b13d03; font-weight: 900; }  /* Govt #b13f05/ #802f06 */
 .mid-title h3 { margin: 2px 0 0; font-size: 20px; color: #0a3abe; font-weight: 600; }
 /* RIGHT ACTIONS */
 .mid-actions { display: flex; align-items: center; gap: 10px; }
@@ -80,19 +610,19 @@ h3 { font-weight: 900; }
 .virtual-content { width: 90%; max-width: 900px; height: 500px; background: #000; border-radius: 8px; position: relative; overflow: hidden; }
 #panoramaViewer { width: 100%; height: 100%; }
 .virtual-content .close { position: absolute; top: 8px; right: 12px; background: white; border: none; padding: 5px 10px; font-size: 18px; cursor: pointer; z-index: 10; }
-.virtual-btn { border: 1px solid #ff9900; background-color: #fff; color: #ff9900; padding: 8px 14px; font-size: 14px; cursor: pointer; border-radius: 4px; display: inline-flex; align-items: center; gap: 8px; /* space between icon and text */ }
+.virtual-btn { border: 1px solid #b13d03; background-color: #fff; color: #b13d03; padding: 8px 14px; font-size: 14px; cursor: pointer; border-radius: 4px; display: inline-flex; align-items: center; gap: 8px; /* space between icon and text */ }
 /* Image icon */
 .virtual-btn-triangle { width: 18px; height: 18px; object-fit: contain; background: transparent; display: inline-block; background: none; transition: transform 0.3s ease; }
 /* Rotate on hover */
 .virtual-btn:hover .virtual-btn-triangle { transform: rotate(90deg); }
 .virtual-btn:hover { color: #fff; /* border: 1px solid #ff9900cc; */
-  background-color: #ff9900cc; }
+  background-color: #b13d03; }
 /* Search */
-.search-box { display: flex; border: 1px solid #ccc; border-radius: 2px; margin-right: 20px; }
+.search-box { display: flex; border: 1px solid #b13d03; border-radius: 2px; margin-right: 20px; }
 .search-box input { border: none; padding: 6px 8px; outline: none; }
 .search-box button { border: none; cursor: pointer; background-color: #ffffff; padding: 4px 8px; display: flex; align-items: center; justify-content: center; }
 .search-btn { background-color: #ffffff; border-left: 1px solid #ccc; }
-.search-btn i { font-size: 14px; color: #666; }
+.search-btn i { font-size: 14px; color: #b13d03; }
 /* MODAL */
 .virtual-modal { display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.7); z-index: 999; }
 .virtual-content { background: #fff; width: 70%; margin: 5% auto; padding: 15px; position: relative; z-index: 1000; }
@@ -102,7 +632,8 @@ h3 { font-weight: 900; }
 .close:active { transform: scale(0.9); }
 /* ===== Notification Bar ===== */
 .notification-bar { background-color: #fff; overflow: hidden; height: 30px; display: flex; align-items: center; }
-.notification-text { color: #ff9900cc; font-size: 16px; font-weight: 600; white-space: nowrap; padding-left: 100%; animation: slide-left-right 18s linear infinite; }
+.notification-text { color: #b13d03; font-size: 16px; font-weight: 700; white-space: nowrap; padding-left: 100%; animation: slide-left-right 30s linear infinite; }
+.notification-text:hover { animation-play-state: paused;  }
 /* Animation */
 @keyframes slide-left-right {
  0% { transform: translateX(0); }
@@ -119,8 +650,8 @@ h3 { font-weight: 900; }
  .mid-container { flex-direction: column; align-items: center; gap: 10px; }
 /* LOGOS → ONE ROW */
   .mid-logos { display: flex; justify-content: space-around; width: 100%; }
-.mid-logos img[alt="Govt of Odisha logo"] { display: none; }
-.mid-logos img[alt="Govt of Odisha"] { display: block; }
+.mid-logos img[alt="Archaeology logo"] { display: none; }
+.mid-logos img[alt="Archaeology"] { display: block; }
 .mid-logos img { height: 70px; }
 .mid-title { margin: 0; }
 /* CENTER TEXT */
@@ -144,7 +675,7 @@ h3 { font-weight: 900; }
  }
 /* footer */
 /* ================= FOOTER SECTION ================= */
-.footer-section { background: #f97334ea; border-top: 1px solid #e0e0e0; padding: 20px 0; font-family: "robotoregular", Arial, sans-serif; }
+.footer-section {background: #f97334ea; border-top: 1px solid #e0e0e0; padding: 20px 0; font-family: "robotoregular", Arial, sans-serif; }
 .footer-section .col-12 { text-align: center; }
 /* FOOTER LINKS */
 .footer-links { gap: 10px; }
@@ -281,7 +812,7 @@ to { opacity: 1; }
 .news-title { font-size: 14px; }
  }
 /* activities-notice-links.css */
-.activities-notice-links-section { padding: 40px 0; background: #f5f1f1dd; }
+.activities-notice-links-section { padding: 20px 0; background: #f5f1f1dd; }
 /* BOXES */
 .activities-box,
 .notice-box,
@@ -570,13 +1101,13 @@ to { transform: scale(1); }
 .breadcrumb-item.active { color: #fff; font-weight: 600; }
 .breadcrumb-separator { color: #fff; margin: 0 5px; }
 /* About Detail Page */
-.about-detail-page { padding: 40px 0; background: #fff; position: relative; }
+.about-detail-page { padding: 20px 0; background: #fff; position: relative; }
 .container { max-width: 1300px; margin: auto; padding: 0 15px; }
 /* WHO'S WHO AND ABOUT US GRID */
 .about-detail-grid { display: grid; grid-template-columns: 350px 1fr; gap: 40px; }
 .about-whos-section,
 .about-detail-content-section { background: #fff; }
-.about-detail-section-title { font-size: 18px; font-weight: 700; color: #333; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 1px; }
+.about-detail-section-title { font-size: 26px; font-weight: 700; color: #333; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 1px; }
 .about-detail-section-divider { height: 3px; background: linear-gradient(to right, #ff9900, transparent); margin-bottom: 25px; }
 /* PROFILE CARDS - Smaller Size */
 .about-detail-profile-card { background: #e8e8e8; padding: 15px; margin-bottom: 15px; border-radius: 3px; text-align: center; display: flex; flex-direction: column; align-items: center; }
@@ -622,13 +1153,6 @@ to { transform: scale(1); }
 @media (min-width: 1400px) {
  .container { max-width: 1350px; }
  }
-/* staffing-pattern page */
-/* ---------- Breadcrumb ---------- */
-.breadcrumb-bar { background: #dd6d05; padding: 12px 0; }
-.breadcrumb { display: flex; align-items: center; gap: 8px; }
-.breadcrumb-item { font-size: 14px; color: #333; text-decoration: none; }
-.breadcrumb-item.active { font-weight: 600; }
-.breadcrumb-separator { color: #777; }
 /* Home Icon */
 .home-icon i { font-size: 26px; color: #fafafa; }
 .home-icon:hover i { color: #0a3cff; }
@@ -642,7 +1166,7 @@ to { transform: scale(1); }
 .staff-avatar { width: 120px; height: 120px; border-radius: 50%; background: #f5f5f5; position: absolute; top: -60px; left: 50%; transform: translateX(-50%); border: 4px solid #ff7a00; overflow: hidden; }
 .staff-avatar img { width: 100%; height: 100%; object-fit: cover; }
 /* Text Styles */
-.staff-designation { font-size: 14px; color: #666; margin-bottom: 6px; }
+.staff-designation { font-size: 14px; color: #666; margin: 10px; }
 .staff-name { font-size: 18px; font-weight: 700; color: #000; margin-bottom: 6px; }
 .staff-group { font-size: 14px; color: #444; }
 /* Responsive */
@@ -772,7 +1296,7 @@ to { transform: scale(1); }
 .library-detail-divider { width: 150px; height: 3px; background: linear-gradient(to right, #ff9900, transparent); }
 /* MAIN CONTENT AREA= */
 /* Text Content */
-.library-text-content p { font-size: 15px; line-height: 1.8; color: #444; text-align: justify; margin-bottom: 18px; }
+.library-text-content p { font-size: 15px; color: #444; text-align: justify; margin-bottom: 18px; }
 .library-text-content p:last-child { margin-bottom: 0; }
 .library-text-content em { color: #ff9900; font-style: italic; font-weight: 700; }
 .library-image-slider { width: 100%; position: relative; overflow: hidden; }
@@ -864,7 +1388,7 @@ to { transform: scale(1); }
 .map-link { font-size: 13px; color: #0066cc; text-decoration: none; }
 .map-link:hover { text-decoration: underline; }
 /* CONTACT + ADDRESS SECTION */
-.contact-us-section { padding: 40px 0; background: #fafafa; }
+.contact-us-section { padding: 20px 0; background: #fafafa; }
 /* Card base */
 .contact-form-section,
 .address-section { background: #fff; padding: 25px; border-radius: 8px; height: 100%; box-shadow: 0 2px 8px #0000001a; display: flex; flex-direction: column; }
@@ -1009,7 +1533,7 @@ to { transform: scale(1); }
 /* RESPONSIVE – LARGE DESKTOP */
 @media (min-width: 1400px) {
    .acts-rules-table-wrapper {
-        max-width: 1200px;
+        max-width: 1400px;
         padding: 10px;
         margin-bottom: 40px;
     }
@@ -1049,12 +1573,12 @@ to { transform: scale(1); }
 .breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 14px; margin: 0; padding: 0; list-style: none; }
 .breadcrumb a { color: #ffffff; text-decoration: none; transition: color 0.2s ease; font-weight: 500; }
 /* Page Heading */
-.central-heading { text-align: left; margin-bottom: 40px; }
+.central-heading { text-align: left; margin-bottom: 20px; }
 .central-title { font-size: 26px; font-weight: 600; color: #000; position: relative; display: inline-block; text-align: left; }
-.central-protected-section-divider { width: 20%; height: 3px; background: linear-gradient(to right, #ff9900, transparent); }
+.central-protected-section-divider { width: 40%; height: 3px; background: linear-gradient(to right, #ff9900, transparent); }
 .central-subtitle { font-size: 16px; color: #666; max-width: 700px; margin: 0 auto; line-height: 1.6; }
 /* TABLE CONTAINER (NAVBAR ALIGNED)*/
-.table-container { background: #ffffff; border-radius: 6px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); padding: 20px; margin: 0 auto 30px auto; max-width: 1300px; overflow-x: auto; }
+.table-container { background: #ffffff; border-radius: 6px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); padding: 10px; margin: 0 auto 40px auto; max-width: 1300px; overflow-x: hidden; }
 /* TABLE*/
 .central-table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 0; }
 /* Table Header */
@@ -1070,6 +1594,7 @@ to { transform: scale(1); }
 /* Striped rows */
 .central-table tbody tr:nth-child(even) { background-color: #f9fafc; }
 .central-table tbody tr:nth-child(even):hover { background-color: rgba(44, 90, 160, 0.08); }
+/*Virtual Tour Section*/
 /* Responsive Design */
 @media (max-width: 768px) {
  .table-container { padding: 10px; overflow-x: auto; }
@@ -1138,7 +1663,7 @@ to { transform: scale(1); }
 .state-protected-table-container {
   margin-bottom: 30px;
   background: #ffffff;
-  padding: 15px;
+  padding: 10px;
   border-radius: 6px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   overflow-x: auto;
