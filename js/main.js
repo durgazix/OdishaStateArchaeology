@@ -312,60 +312,62 @@ function filterTable() {
     showInitial();
   });
 
-  /* Monuments central view more option */
-document.addEventListener("DOMContentLoaded", function () {
-
-  const ROWS_LIMIT = 10;
-
+/* Monuments central view more option */
+document.addEventListener("DOMContentLoaded", () => {
   const tableBody = document.getElementById("centralMonumentsTableBody");
+  const rows = Array.from(tableBody.querySelectorAll("tr"));
 
-  const btnViewMore = document.getElementById("centralMViewMore");
-  const btnViewLess = document.getElementById("centralViewLess");
+  const viewMoreBtn = document.getElementById("centralMViewMore");
+  const viewLessBtn = document.getElementById("centralViewLess");
+  const tableContainer = document.querySelector(".table-container");
 
-  function getRows() {
-    return Array.from(tableBody.querySelectorAll("tr"));
-  }
+  const INITIAL_ROWS = 10;
 
-  function collapseTable() {
-    const rows = getRows();
-
-    rows.forEach((row, index) => {
-      row.hidden = index >= ROWS_LIMIT;
-    });
-
-    btnViewMore.classList.remove("d-none");
-    btnViewLess.classList.add("d-none");
-  }
-
-  function expandTable() {
-    const rows = getRows();
-
-    rows.forEach(row => {
-      row.hidden = false;
-    });
-
-    btnViewMore.classList.add("d-none");
-    btnViewLess.classList.remove("d-none");
-  }
-
-  btnViewMore.addEventListener("click", function () {
-    expandTable();
+  function showFirstTen() {
+  rows.forEach((row, index) => {
+    row.style.display = index < INITIAL_ROWS ? "table-row" : "none";
   });
 
-  btnViewLess.addEventListener("click", function () {
-    collapseTable();
+  viewMoreBtn.classList.remove("d-none");
+  viewLessBtn.classList.add("d-none");
+
+  tableContainer.style.maxHeight = "none";
+  tableContainer.style.overflowY = "hidden";
+}
+
+function showAll() {
+  rows.forEach(row => {
+    row.style.display = "table-row";
   });
 
-  // Initial load
-  collapseTable();
+  viewMoreBtn.classList.add("d-none");
+  viewLessBtn.classList.remove("d-none");
+
+  tableContainer.style.maxHeight = "700px";
+  tableContainer.style.overflowY = "auto";
+}
+
+viewMoreBtn.addEventListener("click", showAll);
+viewLessBtn.addEventListener("click", () => {
+  showFirstTen();
+  tableContainer.scrollTo({ top: 0, behavior: "smooth" });
 });
 
+showFirstTen(); // this is why only 10 show initially
 
+
+  viewMoreBtn.addEventListener("click", showAll);
+  viewLessBtn.addEventListener("click", () => {
+    showFirstTen();
+    tableContainer.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  showFirstTen();
+});
+  
 
 /* Central Panaromic view */
-
 let panoramaInstance = null;
-
 function openVirtualTour(button) {
   const imageSrc = button.getAttribute("data-panorama");
   const modal = document.getElementById("virtualModal");
@@ -929,92 +931,87 @@ function toggleButtons() {
 }
 
 // - state-protected.js
-document.addEventListener("DOMContentLoaded", () => {
-  initStatePagination();
-});
-const STATE_ROWS_PER_PAGE = 10;
-let stateRows = [];
-let stateCurrentPage = 1;
-let stateTotalPages = 1;
+// document.addEventListener("DOMContentLoaded", () => {
+//   initStatePagination();
+// });
+// const STATE_ROWS_PER_PAGE = 10;
+// let stateRows = [];
+// let stateCurrentPage = 1;
+// let stateTotalPages = 1;
 
-function initStatePagination() {
-  const tbody = document.getElementById("monumentsTableBody");
-  if (!tbody) return;
+// function initStatePagination() {
+//   const tbody = document.getElementById("monumentsTableBody");
+//   if (!tbody) return;
 
-  stateRows = Array.from(tbody.querySelectorAll("tr"));
-  stateTotalPages = Math.ceil(stateRows.length / STATE_ROWS_PER_PAGE);
+//   stateRows = Array.from(tbody.querySelectorAll("tr"));
+//   stateTotalPages = Math.ceil(stateRows.length / STATE_ROWS_PER_PAGE);
 
-  renderStatePage(stateCurrentPage);
-  renderStatePageNumbers();
-  setupStateButtons();
-}
-function renderStatePage(page) {
-  const tbody = document.getElementById("monumentsTableBody");
-  tbody.innerHTML = "";
+//   renderStatePage(stateCurrentPage);
+//   renderStatePageNumbers();
+//   setupStateButtons();
+// }
+// function renderStatePage(page) {
+//   const tbody = document.getElementById("monumentsTableBody");
+//   tbody.innerHTML = "";
 
-  const start = (page - 1) * STATE_ROWS_PER_PAGE;
-  const end = start + STATE_ROWS_PER_PAGE;
+//   const start = (page - 1) * STATE_ROWS_PER_PAGE;
+//   const end = start + STATE_ROWS_PER_PAGE;
 
-  stateRows.slice(start, end).forEach(row => {
-    tbody.appendChild(row);
-  });
+//   stateRows.slice(start, end).forEach(row => {
+//     tbody.appendChild(row);
+//   });
 
-  updateStatePageInfo();
-  highlightStateActivePage();
-  toggleStateButtons();
-}
-function renderStatePageNumbers() {
-  const container = document.getElementById("statePageNumbers");
-  container.innerHTML = "";
+//   updateStatePageInfo();
+//   highlightStateActivePage();
+//   toggleStateButtons();
+// }
+// function renderStatePageNumbers() {
+//   const container = document.getElementById("statePageNumbers");
+//   container.innerHTML = "";
 
-  for (let i = 1; i <= stateTotalPages; i++) {
-    const btn = document.createElement("button");
-    btn.className = "page-number";
-    btn.textContent = i;
+//   for (let i = 1; i <= stateTotalPages; i++) {
+//     const btn = document.createElement("button");
+//     btn.className = "page-number";
+//     btn.textContent = i;
 
-    btn.addEventListener("click", () => {
-      stateCurrentPage = i;
-      renderStatePage(stateCurrentPage);
-    });
+//     btn.addEventListener("click", () => {
+//       stateCurrentPage = i;
+//       renderStatePage(stateCurrentPage);
+//     });
 
-    container.appendChild(btn);
-  }
-}
-function setupStateButtons() {
-  document.getElementById("statePrevPage").addEventListener("click", () => {
-    if (stateCurrentPage > 1) {
-      stateCurrentPage--;
-      renderStatePage(stateCurrentPage);
-    }
-  });
+//     container.appendChild(btn);
+//   }
+// }
+// function setupStateButtons() {
+//   document.getElementById("statePrevPage").addEventListener("click", () => {
+//     if (stateCurrentPage > 1) {
+//       stateCurrentPage--;
+//       renderStatePage(stateCurrentPage);
+//     }
+//   });
 
-  document.getElementById("stateNextPage").addEventListener("click", () => {
-    if (stateCurrentPage < stateTotalPages) {
-      stateCurrentPage++;
-      renderStatePage(stateCurrentPage);
-    }
-  });
-}
-function updateStatePageInfo() {
-  document.getElementById("statePageInfo").textContent =
-    `Page ${stateCurrentPage} of ${stateTotalPages}`;
-}
+//   document.getElementById("stateNextPage").addEventListener("click", () => {
+//     if (stateCurrentPage < stateTotalPages) {
+//       stateCurrentPage++;
+//       renderStatePage(stateCurrentPage);
+//     }
+//   });
+// }
+// function updateStatePageInfo() {
+//   document.getElementById("statePageInfo").textContent =
+//     `Page ${stateCurrentPage} of ${stateTotalPages}`;
+// }
 
-function highlightStateActivePage() {
-  document.querySelectorAll("#statePageNumbers .page-number").forEach((btn, index) => {
-    btn.classList.toggle("active", index + 1 === stateCurrentPage);
-  });
-}
+// function highlightStateActivePage() {
+//   document.querySelectorAll("#statePageNumbers .page-number").forEach((btn, index) => {
+//     btn.classList.toggle("active", index + 1 === stateCurrentPage);
+//   });
+// }
 
-function toggleStateButtons() {
-  document.getElementById("statePrevPage").disabled = stateCurrentPage === 1;
-  document.getElementById("stateNextPage").disabled = stateCurrentPage === stateTotalPages;
-}
-
-// - unprotected-monuments.js
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("Unprotected Monuments page loaded");
-});
+// function toggleStateButtons() {
+//   document.getElementById("statePrevPage").disabled = stateCurrentPage === 1;
+//   document.getElementById("stateNextPage").disabled = stateCurrentPage === stateTotalPages;
+// }
 
 // - archaeology-library.js
 document.addEventListener("DOMContentLoaded", () => {
