@@ -233,9 +233,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-function openVirtualTour() {
-  window.location.href = "virtualtour-section.html";
-}
+// function openVirtualTour() {
+//   window.location.href = "virtualtour-section.html";
+// }
 
 function toggleTourOverlay() {
   const overlay = document.getElementById("tourOverlay");
@@ -312,6 +312,90 @@ function filterTable() {
     showInitial();
   });
 
+  /* Monuments central view more option */
+document.addEventListener("DOMContentLoaded", function () {
+
+  const ROWS_LIMIT = 10;
+
+  const tableBody = document.getElementById("centralMonumentsTableBody");
+
+  const btnViewMore = document.getElementById("centralMViewMore");
+  const btnViewLess = document.getElementById("centralViewLess");
+
+  function getRows() {
+    return Array.from(tableBody.querySelectorAll("tr"));
+  }
+
+  function collapseTable() {
+    const rows = getRows();
+
+    rows.forEach((row, index) => {
+      row.hidden = index >= ROWS_LIMIT;
+    });
+
+    btnViewMore.classList.remove("d-none");
+    btnViewLess.classList.add("d-none");
+  }
+
+  function expandTable() {
+    const rows = getRows();
+
+    rows.forEach(row => {
+      row.hidden = false;
+    });
+
+    btnViewMore.classList.add("d-none");
+    btnViewLess.classList.remove("d-none");
+  }
+
+  btnViewMore.addEventListener("click", function () {
+    expandTable();
+  });
+
+  btnViewLess.addEventListener("click", function () {
+    collapseTable();
+  });
+
+  // Initial load
+  collapseTable();
+});
+
+
+
+/* Central Panaromic view */
+
+let panoramaInstance = null;
+
+function openVirtualTour(button) {
+  const imageSrc = button.getAttribute("data-panorama");
+  const modal = document.getElementById("virtualModal");
+
+  modal.style.display = "block";
+
+  // Destroy previous panorama (important)
+  if (panoramaInstance) {
+    panoramaInstance.destroy();
+    panoramaInstance = null;
+  }
+
+  // Initialize panorama
+  panoramaInstance = pannellum.viewer("panoramaViewer", {
+    type: "equirectangular",
+    panorama: imageSrc,
+    autoLoad: true,
+    showZoomCtrl: true,
+    showFullscreenCtrl: true
+  });
+}
+
+function closeVirtualTour() {
+  if (panoramaInstance) {
+    panoramaInstance.destroy();
+    panoramaInstance = null;
+  }
+
+  document.getElementById("virtualModal").style.display = "none";
+}
 
 // ================= JS FILES CONTENT BELOW =================
 
@@ -364,31 +448,31 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // - mid-navbar.js
-let viewer = null;
+// let viewer = null;
 
-function openVirtualTour() {
-  const modal = document.getElementById("virtualModal");
-  const panoDiv = document.getElementById("panoramaViewer");
+// function openVirtualTour() {
+//   const modal = document.getElementById("virtualModal");
+//   const panoDiv = document.getElementById("panoramaViewer");
 
-  modal.style.display = "flex";
+//   modal.style.display = "flex";
 
-  if (!viewer) {
-    const imageSrc = panoDiv.getAttribute("data-panorama");
+//   if (!viewer) {
+//     const imageSrc = panoDiv.getAttribute("data-panorama");
 
-    viewer = pannellum.viewer("panoramaViewer", {
-      type: "equirectangular",
-      panorama: imageSrc,
-      autoLoad: true,
-      compass: true,
-      showFullscreenCtrl: true,
-      mouseZoom: true,
-    });
-  }
-}
+//     viewer = pannellum.viewer("panoramaViewer", {
+//       type: "equirectangular",
+//       panorama: imageSrc,
+//       autoLoad: true,
+//       compass: true,
+//       showFullscreenCtrl: true,
+//       mouseZoom: true,
+//     });
+//   }
+// }
 
-function closeVirtualTour() {
-  document.getElementById("virtualModal").style.display = "none";
-}
+// function closeVirtualTour() {
+//   document.getElementById("virtualModal").style.display = "none";
+// }
 
 // Close modal when clicking outside the video
 document.addEventListener("DOMContentLoaded", () => {
