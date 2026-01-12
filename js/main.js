@@ -286,7 +286,7 @@ function filterTable() {
     const viewMoreBtn = document.getElementById("ebooksViewMore");
     const viewLessBtn = document.getElementById("ebooksViewLess");
 
-    const INITIAL_COUNT = 4;
+    const INITIAL_COUNT = 5;
 
     // Hide all except first 4
     function showInitial() {
