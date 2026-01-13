@@ -174,11 +174,11 @@
         <li class="dropdown">
           <a href="#">ACTIVITIES</a>
           <ul class="dropdown-menu">
-            <li><a href="#">STAGES OF ARCHAEOLOGICAL CONSERVATION</a></li>
-            <li><a href="#">ARCHAEOLOGICAL SITE & REMAINS</a></li>
-            <li><a href="#">CONSERVATION AND PRESERVATION</a></li>
-            <li><a href="#">EXCAVATION</a></li>
-            <li><a href="#">ANTIQUTY</a></li>
+            <li><a href="activity-soac.html">STAGES OF ARCHAEOLOGICAL CONSERVATION</a></li>
+            <li><a href="activity-asar.html">ARCHAEOLOGICAL SITE & REMAINS</a></li>
+            <li><a href="activity-precon.html">CONSERVATION AND PRESERVATION</a></li>
+            <li><a href="activity-excavation.html">EXCAVATION</a></li>
+            <li><a href="activity-antiquty.html">ANTIQUTY</a></li>
           </ul>
         </li>
         <li><a href="contact-us.html">CONTACT US</a></li>
@@ -187,21 +187,19 @@
   </nav>
 
   <!-- monuments central section -->
-  <section id="central-protected" class="central-protected-section">
-
-    <!-- Breadcrumb -->
-    <div class="breadcrumb-bar">
-      <div class="container">
-        <nav class="breadcrumb">
-          <a href="index.html">Home</a>
-          <span class="breadcrumb-separator">&gt;&gt;</span>
-          <a href="monuments.html">Monuments</a>
-          <span class="breadcrumb-separator">&gt;&gt;</span>
-          <span class="breadcrumb-item active">Central Protected Monuments</span>
-        </nav>
-      </div>
+  <!-- Breadcrumb -->
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-separator">&gt;&gt;</span>
+        <a href="monuments.html">Monuments</a>
+        <span class="breadcrumb-separator">&gt;&gt;</span>
+        <span class="breadcrumb-item active">Central Protected Monuments</span>
+      </nav>
     </div>
-
+  </div>
+  <section id="central-protected" class="central-protected-section">
     <!-- Heading -->
     <div class="container">
       <div class="central-heading">
@@ -864,16 +862,17 @@
           <div id="panoramaViewer" src="" alt="Virtual Tour"></div>
         </div>
       </div>
-
-      <div class="text-center mt-4 photo-footer">
-        <button class="btn ebooks-view-more-btn" id="centralMViewMore">
-          View More
-        </button>
-        <button class="btn ebooks-view-less-btn d-none" id="centralViewLess">
-          View Less
-        </button>
+          <div class="table-pagination">
+          <button id="prevPage" class="page-btn" aria-label="Previous Page">
+            <i class="fa fa-angle-left"></i>
+          </button>
+          <span id="pageNumbers" aria-label="Page Numbers"></span>
+          <span id="pageInfo">Page 1</span>
+          <button id="nextPage" class="page-btn" aria-label="Next Page">
+            <i class="fa fa-angle-right"></i>
+          </button>
+        </div>
       </div>
-    </div>
   </section>
   <!-- footer -->
   <footer class="footer-section">

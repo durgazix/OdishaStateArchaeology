@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Library Page | Publications Page</title>
+    <title>Excavation Section Page</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
@@ -185,85 +185,118 @@
             </ul>
         </div>
     </nav>
-
-    <!-- E-Books section -->
-    <!-- Breadcrumb -->
-    <div class="breadcrumb-bar">
+    <!-- news-page section -->
+    <div class="breadcrumb-bar" id="news-breadcrumb">
         <div class="container">
-            <nav class="breadcrumb">
+            <nav class="breadcrumb mb-0">
                 <a href="index.html">Home</a>
                 <span class="breadcrumb-separator">&gt;&gt;</span>
-                <a href="#">E-LIBRARY</a>
+                <a href="#">Activity</a>
                 <span class="breadcrumb-separator">&gt;&gt;</span>
-                <span class="breadcrumb-item active">E-Books</span>
+                <span class="breadcrumb-item active">Excavation</span>
             </nav>
         </div>
     </div>
-    <section id="central-protected" class="central-protected-section">
-        <!-- Heading -->
+    <section class="excavation-section">
         <div class="container">
-            <div class="central-heading">
-                <h1 class="central-title">E-BOOKS</h1>
-                <div class="central-protected-section-divider"></div>
+            <h2 class="excavation-title">EXCAVATION</h2>
+            <div class="excavation-divider mx-md-0"></div>
+            <div class="excavation-list" id="projects">
+                <div class="excavation-grid">
+                    <div class="excavation-item" id="project-1">
+                        <div class="excavation-img-wrap">
+                            <img src="assets/central-monuments/image.png" alt="Excavation Project">
+                            <div class="excavation-overlay">
+                                <h4>Solutions</h4>
+                                <p>Support of excavation / Deep foundations</p>
+                                <h4>Techniques</h4>
+                                <p>Micropiles / Soldier piles and lagging / Anchors</p>
+                                <a href="#details-1" class="view-details-btn">View Details</a>
+                            </div>
+                        </div>
+                        <div class="excavation-info">
+                            <h3>Teton Pass: The Big Fill Slide</h3>
+                            <span>Jackson, Wyoming, USA</span>
+                        </div>
+                    </div>
+                    <div class="excavation-item" id="project-2">
+                        <div class="excavation-img-wrap">
+                            <img src="assets/central-monuments/image.png" alt="Excavation Project">
+                            <div class="excavation-overlay">
+                                <h4>Solutions</h4>
+                                <p>Slope stabilization / Ground improvement</p>
+                                <h4>Techniques</h4>
+                                <p>Soil nailing / Rock bolting</p>
+                                <a href="#details-1" class="view-details-btn">View Details</a>
+                            </div>
+                        </div>
+                        <div class="excavation-info">
+                            <h3>Parcel 12</h3>
+                            <span>Boston, Massachusetts, USA</span>
+                        </div>
+                    </div>
+                    <div class="excavation-item" id="project-1">
+                        <div class="excavation-img-wrap">
+                            <img src="assets/central-monuments/image.png" alt="Excavation Project">
+                            <div class="excavation-overlay">
+                                <h4>Solutions</h4>
+                                <p>Support of excavation / Deep foundations</p>
+                                <h4>Techniques</h4>
+                                <p>Micropiles / Soldier piles and lagging / Anchors</p>
+                                <a href="#details-1" class="view-details-btn">View Details</a>
+                            </div>
+                        </div>
+                        <div class="excavation-info">
+                            <h3>Teton Pass: The Big Fill Slide</h3>
+                            <span>Jackson, Wyoming, USA</span>
+                        </div>
+                    </div>
+                    <div class="excavation-item" id="project-1">
+                        <div class="excavation-img-wrap">
+                            <img src="assets/central-monuments/image.png" alt="Excavation Project">
+                            <div class="excavation-overlay">
+                                <h4>Solutions</h4>
+                                <p>Support of excavation / Deep foundations</p>
+                                <h4>Techniques</h4>
+                                <p>Micropiles / Soldier piles and lagging / Anchors</p>
+                                <a href="#details-1" class="view-details-btn">View Details</a>
+                            </div>
+                        </div>
+                        <div class="excavation-info">
+                            <h3>Teton Pass: The Big Fill Slide</h3>
+                            <span>Jackson, Wyoming, USA</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="ebooks-grid">
-                <!-- E-Book Card 1 -->
-                <a href="assets/publications/Odisha State Achaeology.pdf" target="_blank" class="ebook-card">
-                    <div class="ebook-image">
-                        <img src="assets/ebooks/image.png" alt="Artifact E-Book">
-                    </div>
-                    <div class="ebook-title">Pride and Prejudice</div>
-                </a>
-                <!-- E-Book Card 2 -->
-                <a href="assets/publications/Odisha State Achaeology.pdf" target="_blank" class="ebook-card">
-                    <div class="ebook-image">
-                        <img src="assets/ebooks/image.png" alt="Sculpture E-Book">
-                    </div>
-                    <div class="ebook-title">The Odyssey</div>
-                </a>
-                <!-- E-Book Card 3 -->
-                <a href="assets/publications/Odisha State Achaeology.pdf" target="_blank" class="ebook-card">
-                    <div class="ebook-image">
-                        <img src="assets/ebooks/image.png" alt="Painting E-Book">
-                    </div>
-                    <div class="ebook-title">The Da Vinci Code</div>
-                </a>
-                <!-- E-Book Card 4 -->
-                <a href="assets/publications/Odisha State Achaeology.pdf" target="_blank" class="ebook-card">
-                    <div class="ebook-image">
-                        <img src="assets/ebooks/image.png" alt="Historic Site E-Book">
-                    </div>
-                    <div class="ebook-title">The Diary of a Young Girl</div>
-                </a>
-                <!-- E-Book Card 4 -->
-                <a href="assets/publications/Odisha State Achaeology.pdf" target="_blank" class="ebook-card">
-                    <div class="ebook-image">
-                        <img src="assets/ebooks/image.png" alt="Historic Site E-Book">
-                    </div>
-                    <div class="ebook-title">Between Mountains</div>
-                </a>
-                <!-- E-Book Card 4 -->
-                <a href="assets/publications/Odisha State Achaeology.pdf" target="_blank" class="ebook-card">
-                    <div class="ebook-image">
-                        <img src="assets/ebooks/image.png" alt="Historic Site E-Book">
-                    </div>
-                    <div class="ebook-title">Between mountains</div>
-                </a>
-            </div>
-            <div class="text-center mt-4 photo-footer">
-                <button class="btn ebooks-view-more-btn" id="ebooksViewMore">
-                    View More
-                </button>
-                <button class="btn ebooks-view-less-btn d-none" id="ebooksViewLess">
-                    View Less
-                </button>
+            <div class="excavation-details" id="details-1">
+                <div class="details-left">
+                    <div class="details-line"></div>
+                    <p><strong>Monument Name:</strong> Konark Sun Temple</p>
+                    <p><strong>Period:</strong> 13th Century CE</p>
+                    <p><strong>Location:</strong> Konark, Puri</p>
+                    <h3 class="details-title">Monument Description</h3>
+                    <p class="details-text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                    <a href="#projects" class="back-btn">← Back to Projects</a>
+                </div>
+                <div class="details-right">
+                    <img src="assets/central-monuments/image.png" alt="Konark Sun Temple">
+                    <span class="img-caption">Konark Sun Temple – Odisha</span>
+                </div>
             </div>
         </div>
+        </div>
     </section>
+
+
     <!-- footer -->
     <footer class="footer-section">
         <div class="container">
             <div class="row text-center flex-column align-items-center gy-3">
+
                 <!-- Footer Links -->
                 <div class="col-12 col-md-4">
                     <div class="footer-links d-flex flex-wrap justify-content-center">
@@ -296,6 +329,7 @@
             </div>
         </div>
     </footer>
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
 <script src="js/main.js"></script>

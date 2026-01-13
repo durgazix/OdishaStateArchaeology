@@ -281,90 +281,181 @@ function filterTable() {
   });
 }
 // /* Filter table rows by district */ function filterMonuments() { const selectedDistrict = document.getElementById("districtFilter").value; const rows = document.querySelectorAll("#tourTableBody tr"); rows.forEach((row) => { const rowDistrict = row.getAttribute("data-district"); if ( selectedDistrict === "All" || rowDistrict === selectedDistrict ) { row.style.display = ""; } else { row.style.display = "none"; } }); }
-  document.addEventListener("DOMContentLoaded", function () {
-    const ebooks = document.querySelectorAll(".ebook-card");
-    const viewMoreBtn = document.getElementById("ebooksViewMore");
-    const viewLessBtn = document.getElementById("ebooksViewLess");
+document.addEventListener("DOMContentLoaded", function () {
+  const ebooks = document.querySelectorAll(".ebook-card");
+  const viewMoreBtn = document.getElementById("ebooksViewMore");
+  const viewLessBtn = document.getElementById("ebooksViewLess");
 
-    const INITIAL_COUNT = 5;
+  const INITIAL_COUNT = 5;
 
-    // Hide all except first 4
-    function showInitial() {
-      ebooks.forEach((card, index) => {
-        card.style.display = index < INITIAL_COUNT ? "block" : "none";
-      });
-      viewMoreBtn.classList.remove("d-none");
-      viewLessBtn.classList.add("d-none");
-    }
+  // Hide all except first 4
+  function showInitial() {
+    ebooks.forEach((card, index) => {
+      card.style.display = index < INITIAL_COUNT ? "block" : "none";
+    });
+    viewMoreBtn.classList.remove("d-none");
+    viewLessBtn.classList.add("d-none");
+  }
 
-    // Show all
-    function showAll() {
-      ebooks.forEach(card => (card.style.display = "block"));
-      viewMoreBtn.classList.add("d-none");
-      viewLessBtn.classList.remove("d-none");
-    }
+  // Show all
+  function showAll() {
+    ebooks.forEach(card => (card.style.display = "block"));
+    viewMoreBtn.classList.add("d-none");
+    viewLessBtn.classList.remove("d-none");
+  }
 
-    // Event listeners
-    viewMoreBtn.addEventListener("click", showAll);
-    viewLessBtn.addEventListener("click", showInitial);
+  // Event listeners
+  viewMoreBtn.addEventListener("click", showAll);
+  viewLessBtn.addEventListener("click", showInitial);
 
-    // Initial load
-    showInitial();
-  });
+  // Initial load
+  showInitial();
+});
 
 /* Monuments central view more option */
-document.addEventListener("DOMContentLoaded", () => {
-  const tableBody = document.getElementById("centralMonumentsTableBody");
-  const rows = Array.from(tableBody.querySelectorAll("tr"));
+// document.addEventListener("DOMContentLoaded", () => {
+//   const tableBody = document.getElementById("centralMonumentsTableBody");
+//   const rows = Array.from(tableBody.querySelectorAll("tr"));
 
+//   const viewMoreBtn = document.getElementById("centralMViewMore");
+//   const viewLessBtn = document.getElementById("centralViewLess");
+//   const tableContainer = document.querySelector(".table-container");
+
+//   const INITIAL_ROWS = 10;
+
+//   function showFirstTen() {
+//     rows.forEach((row, index) => {
+//       row.style.display = index < INITIAL_ROWS ? "table-row" : "none";
+//     });
+
+//     viewMoreBtn.classList.remove("d-none");
+//     viewLessBtn.classList.add("d-none");
+
+//     tableContainer.style.maxHeight = "none";
+//     tableContainer.style.overflowY = "hidden";
+//   }
+
+//   function showAll() {
+//     rows.forEach(row => {
+//       row.style.display = "table-row";
+//     });
+
+//     viewMoreBtn.classList.add("d-none");
+//     viewLessBtn.classList.remove("d-none");
+
+//     tableContainer.style.maxHeight = "700px";
+//     tableContainer.style.overflowY = "auto";
+//   }
+
+//   viewMoreBtn.addEventListener("click", showAll);
+//   viewLessBtn.addEventListener("click", () => {
+//     showFirstTen();
+//     tableContainer.scrollTo({ top: 0, behavior: "smooth" });
+//   });
+
+//   showFirstTen();
+
+
+//   viewMoreBtn.addEventListener("click", showAll);
+//   viewLessBtn.addEventListener("click", () => {
+//     showFirstTen();
+//     tableContainer.scrollTo({ top: 0, behavior: "smooth" });
+//   });
+
+//   showFirstTen();
+// });
+
+// Virtual Tour Modal functions
+
+document.addEventListener("DOMContentLoaded", () => {
+  initCentralViewMore();
+});
+
+const INITIAL_VISIBLE_ROWS = 10;
+
+function initCentralViewMore() {
+  const tbody = document.getElementById("centralMonumentsTableBody");
   const viewMoreBtn = document.getElementById("centralMViewMore");
   const viewLessBtn = document.getElementById("centralViewLess");
   const tableContainer = document.querySelector(".table-container");
 
-  const INITIAL_ROWS = 10;
+  if (!tbody || !viewMoreBtn || !viewLessBtn) return;
 
-  function showFirstTen() {
+  const rows = Array.from(tbody.querySelectorAll("tr"));
+
+  // Hide rows beyond initial count
   rows.forEach((row, index) => {
-    row.style.display = index < INITIAL_ROWS ? "table-row" : "none";
+    if (index >= INITIAL_VISIBLE_ROWS) {
+      row.classList.add("d-none");
+    }
   });
 
-  viewMoreBtn.classList.remove("d-none");
+  // Hide "View Less" initially
   viewLessBtn.classList.add("d-none");
 
-  tableContainer.style.maxHeight = "none";
-  tableContainer.style.overflowY = "hidden";
-}
+  // VIEW MORE CLICK
+  viewMoreBtn.addEventListener("click", () => {
+    rows.forEach(row => row.classList.remove("d-none"));
+    tableContainer.classList.add("scrolling-enabled");
 
-function showAll() {
-  rows.forEach(row => {
-    row.style.display = "table-row";
+    viewMoreBtn.classList.add("d-none");
+    viewLessBtn.classList.remove("d-none");
   });
 
-  viewMoreBtn.classList.add("d-none");
-  viewLessBtn.classList.remove("d-none");
-
-  tableContainer.style.maxHeight = "700px";
-  tableContainer.style.overflowY = "auto";
-}
-
-viewMoreBtn.addEventListener("click", showAll);
-viewLessBtn.addEventListener("click", () => {
-  showFirstTen();
-  tableContainer.scrollTo({ top: 0, behavior: "smooth" });
-});
-
-showFirstTen(); // this is why only 10 show initially
-
-
-  viewMoreBtn.addEventListener("click", showAll);
+  // VIEW LESS CLICK
   viewLessBtn.addEventListener("click", () => {
-    showFirstTen();
-    tableContainer.scrollTo({ top: 0, behavior: "smooth" });
-  });
+    rows.forEach((row, index) => {
+      if (index >= INITIAL_VISIBLE_ROWS) {
+        row.classList.add("d-none");
+      }
+    });
 
-  showFirstTen();
-});
+    tableContainer.classList.remove("scrolling-enabled");
+
+    viewLessBtn.classList.add("d-none");
+    viewMoreBtn.classList.remove("d-none");
+
+    // Scroll back to top of table
+    tableContainer.scrollIntoView({ behavior: "smooth" });
+  });
+}
+
+function openVirtualTour(button) {
+  const panorama = button.getAttribute('data-panorama');
+  const modal = document.getElementById('virtualModal');
+  const panoramaViewer = document.getElementById('panoramaViewer');
   
+  if (panoramaViewer) {
+    panoramaViewer.src = panorama;
+    panoramaViewer.style.width = "100%";
+    panoramaViewer.style.height = "500px";
+    panoramaViewer.style.objectFit = "cover";
+    panoramaViewer.style.borderRadius = "8px";
+  }
+  
+  modal.style.display = "flex";
+  document.body.style.overflow = "hidden";
+}
+
+function closeVirtualTour() {
+  const modal = document.getElementById('virtualModal');
+  const panoramaViewer = document.getElementById('panoramaViewer');
+  
+  modal.style.display = "none";
+  document.body.style.overflow = "auto";
+  
+  if (panoramaViewer) {
+    panoramaViewer.src = "";
+  }
+}
+
+// Close modal when clicking outside content
+window.onclick = function(event) {
+  const modal = document.getElementById('virtualModal');
+  if (event.target == modal) {
+    closeVirtualTour();
+  }
+}
 
 /* Central Panaromic view */
 let panoramaInstance = null;
