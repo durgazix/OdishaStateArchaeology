@@ -185,7 +185,7 @@
             <li><a href="activity-soac.html">STAGES OF ARCHAEOLOGICAL CONSERVATION</a></li>
             <li><a href="activity-asar.html">ARCHAEOLOGICAL SITE & REMAINS</a></li>
             <li><a href="activity-precon.html">CONSERVATION AND PRESERVATION</a></li>
-            <li><a href="activity-excavation.html">EXCAVATION</a></li>
+            <li><a href="activity-newexcavation.html">EXCAVATION</a></li>
             <li><a href="activity-antiquty.html">ANTIQUTY</a></li>
           </ul>
         </li>
@@ -237,11 +237,10 @@
         <div class="col-lg-6">
           <div class="card border shadow-sm h-100">
             <div class="card-body p-4">
-              <h2 class="section-title text-uppercase fw-bold mb-3">ACTIVITIES</h2>
-              <hr class="news-divider mb-4" />
+              <h2 class="section-title text-uppercase fw-bold sm-4">ACTIVITIES</h2>
+              <hr class="news-divider s-4" />
 
-              <!-- News Header with Navigation -->
-              <div class="news-header d-flex justify-content-between align-items-center mb-3 pb-3 border-bottom">
+              <!-- <div class="news-header d-flex justify-content-between align-items-center mb-3 pb-3 border-bottom">
                 <h3 class="news-title fs-6 fw-semibold mb-0 flex-grow-1 me-3">
                   Loading news...
                 </h3>
@@ -251,9 +250,7 @@
                 </div>
               </div>
 
-              <!-- News Content Area -->
               <div class="news-content">
-                <!-- HIDDEN NEWS DATA (Frontend hardcoded) -->
                 <div id="news-data" style="display: none;">
                   <div class="news-item-data">
                     <h3>Preservation of Jagannath Temple Complex - A Living Monument</h3>
@@ -299,7 +296,114 @@
                     <img src="assets/news/Vallam-min_6.jpg" alt="Archaeological Museum">
                   </div>
                 </div>
-                <!-- Content will be loaded dynamically by JavaScript -->
+              </div> -->
+              <div class="activities-slider">
+                <!-- ITEM 1 -->
+                <div class="activity-slide active">
+                  <div class="activity-card">
+                    <div class="activity-content">
+                      <div class="activity-text">
+                        <h3>Stages of Archaeological Conservation</h3>
+                        <p class="activity-description">
+                          Archaeological conservation involves systematic stages including
+                          documentation, stabilization, preservation, and restoration to protect
+                          heritage assets for future generations.
+                        </p>
+                        <a href="activity-soac.html" class="view-btn">More</a>
+                      </div>
+                      <div class="activity-image">
+                        <a href="activity-soac.html">
+                          <img src="assets/news/Vallam-min_4.jpg" alt="Archaeological Conservation">
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- ITEM 2 -->
+                <div class="activity-slide">
+                  <div class="activity-card">
+                    <div class="activity-content">
+                      <div class="activity-text">
+                        <h3>Archaeological Site & Remains</h3>
+                        <p class="activity-description">
+                          Archaeological sites and remains reflect human history through structural
+                          remains, settlements, tools, and cultural layers.
+                        </p>
+                        <a href="activity-asar.html" class="view-btn">More</a>
+                      </div>
+                      <div class="activity-image">
+                        <a href="activity-asar.html">
+                          <img src="assets/news/Vallam-min_2.jpg" alt="Archaeological Site & Remains">
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- ITEM 3 -->
+                <div class="activity-slide">
+                  <div class="activity-card">
+                    <div class="activity-content">
+                      <div class="activity-text">
+                        <h3>Conservation and Preservation</h3>
+                        <p class="activity-description">
+                          Conservation and preservation focus on safeguarding monuments from
+                          environmental damage, human interference, and material decay.
+                        </p>
+                        <a href="activity-precon.html" class="view-btn">More</a>
+                      </div>
+                      <div class="activity-image">
+                        <a href="activity-precon.html">
+                          <img src="assets/news/Vallam-min_3.jpg" alt="Conservation and Preservation">
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- ITEM 4 -->
+                <div class="activity-slide">
+                  <div class="activity-card">
+                    <div class="activity-content">
+                      <div class="activity-text">
+                        <h3>Excavation</h3>
+                        <p class="activity-description">
+                          Excavation is a scientific process of uncovering buried remains to
+                          understand ancient civilizations through controlled investigation.
+                        </p>
+                        <a href="activity-newexcavation.html" class="view-btn">More</a>
+                      </div>
+                      <div class="activity-image">
+                        <a href="activity-newexcavation.html">
+                          <img src="assets/news/Vallam-min_3.jpg" alt="Excavation">
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- ITEM 5 -->
+                <div class="activity-slide">
+                  <div class="activity-card">
+                    <div class="activity-content">
+                      <div class="activity-text">
+                        <h3>Antiquity</h3>
+                        <p class="activity-description">
+                          Antiquities include coins, sculptures, inscriptions, and objects of
+                          historical importance that represent cultural heritage.
+                        </p>
+                        <a href="activity-antiquty.html" class="btn view-btn">More</a>
+                      </div>
+                      <div class="activity-image">
+                        <a href="activity-antiquty.html">
+                          <img src="assets/news/Vallam-min_3.jpg" alt="Antiquity">
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- NAV BUTTONS -->
+              <div class="activity-nav mt-3 text-center">
+                <button class="btn btn-light btn-sm" id="prevActivity">&lt;</button>
+                <button class="btn btn-light btn-sm" id="nextActivity">&gt;</button>
               </div>
             </div>
           </div>
@@ -309,8 +413,8 @@
         <div class="col-lg-6">
           <div class="card border shadow-sm h-100">
             <div class="card-body p-4 d-flex flex-column">
-              <h2 class="section-title text-uppercase fw-bold mb-3">ODISHA STATE ARCHAEOLOGY</h2>
-              <hr class="about-divider mb-4" />
+              <h2 class="section-title text-uppercase fw-bold sm-3">ODISHA STATE ARCHAEOLOGY</h2>
+              <hr class="about-divider sm-4" />
 
               <p class="about-text small text-muted lh-base text-justify mb-4 flex-grow-1">
                 The land of Odisha and its Geographical settings has a distinct position in the
