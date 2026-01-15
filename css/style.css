@@ -2149,18 +2149,41 @@ to { transform: scale(1); }
 .table-container::-webkit-scrollbar-thumb:hover {
   background: #d96b1a;
 } */
+
+#circleSelect {
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  background-color: #fff;
+  border: 1px solid #ff9900;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+/* Hover */
+#circleSelect:hover {
+  border-color: #e67e00;
+}
+
+/* Focus */
+#circleSelect:focus {
+  border-color: #ff9900;
+  box-shadow: 0 0 0 2px rgba(255, 153, 0, 0.2);
+}
+
+/* Dropdown options */
+#circleSelect option {
+  font-size: 14px;
+  padding: 6px;
+}
+
 .central-table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 0;
     height: auto !important;
     max-height: none !important;
 }
-/* .table-container .header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: #ffffff;
-  padding: 8px 0;
-  border-bottom: 1px solid #eee;
-} */
 .central-table thead th {
   background: linear-gradient(135deg, #ed7f25e9, #ed7f25f7);
   color: white;
