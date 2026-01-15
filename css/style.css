@@ -1197,14 +1197,18 @@ h3 { font-weight: 600; }
 
 .view-btn {
   display: block;
-  padding: 4px 6px;
-  margin-top: auto;
+  /* padding: 4px 6px;
+  margin-top: auto; */
   border-radius: 4px;
   color: #ed7f25e5;
   font-weight: 600;
   text-decoration: none;
   border: 1px solid #ed7f25e5;
   transition: all 0.3s ease;
+  position: relative;
+   bottom:40px;
+   width: 25%;
+
 }
 
 .view-btn:hover {
@@ -1303,16 +1307,47 @@ h3 { font-weight: 600; }
 }
 
 @media (max-width: 767.98px) {
-  .section-title {
-    font-size: 16px;
+
+  /* 🔓 Allow container to grow on mobile */
+  .activities-slider {
+    height: auto;
+    min-height: 360px;     /* keeps card visually balanced */
+    max-height: none;
+    overflow: hidden;
   }
 
-  .activity-description {
-    -webkit-line-clamp: 4;
+  /* Stack content properly */
+  .activity-content {
+    flex-direction: column;
+    height: auto;
   }
 
-  .card-body {
-    padding: 1.5rem !important;
+  /* Image full width on mobile */
+  .activity-image {
+    width: 100%;
+    order: -1; /* image on top */
+  }
+
+  .activity-image img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  /* Text should flow naturally */
+  .activity-text {
+    flex: unset;
+  }
+
+  /* 🔧 FIX MORE BUTTON (MOST IMPORTANT) */
+  .view-btn {
+    position: static;      /* 🔑 remove bottom hack */
+    width: auto;           /* no percentage width */
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 12px;
+    margin-top: 10px;
+    align-self: flex-start;
   }
 }
 
