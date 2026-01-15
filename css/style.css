@@ -1858,7 +1858,7 @@ to { transform: scale(1); }
  }
 /* act&rules section */
 /* SECTION */
-.act-rules-section { background: #fafafa; min-height: 60vh; }
+.act-rules-section { background: #fafafa; min-height: 50vh; }
 /* HEADING */
 .act-rules-heading { margin-bottom: 25px; }
 .act-section-title { padding-top: 1.5rem !important; font-size: 26px; font-weight: 700; text-transform: uppercase; color: #222; margin-bottom: 6px; }
