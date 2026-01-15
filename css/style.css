@@ -852,6 +852,32 @@ h3 { font-weight: 600; }
     clip-path: none;
   }
 }
+
+/* Central Monuments */
+.central-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.central-pagination .page-number {
+  padding: 4px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.central-pagination .page-number.active {
+  background: #ff9900;
+  color: #fff;
+}
+
+.central-pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 /* header */
 .top-header { background-color: #f4f4f4; font-size: 14px; }
 .top-left a { color: #000; font-weight: 500; }
@@ -1038,24 +1064,94 @@ h3 { font-weight: 600; }
 .dropdown.active .dropdown-menu { display: block; }
  }
 /* ================= HERO SECTION ================= */
-.hero { position: relative; width: 100%; height: 550px; overflow: hidden; background: #000; }
-/* SLIDES */
-.hero-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; opacity: 0; transform: translateX(100%); transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out; z-index: 1; }
-/* Active slide */
-.hero-slide.active { opacity: 1; transform: translateX(0); z-index: 3; }
-/* Previous slide */
-.hero-slide.prev { transform: translateX(-100%); opacity: 0; z-index: 2; }
-/* CAPTION */
-.hero-caption { position: absolute; bottom: 40px; left: 20%; background: rgba(255, 255, 255, 0.92); padding: 15px 20px; font-size: 18px; font-weight: 600; max-width: 480px; border-radius: 4px; }
-/* ARROWS */
-.hero-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 45px; height: 45px; background: rgba(0, 0, 0, 0.6); color: #fff; border: none; border-radius: 50%; font-size: 22px; cursor: pointer; z-index: 10; }
-.hero-arrow:hover { background: #8b0000; }
-.hero-arrow.prev { left: 20px; }
-.hero-arrow.next { right: 20px; }
-/* DOTS */
-.hero-dots { position: absolute; bottom: 15px; width: 100%; text-align: center; z-index: 10; }
-.dot { width: 10px; height: 10px; background: rgba(255, 255, 255, 0.5); border-radius: 50%; display: inline-block; margin: 0 4px; cursor: pointer; }
-.dot.active { background: #fff; }
+/* HERO WRAPPER */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 550px;
+  overflow: hidden;
+  background: #000;
+}
+
+/* Make Bootstrap carousel fill hero */
+.hero .carousel,
+.hero .carousel-inner,
+.hero .carousel-item {
+  height: 100%;
+}
+
+/* Slide background images */
+.hero .carousel-item {
+  background-size: cover;
+  background-position: center;
+}
+
+/* CAPTION (kept from your original, unchanged) */
+.hero-caption {
+  position: absolute;
+  bottom: 60px;
+  left: 20%;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 15px 20px;
+  font-size: 18px;
+  font-weight: 600;
+  max-width: 480px;
+  border-radius: 4px;
+}
+
+/* Bootstrap arrows – styled similar to yours */
+.carousel-control-prev,
+.carousel-control-next {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hero:hover .carousel-control-prev,
+.hero:hover .carousel-control-next {
+  opacity: 1;
+}
+
+/* Smaller arrow icons */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 40px;
+  height: 40px;
+  background-size: 12px 12px;
+  background-color: rgba(0, 0, 0, 0.55);
+  border-radius: 50%;
+  padding: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Optional hover effect */
+.carousel-control-prev:hover .carousel-control-prev-icon,
+.carousel-control-next:hover .carousel-control-next-icon {
+  background-color: #8b0000;
+  transform: scale(1.2);
+}
+
+/* Dots spacing (Bootstrap handles active state) */
+.carousel-indicators {
+  bottom: 18px;
+  gap: 10px;
+}
+.carousel-indicators [data-bs-target] {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: none;
+  opacity: 1;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.carousel-indicators .active {
+  background-color: #8b0000;
+  transform: scale(1.2);
+}
+.carousel-indicators [data-bs-target]:hover {
+  background-color: #8b0000;
+}
+
 
 /* =====================================================
    NEWS + ABOUT SECTION (EQUAL HEIGHT LAYOUT)
