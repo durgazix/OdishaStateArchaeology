@@ -302,7 +302,7 @@ h3 { font-weight: 600; }
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 999;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
@@ -1087,7 +1087,7 @@ h3 { font-weight: 600; }
  }
 /* navbar */
 /* ===== STICKY NAVBAR ===== */
-.main-navbar { position: sticky; top: 0; z-index: 99; background: #fff; transition: box-shadow 0.3s ease; }
+.main-navbar { position: sticky; top: 0; z-index: 100; background: #fff; transition: box-shadow 0.3s ease; }
 /* Shadow when scrolled */
 .main-navbar.sticky { box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15); }
 .nav-list { display: flex; align-items: center; margin: 0; padding: 0; list-style: none; }
@@ -2359,7 +2359,7 @@ to { transform: scale(1); }
 .acts-table-rti td { border: 1px solid #ddd; padding: 12px 10px; text-align: left; vertical-align: top; line-height: 1.5; font-size: 16px; text-align: center; }
 /* TABLE HEADER */
 .acts-table-rti thead th { background: linear-gradient(135deg, #ed7f25e9, #ed7f25f7); color: white; font-weight: 600; padding: 16px 12px; border: none; position: sticky; top: 0; z-index: 10; text-align: center; font-size: 15px; white-space: nowrap; }
-.acts-table-rti thead th { color: #000; font-weight: 500; font-size: 18px; text-transform: capitalize; }
+.acts-table-rti thead th { color: #fff; font-weight: 600; font-size: 15px; text-transform: capitalize; }
 .acts-table-rti tbody tr { transition: background-color 0.3s ease; text-align: center; }
 .acts-table-rti tbody tr:hover { background-color: #f3f3f3; text-align: center; }
 /* ---------- Large Desktop (≥1400px) ---------- */

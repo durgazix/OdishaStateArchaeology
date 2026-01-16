@@ -235,10 +235,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// function openVirtualTour() {
-//   window.location.href = "virtualtour-section.html";
-// }
-
 function toggleTourOverlay() {
   const overlay = document.getElementById("tourOverlay");
   overlay.classList.toggle("active");
@@ -376,115 +372,7 @@ document.addEventListener("DOMContentLoaded", () => {
   startAutoSlide();
 });
 
-
-/* Monuments central view more option */
-// document.addEventListener("DOMContentLoaded", () => {
-//   const tableBody = document.getElementById("centralMonumentsTableBody");
-//   const rows = Array.from(tableBody.querySelectorAll("tr"));
-
-//   const viewMoreBtn = document.getElementById("centralMViewMore");
-//   const viewLessBtn = document.getElementById("centralViewLess");
-//   const tableContainer = document.querySelector(".table-container");
-
-//   const INITIAL_ROWS = 10;
-
-//   function showFirstTen() {
-//     rows.forEach((row, index) => {
-//       row.style.display = index < INITIAL_ROWS ? "table-row" : "none";
-//     });
-
-//     viewMoreBtn.classList.remove("d-none");
-//     viewLessBtn.classList.add("d-none");
-
-//     tableContainer.style.maxHeight = "none";
-//     tableContainer.style.overflowY = "hidden";
-//   }
-
-//   function showAll() {
-//     rows.forEach(row => {
-//       row.style.display = "table-row";
-//     });
-
-//     viewMoreBtn.classList.add("d-none");
-//     viewLessBtn.classList.remove("d-none");
-
-//     tableContainer.style.maxHeight = "700px";
-//     tableContainer.style.overflowY = "auto";
-//   }
-
-//   viewMoreBtn.addEventListener("click", showAll);
-//   viewLessBtn.addEventListener("click", () => {
-//     showFirstTen();
-//     tableContainer.scrollTo({ top: 0, behavior: "smooth" });
-//   });
-
-//   showFirstTen();
-
-
-//   viewMoreBtn.addEventListener("click", showAll);
-//   viewLessBtn.addEventListener("click", () => {
-//     showFirstTen();
-//     tableContainer.scrollTo({ top: 0, behavior: "smooth" });
-//   });
-
-//   showFirstTen();
-// });
-
-// Virtual Tour Modal functions
-
-document.addEventListener("DOMContentLoaded", () => {
-  initCentralViewMore();
-});
-
-const INITIAL_VISIBLE_ROWS = 10;
-
-function initCentralViewMore() {
-  const tbody = document.getElementById("centralMonumentsTableBody");
-  const viewMoreBtn = document.getElementById("centralMViewMore");
-  const viewLessBtn = document.getElementById("centralViewLess");
-  const tableContainer = document.querySelector(".table-container");
-
-  if (!tbody || !viewMoreBtn || !viewLessBtn) return;
-
-  const rows = Array.from(tbody.querySelectorAll("tr"));
-
-  // Hide rows beyond initial count
-  rows.forEach((row, index) => {
-    if (index >= INITIAL_VISIBLE_ROWS) {
-      row.classList.add("d-none");
-    }
-  });
-
-  // Hide "View Less" initially
-  viewLessBtn.classList.add("d-none");
-
-  // VIEW MORE CLICK
-  viewMoreBtn.addEventListener("click", () => {
-    rows.forEach(row => row.classList.remove("d-none"));
-    tableContainer.classList.add("scrolling-enabled");
-
-    viewMoreBtn.classList.add("d-none");
-    viewLessBtn.classList.remove("d-none");
-  });
-
-  // VIEW LESS CLICK
-  viewLessBtn.addEventListener("click", () => {
-    rows.forEach((row, index) => {
-      if (index >= INITIAL_VISIBLE_ROWS) {
-        row.classList.add("d-none");
-      }
-    });
-
-    tableContainer.classList.remove("scrolling-enabled");
-
-    viewLessBtn.classList.add("d-none");
-    viewMoreBtn.classList.remove("d-none");
-
-    // Scroll back to top of table
-    tableContainer.scrollIntoView({ behavior: "smooth" });
-  });
-}
-
+/* virtual tour section */
 function openVirtualTour(button) {
   const panorama = button.getAttribute('data-panorama');
   const modal = document.getElementById('virtualModal');
@@ -555,141 +443,7 @@ function closeVirtualTour() {
   document.getElementById("virtualModal").style.display = "none";
 }
 
-// updateCircle();
-// function updateCircle() {
-//   const selected = document.getElementById("circleSelect").value;
-//   const rows = document.querySelectorAll("#centralMonumentsTableBody tr");
-
-//   rows.forEach(row => {
-//     row.style.display =
-//       row.getAttribute("data-circle") === selected ? "" : "none";
-//   });
-
-//   document.getElementById("downloadBtn").onclick = function () {
-//     window.open(pdfLinks[selected], "_blank");
-//   };
-
-//   // 🔑 RESET PAGINATION
-//   currentPage = 1;
-//   renderTable();
-// }
-
-
-// central-monuments.js
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   const tableBody = document.getElementById("centralMonumentsTableBody");
-//   const rows = Array.from(tableBody.querySelectorAll("tr"));
-//   const districtFilter = document.getElementById("districtFilterCentral");
-
-//   // Use UNIQUE IDs for this table pagination
-//   const prevBtn = document.getElementById("centralPrevPage");
-//   const nextBtn = document.getElementById("centralNextPage");
-//   const pageNumbersContainer = document.getElementById("centralPageNumbers");
-//   const pageInfo = document.getElementById("centralPageInfo");
-
-//   const rowsPerPage = 10; // change if needed
-//   let currentPage = 1;
-//   let filteredRows = rows;
-
-//   function filterByDistrict() {
-//     const selected = districtFilter.value; // 'all', 'puri', 'khordha', etc.
-
-//     if (selected === "all") {
-//       filteredRows = rows;
-//     } else {
-//       filteredRows = rows.filter(
-//         (tr) =>
-//           (tr.dataset.circle || "").toLowerCase() === selected.toLowerCase()
-//       );
-//     }
-
-//     currentPage = 1;
-//     renderTable();
-//     renderPagination();
-//   }
-
-//   function getTotalPages() {
-//     return Math.max(1, Math.ceil(filteredRows.length / rowsPerPage));
-//   }
-
-//   function renderTable() {
-//     // Hide all rows
-//     rows.forEach((tr) => {
-//       tr.classList.add("d-none");
-//     });
-
-//     if (!filteredRows.length) {
-//       pageInfo.textContent = "No records found";
-//       pageNumbersContainer.innerHTML = "";
-//       prevBtn.disabled = true;
-//       nextBtn.disabled = true;
-//       return;
-//     }
-
-//     const totalPages = getTotalPages();
-//     if (currentPage > totalPages) currentPage = totalPages;
-
-//     const startIndex = (currentPage - 1) * rowsPerPage;
-//     const endIndex = startIndex + rowsPerPage;
-
-//     filteredRows
-//       .slice(startIndex, endIndex)
-//       .forEach((tr) => tr.classList.remove("d-none"));
-
-//     pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
-
-//     prevBtn.disabled = currentPage === 1;
-//     nextBtn.disabled = currentPage === totalPages;
-//   }
-
-//   function renderPagination() {
-//     pageNumbersContainer.innerHTML = "";
-
-//     const totalPages = getTotalPages();
-//     for (let i = 1; i <= totalPages; i++) {
-//       const btn = document.createElement("button");
-//       btn.type = "button";
-//       btn.textContent = i;
-//       btn.className = "page-number central-page-number";
-//       if (i === currentPage) {
-//         btn.classList.add("active");
-//       }
-
-//       btn.addEventListener("click", () => {
-//         currentPage = i;
-//         renderTable();
-//         renderPagination();
-//       });
-
-//       pageNumbersContainer.appendChild(btn);
-//     }
-//   }
-
-//   // Prev / Next
-//   prevBtn.addEventListener("click", () => {
-//     if (currentPage > 1) {
-//       currentPage--;
-//       renderTable();
-//       renderPagination();
-//     }
-//   });
-
-//   nextBtn.addEventListener("click", () => {
-//     if (currentPage < getTotalPages()) {
-//       currentPage++;
-//       renderTable();
-//       renderPagination();
-//     }
-//   });
-
-//   // District filter change
-//   districtFilter.addEventListener("change", filterByDistrict);
-
-//   // Initial render
-//   filterByDistrict();
-// });
-
+/* Central Table for Seclect Option*/
 document.addEventListener("DOMContentLoaded", function () {
   const districtFilter = document.getElementById("districtFilterCentral");
   const downloadBtn = document.getElementById("downloadBtn");
@@ -711,119 +465,297 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// document.addEventListener("DOMContentLoaded", function () {
+//   // Check if we're on the central monuments page
+//   const tbody = document.getElementById("centralMonumentsTableBody");
+  
+//   // Exit early if this page doesn't have the central monuments table
+//   if (!tbody) return;
+  
+//   const allRows = Array.from(tbody.querySelectorAll("tr"));
+//   const districtFilter = document.getElementById("districtFilterCentral");
+//   const searchInput = document.getElementById("centralSearchInput");
+  
+//   const prevBtn = document.getElementById("centralPrevPage");
+//   const nextBtn = document.getElementById("centralNextPage");
+//   const pageNumbersContainer = document.getElementById("centralPageNumbers");
+//   const pageInfo = document.getElementById("centralPageInfo");
+  
+//   // Safety check - exit if any required element is missing
+//   if (!districtFilter || !prevBtn || !nextBtn || !pageNumbersContainer || !pageInfo) {
+//     return;
+//   }
+  
+//   const rowsPerPage = 10;
+//   let currentPage = 1;
+//   let filteredRows = [];
+
+//   // Main filter and render function
+//   function filterAndRender() {
+//     const selectedDistrict = districtFilter.value.toLowerCase();
+//     const searchQuery = (searchInput?.value || "").trim().toLowerCase();
+    
+//     // Step 1: Filter by district
+//     let tempRows = allRows;
+//     if (selectedDistrict !== "all") {
+//       tempRows = allRows.filter((tr) => {
+//         const circle = (tr.dataset.circle || "").toLowerCase();
+//         return circle === selectedDistrict;
+//       });
+//     }
+    
+//     // Step 2: Filter by search query
+//     if (searchQuery) {
+//       tempRows = tempRows.filter((tr) => {
+//         const text = tr.textContent.toLowerCase();
+//         return text.includes(searchQuery);
+//       });
+//     }
+    
+//     // Store filtered rows
+//     filteredRows = tempRows;
+    
+//     // Reset to page 1
+//     currentPage = 1;
+    
+//     // Render
+//     renderTable();
+//     renderPagination();
+//   }
+
+//   function getTotalPages() {
+//     return Math.max(1, Math.ceil(filteredRows.length / rowsPerPage));
+//   }
+
+//   function renderTable() {
+//     // IMPORTANT: First, show ALL rows and remove d-none from everything
+//     allRows.forEach((tr) => {
+//       tr.classList.remove("d-none");
+//       tr.style.display = "none"; // Hide via inline style
+//     });
+    
+//     // Handle no results
+//     if (filteredRows.length === 0) {
+//       pageInfo.textContent = "No records found";
+//       pageNumbersContainer.innerHTML = "";
+//       prevBtn.disabled = true;
+//       nextBtn.disabled = true;
+//       return;
+//     }
+    
+//     const totalPages = getTotalPages();
+    
+//     // Ensure current page is valid
+//     if (currentPage > totalPages) currentPage = totalPages;
+//     if (currentPage < 1) currentPage = 1;
+    
+//     // Calculate pagination
+//     const start = (currentPage - 1) * rowsPerPage;
+//     const end = start + rowsPerPage;
+    
+//     // Show only the rows for this page
+//     const rowsToShow = filteredRows.slice(start, end);
+//     rowsToShow.forEach((tr) => {
+//       tr.style.display = "table-row"; // Show via inline style
+//     });
+    
+//     // Update page info
+//     pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+    
+//     // Update button states
+//     prevBtn.disabled = currentPage === 1;
+//     nextBtn.disabled = currentPage === totalPages;
+//   }
+
+//   function renderPagination() {
+//     pageNumbersContainer.innerHTML = "";
+//     const totalPages = getTotalPages();
+    
+//     for (let i = 1; i <= totalPages; i++) {
+//       const btn = document.createElement("button");
+//       btn.type = "button";
+//       btn.textContent = i;
+//       btn.className = "page-number central-page-number";
+      
+//       if (i === currentPage) {
+//         btn.classList.add("active");
+//       }
+      
+//       btn.addEventListener("click", () => {
+//         currentPage = i;
+//         renderTable();
+//         renderPagination();
+//       });
+      
+//       pageNumbersContainer.appendChild(btn);
+//     }
+//   }
+
+//   // Event listeners
+//   districtFilter.addEventListener("change", filterAndRender);
+
+//   if (searchInput) {
+//     searchInput.addEventListener("input", filterAndRender);
+//   }
+
+//   prevBtn.addEventListener("click", () => {
+//     if (currentPage > 1) {
+//       currentPage--;
+//       renderTable();
+//       renderPagination();
+//     }
+//   });
+
+//   nextBtn.addEventListener("click", () => {
+//     if (currentPage < getTotalPages()) {
+//       currentPage++;
+//       renderTable();
+//       renderPagination();
+//     }
+//   });
+
+//   // Initial load
+//   filterAndRender();
+// });
 
 document.addEventListener("DOMContentLoaded", function () {
-  const table = document.getElementById("central-table");
+  // Check if we're on the central monuments page
   const tbody = document.getElementById("centralMonumentsTableBody");
+  
+  // Exit early if this page doesn't have the central monuments table
+  if (!tbody) return;
+  
   const allRows = Array.from(tbody.querySelectorAll("tr"));
-
   const districtFilter = document.getElementById("districtFilterCentral");
   const searchInput = document.getElementById("centralSearchInput");
-
-  // Unique IDs for this table's pagination
+  
   const prevBtn = document.getElementById("centralPrevPage");
   const nextBtn = document.getElementById("centralNextPage");
   const pageNumbersContainer = document.getElementById("centralPageNumbers");
   const pageInfo = document.getElementById("centralPageInfo");
-
+  
+  // Safety check - exit if any required element is missing
+  if (!districtFilter || !prevBtn || !nextBtn || !pageNumbersContainer || !pageInfo) {
+    console.warn("Central monuments: Some required elements not found");
+    return;
+  }
+  
   const rowsPerPage = 10;
   let currentPage = 1;
-  let workingRows = allRows;
-  let visibleRows = allRows;
+  let filteredRows = [];
 
-  function applyDistrictFilter() {
-    const selected = districtFilter.value;
-
-    if (selected === "all") {
-      workingRows = allRows;
-    } else {
-      workingRows = allRows.filter((tr) => {
+  // Main filter and render function
+  function filterAndRender() {
+    const selectedDistrict = districtFilter.value.toLowerCase();
+    const searchQuery = (searchInput?.value || "").trim().toLowerCase();
+    
+    // Step 1: Filter by district
+    let tempRows = allRows;
+    if (selectedDistrict !== "all") {
+      tempRows = allRows.filter((tr) => {
         const circle = (tr.dataset.circle || "").toLowerCase();
-        return circle === selected.toLowerCase();
+        return circle === selectedDistrict;
       });
     }
-
-    // After changing district, reset search and page
-    currentPage = 1;
-    applySearchFilter();
-  }
-
-  // Apply text search on monument name / locality / district
-  function applySearchFilter() {
-    const q = (searchInput?.value || "").trim().toLowerCase();
-
-    if (!q) {
-      visibleRows = workingRows;
-    } else {
-      visibleRows = workingRows.filter((tr) => {
+    
+    // Step 2: Filter by search query
+    if (searchQuery) {
+      tempRows = tempRows.filter((tr) => {
         const text = tr.textContent.toLowerCase();
-        return text.includes(q);
+        return text.includes(searchQuery);
       });
     }
-
+    
+    // Store filtered rows
+    filteredRows = tempRows;
+    
+    // Reset to page 1
     currentPage = 1;
+    
+    // Render
     renderTable();
     renderPagination();
   }
 
   function getTotalPages() {
-    return Math.max(1, Math.ceil(visibleRows.length / rowsPerPage));
+    return Math.max(1, Math.ceil(filteredRows.length / rowsPerPage));
   }
 
   function renderTable() {
-    // hide all
-    allRows.forEach((tr) => tr.classList.add("d-none"));
-
-    if (!visibleRows.length) {
-      pageInfo.textContent = "No records found";
+    // Clear the tbody completely
+    tbody.innerHTML = "";
+    
+    // Handle no results
+    if (filteredRows.length === 0) {
+      const noDataRow = document.createElement("tr");
+      const noDataCell = document.createElement("td");
+      noDataCell.colSpan = 7;
+      noDataCell.textContent = "No records found";
+      noDataCell.style.textAlign = "center";
+      noDataCell.style.padding = "20px";
+      noDataRow.appendChild(noDataCell);
+      tbody.appendChild(noDataRow);
+      
+      pageInfo.textContent = "No records";
       pageNumbersContainer.innerHTML = "";
       prevBtn.disabled = true;
       nextBtn.disabled = true;
       return;
     }
-
+    
     const totalPages = getTotalPages();
+    
+    // Ensure current page is valid
     if (currentPage > totalPages) currentPage = totalPages;
-
+    if (currentPage < 1) currentPage = 1;
+    
+    // Calculate pagination
     const start = (currentPage - 1) * rowsPerPage;
     const end = start + rowsPerPage;
-
-    visibleRows.slice(start, end).forEach((tr) => tr.classList.remove("d-none"));
-
+    
+    // Add only the rows for this page to tbody
+    const rowsToShow = filteredRows.slice(start, end);
+    rowsToShow.forEach((tr) => {
+      tbody.appendChild(tr.cloneNode(true));
+    });
+    
+    // Update page info
     pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+    
+    // Update button states
     prevBtn.disabled = currentPage === 1;
     nextBtn.disabled = currentPage === totalPages;
   }
 
   function renderPagination() {
     pageNumbersContainer.innerHTML = "";
-
     const totalPages = getTotalPages();
+    
     for (let i = 1; i <= totalPages; i++) {
       const btn = document.createElement("button");
       btn.type = "button";
       btn.textContent = i;
       btn.className = "page-number central-page-number";
-      if (i === currentPage) btn.classList.add("active");
-
+      
+      if (i === currentPage) {
+        btn.classList.add("active");
+      }
+      
       btn.addEventListener("click", () => {
         currentPage = i;
         renderTable();
         renderPagination();
       });
-
+      
       pageNumbersContainer.appendChild(btn);
     }
   }
 
-  // Events
-  districtFilter.addEventListener("change", applyDistrictFilter);
+  // Event listeners
+  districtFilter.addEventListener("change", filterAndRender);
 
   if (searchInput) {
-    searchInput.addEventListener("input", function () {
-      currentPage = 1;
-      applySearchFilter();
-    });
+    searchInput.addEventListener("input", filterAndRender);
   }
 
   prevBtn.addEventListener("click", () => {
@@ -842,11 +774,112 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Initial
-  applyDistrictFilter();
+  // Initial load
+  filterAndRender();
+  
+  console.log("Central monuments pagination initialized successfully");
 });
 
 
+// State Protected Monuments Pagination
+document.addEventListener("DOMContentLoaded", function () {
+  const tbody = document.getElementById("stateProtectedTableBody");
+  
+  // Exit if not on state protected page
+  if (!tbody) return;
+  
+  const allRows = Array.from(tbody.querySelectorAll("tr"));
+  const prevBtn = document.getElementById("prevPage");
+  const nextBtn = document.getElementById("nextPage");
+  const pageNumbersContainer = document.getElementById("pageNumbers");
+  const pageInfo = document.getElementById("pageInfo");
+  
+  // Safety check
+  if (!prevBtn || !nextBtn || !pageNumbersContainer || !pageInfo) {
+    return;
+  }
+  
+  const rowsPerPage = 10;
+  let currentPage = 1;
+
+  function getTotalPages() {
+    return Math.max(1, Math.ceil(allRows.length / rowsPerPage));
+  }
+
+  function renderTable() {
+    // Clear tbody
+    tbody.innerHTML = "";
+    
+    const totalPages = getTotalPages();
+    
+    // Ensure current page is valid
+    if (currentPage > totalPages) currentPage = totalPages;
+    if (currentPage < 1) currentPage = 1;
+    
+    // Calculate pagination
+    const start = (currentPage - 1) * rowsPerPage;
+    const end = start + rowsPerPage;
+    
+    // Add rows for this page
+    allRows.slice(start, end).forEach((tr) => {
+      tbody.appendChild(tr.cloneNode(true));
+    });
+    
+    // Update page info
+    pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+    
+    // Update button states
+    prevBtn.disabled = currentPage === 1;
+    nextBtn.disabled = currentPage === totalPages;
+  }
+
+  function renderPagination() {
+    pageNumbersContainer.innerHTML = "";
+    const totalPages = getTotalPages();
+    
+    for (let i = 1; i <= totalPages; i++) {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.textContent = i;
+      btn.className = "page-number";
+      
+      if (i === currentPage) {
+        btn.classList.add("active");
+      }
+      
+      btn.addEventListener("click", () => {
+        currentPage = i;
+        renderTable();
+        renderPagination();
+      });
+      
+      pageNumbersContainer.appendChild(btn);
+    }
+  }
+
+  // Event listeners
+  prevBtn.addEventListener("click", () => {
+    if (currentPage > 1) {
+      currentPage--;
+      renderTable();
+      renderPagination();
+    }
+  });
+
+  nextBtn.addEventListener("click", () => {
+    if (currentPage < getTotalPages()) {
+      currentPage++;
+      renderTable();
+      renderPagination();
+    }
+  });
+
+  // Initial render
+  renderTable();
+  renderPagination();
+  
+  console.log("State protected pagination initialized");
+});
 
 // ================= JS FILES CONTENT BELOW =================
 
@@ -898,33 +931,6 @@ document.addEventListener("DOMContentLoaded", () => {
   observer.observe(headerContainer, { childList: true, subtree: true });
 });
 
-// - mid-navbar.js
-// let viewer = null;
-
-// function openVirtualTour() {
-//   const modal = document.getElementById("virtualModal");
-//   const panoDiv = document.getElementById("panoramaViewer");
-
-//   modal.style.display = "flex";
-
-//   if (!viewer) {
-//     const imageSrc = panoDiv.getAttribute("data-panorama");
-
-//     viewer = pannellum.viewer("panoramaViewer", {
-//       type: "equirectangular",
-//       panorama: imageSrc,
-//       autoLoad: true,
-//       compass: true,
-//       showFullscreenCtrl: true,
-//       mouseZoom: true,
-//     });
-//   }
-// }
-
-// function closeVirtualTour() {
-//   document.getElementById("virtualModal").style.display = "none";
-// }
-
 // Close modal when clicking outside the video
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("virtualModal");
@@ -933,132 +939,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (e.target === modal) {
         closeVirtualTour();
       }
-    });
-  }
-});
-
-// - news-about.js
-
-let currentNewsIndex = 0;
-let autoSlideInterval = null;
-let newsItems = [];
-
-function loadNewsFromHTML() {
-  const items = document.querySelectorAll("#news-data .news-item-data");
-
-  if (!items.length) {
-    console.warn("No news items found in #news-data");
-    return false;
-  }
-
-  newsItems = Array.from(items).map((item) => ({
-    title: item.querySelector("h3")?.textContent || "Untitled",
-    text: item.querySelector("p")?.textContent || "",
-    image: item.querySelector("img")?.getAttribute("src") || "",
-    alt: item.querySelector("img")?.getAttribute("alt") || "",
-  }));
-
-  console.log(`Loaded ${newsItems.length} news items`);
-  return true;
-}
-
-function updateNewsSlide(index) {
-  const newsContent = document.querySelector("#news-about .news-content");
-  const newsTitle = document.querySelector("#news-about .news-title");
-
-  if (!newsContent || !newsTitle || !newsItems.length) return;
-
-  if (index < 0 || index >= newsItems.length) index = 0;
-
-  clearInterval(autoSlideInterval);
-
-  // Fade out
-  newsContent.classList.remove("show");
-
-  setTimeout(() => {
-    const item = newsItems[index];
-
-    newsTitle.textContent = item.title;
-
-    newsContent.innerHTML = `
-      <div class="row g-3 align-items-start">
-        <div class="col-md-8">
-          <p class="news-text small text-muted lh-base mb-3">
-            ${item.text}
-          </p>
-          <a href="news-page.html" class="news-more fw-semibold text-decoration-none">
-            More..
-          </a>
-        </div>
-        <div class="col-md-4">
-          <img src="${item.image}"
-               alt="${item.alt || item.title}"
-               class="news-image img-fluid rounded w-100"
-               loading="lazy">
-        </div>
-      </div>
-    `;
-
-    newsContent.classList.add("show");
-  }, 300);
-
-  currentNewsIndex = index;
-  startAutoSlide();
-}
-
-function startAutoSlide() {
-  clearInterval(autoSlideInterval);
-
-  if (newsItems.length <= 1) return;
-
-  autoSlideInterval = setInterval(() => {
-    const next = (currentNewsIndex + 1) % newsItems.length;
-    updateNewsSlide(next);
-  }, 5000);
-}
-
-function initializeNewsSlider() {
-  if (!loadNewsFromHTML()) {
-    // newsItems = [
-    //   {
-    //     title: "Department of Archaeology",
-    //     text: "Latest updates from the Department of Archaeology.",
-    //     image: "assets/news/Vallam-min_6.jpg",
-    //     alt: "News",
-    //   },
-    // ];
-  }
-
-  const prevBtn = document.querySelector("#news-about .nav-prev");
-  const nextBtn = document.querySelector("#news-about .nav-next");
-
-  updateNewsSlide(0);
-
-  prevBtn?.addEventListener("click", () => {
-    const prev = (currentNewsIndex - 1 + newsItems.length) % newsItems.length;
-    updateNewsSlide(prev);
-  });
-
-  nextBtn?.addEventListener("click", () => {
-    const next = (currentNewsIndex + 1) % newsItems.length;
-    updateNewsSlide(next);
-  });
-
-  startAutoSlide();
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  initializeNewsSlider();
-
-  const newsBox = document.querySelector("#news-about");
-
-  if (newsBox) {
-    // newsBox.addEventListener("mouseenter", () => {
-    //   clearInterval(autoSlideInterval);
-    // });
-
-    newsBox.addEventListener("mouseleave", () => {
-      startAutoSlide();
     });
   }
 });
@@ -1206,170 +1086,88 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // - monuments-central.js
 
-document.addEventListener("DOMContentLoaded", () => {
-  initCentralPagination();
-});
-const ROWS_PER_PAGE = 10;
-let allRows = [];
-let currentPage = 1;
-let totalPages = 1;
-function initCentralPagination() {
-  const tbody = document.getElementById("centralMonumentsTableBody");
-  if (!tbody) return;
-
-  allRows = Array.from(tbody.querySelectorAll("tr"));
-  totalPages = Math.ceil(allRows.length / ROWS_PER_PAGE);
-
-  renderPage(currentPage);
-  renderPageNumbers();
-  setupButtons();
-}
-function renderPage(page) {
-  const tbody = document.getElementById("centralMonumentsTableBody");
-  tbody.innerHTML = "";
-
-  const start = (page - 1) * ROWS_PER_PAGE;
-  const end = start + ROWS_PER_PAGE;
-
-  allRows.slice(start, end).forEach(row => {
-    tbody.appendChild(row);
-  });
-
-  updatePageInfo();
-  highlightActivePage();
-  toggleButtons();
-}
-function renderPageNumbers() {
-  const pageNumbers = document.getElementById("pageNumbers");
-  pageNumbers.innerHTML = "";
-
-  for (let i = 1; i <= totalPages; i++) {
-    const btn = document.createElement("button");
-    btn.className = "page-number";
-    btn.textContent = i;
-
-    btn.addEventListener("click", () => {
-      currentPage = i;
-      renderPage(currentPage);
-    });
-
-    pageNumbers.appendChild(btn);
-  }
-}
-function setupButtons() {
-  document.getElementById("prevPage").addEventListener("click", () => {
-    if (currentPage > 1) {
-      currentPage--;
-      renderPage(currentPage);
-    }
-  });
-
-  document.getElementById("nextPage").addEventListener("click", () => {
-    if (currentPage < totalPages) {
-      currentPage++;
-      renderPage(currentPage);
-    }
-  });
-}
-
-function updatePageInfo() {
-  document.getElementById("pageInfo").textContent =
-    `Page ${currentPage} of ${totalPages}`;
-}
-
-function highlightActivePage() {
-  document.querySelectorAll(".page-number").forEach((btn, index) => {
-    btn.classList.toggle("active", index + 1 === currentPage);
-  });
-}
-
-function toggleButtons() {
-  document.getElementById("prevPage").disabled = currentPage === 1;
-  document.getElementById("nextPage").disabled = currentPage === totalPages;
-}
-
-// - state-protected.js
 // document.addEventListener("DOMContentLoaded", () => {
-//   initStatePagination();
+//   initCentralPagination();
 // });
-// const STATE_ROWS_PER_PAGE = 10;
-// let stateRows = [];
-// let stateCurrentPage = 1;
-// let stateTotalPages = 1;
-
-// function initStatePagination() {
-//   const tbody = document.getElementById("monumentsTableBody");
+// const ROWS_PER_PAGE = 10;
+// let allRows = [];
+// let currentPage = 1;
+// let totalPages = 1;
+// function initCentralPagination() {
+//   const tbody = document.getElementById("centralMonumentsTableBody");
 //   if (!tbody) return;
 
-//   stateRows = Array.from(tbody.querySelectorAll("tr"));
-//   stateTotalPages = Math.ceil(stateRows.length / STATE_ROWS_PER_PAGE);
+//   allRows = Array.from(tbody.querySelectorAll("tr"));
+//   totalPages = Math.ceil(allRows.length / ROWS_PER_PAGE);
 
-//   renderStatePage(stateCurrentPage);
-//   renderStatePageNumbers();
-//   setupStateButtons();
+//   renderPage(currentPage);
+//   renderPageNumbers();
+//   setupButtons();
 // }
-// function renderStatePage(page) {
-//   const tbody = document.getElementById("monumentsTableBody");
+// function renderPage(page) {
+//   const tbody = document.getElementById("centralMonumentsTableBody");
 //   tbody.innerHTML = "";
 
-//   const start = (page - 1) * STATE_ROWS_PER_PAGE;
-//   const end = start + STATE_ROWS_PER_PAGE;
+//   const start = (page - 1) * ROWS_PER_PAGE;
+//   const end = start + ROWS_PER_PAGE;
 
-//   stateRows.slice(start, end).forEach(row => {
+//   allRows.slice(start, end).forEach(row => {
 //     tbody.appendChild(row);
 //   });
 
-//   updateStatePageInfo();
-//   highlightStateActivePage();
-//   toggleStateButtons();
+//   updatePageInfo();
+//   highlightActivePage();
+//   toggleButtons();
 // }
-// function renderStatePageNumbers() {
-//   const container = document.getElementById("statePageNumbers");
-//   container.innerHTML = "";
+// function renderPageNumbers() {
+//   const pageNumbers = document.getElementById("pageNumbers");
+//   pageNumbers.innerHTML = "";
 
-//   for (let i = 1; i <= stateTotalPages; i++) {
+//   for (let i = 1; i <= totalPages; i++) {
 //     const btn = document.createElement("button");
 //     btn.className = "page-number";
 //     btn.textContent = i;
 
 //     btn.addEventListener("click", () => {
-//       stateCurrentPage = i;
-//       renderStatePage(stateCurrentPage);
+//       currentPage = i;
+//       renderPage(currentPage);
 //     });
 
-//     container.appendChild(btn);
+//     pageNumbers.appendChild(btn);
 //   }
 // }
-// function setupStateButtons() {
-//   document.getElementById("statePrevPage").addEventListener("click", () => {
-//     if (stateCurrentPage > 1) {
-//       stateCurrentPage--;
-//       renderStatePage(stateCurrentPage);
+// function setupButtons() {
+//   document.getElementById("prevPage").addEventListener("click", () => {
+//     if (currentPage > 1) {
+//       currentPage--;
+//       renderPage(currentPage);
 //     }
 //   });
 
-//   document.getElementById("stateNextPage").addEventListener("click", () => {
-//     if (stateCurrentPage < stateTotalPages) {
-//       stateCurrentPage++;
-//       renderStatePage(stateCurrentPage);
+//   document.getElementById("nextPage").addEventListener("click", () => {
+//     if (currentPage < totalPages) {
+//       currentPage++;
+//       renderPage(currentPage);
 //     }
 //   });
 // }
-// function updateStatePageInfo() {
-//   document.getElementById("statePageInfo").textContent =
-//     `Page ${stateCurrentPage} of ${stateTotalPages}`;
+
+// function updatePageInfo() {
+//   document.getElementById("pageInfo").textContent =
+//     `Page ${currentPage} of ${totalPages}`;
 // }
 
-// function highlightStateActivePage() {
-//   document.querySelectorAll("#statePageNumbers .page-number").forEach((btn, index) => {
-//     btn.classList.toggle("active", index + 1 === stateCurrentPage);
+// function highlightActivePage() {
+//   document.querySelectorAll(".page-number").forEach((btn, index) => {
+//     btn.classList.toggle("active", index + 1 === currentPage);
 //   });
 // }
 
-// function toggleStateButtons() {
-//   document.getElementById("statePrevPage").disabled = stateCurrentPage === 1;
-//   document.getElementById("stateNextPage").disabled = stateCurrentPage === stateTotalPages;
+// function toggleButtons() {
+//   document.getElementById("prevPage").disabled = currentPage === 1;
+//   document.getElementById("nextPage").disabled = currentPage === totalPages;
 // }
+
 
 // - archaeology-library.js
 document.addEventListener("DOMContentLoaded", () => {
@@ -1577,9 +1375,6 @@ function scrollToGallery() {
     .getElementById("gallery")
     .scrollIntoView({ behavior: "smooth", block: "start" });
 }
-
-
-
 
 function initGallery() {
   // Prevent multiple initializations
