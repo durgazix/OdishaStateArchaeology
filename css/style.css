@@ -2335,37 +2335,46 @@ to { transform: scale(1); }
 .central-protected-section-divider { width: 40%; height: 3px; background: linear-gradient(to right, #ff9900, transparent); }
 .central-subtitle { font-size: 16px; color: #666; max-width: 700px; margin: 0 auto; line-height: 1.6; }
 .table-container { background: #ffffff; border-radius: 6px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); padding: 10px; margin: 0 auto 40px auto; max-width: 1300px;}
+/* Filter Wrapper */
+.filter-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  /* margin-bottom: 20px; */
+}
 
-
-#circleSelect {
-  padding: 6px 12px;
+/* Dropdown Style */
+#districtFilterCentral {
+  appearance: none;
+  /* width: 100%; */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: #ffffff;
+  border: 2px solid #ff9900;
+  border-radius: 8px;
+  padding: 10px 42px 10px 14px;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   color: #333;
-  background-color: #fff;
-  border: 1px solid #ff9900;
-  border-radius: 4px;
   cursor: pointer;
-  outline: none;
+  min-width: 180px;
   transition: all 0.3s ease;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23ff9900' viewBox='0 0 16 16'%3E%3Cpath d='M1.5 5.5l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 12px;
 }
 
-/* Hover */
-#circleSelect:hover {
-  border-color: #e67e00;
+/* Hover & Focus */
+#districtFilterCentral:hover {
+  background-color: #fff7ec;
 }
 
-/* Focus */
-#circleSelect:focus {
-  border-color: #ff9900;
-  box-shadow: 0 0 0 2px rgba(255, 153, 0, 0.2);
+#districtFilterCentral:focus {
+  outline: none;
+  border-color: #dd6d05;
+  box-shadow: 0 0 0 3px rgba(255, 153, 0, 0.25);
 }
 
-/* Dropdown options */
-#circleSelect option {
-  font-size: 14px;
-  padding: 6px;
-}
 
 .central-table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 0;
     height: auto !important;
@@ -2400,6 +2409,7 @@ to { transform: scale(1); }
 .central-table tbody tr:nth-child(even) { background-color: #f9fafc; }
 .central-table tbody tr:nth-child(even):hover { background-color: rgba(44, 90, 160, 0.08); }
 /*Virtual Tour Section*/
+
 /* Responsive Design */
 @media (max-width: 768px) {
  .table-container { padding: 10px; overflow-x: auto; }
