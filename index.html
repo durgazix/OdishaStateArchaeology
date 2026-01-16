@@ -84,27 +84,6 @@
 
       <!-- RIGHT CONTROLS -->
       <div class="mid-actions">
-
-        <!-- Virtual Tour -->
-        <!-- <button class="virtual-btn" onclick="openVirtualTour()">
-          <a href="virtualtour-section.html"></a>
-          <img src="assets/player-image.png" alt="Player Image" class="virtual-btn-triangle">Virtual Tour
-        </button> -->
-        <!-- Virtual Tour Modal -->
-        <!-- <div id="virtualModal" class="virtual-modal">
-          <div class="virtual-content">
-            <button class="close" onclick="closeVirtualTour()" title="Close Virtual Tour">✕</button>
-            <div id="panoramaViewer" data-panorama="assets/virtual-tour/virtual_tour.jpg">
-            </div>
-          </div>
-        </div> -->
-
-        <!-- Dorp Down Option -->
-        <!-- <button class="virtual-btn" onclick="toggleTourOverlay()">
-          <img src="assets/player-image.png" alt="Player Image" class="virtual-btn-triangle">
-          <span>Virtual Tour</span>
-        </button> -->
-
         <!-- Page Section -->
         <a href="virtualtour-section.html" class="virtual-btn">
           <img src="assets/player-image.png" alt="Player Image" class="virtual-btn-triangle">
@@ -197,50 +176,50 @@
   </nav>
 
   <!-- hero -->
- <section class="hero">
-  <div id="heroCarousel" class="carousel slide " data-bs-ride="carousel" data-bs-interval="4000">
+  <section class="hero">
+    <div id="heroCarousel" class="carousel slide " data-bs-ride="carousel" data-bs-interval="4000">
 
-    <!-- Indicators (Dots) -->
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
-      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
-      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+      <!-- Indicators (Dots) -->
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+      </div>
+
+      <!-- Slides -->
+      <div class="carousel-inner">
+
+        <div class="carousel-item active" style="background-image:url('assets/banners/arc_banner_1.jpeg')">
+          <div class="hero-caption">
+            NRUSINGHANATHA TEMPLE, PAIKMAL, BARGHAR
+          </div>
+        </div>
+
+        <div class="carousel-item" style="background-image:url('assets/banners/arc_banner_2.jpeg')">
+          <div class="hero-caption">
+            ALARNATHA TEMPLE, BRAHMAGIRI, PURI
+          </div>
+        </div>
+
+        <div class="carousel-item" style="background-image:url('assets/banners/arc_banner_4.jpeg')">
+          <div class="hero-caption">
+            NILAMADHAVA TEMPLE, KANTILO, NAYAGARH
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+
     </div>
-
-    <!-- Slides -->
-    <div class="carousel-inner">
-
-      <div class="carousel-item active" style="background-image:url('assets/banners/arc_banner_1.jpeg')">
-        <div class="hero-caption">
-          NRUSINGHANATHA TEMPLE, PAIKMAL, BARGHAR
-        </div>
-      </div>
-
-      <div class="carousel-item" style="background-image:url('assets/banners/arc_banner_2.jpeg')">
-        <div class="hero-caption">
-          ALARNATHA TEMPLE, BRAHMAGIRI, PURI
-        </div>
-      </div>
-
-      <div class="carousel-item" style="background-image:url('assets/banners/arc_banner_4.jpeg')">
-        <div class="hero-caption">
-          NILAMADHAVA TEMPLE, KANTILO, NAYAGARH
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Controls -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-    </button>
-
-    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
-    </button>
-
-  </div>
-</section>
+  </section>
 
 
   <!-- News-about page -->
@@ -283,7 +262,7 @@
                       </div>
                     </div>
                     <a href="activity-soac.html" class="btn view-btn">More</a>
-                    
+
                   </div>
                 </div>
                 <!-- ITEM 2 -->
@@ -416,7 +395,7 @@
         </div>
       </div>
     </div>
-    
+
   </section>
 
   <!-- activities-notice-links -->
@@ -466,14 +445,19 @@
                 </div>
                 <p class="activity-text">Archaeological Survey Expedition</p>
               </div>
-              
+              <div class="activity-item">
+                <div class="date-box">
+                  <span class="day">15</span>
+                  <span class="month">Dec</span>
+                  <span class="year">2025</span>
+                </div>
+                <p class="activity-text">Archaeological Survey Expedition</p>
+              </div>
             </div>
-
             <a href="notification-activities.html" class="view-all-btn mt-auto">View All <span
                 class="arrow">→</span></a>
           </div>
         </div>
-
         <!-- NOTIFICATION -->
         <div class="col-12 col-md-6 col-lg-4">
           <div class="notice-box h-100">
@@ -482,6 +466,46 @@
             </div>
             <div class="title-divider"></div>
 
+            <div class="notice-content">
+              <div class="notice-item">
+                <div class="date-box">
+                  <span class="day">18</span>
+                  <span class="month">Dec</span>
+                  <span class="year">2025</span>
+                </div>
+                <p class="notice-text">Important Announcement</p>
+              </div>
+            </div>
+            <div class="notice-content">
+              <div class="notice-item">
+                <div class="date-box">
+                  <span class="day">18</span>
+                  <span class="month">Dec</span>
+                  <span class="year">2025</span>
+                </div>
+                <p class="notice-text">Important Announcement</p>
+              </div>
+            </div>
+            <div class="notice-content">
+              <div class="notice-item">
+                <div class="date-box">
+                  <span class="day">18</span>
+                  <span class="month">Dec</span>
+                  <span class="year">2025</span>
+                </div>
+                <p class="notice-text">Important Announcement</p>
+              </div>
+            </div>
+            <div class="notice-content">
+              <div class="notice-item">
+                <div class="date-box">
+                  <span class="day">18</span>
+                  <span class="month">Dec</span>
+                  <span class="year">2025</span>
+                </div>
+                <p class="notice-text">Important Announcement</p>
+              </div>
+            </div>
             <div class="notice-content">
               <div class="notice-item">
                 <div class="date-box">

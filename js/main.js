@@ -937,86 +937,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// - hero.js
-// document.addEventListener("DOMContentLoaded", () => {
-//   const slides = document.querySelectorAll(".hero-slide");
-//   const dots = document.querySelectorAll(".dot");
-//   const nextBtn = document.querySelector(".hero-arrow.next");
-//   const prevBtn = document.querySelector(".hero-arrow.prev");
-//   const hero = document.querySelector(".hero");
-
-//   let current = 0;
-//   let timer;
-
-//   function showSlide(index) {
-//     slides.forEach((slide, i) => {
-//       slide.classList.remove("active", "prev");
-
-//       if (i === index) {
-//         slide.classList.add("active");
-//       } else if (i === current) {
-//         slide.classList.add("prev");
-//       }
-//     });
-
-//     dots.forEach((dot) => dot.classList.remove("active"));
-//     dots[index].classList.add("active");
-
-//     current = index;
-//   }
-
-//   function nextSlide() {
-//     showSlide((current + 1) % slides.length);
-//   }
-
-//   function prevSlide() {
-//     showSlide((current - 1 + slides.length) % slides.length);
-//   }
-
-//   function startAutoSlide() {
-//     timer = setInterval(nextSlide, 5000);
-//   }
-
-//   function stopAutoSlide() {
-//     clearInterval(timer);
-//   }
-
-//   // ▶ Buttons
-//   nextBtn.addEventListener("click", () => {
-//     nextSlide();
-//     stopAutoSlide();
-//     startAutoSlide();
-//   });
-
-//   prevBtn.addEventListener("click", () => {
-//     prevSlide();
-//     stopAutoSlide();
-//     startAutoSlide();
-//   });
-
-//   // ▶ Dots
-//   dots.forEach((dot, index) => {
-//     dot.addEventListener("click", () => {
-//       showSlide(index);
-//       stopAutoSlide();
-//       startAutoSlide();
-//     });
-//   });
-
-//   // ✅ PAUSE ON HOVER
-//   hero.addEventListener("mouseenter", () => {
-//     stopAutoSlide();
-//   });
-
-//   hero.addEventListener("mouseleave", () => {
-//     startAutoSlide();
-//   });
-
-//   // Start slider
-//   showSlide(0);
-//   startAutoSlide();
-// });
-
 // - news-about.js
 
 let currentNewsIndex = 0;
@@ -1208,17 +1128,6 @@ window.showAboutPage = function () {
   }, 100);
 };
 
-window.closeDetailPage = function () {
-  const aboutDetailSection = document.getElementById("about-detail");
-
-  if (aboutDetailSection) {
-    aboutDetailSection.style.display = "none";
-    aboutDetailSection.classList.remove("active");
-  }
-
-  // Return to home
-  goHome();
-};
 // - activities-notice-links.js
 document.addEventListener("DOMContentLoaded", () => {
   const items = document.querySelectorAll(".activity-item");

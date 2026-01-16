@@ -999,7 +999,7 @@ h3 { font-weight: 600; }
 .virtual-btn-triangle { width: 18px; height: 18px; object-fit: contain; background: transparent; display: inline-block; background: none; transition: transform 0.3s ease; }
 /* Rotate on hover */
 .virtual-btn:hover .virtual-btn-triangle { transform: rotate(90deg); }
-.virtual-btn:hover { color: #fff; /* border: 1px solid #ff9900cc; */
+.virtual-btn:hover { color: #fff;
   background-color: #b13d03; }
 /* Search */
 .search-box { display: flex; border: 1px solid #b13d03; border-radius: 2px; margin-right: 20px; }
@@ -1521,55 +1521,195 @@ h3 { font-weight: 600; }
 }
 
 /* activities-notice-links.css */
-.activities-notice-links-section { padding: 20px 0; background: #f5f1f1dd; }
+/* SECTION */
+.activities-notice-links-section {
+  padding: 40px 0;
+  background: #f5f1f1dd;
+}
+
 /* BOXES */
 .activities-box,
 .notice-box,
-.important-links-box { background: #fff; padding: 40px; border-radius: 8px; border: 1px solid #e5e5e5; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); transition: all 0.3s ease; display: flex; flex-direction: column; }
+.important-links-box {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .activities-box:hover,
 .notice-box:hover,
-.important-links-box:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); }
+.important-links-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+
 /* HEADER */
-.section-header { display: flex; align-items: center; margin-bottom: 10px; }
-.section-title { font-size: 20px; font-weight: 700; text-transform: uppercase; }
-.title-divider { height: 2px; background: #000; margin-bottom: 20px; }
-/* ACTIVITY + NOTICE */
+.section-header {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #222;
+}
+
+.title-divider {
+  height: 3px;
+  background: #222222;
+  margin: 10px auto 20px;
+  width: 100%;
+}
+
+/* ACTIVITY / NOTICE ITEM */
 .activity-item,
-.notice-item { display: flex; gap: 15px; margin-bottom: 18px; animation: slideInUp 0.5s ease-in-out; }
-/* ===== DATE BOX (RESPONSIVE & ACCESSIBLE) ===== */
-.date-box { background: linear-gradient(135deg, #f3a668e5 0%, #b83b00 100%); color: #fff; min-width: 60px; padding: 6px 8px; border-radius: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 700; line-height: 1.1; flex-shrink: 0; text-align: center; transition: transform 0.2s ease; }
-.date-box:hover { transform: scale(1.05); }
-/* DAY */
-.date-box .day { font-size: 16px; line-height: 1; }
-/* MONTH */
-.date-box .month { font-size: 10px; text-transform: uppercase; opacity: 0.95; }
-/* YEAR */
-.date-box .year { font-size: 10px; opacity: 0.9; }
+.notice-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.activity-item:last-child,
+.notice-item:last-child {
+  border-bottom: none;
+}
+
+/* DATE BOX */
+.date-box {
+  background: linear-gradient(135deg, #f3a668e5 0%, #b83b00 100%);
+  color: #ffffff;
+  min-width: 60px;
+  padding: 6px 6px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  line-height: 1.1;
+  flex-shrink: 0;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.date-box:hover {
+  transform: scale(1.05);
+}
+
+.date-box .day {
+  font-size: 18px;
+}
+
+.date-box .month {
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.date-box .year {
+  font-size: 10px;
+  opacity: 0.9;
+}
+
+/* TEXT */
 .activity-text,
-.notice-text { font-size: 14px; font-weight: 500; }
-/* LINKS */
-.links-scroll-container { height: 200px; overflow: hidden; position: relative; }
-/* Scrolling content */
-.links-content { display: flex; flex-direction: column; animation: scrollLinks 15s linear infinite; }
-/* List styling */
-.links-list { list-style: none; padding: 0; margin: 0; }
-.links-list li { padding: 8px 0; }
-.links-list a { text-decoration: none; color: #333; font-size: 14px; }
-.links-list a:hover { color: #dd6d05; text-decoration: #f3a668e5; }
-/* Scroll animation */
+.notice-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #444;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* IMPORTANT LINKS */
+.links-scroll-container {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.links-content {
+  display: flex;
+  flex-direction: column;
+  animation: scrollLinks 15s linear infinite;
+}
+
+.links-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.links-list li {
+  padding: 8px 0;
+  border-bottom: 1px dashed #ddd;
+}
+
+.links-list li:last-child {
+  border-bottom: none;
+}
+
+.links-list a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+}
+
+.links-list a:hover {
+  color: #ff9900;
+}
+
+/* VIEW ALL */
+.view-all-btn {
+  margin-top: auto;
+  align-self: flex-end;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ff9900;
+  text-decoration: none;
+}
+
+.view-all-btn:hover {
+  color: #e66c00;
+}
+
+/* SCROLL ANIMATION */
 @keyframes scrollLinks {
- 0% { transform: translateY(0); }
-100% { transform: translateY(-50%); }
- }
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+@media (max-width: 576px) {
+  .activities-box,
+  .notice-box,
+  .important-links-box {
+    padding: 22px;
+  }
+
+  .section-title {
+    font-size: 16px;
+  }
+
+  .activity-text,
+  .notice-text,
+  .links-list a {
+    font-size: 13px;
+  }
+
+  .view-all-btn {
+    align-self: center;
+  }
+}
 /* VIEW ALL */
 .view-all-btn { font-size: 13px; font-weight: 600; color: #d24a00; margin-top: auto; align-self: flex-end; text-decoration: none; }
-/* ANIMATIONS */
-@media (max-width: 576px) {
- .date-box { min-width: 54px; padding: 6px; }
-.date-box .day { font-size: 15px; }
-.date-box .month,
-  .date-box .year { font-size: 9px; }
- }
 @media (min-width: 768px) {
  .date-box { min-width: 64px; }
 .date-box .day { font-size: 17px; }
