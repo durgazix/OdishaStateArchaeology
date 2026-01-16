@@ -1084,91 +1084,6 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log("PDF viewer setup complete");
 });
 
-// - monuments-central.js
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   initCentralPagination();
-// });
-// const ROWS_PER_PAGE = 10;
-// let allRows = [];
-// let currentPage = 1;
-// let totalPages = 1;
-// function initCentralPagination() {
-//   const tbody = document.getElementById("centralMonumentsTableBody");
-//   if (!tbody) return;
-
-//   allRows = Array.from(tbody.querySelectorAll("tr"));
-//   totalPages = Math.ceil(allRows.length / ROWS_PER_PAGE);
-
-//   renderPage(currentPage);
-//   renderPageNumbers();
-//   setupButtons();
-// }
-// function renderPage(page) {
-//   const tbody = document.getElementById("centralMonumentsTableBody");
-//   tbody.innerHTML = "";
-
-//   const start = (page - 1) * ROWS_PER_PAGE;
-//   const end = start + ROWS_PER_PAGE;
-
-//   allRows.slice(start, end).forEach(row => {
-//     tbody.appendChild(row);
-//   });
-
-//   updatePageInfo();
-//   highlightActivePage();
-//   toggleButtons();
-// }
-// function renderPageNumbers() {
-//   const pageNumbers = document.getElementById("pageNumbers");
-//   pageNumbers.innerHTML = "";
-
-//   for (let i = 1; i <= totalPages; i++) {
-//     const btn = document.createElement("button");
-//     btn.className = "page-number";
-//     btn.textContent = i;
-
-//     btn.addEventListener("click", () => {
-//       currentPage = i;
-//       renderPage(currentPage);
-//     });
-
-//     pageNumbers.appendChild(btn);
-//   }
-// }
-// function setupButtons() {
-//   document.getElementById("prevPage").addEventListener("click", () => {
-//     if (currentPage > 1) {
-//       currentPage--;
-//       renderPage(currentPage);
-//     }
-//   });
-
-//   document.getElementById("nextPage").addEventListener("click", () => {
-//     if (currentPage < totalPages) {
-//       currentPage++;
-//       renderPage(currentPage);
-//     }
-//   });
-// }
-
-// function updatePageInfo() {
-//   document.getElementById("pageInfo").textContent =
-//     `Page ${currentPage} of ${totalPages}`;
-// }
-
-// function highlightActivePage() {
-//   document.querySelectorAll(".page-number").forEach((btn, index) => {
-//     btn.classList.toggle("active", index + 1 === currentPage);
-//   });
-// }
-
-// function toggleButtons() {
-//   document.getElementById("prevPage").disabled = currentPage === 1;
-//   document.getElementById("nextPage").disabled = currentPage === totalPages;
-// }
-
-
 // - archaeology-library.js
 document.addEventListener("DOMContentLoaded", () => {
   const sliderTrack = document.getElementById("archSliderTrack");
@@ -1632,12 +1547,12 @@ const pdfFiles = {
     file: "assets/act-rules-pdfs/Act&Rules_1.pdf",
   },
   act2: {
-    title: "Orissa Ancient Monuments Preservation Rule, 1958",
-    file: "assets/act-rules-pdfs/Act&Rules_1.pdf",
+    title: "Orissa Ancient Monuments Preservation Rule, 1956",
+    file: "assets/monuments/Orissa_Ancient_Monuments_Preservation_Act_1956.pdf",
   },
   act3: {
-    title: "Orissa Ancient Monuments Preservation Act, 1956",
-    file: "assets/act-rules-pdfs/Act&Rules_1.pdf",
+    title: "Orissa Ancient Monuments Preservation Act, 1958",
+    file: "assets/monuments/Orissa_Ancient_Monuments_Preservation_Rule_1958.pdf",
   }
 };
 
