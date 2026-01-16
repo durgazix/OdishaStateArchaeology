@@ -1983,7 +1983,7 @@ to { transform: scale(1); }
 .breadcrumb-item.active { font-weight: 600; }
 .breadcrumb-separator { color: #fff; }
 /* SECTION */
-.books-journals-section { background: #f9f9f9; min-height: calc(100vh - 150px); }
+.books-journals-section { background: #f9f9f9; min-height: 50vh }
 /* HEADING */
 .books-journals-heading { margin-bottom: 25px; }
 .books-journals-title { font-size: 28px; font-weight: 700; color: #333; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
