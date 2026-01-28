@@ -603,12 +603,13 @@ h3 { font-weight: 600; }
   font-size: 26px;
   font-weight: 700;
   display: inline-block;
-  padding-bottom: 5px;
+  padding-bottom: 6px;
 }
 
 .govt-news-title-divider{
   width: 40%;
-  height: 4px; background: linear-gradient(to right, #ff9900, transparent);
+  height: 3px; 
+  background: linear-gradient(to right, #ff9900, transparent);
   margin-bottom: 20px;
 }
 
@@ -2740,7 +2741,7 @@ to { transform: scale(1); }
  }
 /* GOVERNMENT TABLE DESIGN */
 #notification-section { background-color: #f9f9f9; min-height: 50vh; }
-.notification-title { font-size: 26px; font-weight: 600; color: #000; text-transform: uppercase; margin-bottom: 15px; text-align: left; }
+.notification-title { font-size: 26px; font-weight: 600; color: #000; text-transform: uppercase; margin-bottom: 6px; text-align: left; }
 .notification-divider { width: 20%; height: 3px; background: linear-gradient(to right, #ff9900, transparent); }
 .notification-table { width: 100%; border-collapse: collapse; background: #ffffff; box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05); }
 /* TABLE HEADER */
