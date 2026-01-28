@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>monuments-central Page</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <!-- Top Government Header -->
+    <div class="top-header border-bottom">
+        <div class="container-fluid px-3">
+            <div class="row align-items-center gy-1">
+                <!-- Left -->
+                <div class="col-md-6 col-12 text-center text-md-start top-left">
+                    <span class="support">
+                        📞 Support:
+                        <a href="tel:+914428190020" class="text-decoration-none">
+                            (+9144) 28190020
+                        </a>
+                    </span>
+                </div>
+
+                <!-- Right -->
+                <div
+                    class="col-md-6 col-12 d-flex justify-content-center justify-content-md-end align-items-center flex-wrap gap-2 top-right">
+                    <a href="#" class="top-link">Policy Note</a>
+                    <span class="divider">|</span>
+
+                    <a href="#" class="top-link">Screen Reader Access</a>
+                    <span class="divider">|</span>
+
+                    <a href="#navList" class="top-link">Skip Navigation</a>
+                    <span class="divider">|</span>
+
+                    <!-- Font Controls -->
+                    <div class="btn-group font-controls" role="group">
+                        <button id="font-decrease" class="btn btn-outline-secondary btn-sm">
+                            A-
+                        </button>
+                        <button id="font-normal" class="btn btn-outline-secondary btn-sm">
+                            A
+                        </button>
+                        <button id="font-increase" class="btn btn-outline-secondary btn-sm">
+                            A+
+                        </button>
+                    </div>
+
+                    <span class="divider">|</span>
+
+                    <!-- Language Toggle -->
+                    <button id="langToggleBtn" class="btn btn-outline-secondary btn-sm lang-toggle-btn">
+                        ଓଡ଼ିଆ
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- midnavbar -->
+    <div class="mid-navbar">
+        <div class="mid-container">
+            <!-- LEFT LOGOS -->
+            <div class="mid-logos">
+                <img src="assets/logo/odisha_govt.png" alt="Govt of Odisha" />
+                <img src="assets/logo/culturedept.jpg" alt="ASI" />
+                <img src="assets/logo/culturedept.jpg" alt="Archaeology" />
+            </div>
+
+            <!-- CENTER TEXT -->
+            <div class="mid-title">
+                <h2>Odisha State <b>Archaeology</b></h2>
+                <h3><b>Odia Language, Literature & Culture Department</b></h2>
+                    <h3><b>Government of Odisha</b></h3>
+            </div>
+
+            <!-- RIGHT CONTROLS -->
+            <div class="mid-actions">
+                <a href="virtualtour-section.html" class="virtual-btn">
+                    <img src="assets/player-image.png" alt="Player Image" class="virtual-btn-triangle">
+                    Virtual Tour
+                </a>
+
+                <!-- Search -->
+                <!-- Search -->
+                <div class="search-box">
+                    <input type="text" placeholder="Search" />
+                    <button class="search-btn"><i class="fa fa-search"></i></button>
+                </div>
+
+                <!-- Mobile Icons -->
+                <div class="mobile-icons">
+                    <button class="search-icon"><i class="fa fa-search"></i></button>
+                    <button class="menu-icon" id="menuToggle" onclick="toggleMenu()">
+                        ☰
+                    </button>
+                    <button class="close-icon" id="closeMenuBtn" onclick="toggleMenu()">
+                        ✕
+                    </button>
+                </div>
+            </div>
+            <div class="mid-logos">
+                <img src="assets/logo/culturedept.jpg" alt="Archaeology logo" />
+            </div>
+        </div>
+    </div>
+    <div class="mid-navbar">
+        <!-- Notification Bar -->
+        <div class="notification-bar">
+            <div class="notification-text">
+                NOTIFICATION OF ODISHA STATE ARCHAEOLOGY
+            </div>
+        </div>
+    </div>
+
+    <nav class="main-navbar" id="navbar">
+        <div class="container">
+            <ul class="nav-list" id="navList">
+                <li class="home-icon">
+                    <a href="index.html"><i class="fa fa-home"></i></a>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">ABOUT US</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="AbouSection.html">ABOUT ODISHA STATE ARCHAEOLOGY</a></li>
+                        <li><a href="staffing-pattern.html">STAFFING PATTERN</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">E-LIBRARY</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="ebooks.html">E-BOOKS</a></li>
+                        <li><a href="books-journals.html">JOURNALS</a></li>
+                        <li><a href="publication.html">PUBLICATION</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">MONUMENTS</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="monuments-central.html">CENTRAL PROTECTED MONUMENTS</a></li>
+                        <li><a href="state-protected.html">STATE PROTECTED MONUMENTS</a></li>
+                        <li><a href="unprotected-monuments.html">UNPROTECTED MONUMENTS</a></li>
+                    </ul>
+                </li>
+                <li><a href="notification-activities.html">NOTIFICATIONS</a></li>
+
+                <li><a href="act-rules.html">ACT & RULES</a></li>
+                <li><a href="rti.html">RTI</a></li>
+                <li><a href="gallery.html">GALLERY</a></li>
+                <li class="dropdown">
+                    <a href="#">ACTIVITIES</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="activity-soac.html">STAGES OF ARCHAEOLOGICAL CONSERVATION</a></li>
+                        <li><a href="activity-asar.html">ARCHAEOLOGICAL SITE & REMAINS</a></li>
+                        <li><a href="activity-precon.html">CONSERVATION AND PRESERVATION</a></li>
+                        <li><a href="activity-newexcavation.html">EXCAVATION</a></li>
+                        <li><a href="activity-antiquty.html">ANTIQUTY</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact-us.html">CONTACT US</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- monuments central section -->
+    <section id="central-protected">
+        <div class="breadcrumb-bar">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">&gt;&gt;</span>
+                    <a href="view-stateprotected.html" class="breadcrumb-item active">State Protected Monuments
+                        Details</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="container mb-5 heritage-bg p-4 rounded-4 shadow">
+            <!-- Title -->
+            <div class="container mb-3">
+                <h2 class="fw-bold">
+                    <span data-lang="en">Konark Sun Temple</span>
+                    <span data-lang="or" class="d-none">କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର</span>
+                </h2>
+            </div>
+            <!-- Hero Image -->
+            <div class="container mb-4">
+                <div class="card bg-light shadow-sm mb-4">
+                    <div class="monument-card-body">
+                        <p class="mb-1">
+                            <strong>
+                                <span data-lang="en">Monument Name:</span>
+                                <span data-lang="or" class="d-none">ସ୍ମାରକ ନାମ:</span>
+                            </strong>
+                            <span data-lang="en">Konark Sun Temple</span>
+                            <span data-lang="or" class="d-none">କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର</span>
+                        </p>
+
+                        <p class="mb-1">
+                            <strong>
+                                <span data-lang="en">Period:</span>
+                                <span data-lang="or" class="d-none">ଯୁଗ:</span>
+                            </strong>
+                            <span data-lang="en">13th Century CE</span>
+                            <span data-lang="or" class="d-none">୧୩ଶତାବ୍ଦୀ ଖ୍ରୀଷ୍ଟାବ୍ଦ</span>
+                        </p>
+
+                        <p class="mb-0">
+                            <strong>
+                                <span data-lang="en">Location:</span>
+                                <span data-lang="or" class="d-none">ଅବସ୍ଥିତି:</span>
+                            </strong>
+                            <span data-lang="en">Konark, Puri</span>
+                            <span data-lang="or" class="d-none">କୋଣାର୍କ, ପୁରୀ</span>
+                        </p>
+                    </div>
+
+                </div>
+                <div class="mb-4">
+                    <img src="assets/image.png" class="img-fluid rounded shadow"
+                        style="max-height: 380px; object-fit: cover; width: 100%;"
+                        alt="Konark Sun Temple | କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର">
+
+                    <p class="text-center text-muted mt-2" id="imageCaption">
+                        <span data-lang="en">Konark Sun Temple – Odisha</span>
+                        <span data-lang="or" class="d-none">କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର – ଓଡ଼ିଶା</span>
+                    </p>
+                </div>
+            </div>
+            <!-- Language Buttons -->
+            <div class="container mb-4">
+                <button class="btn btn-sm btn-lang-en" onclick="changeLanguage('en')">English</button>
+                <button class="btn btn-sm btn-lang-or" onclick="changeLanguage('or')">ଓଡ଼ିଆ</button>
+            </div>
+            <!-- Description -->
+            <div class="container mb-4">
+                <p>
+                    <span data-lang="en">
+                        The Konark Sun Temple is a 13th-century CE temple dedicated to the Sun God.
+                        It is an outstanding example of Kalinga architecture.
+                        The Konark Sun Temple is a 13th-century CE temple dedicated to the Sun God.
+                        It is an outstanding example of Kalinga architecture.
+                        The Konark Sun Temple is a 13th-century CE temple dedicated to the Sun God.
+                        It is an outstanding example of Kalinga architecture.
+                        The Konark Sun Temple is a 13th-century CE temple dedicated to the Sun God.
+                        It is an outstanding example of Kalinga architecture.
+                    </span>
+                    <span data-lang="or" class="d-none">
+                        କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର ୧୩ଶତାବ୍ଦୀର ଏକ ମନ୍ଦିର,
+                        ଯାହା ସୂର୍ଯ୍ୟ ଦେବଙ୍କୁ ଉତ୍ସର୍ଗ କରାଯାଇଛି।
+                        କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର ୧୩ଶତାବ୍ଦୀର ଏକ ମନ୍ଦିର,
+                        ଯାହା ସୂର୍ଯ୍ୟ ଦେବଙ୍କୁ ଉତ୍ସର୍ଗ କରାଯାଇଛି।
+                        କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର ୧୩ଶତାବ୍ଦୀର ଏକ ମନ୍ଦିର,
+                        ଯାହା ସୂର୍ଯ୍ୟ ଦେବଙ୍କୁ ଉତ୍ସର୍ଗ କରାଯାଇଛି।
+                        କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର ୧୩ଶତାବ୍ଦୀର ଏକ ମନ୍ଦିର,
+                        ଯାହା ସୂର୍ଯ୍ୟ ଦେବଙ୍କୁ ଉତ୍ସର୍ଗ କରାଯାଇଛି।
+                        କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର ୧୩ଶତାବ୍ଦୀର ଏକ ମନ୍ଦିର,
+                        ଯାହା ସୂର୍ଯ୍ୟ ଦେବଙ୍କୁ ଉତ୍ସର୍ଗ କରାଯାଇଛି।
+                    </span>
+                </p>
+                <p>
+                    <span data-lang="en">
+                        The monument is famous for its stone-carved wheels and exquisite sculptures.
+                    </span>
+                    <span data-lang="or" class="d-none">
+                        ଏହି ସ୍ମାରକ ତାହାର ପାଥର ଚକ୍ର ଓ ସୁନ୍ଦର ମୂର୍ତ୍ତିଶିଳ୍ପ ପାଇଁ ପ୍ରସିଦ୍ଧ।
+                    </span>
+                </p>
+            </div>
+            <!-- Audio Player (ASI style – bottom wide) -->
+            <div class="container mb-4">
+                <div class="card audio-card shadow-sm">
+                    <p class="text-center fw-semibold mb-2" id="audioTitle">
+                        <span data-lang="en">Audio Guide – Konark Sun Temple</span>
+                        <span data-lang="or" class="d-none">ଧ୍ୱନି ଗାଇଡ୍ – କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର</span>
+                    </p>
+                    <div class="card-body">
+                        <audio id="audioPlayer"></audio>
+                        <input type="range" class="form-range mb-3" id="seekBar" value="0" min="0" step="1">
+                        <div class="d-flex justify-content-center align-items-center gap-4">
+                            <button class="btn btn-light fs-4" onclick="prevTrack()">⏮</button>
+                            <button class="btn btn-dark rounded-circle fs-5 px-4" id="playPauseBtn"
+                                onclick="togglePlay()">▶</button>
+                            <button class="btn btn-light fs-4" onclick="nextTrack()">⏭</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back -->
+            <div class="container">
+                <a href="state-protected.html" class="text-decoration-none" id="backLink">
+                    <span data-lang="en">← Back to Monument List</span>
+                    <span data-lang="or" class="d-none">← ସ୍ମାରକ ତାଲିକାକୁ ଫେରନ୍ତୁ</span>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row text-center flex-column align-items-center gy-3">
+                <!-- Footer Links -->
+                <div class="col-12 col-md-4">
+                    <div class="footer-links d-flex flex-wrap justify-content-center">
+                        <a href="#" class="footer-link">Website Policy</a>
+                        <span class="link-separator d-none d-md-inline">|</span>
+                        <a href="#" class="footer-link">Disclaimer</a>
+                        <span class="link-separator d-none d-md-inline">|</span>
+                        <a href="#" class="footer-link">Terms & Conditions</a>
+                    </div>
+                </div>
+
+                <!-- License Info -->
+                <div class="col-12 col-md-5">
+                    <p class="license-text mb-0">
+                        The Content of this website is licensed under
+                        <a href="#" class="license-link">
+                            Creative Commons Attribution 4.0 International License
+                        </a>
+                    </p>
+                </div>
+
+                <!-- Visitor Counter -->
+                <div class="col-12 col-md-3">
+                    <p class="visitor-text mb-0">
+                        Total Visitors:
+                        <span class="visitor-count">825</span>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+<script src="js/main.js"></script>
+
+</html>

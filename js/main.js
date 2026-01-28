@@ -465,159 +465,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   // Check if we're on the central monuments page
-//   const tbody = document.getElementById("centralMonumentsTableBody");
-  
-//   // Exit early if this page doesn't have the central monuments table
-//   if (!tbody) return;
-  
-//   const allRows = Array.from(tbody.querySelectorAll("tr"));
-//   const districtFilter = document.getElementById("districtFilterCentral");
-//   const searchInput = document.getElementById("centralSearchInput");
-  
-//   const prevBtn = document.getElementById("centralPrevPage");
-//   const nextBtn = document.getElementById("centralNextPage");
-//   const pageNumbersContainer = document.getElementById("centralPageNumbers");
-//   const pageInfo = document.getElementById("centralPageInfo");
-  
-//   // Safety check - exit if any required element is missing
-//   if (!districtFilter || !prevBtn || !nextBtn || !pageNumbersContainer || !pageInfo) {
-//     return;
-//   }
-  
-//   const rowsPerPage = 10;
-//   let currentPage = 1;
-//   let filteredRows = [];
-
-//   // Main filter and render function
-//   function filterAndRender() {
-//     const selectedDistrict = districtFilter.value.toLowerCase();
-//     const searchQuery = (searchInput?.value || "").trim().toLowerCase();
-    
-//     // Step 1: Filter by district
-//     let tempRows = allRows;
-//     if (selectedDistrict !== "all") {
-//       tempRows = allRows.filter((tr) => {
-//         const circle = (tr.dataset.circle || "").toLowerCase();
-//         return circle === selectedDistrict;
-//       });
-//     }
-    
-//     // Step 2: Filter by search query
-//     if (searchQuery) {
-//       tempRows = tempRows.filter((tr) => {
-//         const text = tr.textContent.toLowerCase();
-//         return text.includes(searchQuery);
-//       });
-//     }
-    
-//     // Store filtered rows
-//     filteredRows = tempRows;
-    
-//     // Reset to page 1
-//     currentPage = 1;
-    
-//     // Render
-//     renderTable();
-//     renderPagination();
-//   }
-
-//   function getTotalPages() {
-//     return Math.max(1, Math.ceil(filteredRows.length / rowsPerPage));
-//   }
-
-//   function renderTable() {
-//     // IMPORTANT: First, show ALL rows and remove d-none from everything
-//     allRows.forEach((tr) => {
-//       tr.classList.remove("d-none");
-//       tr.style.display = "none"; // Hide via inline style
-//     });
-    
-//     // Handle no results
-//     if (filteredRows.length === 0) {
-//       pageInfo.textContent = "No records found";
-//       pageNumbersContainer.innerHTML = "";
-//       prevBtn.disabled = true;
-//       nextBtn.disabled = true;
-//       return;
-//     }
-    
-//     const totalPages = getTotalPages();
-    
-//     // Ensure current page is valid
-//     if (currentPage > totalPages) currentPage = totalPages;
-//     if (currentPage < 1) currentPage = 1;
-    
-//     // Calculate pagination
-//     const start = (currentPage - 1) * rowsPerPage;
-//     const end = start + rowsPerPage;
-    
-//     // Show only the rows for this page
-//     const rowsToShow = filteredRows.slice(start, end);
-//     rowsToShow.forEach((tr) => {
-//       tr.style.display = "table-row"; // Show via inline style
-//     });
-    
-//     // Update page info
-//     pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
-    
-//     // Update button states
-//     prevBtn.disabled = currentPage === 1;
-//     nextBtn.disabled = currentPage === totalPages;
-//   }
-
-//   function renderPagination() {
-//     pageNumbersContainer.innerHTML = "";
-//     const totalPages = getTotalPages();
-    
-//     for (let i = 1; i <= totalPages; i++) {
-//       const btn = document.createElement("button");
-//       btn.type = "button";
-//       btn.textContent = i;
-//       btn.className = "page-number central-page-number";
-      
-//       if (i === currentPage) {
-//         btn.classList.add("active");
-//       }
-      
-//       btn.addEventListener("click", () => {
-//         currentPage = i;
-//         renderTable();
-//         renderPagination();
-//       });
-      
-//       pageNumbersContainer.appendChild(btn);
-//     }
-//   }
-
-//   // Event listeners
-//   districtFilter.addEventListener("change", filterAndRender);
-
-//   if (searchInput) {
-//     searchInput.addEventListener("input", filterAndRender);
-//   }
-
-//   prevBtn.addEventListener("click", () => {
-//     if (currentPage > 1) {
-//       currentPage--;
-//       renderTable();
-//       renderPagination();
-//     }
-//   });
-
-//   nextBtn.addEventListener("click", () => {
-//     if (currentPage < getTotalPages()) {
-//       currentPage++;
-//       renderTable();
-//       renderPagination();
-//     }
-//   });
-
-//   // Initial load
-//   filterAndRender();
-// });
-
 document.addEventListener("DOMContentLoaded", function () {
   // Check if we're on the central monuments page
   const tbody = document.getElementById("centralMonumentsTableBody");
@@ -1596,4 +1443,88 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
     tableBody.appendChild(row);
   });
+});
+
+
+
+
+function changeLanguage(lang) {
+    document.querySelectorAll("[data-lang]").forEach(el => {
+        el.classList.toggle("d-none", el.dataset.lang !== lang);
+    });
+    if (lang === "en") {
+        currentTrack = 0;
+    } else if (lang === "or") {
+        currentTrack = 1;
+    }
+    loadTrack(currentTrack);
+}
+
+const audio = document.getElementById("audioPlayer");
+const seekBar = document.getElementById("seekBar");
+const playPauseBtn = document.getElementById("playPauseBtn");
+const playlist = [
+    {
+        title: "Konark Audio Guide (English)",
+        src: "assets/audio/konark-en.mp3"
+    },
+    {
+        title: "କୋଣାର୍କ ଧ୍ୱନି ଗାଇଡ୍ (ଓଡ଼ିଆ)",
+        src: "assets/audio/konark-or.mp3"
+    }
+];
+
+let currentTrack = 0;
+let isShuffle = false;
+let isRepeat = false;
+
+// Load track
+function loadTrack(index) {
+    audio.src = playlist[index].src;
+    audio.load();
+    playPauseBtn.innerText = "▶";
+}
+
+loadTrack(currentTrack);
+audio.addEventListener("loadedmetadata", () => {
+    seekBar.max = Math.floor(audio.duration);
+});
+
+audio.addEventListener("timeupdate", () => {
+    seekBar.value = Math.floor(audio.currentTime);
+});
+
+seekBar.addEventListener("input", () => {
+    audio.currentTime = seekBar.value;
+});
+
+function togglePlay() {
+    if (audio.paused) {
+        audio.play();
+        playPauseBtn.innerText = "⏸";
+    } else {
+        audio.pause();
+        playPauseBtn.innerText = "▶";
+    }
+}
+
+function nextTrack() {
+    if (isShuffle) {
+        currentTrack = Math.floor(Math.random() * playlist.length);
+    } else {
+        currentTrack = (currentTrack + 1) % playlist.length;
+    }
+    loadTrack(currentTrack);
+    audio.play();
+    playPauseBtn.innerText = "⏸";
+}
+function prevTrack() {
+    audio.currentTime = 0;
+}
+
+// Auto-next
+audio.addEventListener("ended", () => {
+    if (!isRepeat) {
+        nextTrack();
+    }
 });

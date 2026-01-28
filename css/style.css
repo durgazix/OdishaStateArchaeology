@@ -2784,3 +2784,185 @@ to { transform: scale(1); }
  .tendernote-table th,
   .tendernote-table td { font-size: 13px; padding: 10px; }
  }
+
+/* ===================================
+   CENTRAL PROTECTED – SCOPE ROOT
+=================================== */
+#central-protected .heritage-bg {
+    background: #fffdf8;
+    border: 1px solid #e0d3b8;
+}
+
+#central-protected h2 {
+    color: #8b3f1f;
+    font-weight: 700; 
+    font-size: 2.5rem; 
+    text-shadow: 2px 2px 4px rgba(139, 63, 31, 0.15); 
+    border-bottom: 4px solid #8b3f1f; 
+    display: inline-block; 
+    padding-bottom: 10px; 
+    margin-bottom: 20px; 
+    position: relative; 
+    animation: fadeInDown 0.6s ease-out;
+  }
+#central-protected .monument-card-body {
+    background: #fff6ea;
+    padding: 1.25rem;
+}
+
+#central-protected .monument-card-body p {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+}
+
+#central-protected .monument-card-body strong {
+    color: #0b3fa5;
+    font-weight: 600;
+    min-width: 140px;
+    display: inline-block;
+}
+
+#central-protected .card {
+    background: #fffdf8;
+    border: 1px solid #e0d3b8;
+    border-radius: 12px;
+}
+
+#central-protected .card strong {
+    color: #822300f2;
+}
+#central-protected p {
+    color: #333333;
+    line-height: 1.7;
+}
+#central-protected img {
+    max-height: 380px;
+    object-fit: cover;
+    width: 100%;
+}
+
+#central-protected #imageCaption {
+    color: #6c757d;
+    font-style: italic;
+}
+#central-protected .btn-lang-en {
+    background-color: #e56a00;
+    color: #ffffff;
+    border: none;
+}
+
+#central-protected .btn-lang-en:hover {
+    background-color: #f59a3c;
+}
+
+#central-protected .btn-lang-or {
+    background-color: #ffffff;
+    color: #e56a00;
+    border: 1px solid #e56a00;
+}
+
+#central-protected .btn-lang-or:hover {
+    background-color: #f59a3c;
+    color: #ffffff;
+}
+#central-protected .audio-card {
+    background: linear-gradient(145deg, #ffffff 0%, #fffdf8 100%);
+    border: 1.5px solid #e0d3b8;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(224, 211, 184, 0.25);
+    padding: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+#central-protected .audio-card::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    left: -40%;
+    width: 180%;
+    height: 180%;
+    background: radial-gradient(circle, rgba(229, 106, 0, 0.04) 0%, transparent 70%);
+    animation: rotate 30s linear infinite;
+}
+
+#central-protected .audio-card .card-body {
+    position: relative;
+    z-index: 1;
+}
+#central-protected #audioTitle {
+    color: #8b3f1f;
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+}
+#central-protected .audio-card .btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#central-protected .audio-card .btn-light {
+    background: #fff4e0;
+    border: 1.5px solid #e0d3b8;
+    color: #8b3f1f;
+}
+
+#central-protected .audio-card .btn-dark {
+    background: linear-gradient(135deg, #8b3f1f, #e56a00);
+    width: 56px;
+    height: 56px;
+    color: #ffffff;
+    border: none;
+}
+#central-protected #backLink {
+    color: #e56a00;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+#central-protected #backLink:hover {
+    color: #f59a3c;
+    text-decoration: underline;
+}
+#central-protected > .container > * {
+    animation: fadeInUp 0.5s ease-out both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@media (max-width: 768px) {
+
+    #central-protected h2 {
+        font-size: 1.6rem;
+    }
+
+    #central-protected p {
+        font-size: 0.95rem;
+    }
+
+    #central-protected .audio-card .btn-dark {
+        width: 52px;
+        height: 52px;
+    }
+}
+@media print {
+    #central-protected .breadcrumb-bar,
+    #central-protected .btn-lang-en,
+    #central-protected .btn-lang-or,
+    #central-protected .audio-card,
+    #central-protected #backLink {
+        display: none !important;
+    }
+}
