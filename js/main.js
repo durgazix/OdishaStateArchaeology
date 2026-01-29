@@ -1446,19 +1446,25 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+function changeLanguage(lang, btn) {
+    hideGallery();
+    setActiveButton(btn);
 
-
-function changeLanguage(lang) {
     document.querySelectorAll("[data-lang]").forEach(el => {
         el.classList.toggle("d-none", el.dataset.lang !== lang);
     });
-    if (lang === "en") {
-        currentTrack = 0;
-    } else if (lang === "or") {
-        currentTrack = 1;
-    }
+
+    currentTrack = lang === "en" ? 0 : 1;
     loadTrack(currentTrack);
 }
+
+function setActiveButton(clickedBtn) {
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+        btn.classList.remove("active");
+    });
+    clickedBtn.classList.add("active");
+}
+
 
 const audio = document.getElementById("audioPlayer");
 const seekBar = document.getElementById("seekBar");
@@ -1528,3 +1534,14 @@ audio.addEventListener("ended", () => {
         nextTrack();
     }
 });
+
+function showGallery(btn) {
+    document.getElementById("contentSection").classList.add("d-none");
+    document.getElementById("gallerySection").classList.remove("d-none");
+    setActiveButton(btn);
+}
+
+function hideGallery() {
+    document.getElementById("gallerySection").classList.add("d-none");
+    document.getElementById("contentSection").classList.remove("d-none");
+}

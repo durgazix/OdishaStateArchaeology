@@ -2315,7 +2315,7 @@ to { transform: scale(1); }
 .address-item p { font-size: 14px; margin: 0; line-height: 1.6; }
 /* RESPONSIVE — LARGE DESKTOP (≥1400px) */
 @media (min-width: 1400px) {
- .section-title { font-size: 30px; }
+ .section-title { font-size: 26px; }
 .map-wrapper { height: 520px; }
 .contact-form-section,
   .address-section { padding: 30px; }
@@ -2570,7 +2570,7 @@ to { transform: scale(1); }
 .count-display { margin-left: 10px; font-size: 12px; padding: 4px 8px; }
  }
 @media (max-width: 576px) {
- .central-title { font-size: 20px; }
+.central-title { font-size: 20px; }
 .central-table thead th { padding: 12px 8px; font-size: 14px; }
 .central-table tbody td { padding: 10px 8px; font-size: 13px; }
 .view-more-container { flex-direction: column; gap: 10px; }
@@ -2846,26 +2846,23 @@ to { transform: scale(1); }
     color: #6c757d;
     font-style: italic;
 }
-#central-protected .btn-lang-en {
-    background-color: #e56a00;
-    color: #ffffff;
-    border: none;
-}
-
-#central-protected .btn-lang-en:hover {
-    background-color: #f59a3c;
-}
-
-#central-protected .btn-lang-or {
+#central-protected .lang-btn {
     background-color: #ffffff;
     color: #e56a00;
     border: 1px solid #e56a00;
+    transition: all 0.2s ease;
 }
 
-#central-protected .btn-lang-or:hover {
+#central-protected .lang-btn:hover {
     background-color: #f59a3c;
     color: #ffffff;
 }
+
+#central-protected .lang-btn.active {
+    background-color: #e56a00;
+    color: #ffffff;
+}
+
 #central-protected .audio-card {
     background: linear-gradient(145deg, #ffffff 0%, #fffdf8 100%);
     border: 1.5px solid #e0d3b8;

@@ -197,32 +197,65 @@
                     <div class="monument-card-body">
                         <p class="mb-1">
                             <strong>
+                                <span data-lang="en">Type of Monument:</span>
+                                <span data-lang="or" class="d-none">ସ୍ମାରକର ପ୍ରକାର:</span>
+                            </strong>
+                            <span data-lang="en">Hindu Temple (Sun Temple)</span>
+                            <span data-lang="or" class="d-none">ହିନ୍ଦୁ ମନ୍ଦିର (ସୂର୍ଯ୍ୟ ମନ୍ଦିର)</span>
+                        </p>
+                        <p class="mb-1">
+                            <strong>
                                 <span data-lang="en">Monument Name:</span>
                                 <span data-lang="or" class="d-none">ସ୍ମାରକ ନାମ:</span>
                             </strong>
                             <span data-lang="en">Konark Sun Temple</span>
                             <span data-lang="or" class="d-none">କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର</span>
                         </p>
-
                         <p class="mb-1">
                             <strong>
-                                <span data-lang="en">Period:</span>
-                                <span data-lang="or" class="d-none">ଯୁଗ:</span>
+                                <span data-lang="en">Notification & Date:</span>
+                                <span data-lang="or" class="d-none">ସୂଚନା ଓ ତାରିଖ:</span>
                             </strong>
-                            <span data-lang="en">13th Century CE</span>
-                            <span data-lang="or" class="d-none">୧୩ଶତାବ୍ଦୀ ଖ୍ରୀଷ୍ଟାବ୍ଦ</span>
+                            <span data-lang="en">
+                                Protected under ASI; UNESCO World Heritage Site (1984)
+                            </span>
+                            <span data-lang="or" class="d-none">
+                                ପୁରାତତ୍ତ୍ୱ ସର୍ବେକ୍ଷଣ ଭାରତ ଦ୍ୱାରା ସୁରକ୍ଷିତ; ୟୁନେସ୍କୋ ବିଶ୍ୱ ଐତିହ୍ୟ ସ୍ଥଳ (୧୯୮୪)
+                            </span>
                         </p>
-
-                        <p class="mb-0">
+                        <p class="mb-1">
                             <strong>
-                                <span data-lang="en">Location:</span>
+                                <span data-lang="en">Geo-coordinates:</span>
+                                <span data-lang="or" class="d-none">ଭୌଗୋଳିକ ସ୍ଥାନାଙ୍କ:</span>
+                            </strong>
+                            <span data-lang="en">20°38′09″ N, 86°06′45″ E</span>
+                            <span data-lang="or" class="d-none">୨୦°୩୮′୦୯″ ଉତ୍ତର, ୮୬°୦୬′୪୫″ ପୂର୍ବ</span>
+                        </p>
+                        <p class="mb-1">
+                            <strong>
+                                <span data-lang="en">Date / Period:</span>
+                                <span data-lang="or" class="d-none">ତାରିଖ / ଯୁଗ:</span>
+                            </strong>
+                            <span data-lang="en">13th Century C.E. (c. 1250 C.E.)</span>
+                            <span data-lang="or" class="d-none">୧୩ଶତାବ୍ଦୀ ଖ୍ରୀଷ୍ଟାବ୍ଦ (ଆନୁ. ୧୨୫୦)</span>
+                        </p>
+                        <p class="mb-1">
+                            <strong>
+                                <span data-lang="en">Locality:</span>
                                 <span data-lang="or" class="d-none">ଅବସ୍ଥିତି:</span>
                             </strong>
-                            <span data-lang="en">Konark, Puri</span>
-                            <span data-lang="or" class="d-none">କୋଣାର୍କ, ପୁରୀ</span>
+                            <span data-lang="en">Konark</span>
+                            <span data-lang="or" class="d-none">କୋଣାର୍କ</span>
+                        </p>
+                        <p class="mb-0">
+                            <strong>
+                                <span data-lang="en">District:</span>
+                                <span data-lang="or" class="d-none">ଜିଲ୍ଲା:</span>
+                            </strong>
+                            <span data-lang="en">Puri</span>
+                            <span data-lang="or" class="d-none">ପୁରୀ</span>
                         </p>
                     </div>
-
                 </div>
                 <div class="mb-4">
                     <img src="assets/image.png" class="img-fluid rounded shadow"
@@ -237,61 +270,104 @@
             </div>
             <!-- Language Buttons -->
             <div class="container mb-4">
-                <button class="btn btn-sm btn-lang-en" onclick="changeLanguage('en')">English</button>
-                <button class="btn btn-sm btn-lang-or" onclick="changeLanguage('or')">ଓଡ଼ିଆ</button>
+                <button class="btn btn-sm lang-btn active" onclick="changeLanguage('en', this)">English</button>
+
+                <button class="btn btn-sm lang-btn" onclick="changeLanguage('or', this)">ଓଡ଼ିଆ</button>
+
+                <button class="btn btn-sm lang-btn" onclick="showGallery(this)">Gallery</button>
             </div>
+
+
             <hr class="container mb-4">
-            <!-- Description -->
-            <div class="container mb-4" style="color: #333; font-size: 1.1rem; line-height: 1.6;">
-                <p>
-                    <span data-lang="en">
-                        The Konark Sun Temple is a 13th-century CE temple dedicated to the Sun God.
-                        It is an outstanding example of Kalinga architecture.
-                        The Konark Sun Temple is a 13th-century CE temple dedicated to the Sun God.
-                        It is an outstanding example of Kalinga architecture.
-                        The Konark Sun Temple is a 13th-century CE temple dedicated to the Sun God.
-                        It is an outstanding example of Kalinga architecture.
-                        The Konark Sun Temple is a 13th-century CE temple dedicated to the Sun God.
-                        It is an outstanding example of Kalinga architecture.
-                    </span>
-                    <span data-lang="or" class="d-none">
-                        କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର ୧୩ଶତାବ୍ଦୀର ଏକ ମନ୍ଦିର,
-                        ଯାହା ସୂର୍ଯ୍ୟ ଦେବଙ୍କୁ ଉତ୍ସର୍ଗ କରାଯାଇଛି।
-                        କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର ୧୩ଶତାବ୍ଦୀର ଏକ ମନ୍ଦିର,
-                        ଯାହା ସୂର୍ଯ୍ୟ ଦେବଙ୍କୁ ଉତ୍ସର୍ଗ କରାଯାଇଛି।
-                        କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର ୧୩ଶତାବ୍ଦୀର ଏକ ମନ୍ଦିର,
-                        ଯାହା ସୂର୍ଯ୍ୟ ଦେବଙ୍କୁ ଉତ୍ସର୍ଗ କରାଯାଇଛି।
-                        କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର ୧୩ଶତାବ୍ଦୀର ଏକ ମନ୍ଦିର,
-                        ଯାହା ସୂର୍ଯ୍ୟ ଦେବଙ୍କୁ ଉତ୍ସର୍ଗ କରାଯାଇଛି।
-                        କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର ୧୩ଶତାବ୍ଦୀର ଏକ ମନ୍ଦିର,
-                        ଯାହା ସୂର୍ଯ୍ୟ ଦେବଙ୍କୁ ଉତ୍ସର୍ଗ କରାଯାଇଛି।
-                    </span>
-                </p>
-                <p>
-                    <span data-lang="en">
-                        The monument is famous for its stone-carved wheels and exquisite sculptures.
-                    </span>
-                    <span data-lang="or" class="d-none">
-                        ଏହି ସ୍ମାରକ ତାହାର ପାଥର ଚକ୍ର ଓ ସୁନ୍ଦର ମୂର୍ତ୍ତିଶିଳ୍ପ ପାଇଁ ପ୍ରସିଦ୍ଧ।
-                    </span>
-                </p>
-            </div>
-            <!-- Audio Player (ASI style – bottom wide) -->
-            <div class="container mb-4">
-                <div class="card audio-card shadow-sm">
-                    <p class="text-center fw-semibold mb-2" id="audioTitle">
-                        <span data-lang="en">Audio Guide – Konark Sun Temple</span>
-                        <span data-lang="or" class="d-none">ଧ୍ୱନି ଗାଇଡ୍ – କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର</span>
+            <div id="contentSection">
+                <!-- Description -->
+                <div class="container mb-4" style="color: #333; font-size: 1.1rem; line-height: 1.6;">
+                    <p>
+                        <span data-lang="en">
+                            The Konark Sun Temple is a 13th-century CE temple dedicated to the Sun God.
+                            It is an outstanding example of Kalinga architecture.
+                            The Konark Sun Temple is a 13th-century CE temple dedicated to the Sun God.
+                            It is an outstanding example of Kalinga architecture.
+                            The Konark Sun Temple is a 13th-century CE temple dedicated to the Sun God.
+                            It is an outstanding example of Kalinga architecture.
+                            The Konark Sun Temple is a 13th-century CE temple dedicated to the Sun God.
+                            It is an outstanding example of Kalinga architecture.
+                        </span>
+                        <span data-lang="or" class="d-none">
+                            କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର ୧୩ଶତାବ୍ଦୀର ଏକ ମନ୍ଦିର,
+                            ଯାହା ସୂର୍ଯ୍ୟ ଦେବଙ୍କୁ ଉତ୍ସର୍ଗ କରାଯାଇଛି।
+                            କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର ୧୩ଶତାବ୍ଦୀର ଏକ ମନ୍ଦିର,
+                            ଯାହା ସୂର୍ଯ୍ୟ ଦେବଙ୍କୁ ଉତ୍ସର୍ଗ କରାଯାଇଛି।
+                            କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର ୧୩ଶତାବ୍ଦୀର ଏକ ମନ୍ଦିର,
+                            ଯାହା ସୂର୍ଯ୍ୟ ଦେବଙ୍କୁ ଉତ୍ସର୍ଗ କରାଯାଇଛି।
+                            କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର ୧୩ଶତାବ୍ଦୀର ଏକ ମନ୍ଦିର,
+                            ଯାହା ସୂର୍ଯ୍ୟ ଦେବଙ୍କୁ ଉତ୍ସର୍ଗ କରାଯାଇଛି।
+                            କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର ୧୩ଶତାବ୍ଦୀର ଏକ ମନ୍ଦିର,
+                            ଯାହା ସୂର୍ଯ୍ୟ ଦେବଙ୍କୁ ଉତ୍ସର୍ଗ କରାଯାଇଛି।
+                        </span>
                     </p>
-                    <div class="card-body">
-                        <audio id="audioPlayer"></audio>
-                        <input type="range" class="form-range mb-3" id="seekBar" value="0" min="0" step="1">
-                        <div class="d-flex justify-content-center align-items-center gap-4">
-                            <button class="btn btn-light fs-4" onclick="prevTrack()">⏮</button>
-                            <button class="btn btn-dark rounded-circle fs-5 px-4" id="playPauseBtn"
-                                onclick="togglePlay()">▶</button>
-                            <button class="btn btn-light fs-4" onclick="nextTrack()">⏭</button>
+                    <p>
+                        <span data-lang="en">
+                            The monument is famous for its stone-carved wheels and exquisite sculptures.
+                        </span>
+                        <span data-lang="or" class="d-none">
+                            ଏହି ସ୍ମାରକ ତାହାର ପାଥର ଚକ୍ର ଓ ସୁନ୍ଦର ମୂର୍ତ୍ତିଶିଳ୍ପ ପାଇଁ ପ୍ରସିଦ୍ଧ।
+                        </span>
+                    </p>
+                </div>
+                <!-- Audio Player (ASI style – bottom wide) -->
+                <div class="container mb-4">
+                    <div class="card audio-card shadow-sm">
+                        <p class="text-center fw-semibold mb-2" id="audioTitle">
+                            <span data-lang="en">Audio Guide – Konark Sun Temple</span>
+                            <span data-lang="or" class="d-none">ଧ୍ୱନି ଗାଇଡ୍ – କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର</span>
+                        </p>
+                        <div class="card-body">
+                            <audio id="audioPlayer"></audio>
+                            <input type="range" class="form-range mb-3" id="seekBar" value="0" min="0" step="1">
+                            <div class="d-flex justify-content-center align-items-center gap-4">
+                                <button class="btn btn-light fs-4" onclick="prevTrack()">⏮</button>
+                                <button class="btn btn-dark rounded-circle fs-5 px-4" id="playPauseBtn"
+                                    onclick="togglePlay()">▶</button>
+                                <button class="btn btn-light fs-4" onclick="nextTrack()">⏭</button>
+                            </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Gallery Section -->
+            <div class="container mb-5 d-none" id="gallerySection">
+                <h4 class="mb-4 text-center" style="color:#8b3f1f;font-weight:600;">
+                    <span data-lang="en">Photo Gallery – Konark Sun Temple</span>
+                    <span data-lang="or" class="d-none">ଫଟୋ ଗ୍ୟାଲେରୀ – କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର</span>
+                </h4>
+
+
+                <div class="row g-3">
+                    <div class="col-md-4 col-sm-6">
+                        <img src="assets/central-monuments/image.png" class="img-fluid rounded shadow-sm"
+                            alt="Konark Image 1">
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <img src="assets/central-monuments/image.png" class="img-fluid rounded shadow-sm"
+                            alt="Konark Image 2">
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <img src="assets/central-monuments/image.png" class="img-fluid rounded shadow-sm"
+                            alt="Konark Image 3">
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                        <img src="assets/central-monuments/image.png" class="img-fluid rounded shadow-sm"
+                            alt="Konark Image 4">
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <img src="assets/central-monuments/image.png" class="img-fluid rounded shadow-sm"
+                            alt="Konark Image 5">
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <img src="assets/central-monuments/image.png" class="img-fluid rounded shadow-sm"
+                            alt="Konark Image 6">
                     </div>
                 </div>
             </div>
