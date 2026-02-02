@@ -1450,13 +1450,22 @@ function changeLanguage(lang, btn) {
     hideGallery();
     setActiveButton(btn);
 
+    // Toggle language text
     document.querySelectorAll("[data-lang]").forEach(el => {
         el.classList.toggle("d-none", el.dataset.lang !== lang);
     });
-
-    currentTrack = lang === "en" ? 0 : 1;
-    loadTrack(currentTrack);
+    // Audio track mapping
+    const trackMap = {
+        en: 0,
+        or: 1,
+        hi: 2
+    };
+    if (trackMap[lang] !== undefined) {
+        currentTrack = trackMap[lang];
+        loadTrack(currentTrack);
+    }
 }
+
 
 function setActiveButton(clickedBtn) {
     document.querySelectorAll(".lang-btn").forEach(btn => {
