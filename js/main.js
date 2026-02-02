@@ -450,7 +450,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Update these paths to match where you put the PDFs
   const pdfMap = {
-    puri: "assets/central-monuments/List of CPM _Puri.pdf", 
+    puri: "assets/central-monuments/List of CPM _Puri.pdf",
     khordha: "assets/central-monuments/List of CPM_BBSR.pdf"
   };
 
@@ -468,25 +468,25 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   // Check if we're on the central monuments page
   const tbody = document.getElementById("centralMonumentsTableBody");
-  
+
   // Exit early if this page doesn't have the central monuments table
   if (!tbody) return;
-  
+
   const allRows = Array.from(tbody.querySelectorAll("tr"));
   const districtFilter = document.getElementById("districtFilterCentral");
   const searchInput = document.getElementById("centralSearchInput");
-  
+
   const prevBtn = document.getElementById("centralPrevPage");
   const nextBtn = document.getElementById("centralNextPage");
   const pageNumbersContainer = document.getElementById("centralPageNumbers");
   const pageInfo = document.getElementById("centralPageInfo");
-  
+
   // Safety check - exit if any required element is missing
   if (!districtFilter || !prevBtn || !nextBtn || !pageNumbersContainer || !pageInfo) {
     console.warn("Central monuments: Some required elements not found");
     return;
   }
-  
+
   const rowsPerPage = 10;
   let currentPage = 1;
   let filteredRows = [];
@@ -495,7 +495,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function filterAndRender() {
     const selectedDistrict = districtFilter.value.toLowerCase();
     const searchQuery = (searchInput?.value || "").trim().toLowerCase();
-    
+
     // Step 1: Filter by district
     let tempRows = allRows;
     if (selectedDistrict !== "all") {
@@ -504,7 +504,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return circle === selectedDistrict;
       });
     }
-    
+
     // Step 2: Filter by search query
     if (searchQuery) {
       tempRows = tempRows.filter((tr) => {
@@ -512,13 +512,13 @@ document.addEventListener("DOMContentLoaded", function () {
         return text.includes(searchQuery);
       });
     }
-    
+
     // Store filtered rows
     filteredRows = tempRows;
-    
+
     // Reset to page 1
     currentPage = 1;
-    
+
     // Render
     renderTable();
     renderPagination();
@@ -531,7 +531,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function renderTable() {
     // Clear the tbody completely
     tbody.innerHTML = "";
-    
+
     // Handle no results
     if (filteredRows.length === 0) {
       const noDataRow = document.createElement("tr");
@@ -542,33 +542,33 @@ document.addEventListener("DOMContentLoaded", function () {
       noDataCell.style.padding = "20px";
       noDataRow.appendChild(noDataCell);
       tbody.appendChild(noDataRow);
-      
+
       pageInfo.textContent = "No records";
       pageNumbersContainer.innerHTML = "";
       prevBtn.disabled = true;
       nextBtn.disabled = true;
       return;
     }
-    
+
     const totalPages = getTotalPages();
-    
+
     // Ensure current page is valid
     if (currentPage > totalPages) currentPage = totalPages;
     if (currentPage < 1) currentPage = 1;
-    
+
     // Calculate pagination
     const start = (currentPage - 1) * rowsPerPage;
     const end = start + rowsPerPage;
-    
+
     // Add only the rows for this page to tbody
     const rowsToShow = filteredRows.slice(start, end);
     rowsToShow.forEach((tr) => {
       tbody.appendChild(tr.cloneNode(true));
     });
-    
+
     // Update page info
     pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
-    
+
     // Update button states
     prevBtn.disabled = currentPage === 1;
     nextBtn.disabled = currentPage === totalPages;
@@ -577,23 +577,23 @@ document.addEventListener("DOMContentLoaded", function () {
   function renderPagination() {
     pageNumbersContainer.innerHTML = "";
     const totalPages = getTotalPages();
-    
+
     for (let i = 1; i <= totalPages; i++) {
       const btn = document.createElement("button");
       btn.type = "button";
       btn.textContent = i;
       btn.className = "page-number central-page-number";
-      
+
       if (i === currentPage) {
         btn.classList.add("active");
       }
-      
+
       btn.addEventListener("click", () => {
         currentPage = i;
         renderTable();
         renderPagination();
       });
-      
+
       pageNumbersContainer.appendChild(btn);
     }
   }
@@ -623,7 +623,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Initial load
   filterAndRender();
-  
+
   console.log("Central monuments pagination initialized successfully");
 });
 
@@ -631,21 +631,21 @@ document.addEventListener("DOMContentLoaded", function () {
 // State Protected Monuments Pagination
 document.addEventListener("DOMContentLoaded", function () {
   const tbody = document.getElementById("stateProtectedTableBody");
-  
+
   // Exit if not on state protected page
   if (!tbody) return;
-  
+
   const allRows = Array.from(tbody.querySelectorAll("tr"));
   const prevBtn = document.getElementById("prevPage");
   const nextBtn = document.getElementById("nextPage");
   const pageNumbersContainer = document.getElementById("pageNumbers");
   const pageInfo = document.getElementById("pageInfo");
-  
+
   // Safety check
   if (!prevBtn || !nextBtn || !pageNumbersContainer || !pageInfo) {
     return;
   }
-  
+
   const rowsPerPage = 10;
   let currentPage = 1;
 
@@ -656,25 +656,25 @@ document.addEventListener("DOMContentLoaded", function () {
   function renderTable() {
     // Clear tbody
     tbody.innerHTML = "";
-    
+
     const totalPages = getTotalPages();
-    
+
     // Ensure current page is valid
     if (currentPage > totalPages) currentPage = totalPages;
     if (currentPage < 1) currentPage = 1;
-    
+
     // Calculate pagination
     const start = (currentPage - 1) * rowsPerPage;
     const end = start + rowsPerPage;
-    
+
     // Add rows for this page
     allRows.slice(start, end).forEach((tr) => {
       tbody.appendChild(tr.cloneNode(true));
     });
-    
+
     // Update page info
     pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
-    
+
     // Update button states
     prevBtn.disabled = currentPage === 1;
     nextBtn.disabled = currentPage === totalPages;
@@ -683,23 +683,23 @@ document.addEventListener("DOMContentLoaded", function () {
   function renderPagination() {
     pageNumbersContainer.innerHTML = "";
     const totalPages = getTotalPages();
-    
+
     for (let i = 1; i <= totalPages; i++) {
       const btn = document.createElement("button");
       btn.type = "button";
       btn.textContent = i;
       btn.className = "page-number";
-      
+
       if (i === currentPage) {
         btn.classList.add("active");
       }
-      
+
       btn.addEventListener("click", () => {
         currentPage = i;
         renderTable();
         renderPagination();
       });
-      
+
       pageNumbersContainer.appendChild(btn);
     }
   }
@@ -724,7 +724,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initial render
   renderTable();
   renderPagination();
-  
+
   console.log("State protected pagination initialized");
 });
 
@@ -1141,7 +1141,7 @@ function scrollToGallery() {
 function initGallery() {
   // Prevent multiple initializations
   if (window.galleryInitialized) return;
-   window.galleryInitialized = true;
+  window.galleryInitialized = true;
 
   const photoTab = document.getElementById("photoTab");
   const videoTab = document.getElementById("videoTab");
@@ -1446,111 +1446,133 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-function changeLanguage(lang, btn) {
-    hideGallery();
-    setActiveButton(btn);
+// function changeLanguage(lang, btn) {
+//   hideGallery();
 
-    // Toggle language text
-    document.querySelectorAll("[data-lang]").forEach(el => {
-        el.classList.toggle("d-none", el.dataset.lang !== lang);
-    });
-    // Audio track mapping
-    const trackMap = {
-        en: 0,
-        or: 1,
-        hi: 2
-    };
-    if (trackMap[lang] !== undefined) {
-        currentTrack = trackMap[lang];
-        loadTrack(currentTrack);
+//   setActiveButton(btn);
+//   document.querySelectorAll("[data-lang]").forEach(el => {
+//     el.classList.toggle("d-none", el.dataset.lang !== lang);
+//   });
+//   // Audio mapping
+//   const langMap = { en: 0, or: 1, hi: 2 };
+//   if (langMap[lang] !== undefined) {
+//     audioPlayers[currentIndex]?.pause();
+//     currentIndex = langMap[lang];
+//     audioPlayers[currentIndex].currentTime = 0;
+//   }
+// }
+
+function changeLanguage(lang, btn) {
+  // Close gallery if open
+  hideGallery();
+
+  // Active button
+  setActiveButton(btn);
+
+  // Toggle ONLY language elements
+  document.querySelectorAll("[data-lang]").forEach(el => {
+    if (el.dataset.lang === lang) {
+      el.classList.remove("d-none");
+    } else {
+      el.classList.add("d-none");
     }
+  });
+
+  // Switch audio
+  const langMap = { en: 0, or: 1, hi: 2 };
+  if (langMap[lang] !== undefined) {
+    audioPlayers[currentIndex]?.pause();
+    currentIndex = langMap[lang];
+    audioPlayers[currentIndex].currentTime = 0;
+  }
 }
 
 
 function setActiveButton(clickedBtn) {
-    document.querySelectorAll(".lang-btn").forEach(btn => {
-        btn.classList.remove("active");
+  document.querySelectorAll(".lang-btn").forEach(btn => {
+    btn.classList.remove("active");
+  });
+  clickedBtn.classList.add("active");
+}
+
+// let audioPlayers = [];
+// let currentIndex = 0;
+
+// /* Collect all audio elements */
+// document.querySelectorAll('[data-lang] audio').forEach((audio, index) => {
+//   audioPlayers.push(audio);
+
+//   // When one audio plays, pause others
+//   audio.addEventListener('play', () => {
+//     audioPlayers.forEach((a, i) => {
+//       if (i !== index) a.pause();
+//     });
+//     currentIndex = index;
+//   });
+// });
+
+let audioPlayers = [];
+let currentIndex = 0;
+
+/* Collect audio elements */
+document.querySelectorAll('audio').forEach((audio, index) => {
+  audioPlayers.push(audio);
+
+  audio.addEventListener('play', () => {
+    audioPlayers.forEach((a, i) => {
+      if (i !== index) a.pause();
     });
-    clickedBtn.classList.add("active");
-}
-
-
-const audio = document.getElementById("audioPlayer");
-const seekBar = document.getElementById("seekBar");
-const playPauseBtn = document.getElementById("playPauseBtn");
-const playlist = [
-    {
-        title: "Konark Audio Guide (English)",
-        src: "assets/audio/konark-en.mp3"
-    },
-    {
-        title: "କୋଣାର୍କ ଧ୍ୱନି ଗାଇଡ୍ (ଓଡ଼ିଆ)",
-        src: "assets/audio/konark-or.mp3"
-    }
-];
-
-let currentTrack = 0;
-let isShuffle = false;
-let isRepeat = false;
-
-// Load track
-function loadTrack(index) {
-    audio.src = playlist[index].src;
-    audio.load();
-    playPauseBtn.innerText = "▶";
-}
-
-loadTrack(currentTrack);
-audio.addEventListener("loadedmetadata", () => {
-    seekBar.max = Math.floor(audio.duration);
+    currentIndex = index;
+  });
 });
 
-audio.addEventListener("timeupdate", () => {
-    seekBar.value = Math.floor(audio.currentTime);
-});
 
-seekBar.addEventListener("input", () => {
-    audio.currentTime = seekBar.value;
-});
-
+/* Play / Pause current */
 function togglePlay() {
-    if (audio.paused) {
-        audio.play();
-        playPauseBtn.innerText = "⏸";
-    } else {
-        audio.pause();
-        playPauseBtn.innerText = "▶";
-    }
-}
-
-function nextTrack() {
-    if (isShuffle) {
-        currentTrack = Math.floor(Math.random() * playlist.length);
-    } else {
-        currentTrack = (currentTrack + 1) % playlist.length;
-    }
-    loadTrack(currentTrack);
+  const audio = audioPlayers[currentIndex];
+  if (audio.paused) {
     audio.play();
-    playPauseBtn.innerText = "⏸";
+  } else {
+    audio.pause();
+  }
 }
+
+/* Next track */
+function nextTrack() {
+  audioPlayers[currentIndex].pause();
+  currentIndex = (currentIndex + 1) % audioPlayers.length;
+  audioPlayers[currentIndex].play();
+}
+
+/* Previous track */
 function prevTrack() {
-    audio.currentTime = 0;
+  audioPlayers[currentIndex].pause();
+  currentIndex =
+    (currentIndex - 1 + audioPlayers.length) % audioPlayers.length;
+  audioPlayers[currentIndex].play();
 }
 
-// Auto-next
-audio.addEventListener("ended", () => {
-    if (!isRepeat) {
-        nextTrack();
-    }
-});
+/* Auto switch audio when language changes */
+function changeLanguage(lang, btn) {
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    el.classList.toggle('d-none', el.dataset.lang !== lang);
+  });
 
+  const langMap = { en: 0, or: 1, hi: 2 };
+  if (langMap[lang] !== undefined) {
+    audioPlayers[currentIndex].pause();
+    currentIndex = langMap[lang];
+    audioPlayers[currentIndex].currentTime = 0;
+    audioPlayers[currentIndex].play();
+  }
+}
 function showGallery(btn) {
-    document.getElementById("contentSection").classList.add("d-none");
-    document.getElementById("gallerySection").classList.remove("d-none");
-    setActiveButton(btn);
+  setActiveButton(btn);
+  document.getElementById("contentSection")?.classList.add("d-none");
+  document.getElementById("gallerySection").classList.remove("d-none");
 }
 
 function hideGallery() {
-    document.getElementById("gallerySection").classList.add("d-none");
-    document.getElementById("contentSection").classList.remove("d-none");
+  document.getElementById("gallerySection").classList.add("d-none");
+  document.getElementById("contentSection")?.classList.remove("d-none");
 }
