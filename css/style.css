@@ -440,9 +440,12 @@ h3 { font-weight: 600; }
     padding: 4px 10px;
     font-size: 15px;
     font-weight: 600;
-    text-align: left;
+    text-align: center;
     background: #f9f9f9;
-    /* color: #0b3c5d; */
+}
+.ebook-title:hover {
+  background-color: #ed7f25e5;
+  transition: all 0.5s ease;
 }
 
 /* Footer Buttons */
@@ -2415,7 +2418,7 @@ to { transform: scale(1); }
 .acts-rules-table th { font-weight: 600; text-transform: uppercase; letter-spacing: 0.3px; }
 /* ACT NAME */
 .act-name { cursor: pointer; color: #111; }
-.act-name:hover { color: #ff9900; text-decoration: underline; }
+.act-name:hover { color: #ff9900; text-decoration: none; }
 /* DOWNLOAD BUTTON */
 .download-btn { background: #111; border: none; width: 42px; height: 42px; border-radius: 50%; color: #ff9900; cursor: pointer; transition: all 0.25s ease; }
 .download-btn:hover { background: #ff9900; color: #111; }

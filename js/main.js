@@ -1391,7 +1391,7 @@ const pdfFiles = {
   act1: {
     title:
       "Odisha Development Authorities (Planning and Building Standards) Act & Rules 2020",
-    file: "assets/act-rules-pdfs/Act&Rules_1.pdf",
+    file: "assets/state-protected/212 SPM Odisha.pdf",
   },
   act2: {
     title: "Orissa Ancient Monuments Preservation Rule, 1956",
