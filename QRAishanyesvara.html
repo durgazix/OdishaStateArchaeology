@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Guide Section Page | View monument details</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <!-- Top Government Header -->
+    <div class="top-header border-bottom">
+        <div class="container-fluid px-3">
+            <div class="row align-items-center gy-1">
+                <!-- Left -->
+                <div class="col-md-6 col-12 text-center text-md-start top-left">
+                    <span class="support">
+                        📞 Support:
+                        <a href="tel:+914428190020" class="text-decoration-none">
+                            (+9144) 28190020
+                        </a>
+                    </span>
+                </div>
+
+                <!-- Right -->
+                <div
+                    class="col-md-6 col-12 d-flex justify-content-center justify-content-md-end align-items-center flex-wrap gap-2 top-right">
+                    <a href="#" class="top-link">Policy Note</a>
+                    <span class="divider">|</span>
+
+                    <a href="#" class="top-link">Screen Reader Access</a>
+                    <span class="divider">|</span>
+
+                    <a href="#navList" class="top-link">Skip Navigation</a>
+                    <span class="divider">|</span>
+
+                    <!-- Font Controls -->
+                    <div class="btn-group font-controls" role="group">
+                        <button id="font-decrease" class="btn btn-outline-secondary btn-sm">
+                            A-
+                        </button>
+                        <button id="font-normal" class="btn btn-outline-secondary btn-sm">
+                            A
+                        </button>
+                        <button id="font-increase" class="btn btn-outline-secondary btn-sm">
+                            A+
+                        </button>
+                    </div>
+
+                    <span class="divider">|</span>
+
+                    <!-- Language Toggle -->
+                    <button id="langToggleBtn" class="btn btn-outline-secondary btn-sm lang-toggle-btn">
+                        ଓଡ଼ିଆ
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- midnavbar -->
+    <div class="mid-navbar">
+        <div class="mid-container">
+            <!-- LEFT LOGOS -->
+            <div class="mid-logos">
+                <img src="assets/logo/odisha_govt.png" alt="Govt of Odisha" />
+                <img src="assets/logo/culturedept.jpg" alt="ASI" />
+                <img src="assets/logo/culturedept.jpg" alt="Archaeology" />
+            </div>
+
+            <!-- CENTER TEXT -->
+            <div class="mid-title">
+                <h2>Odisha State <b>Archaeology</b></h2>
+                <h3><b>Odia Language, Literature & Culture Department</b></h2>
+                    <h3><b>Government of Odisha</b></h3>
+            </div>
+
+            <!-- RIGHT CONTROLS -->
+            <div class="mid-actions">
+                <a href="virtualtour-section.html" class="virtual-btn">
+                    <img src="assets/player-image.png" alt="Player Image" class="virtual-btn-triangle">
+                    Virtual Tour
+                </a>
+
+                <!-- Search -->
+                <!-- Search -->
+                <div class="search-box">
+                    <input type="text" placeholder="Search" />
+                    <button class="search-btn"><i class="fa fa-search"></i></button>
+                </div>
+
+                <!-- Mobile Icons -->
+                <div class="mobile-icons">
+                    <button class="search-icon"><i class="fa fa-search"></i></button>
+                    <button class="menu-icon" id="menuToggle" onclick="toggleMenu()">
+                        ☰
+                    </button>
+                    <button class="close-icon" id="closeMenuBtn" onclick="toggleMenu()">
+                        ✕
+                    </button>
+                </div>
+            </div>
+            <div class="mid-logos">
+                <img src="assets/logo/culturedept.jpg" alt="Archaeology logo" />
+            </div>
+        </div>
+    </div>
+    <div class="mid-navbar">
+        <!-- Notification Bar -->
+        <div class="notification-bar">
+            <div class="notification-text">
+                NOTIFICATION OF ODISHA STATE ARCHAEOLOGY
+            </div>
+        </div>
+    </div>
+
+    <nav class="main-navbar" id="navbar">
+        <div class="container">
+            <ul class="nav-list" id="navList">
+                <li class="home-icon">
+                    <a href="index.html"><i class="fa fa-home"></i></a>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">ABOUT US</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="AbouSection.html">ABOUT ODISHA STATE ARCHAEOLOGY</a></li>
+                        <li><a href="staffing-pattern.html">STAFFING PATTERN</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">E-LIBRARY</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="ebooks.html">E-BOOKS</a></li>
+                        <li><a href="books-journals.html">JOURNALS</a></li>
+                        <li><a href="publication.html">PUBLICATION</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#">MONUMENTS</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="monuments-central.html">CENTRAL PROTECTED MONUMENTS</a></li>
+                        <li><a href="state-protected.html">STATE PROTECTED MONUMENTS</a></li>
+                        <li><a href="unprotected-monuments.html">UNPROTECTED MONUMENTS</a></li>
+                    </ul>
+                </li>
+                <li><a href="notification-activities.html">NOTIFICATIONS</a></li>
+
+                <li><a href="act-rules.html">ACT & RULES</a></li>
+                <li><a href="rti.html">RTI</a></li>
+                <li><a href="gallery.html">GALLERY</a></li>
+                <li class="dropdown">
+                    <a href="#">ACTIVITIES</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="activity-soac.html">STAGES OF ARCHAEOLOGICAL CONSERVATION</a></li>
+                        <li><a href="activity-asar.html">ARCHAEOLOGICAL SITE & REMAINS</a></li>
+                        <li><a href="activity-precon.html">CONSERVATION AND PRESERVATION</a></li>
+                        <li><a href="activity-newexcavation.html">EXCAVATION</a></li>
+                        <li><a href="activity-antiquty.html">ANTIQUTY</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact-us.html">CONTACT US</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- monuments central section -->
+    <section id="central-protected">
+        <div class="breadcrumb-bar">
+            <div class="container">
+                <nav class="breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-separator">&gt;&gt;</span>
+                    <a href="#">Monuments</a>
+                    <span class="breadcrumb-separator">&gt;&gt;</span>
+                    <a href="state-protected.html" class="breadcrumb-item">State Protected Monuments</a>
+                    <span class="breadcrumb-separator">&gt;&gt;</span>
+                    <a href="scanqrcode.html" class="breadcrumb-item active">State Protected Monuments
+                        Details</a>
+                </nav>
+            </div>
+        </div>
+
+        <div class="container mb-5 heritage-bg p-4 rounded-4 shadow">
+            <!-- Title -->
+            <div class="container mb-3">
+                <h2 class="fw-bold">
+                    <span data-lang="en">Aishanyesvara Shiva Temple</span>
+                    <span data-lang="or" class="d-none">ଐଶାନେଶ୍ୱର ଶିବ ମନ୍ଦିର</span>
+                    <span data-lang="hi" class="d-none">ऐशनेश्वर शिव मंदिर</span>
+                </h2>
+            </div>
+            <!-- Hero Image -->
+            <div class="container mb-4">
+                <div class="card bg-light shadow-sm mb-4">
+                    <div class="monument-card-body">
+                        <p class="mb-1">
+                            <strong>
+                                <span data-lang="en">Type of Monument:</span>
+                                <span data-lang="or" class="d-none">ସ୍ମାରକର ପ୍ରକାର:</span>
+                                <span data-lang="hi" class="d-none">स्मारक का प्रकार:</span>
+                            </strong>
+                            <span data-lang="en">Hindu monuments/sites</span>
+                            <span data-lang="or" class="d-none">ହିନ୍ଦୁ ସ୍ମାରକ</span>
+                            <span data-lang="hi" class="d-none">हिंदू स्मारक</span>
+                        </p>
+                        <p class="mb-1">
+                            <strong>
+                                <span data-lang="en">Monument Name:</span>
+                                <span data-lang="or" class="d-none">ସ୍ମାରକ ନାମ:</span>
+                                <span data-lang="hi" class="d-none">स्मारक का नाम:</span>
+                            </strong>
+                            <span data-lang="en">Aishanyesvara Shiva Temple</span>
+                            <span data-lang="or" class="d-none">ଐଶାନେଶ୍ୱର ଶିବ ମନ୍ଦିର</span>
+                            <span data-lang="hi" class="d-none">ऐशनेश्वर शिव मंदिर</span>
+                        </p>
+                        <p class="mb-1">
+                            <strong>
+                                <span data-lang="en">Notification & Date:</span>
+                                <span data-lang="or" class="d-none">ସୂଚନା ଓ ତାରିଖ:</span>
+                                <span data-lang="hi" class="d-none">अधिसूचना एवं तिथि:</span>
+                            </strong>
+                            <span data-lang="en"></span>
+                            <span data-lang="or" class="d-none"></span>
+                            <span data-lang="hi" class="d-none"></span>
+                        </p>
+                        <p class="mb-1">
+                            <strong>
+                                <span data-lang="en">Geo-coordinates:</span>
+                                <span data-lang="or" class="d-none">ଭୌଗୋଳିକ ସ୍ଥାନାଙ୍କ:</span>
+                                <span data-lang="hi" class="d-none">भौगोलिक निर्देशांक:</span>
+                            </strong>
+                            <span data-lang="en"></span>
+                            <span data-lang="or" class="d-none"></span>
+                            <span data-lang="hi" class="d-none"></span>
+                        </p>
+                        <p class="mb-1">
+                            <strong>
+                                <span data-lang="en">Date / Period:</span>
+                                <span data-lang="or" class="d-none">ତାରିଖ / ଯୁଗ:</span>
+                                <span data-lang="hi" class="d-none">काल / अवधि:</span>
+                            </strong>
+                            <span data-lang="en">13th Century</span>
+                            <span data-lang="or" class="d-none">୧୩ ଶତାବ୍ଦୀ</span>
+                            <span data-lang="hi" class="d-none">१३ शताब्दिः</span>
+                        </p>
+                        <p class="mb-1">
+                            <strong>
+                                <span data-lang="en">Locality:</span>
+                                <span data-lang="or" class="d-none">ଅବସ୍ଥିତି:</span>
+                                <span data-lang="hi" class="d-none">स्थान:</span>
+                            </strong>
+                            <span data-lang="en">Bhubaneswar</span>
+                            <span data-lang="or" class="d-none">ଭୁବନେଶ୍ୱର</span>
+                            <span data-lang="hi" class="d-none">भुवनेश्वर</span>
+                        </p>
+                        <p class="mb-0">
+                            <strong>
+                                <span data-lang="en">District:</span>
+                                <span data-lang="or" class="d-none">ଜିଲ୍ଲା:</span>
+                                <span data-lang="hi" class="d-none">जिला:</span>
+                            </strong>
+                            <span data-lang="en">Khordha</span>
+                            <span data-lang="or" class="d-none">ଖୋର୍ଦ୍ଧା</span>
+                            <span data-lang="hi" class="d-none">खोरधा</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <img src="assets\20monuments\AishanyesvaraTemple.png" class="img-fluid rounded shadow"
+                        style="max-height: 380px; object-fit: cover; width: 100%;"
+                        alt="Konark Sun Temple | କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିର">
+
+                    <p class="text-center text-muted mt-2" id="imageCaption">
+                        <span data-lang="en">Aishanyesvara Shiva Temple, Bhubaneswar</span>
+                        <span data-lang="or" class="d-none">ଐଶାନେଶ୍ୱର ଶିବ ମନ୍ଦିର, ଭୁବନେଶ୍ୱର</span>
+                        <span data-lang="hi" class="d-none">ऐशनेश्वर शिव मंदिर, भुवनेश्वर</span>
+                    </p>
+                </div>
+            </div>
+            <!-- Language Buttons -->
+            <div class="container mb-4">
+                <button class="btn btn-sm lang-btn active" onclick="changeLanguage('en', this)">English</button>
+                <button class="btn btn-sm lang-btn" onclick="changeLanguage('or', this)">ଓଡ଼ିଆ</button>
+                <button class="btn btn-sm lang-btn" onclick="changeLanguage('hi', this)">हिंदी</button>
+                <button class="btn btn-sm lang-btn" onclick="showGallery(this)">Gallery</button>
+            </div>
+
+            <hr class="container mb-4">
+            <div id="contentSection">
+                <!-- Description -->
+                <div class="container mb-4" style="color: #333; font-size: 1.1rem; line-height: 1.6;">
+                    <p>
+                        <span data-lang="en">
+                            Aisanyesvara Siva Temple is a 13th-century Hindu temple dedicated to Shiva located in
+                            Bhubaneswar. Architectural features suggests that it was built by Gangas rulers. Rituals
+                            like Sivarathri, Jalabhiseka, Rudrabhiseka, Sankranthi are observed here. The deity of Lord
+                            Lingaraja is brought to this temple after the 6th day of Sivaratri. The vimana is a rekha
+                            temple and the jagamohana is a pidha temple of Kalingan order. The temple is saptaratha on
+                            plan and has resemblance with the Meghesvara temple. It is a living temple, enshrining a
+                            Sivalinga within a circular Yonipitha.
+                        </span>
+                        <span data-lang="or" class="d-none">
+                            ଐଶାନେଶ୍ୱର ଶିବ ମନ୍ଦିର ହେଉଛି ଭୁବନେଶ୍ୱରରେ ଅବସ୍ଥିତ ଏକ ୧୩ଶ ଶତାବ୍ଦୀର ଶିବଙ୍କୁ ସମର୍ପିତ ହିନ୍ଦୁ
+                            ମନ୍ଦିର। ସ୍ଥାପତ୍ୟ ବୈଶିଷ୍ଟ୍ୟଗୁଡ଼ିକ ସୂଚାଇ ଦିଏ ଯେ ଏହା ଗଙ୍ଗ ଶାସକମାନଙ୍କ ଦ୍ୱାରା ନିର୍ମିତ ହୋଇଥିଲା।
+                            ଏଠାରେ ଶିବରାତ୍ରି, ଜଲାଭିଷେକ, ରୁଦ୍ରଭିଷେକ, ସଂକ୍ରାନ୍ତି ଭଳି ରୀତିନୀତି ପାଳନ କରାଯାଏ। ଶିବରାତ୍ରିର ଷଷ୍ଠୀ
+                            ଦିନ ପରେ ଭଗବାନ ଲିଙ୍ଗରାଜଙ୍କ ଦେବତାଙ୍କୁ ଏହି ମନ୍ଦିରକୁ ଅଣାଯାଏ। ବିମାନଟି ଏକ ରେଖା ମନ୍ଦିର ଏବଂ ଜଗମୋହନ
+                            ହେଉଛି କଳିଙ୍ଗ ସ୍ଥାପତ୍ୟର ଏକ ପିଢ଼ା ମନ୍ଦିର। ମନ୍ଦିରଟି ସପ୍ତରଥ ଶୈଳୀରେ ତିଆରି ହୋଇଛି ଯାହାକି ମେଘେଶ୍ୱର
+                            ମନ୍ଦିର ସହିତ ସାଦୃଶ୍ୟ। ଏହା ଏକ ଜୀବନ୍ତ ମନ୍ଦିର, ଯେଉଁଠାରେ ଏକ ବୃତ୍ତାକାର ଯୋନିପୀଠ ମଧ୍ୟରେ ଏକ
+                            ଶିବଲିଙ୍ଗକୁ ସ୍ଥାପିତ କରାଯାଇଛି ।
+
+                        </span>
+                        <span data-lang="hi" class="d-none">
+                            ऐशनेश्वर शिव मंदिर भुवनेश्वर में भगवान शिव को समर्पित 13वीं सदी का एक हिंदू मंदिर है। इसके
+                            स्तापत्य शैली से पता चलता है कि इसे गंग शासकों ने बनवाया था। यहां शिवरात्रि, जलाभिषेक,
+                            रुद्राभिषेक, संक्रांति जैसे रिवाज मनाए जाते हैं। शिवरात्रि के छठे दिन के बाद, भगवान लिंगराज
+                            की मूर्ति को इस मंदिर में लाया जाता है। मूल मंदिर एक रेखा मंदिर है और जगमोहन कलिंग स्तापत्य
+                            का एक पीढ़ा मंदिर है। यह मंदिर सप्तरथ स्टाइल में बना है जो मेघेश्वर मंदिर जैसा है। यह एक
+                            जीवित मंदिर है, जहां एक गोल जोनीपीठ के अंदर एक शिवलिंग स्थापित है।
+                        </span>
+                    </p>
+                    <p>
+                        <span data-lang="en">
+                            The monument is famous for its stunning 13th-century Kalingan architecture (rekha vimana and
+                            pidha jagamohana in saptaratha plan), close resemblance to the Meghesvara Temple, intricate
+                            stone carvings, and special Shivaratri rituals where Lord Lingaraja's deity is brought here
+                            on the 7th day for worship.
+                        </span>
+                        <span data-lang="or" class="d-none">
+                            ଏହି ସ୍ମାରକ ତାହାର ସୁନ୍ଦର ୧୩ଶ ଶତାବ୍ଦୀର କଳିଙ୍ଗ ଶୈଳୀର ସ୍ଥାପତ୍ୟ (ସପ୍ତରଥ ଯୋଜନା, ରେଖା ବିମାନ ଓ ପୀଢ଼ା
+                            ଜଗମୋହନ), ମେଘେଶ୍ୱର ମନ୍ଦିର ସହ ସାଦୃଶ୍ୟ, ଚମତ୍କାର ଖୋଦିତ ଶିଳ୍ପକଳା ଏବଂ ବିଶେଷକରି ଶିବରାତ୍ରି ଅନୁଷ୍ଠାନ
+                            ପାଇଁ ପ୍ରସିଦ୍ଧ, ଯେଉଁଠାରେ ଲିଙ୍ଗରାଜ ଠାକୁରଙ୍କ ବିଗ୍ରହ ଛଅଦିନ ପରେ ଏଠାକୁ ଆଣି ପୂଜା କରାଯାଏ।
+                        </span>
+                        <span data-lang="hi" class="d-none">
+                            यह स्मारक अपनी उत्कृष्ट १३वीं शताब्दी की कलिंग शैली की वास्तुकला (सप्तरथ योजना, रेखा विमान
+                            और पीढ़ा जगमोहन), मेघेश्वर मंदिर से समानता, सुंदर नक्काशीदार पत्थरों, और विशेष रूप से
+                            शिवरात्रि के अनुष्ठानों के लिए प्रसिद्ध है, जहाँ लिंगराज भगवान की मूर्ति छठे दिन के बाद यहाँ
+                            लाई जाती है।
+                        </span>
+                    </p>
+                </div>
+                <!-- Audio Player (ASI style – bottom wide) -->
+                <div class="container mb-4">
+                    <div class="card audio-card shadow-sm">
+                        <p class="text-center fw-semibold mb-2" id="audioTitle">
+                            <span data-lang="en">Audio Guide – Aishanyesvara Shiva Temple</span>
+                            <span data-lang="or" class="d-none">ଧ୍ୱନି ଗାଇଡ୍ – ଐଶାନେଶ୍ୱର ଶିବ ମନ୍ଦିର</span>
+                            <span data-lang="hi" class="d-none">ऑडियो गाइड – ऐशान्येश्वर शिव मंदिर</span>
+                        </p>
+                        <!-- English Audio -->
+                        <div data-lang="en">
+                            <audio controls style="width:100%;">
+                                <source src="assets\audio files\english\Akhandalamani Temple.mp4" type="audio/mpeg">
+                            </audio>
+                        </div>
+                        <!-- Odia Audio -->
+                        <div data-lang="or" class="d-none">
+                            <audio controls style="width:100%;">
+                                <source src="assets\audio files\odia\Akhandalamani Temple.mp4" type="audio/mpeg">
+                            </audio>
+                        </div>
+                        <!-- Hindi Audio -->
+                        <div data-lang="hi" class="d-none">
+                            <audio controls style="width:100%;">
+                                <source src="assets\audio files\hindi\Akhandalamani Temple.mp4" type="audio/mpeg">
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Gallery Section -->
+            <div class="container mb-5 d-none" id="gallerySection">
+                <h4 class="mb-4 text-center" style="color:#8b3f1f;font-weight:600;">
+                    <span data-lang="en">Photo Gallery – Aishanyesvara Shiva Temple</span>
+                    <span data-lang="or" class="d-none">ଫଟୋ ଗ୍ୟାଲେରୀ – ଐଶାନେଶ୍ୱର ଶିବ ମନ୍ଦିର</span>
+                    <span data-lang="hi" class="d-none">फोटो गैलरी – ऐशान्येश्वर शिव मंदिर</span>
+                </h4>
+
+
+                <div class="row g-3">
+                    <div class="col-md-4 col-sm-6">
+                        <img src="assets\20monuments\AishanyesvaraTemple.png" class="img-fluid rounded shadow-sm"
+                            alt="Konark Image 6">
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <img src="assets\20monuments\AisanyesvaraTemple2.jpg" class="img-fluid rounded shadow-sm"
+                            alt="Konark Image 6">
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <img src="assets\20monuments\AisanyesvaraTemple3.jpg" class="img-fluid rounded shadow-sm"
+                            alt="Konark Image 6">
+                    </div>
+                </div>
+                <button class="btn btn-md lang-btn d-block mx-auto mt-4" onclick="hideGallery()">
+                    Close Gallery
+                </button>
+            </div>
+
+            <!-- Back -->
+            <div class="container">
+                <a href="state-protected.html" class="text-decoration-none" id="backLink">
+                    <span data-lang="en">← Back to Monument List</span>
+                    <span data-lang="or" class="d-none">← ସ୍ମାରକ ତାଲିକାକୁ ଫେରନ୍ତୁ</span>
+                    <span data-lang="hi" class="d-none">← स्मारकों की सूची पर वापस जाएँ</span>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row text-center flex-column align-items-center gy-3">
+                <!-- Footer Links -->
+                <div class="col-12 col-md-4">
+                    <div class="footer-links d-flex flex-wrap justify-content-center">
+                        <a href="#" class="footer-link">Website Policy</a>
+                        <span class="link-separator d-none d-md-inline">|</span>
+                        <a href="#" class="footer-link">Disclaimer</a>
+                        <span class="link-separator d-none d-md-inline">|</span>
+                        <a href="#" class="footer-link">Terms & Conditions</a>
+                    </div>
+                </div>
+
+                <!-- License Info -->
+                <div class="col-12 col-md-5">
+                    <p class="license-text mb-0">
+                        The Content of this website is licensed under
+                        <a href="#" class="license-link">
+                            Creative Commons Attribution 4.0 International License
+                        </a>
+                    </p>
+                </div>
+
+                <!-- Visitor Counter -->
+                <div class="col-12 col-md-3">
+                    <p class="visitor-text mb-0">
+                        Total Visitors:
+                        <span class="visitor-count">825</span>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+<script src="js/main.js"></script>
+
+</html>
